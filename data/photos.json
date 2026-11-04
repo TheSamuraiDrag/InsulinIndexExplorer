@@ -27,6 +27,19 @@
     "via": "Flickr"
    }
   },
+  "apple-juice": {
+   "label": "Apple Juice",
+   "credit": {
+    "title": "Apple Juice, Fruit, Apple",
+    "author": "Alexas_Fotos",
+    "authorUrl": "https://pixabay.com/users/Alexas_Fotos/",
+    "licence": "Pixabay Content License",
+    "licenceUrl": "https://pixabay.com/service/license-summary/",
+    "source": "https://pixabay.com/illustrations/apple-juice-fruit-apple-juice-8751130/",
+    "via": "Pixabay"
+   },
+   "v": "mw21ebye"
+  },
   "apple-pie": {
    "label": "Apple pie",
    "v": 1,
@@ -1730,6 +1743,7 @@
   "62": "soy-milk",
   "63": "soy-milk",
   "64": "soy-milk",
+  "65": "apple-juice",
   "68": "carrot-juice",
   "69": "carrot-juice",
   "70": "fruit-drink",
