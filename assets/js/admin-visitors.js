@@ -37,11 +37,25 @@ async function count(path, start) {
 }
 
 async function stats(page, start) {
-  const q = new URLSearchParams({ start: iso(start || new Date('2024-01-01T00:00:00Z')), end: iso(new Date()), limit: '8' });
+  // GoatCounter wants whole hours: start rounded down, end rounded up.
+  const hour = (d, up) => { const t = new Date(d); t.setUTCMinutes(0, 0, 0); if (up && t < d) t.setUTCHours(t.getUTCHours() + 1); return t; };
+  const q = new URLSearchParams({ start: iso(hour(start || new Date('2024-01-01T00:00:00Z'))), end: iso(hour(new Date(), true)), limit: '8' });
   const res = await fetch(`https://${SITE.goatcounter}.goatcounter.com/api/v0/stats/${page}?${q}`,
     { headers: { Authorization: `Bearer ${getKey()}` }, cache: 'no-store', credentials: 'omit' });
   if (!res.ok) { const e = new Error(`GoatCounter answered ${res.status}`); e.status = res.status; throw e; }
   return ((await res.json()).stats || []).map((s) => ({ name: s.name || '', count: num(s.count) }));
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// GoatCounter's API allows 4 requests a second and its "slow down" reply can't be read by the
+// browser (it shows as "Failed to fetch"), so ask one list at a time and retry after a pause.
+async function statsPolitely(page, start) {
+  for (let i = 0; ; i += 1) {
+    try { return await stats(page, start); } catch (e) {
+      if (i === 2 || e.status === 401 || e.status === 403) throw e;
+      await sleep(1500 * (i + 1));
+    }
+  }
 }
 
 const bars = (rows, empty = 'Nothing yet.') => {
@@ -115,22 +129,34 @@ export async function renderVisitors(root) {
         <p class="hint">A visit opening a food’s details counts towards Food Explorer.</p></div>`;
   }
 
+  let ticket = 0;
   async function loadDetails() {
+    const mine = ++ticket;
     if (!getKey()) { more.innerHTML = connectForm(); return; }
     more.innerHTML = '<div class="admin-card ph-loading" role="status"><span class="spinner" aria-hidden="true"></span> Loading countries, referrers and devices…</div>';
     const start = startFor(range);
     try {
-      const lists = await Promise.all(DETAILS.map(([page]) => stats(page, start)));
+      const lists = [];
+      for (const [page] of DETAILS) {
+        lists.push(await statsPolitely(page, start));
+        if (mine !== ticket) return;
+        await sleep(350);
+      }
       more.innerHTML = `<div class="vis-grid">${DETAILS.map(([page, title], i) => `<div class="admin-card"><h2 class="vis-h">${title}</h2>
         ${bars(lists[i].map((r) => ({ ...r, name: r.name || (page === 'toprefs' ? 'Typed the address or a direct link' : 'Unknown') })))}</div>`).join('')}</div>
         <p class="hint vis-key">GoatCounter connected on this device (read-only key) ·
           <button type="button" class="link-btn" data-gc-disconnect>Disconnect</button></p>`;
     } catch (e) {
-      const msg = e.status === 401 || e.status === 403
-        ? 'GoatCounter didn’t accept that key. Make a new one with “Read statistics” ticked and paste it again.'
-        : e.status === 429 ? 'GoatCounter asked to slow down. Try again in a minute.' : `Couldn’t load the details (${e.message}).`;
-      if (e.status === 401 || e.status === 403) setKey('');
-      more.innerHTML = connectForm(msg);
+      if (mine !== ticket) return;
+      if (e.status === 401 || e.status === 403) {
+        setKey('');
+        more.innerHTML = connectForm('GoatCounter didn’t accept that key. Make a new one with “Read statistics” ticked and paste it again.');
+        return;
+      }
+      more.innerHTML = `<div class="admin-card warning vis-connect"><p><strong>GoatCounter didn’t answer just now.</strong>
+        It may be busy, or an ad blocker may be blocking it on this page. (${esc(e.message)})</p>
+        <p class="vis-form"><button type="button" class="btn btn-sm" data-gc-retry>Try again</button>
+        <button type="button" class="link-btn" data-gc-disconnect>Disconnect GoatCounter</button></p></div>`;
     }
   }
 
@@ -142,7 +168,8 @@ export async function renderVisitors(root) {
       loadCounts(); loadDetails();
       return;
     }
-    if (e.target.closest('[data-gc-disconnect]')) { setKey(''); loadDetails(); }
+    if (e.target.closest('[data-gc-disconnect]')) { setKey(''); loadDetails(); return; }
+    if (e.target.closest('[data-gc-retry]')) loadDetails();
   });
   root.addEventListener('submit', (e) => {
     if (e.target.id !== 'gc-form') return;
