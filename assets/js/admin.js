@@ -100,7 +100,7 @@ function runChecks(data) {
     row('Sum of all II values', (sum / 1000).toFixed(2), '42429.12'),
     row('Lowest II', Math.min(...F.map((f) => f.iiValue)), 1),
     row('Highest II', Math.max(...F.map((f) => f.iiValue)), 209),
-    row('vs bread / vs glucose', `${count((f) => f.ref === 'bread')} / ${count((f) => f.ref === 'glucose')}`, '227 / 402'),
+    row('Comparator bread / glucose', `${count((f) => f.ref === 'bread')} / ${count((f) => f.ref === 'glucose')}`, '227 / 402'),
     row('Numbered 1 to N with no gaps', nums.every((n, i) => n === i + 1) ? 'yes' : 'no', 'yes'),
     row('Each category is one block (as in the PDF)', contiguous ? 'yes' : 'no', 'yes'),
     row('Every II is a number', F.every((f) => /^\d+(\.\d+)?$/.test(f.ii)) ? 'yes' : 'no', 'yes'),

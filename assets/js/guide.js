@@ -50,7 +50,7 @@ function rulers(data) {
     <div class="share">
       <p class="share-title"><strong>${pct}%</strong> of entries (${bread} of ${total}) use bread as the reference</p>
       <div class="share-bar" aria-hidden="true"><span class="share-g" style="flex:${total - bread}"></span><span class="share-b" style="flex:${bread}"></span></div>
-      <p class="share-legend"><span><span class="sw sw-g" aria-hidden="true"></span>vs glucose ${total - bread}</span><span><span class="sw sw-b" aria-hidden="true"></span>vs bread ${bread}</span></p>
+      <p class="share-legend"><span><span class="sw sw-g" aria-hidden="true"></span>comparator: glucose ${total - bread}</span><span><span class="sw sw-b" aria-hidden="true"></span>vs bread ${bread}</span></p>
     </div>
   </div>`;
 }
@@ -73,19 +73,19 @@ function medianChart(data) {
       ${rows.map(({ g, [ref]: s }) => `<div class="chart-row">
         <span class="chart-label">${esc(g.label)}</span>
         <span class="chart-track">${s ? `<a class="chart-bar" href="#/explorer?group=${g.id}&ref=${ref}" style="--w:${Math.min(100, (s.med / CHART_MAX) * 100)}%"
-            data-tip="${esc(`${g.label} · vs ${ref}\nMedian ${fmt(s.med)} · ${s.n} entr${s.n === 1 ? 'y' : 'ies'}\nRange ${s.lo}–${s.hi}`)}"
-            aria-label="${esc(`${g.label}, vs ${ref}: median ${fmt(s.med)} from ${s.n} entries, range ${s.lo} to ${s.hi}. Open in Explorer.`)}"></a>
+            data-tip="${esc(`${g.label} · comparator: ${ref}\nMedian ${fmt(s.med)} · ${s.n} entr${s.n === 1 ? 'y' : 'ies'}\nRange ${s.lo}–${s.hi}`)}"
+            aria-label="${esc(`${g.label}, comparator ${ref}: median ${fmt(s.med)} from ${s.n} entries, range ${s.lo} to ${s.hi}. Open in Explorer.`)}"></a>
           <span class="chart-val">${fmt(s.med)} <small>n=${s.n}</small></span>` : '<span class="chart-none">no entries</span>'}</span>
       </div>`).join('')}
     </div>
   </figure>`;
 
   return `<div class="chart reveal">
-    <div class="chart-panels">${panel('glucose', 'Scored vs glucose')}${panel('bread', 'Scored vs bread')}</div>
-    <p class="chart-foot">Medians are this site’s calculation from the published values. Groups are ordered by their “vs glucose” median. Don’t compare a bar in one panel with a bar in the other. Tap a bar to see those foods.</p>
+    <div class="chart-panels">${panel('glucose', 'Comparator: glucose')}${panel('bread', 'Comparator: bread')}</div>
+    <p class="chart-foot">Medians are this site’s calculation from the published values. Groups are ordered by their median with glucose as the comparator. Don’t compare a bar in one panel with a bar in the other. Tap a bar to see those foods.</p>
     <details class="chart-table"><summary>Show as a table</summary>
       <div class="x-scroll"><table>
-        <thead><tr><th scope="col">Group</th><th scope="col">vs glucose: median (n)</th><th scope="col">vs glucose: range</th><th scope="col">vs bread: median (n)</th><th scope="col">vs bread: range</th></tr></thead>
+        <thead><tr><th scope="col">Group</th><th scope="col">Glucose comparator: median (n)</th><th scope="col">Glucose comparator: range</th><th scope="col">Bread comparator: median (n)</th><th scope="col">Bread comparator: range</th></tr></thead>
         <tbody>${rows.map(({ g, glucose: a, bread: b }) => `<tr><th scope="row">${esc(g.label)}</th>
           <td>${a ? `${fmt(a.med)} (${a.n})` : '—'}</td><td>${a ? `${esc(a.lo)}–${esc(a.hi)}` : '—'}</td>
           <td>${b ? `${fmt(b.med)} (${b.n})` : '—'}</td><td>${b ? `${esc(b.lo)}–${esc(b.hi)}` : '—'}</td></tr>`).join('')}</tbody>
@@ -152,7 +152,7 @@ export function renderGuide(app, data) {
       <p class="guide-p">Glucose and bread give different responses. The paper found that “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (Hendricks et al., 2024). So a number scored against bread can’t be lined up with a number scored against glucose.</p>
       ${rulers(data)}
       <ul class="rules reveal">
-        <li><span aria-hidden="true">✓</span> Only compare foods with the <strong>same reference tag</strong>: ${refTag('glucose')} with ${refTag('glucose')}, ${refTag('bread')} with ${refTag('bread')}.</li>
+        <li><span aria-hidden="true">✓</span> Only compare foods with the <strong>same comparator</strong>: ${refTag('glucose')} with ${refTag('glucose')}, ${refTag('bread')} with ${refTag('bread')}.</li>
         <li>Portion size differs between studies. Check the portion on each food.</li>
         <li>Volunteers differ too, so the same food can score differently in different studies.</li>
       </ul>
@@ -163,7 +163,7 @@ export function renderGuide(app, data) {
       <h2 id="h-number">No labels, just the published number</h2>
       <p class="guide-p">The paper describes the II as “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (Hendricks et al., 2024, p. 93). Every II on this site is shown exactly as published.</p>
       <div class="read-ex reveal">
-        <div><span class="read-num">Same tag</span><span>Compare two foods only when both have the same reference tag, vs glucose or vs bread.</span></div>
+        <div><span class="read-num">Same tag</span><span>Compare two foods only when both have the same comparator, glucose or bread.</span></div>
         <div><span class="read-num">Higher</span><span>Between two such foods, the higher II was the larger insulin response in its study.</span></div>
         <div><span class="read-num">Check</span><span>Portion, volunteers and study still differ, so look at each food’s details.</span></div>
       </div>

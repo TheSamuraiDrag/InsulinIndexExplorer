@@ -21,7 +21,7 @@ const FINDINGS = [
   { big: 'High ≠ bad', label: 'Context matters', text: 'A high II isn’t automatically bad, for example in sports nutrition.', href: '#/explorer?sort=desc', photo: null, group: 'fruit' },
 ];
 
-// Everyday foods from one study with one reference food (Bao et al., 2011 [46], vs glucose),
+// Everyday foods from one study with one comparator (Bao et al., 2011 [46], glucose),
 // so the numbers can fairly be compared with each other. Values are read from the data.
 const EVERYDAY = ['9', '319', '4', '362', '543', '349', '107', '454'];
 

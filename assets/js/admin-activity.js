@@ -90,7 +90,7 @@ export async function renderActivity(root) {
       const w = when(c.commit.author.date);
       if (w.day !== lastDay) { html += `<li class="act-day">${esc(dayLabel(w.day))}</li>`; lastDay = w.day; }
       const who = c.author?.login ? c.author.login : c.commit.author.name;
-      const avatar = c.author?.avatar_url ? `<img class="act-avatar" src="${esc(c.author.avatar_url)}&s=64" alt="" loading="lazy" onerror="this.removeAttribute('src')">` : '<span class="act-avatar act-avatar-blank" aria-hidden="true"></span>';
+      const avatar = c.author?.avatar_url ? `<img class="act-avatar" src="${esc(c.author.avatar_url)}&s=64" alt="" loading="lazy">` : '<span class="act-avatar act-avatar-blank" aria-hidden="true"></span>';
       html += `<li class="act-item${p.isPhotos ? ' is-photos' : ''}">
         ${avatar}
         <div class="act-main">
@@ -112,6 +112,11 @@ export async function renderActivity(root) {
     });
     list.innerHTML = `<ul class="act-list">${html || '<li class="admin-empty">Nothing here yet.</li>'}</ul>
       ${state.done ? '' : '<button type="button" class="btn btn-ghost btn-block" data-more>Load older activity</button>'}`;
+    // A profile picture that fails to load shows the plain circle instead of a broken image.
+    list.querySelectorAll('img.act-avatar').forEach((img) => {
+      const fail = () => img.removeAttribute('src');
+      if (img.complete && !img.naturalWidth) fail(); else img.addEventListener('error', fail, { once: true });
+    });
   }
 
   async function details(sha, btn) {
@@ -131,7 +136,7 @@ export async function renderActivity(root) {
         ${imgs.length && !state.isPrivate ? `<ul class="act-thumbs">${imgs.map((f) => {
           const ref = f.status === 'removed' ? parent : sha;
           const id = f.filename.split('/').pop().replace(/\.jpg$/, '');
-          return `<li class="${f.status === 'removed' ? 'is-removed' : ''}"><span class="food-pic"><img src="${esc(gh.rawUrl(cfg, ref, f.filename))}" alt="" loading="lazy" onerror="this.remove()"></span>
+          return `<li class="${f.status === 'removed' ? 'is-removed' : ''}"><span class="food-pic"><img src="${esc(gh.rawUrl(cfg, ref, f.filename))}" alt="" loading="lazy"></span>
             <span>${esc(photoType(id)?.label || id)}<span class="ph-meta">${esc(label[f.status] || f.status)}</span></span></li>`;
         }).join('')}</ul>` : ''}
         <p class="act-files">${(c.files || []).length} file${(c.files || []).length === 1 ? '' : 's'} changed${others.length ? `: ${others.slice(0, 8).map((f) => `<code>${esc(f.filename)}</code> (${esc(label[f.status] || f.status)})`).join(', ')}${others.length > 8 ? ', …' : ''}` : ''}</p>

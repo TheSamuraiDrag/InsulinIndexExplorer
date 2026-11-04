@@ -1356,3 +1356,7 @@ img.act-avatar:not([src]) { visibility: hidden; }
 .act-hint { margin-top: 18px; max-width: 900px; }
 .ph-note { flex: 1 1 220px; min-width: 0; }
 .ph-note input { width: 100%; height: 36px; padding: 0 12px; border-radius: 999px; border: 1.5px solid #F1C772; background: #fff; font-size: 15px; }
+.footer-version { margin-top: 10px; font-size: .8rem; color: #BBA999; }
+.csv-btn { margin-left: auto; }
+.report { margin-top: 4px; font-size: .84rem; }
+.report a { color: var(--muted); }

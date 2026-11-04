@@ -3,9 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Security: only load scripts, styles, images and data from these places. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://images.pexels.com https://raw.githubusercontent.com https://avatars.githubusercontent.com https://*.goatcounter.com; connect-src 'self' https://api.github.com https://*.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Insulin Index Explorer</title>
   <meta name="description" content="Search and explore the insulin index (II) of 629 foods from 80 studies, based on Hendricks et al., Clinical Nutrition ESPEN 2024.">
   <meta name="theme-color" content="#FBF7F1">
+  <!-- Link previews (WhatsApp, Facebook, X, LinkedIn…). Update the address if the site moves. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Insulin Index Explorer">
+  <meta property="og:title" content="Insulin Index Explorer">
+  <meta property="og:description" content="Search and compare the insulin index of 629 foods from 80 studies, from Hendricks et al., Clinical Nutrition ESPEN 2024.">
+  <meta property="og:url" content="https://insulinindexresearch.com/insulinindexexplorer/">
+  <meta property="og:image" content="https://insulinindexresearch.com/insulinindexexplorer/assets/img/share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Insulin Index Explorer: 629 foods, 80 studies, 32 countries">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +63,7 @@
       <div class="footer-brand">
         <p class="footer-title">Insulin Index Explorer</p>
         <p class="footer-about">629 foods from 80 studies, every value shown exactly as published.</p>
+        <p class="footer-version" id="footer-version"></p>
         <p class="footer-admin"><a href="#/admin">Admin login</a></p>
       </div>
       <div class="footer-cite">

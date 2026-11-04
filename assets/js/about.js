@@ -2,6 +2,7 @@
 // Supplemental Table 2, limitations, how this site works, licence and credits.
 
 import { esc, pageHero, FOOTNOTES, groupStyle, toast, typePic, photoCredit } from './ui.js';
+import { SITE } from './config.js';
 
 const CITATION = 'Hendricks SA, Paul MJ, Subramaniam Y, Vijayam B. A collectanea of food insulinaemic index: 2023. Clinical Nutrition ESPEN. 2024;63:92–104. https://doi.org/10.1016/j.clnesp.2024.06.017';
 
@@ -104,7 +105,7 @@ export function renderAbout(app, data) {
       <h2 id="h-site">How the site handles the data</h2>
       <ul class="site-rules reveal">
         <li><strong>Exactly as published.</strong> Numbers, food names and study names are never rounded, renamed or “fixed”.</li>
-        <li><strong>Reference tag.</strong> A food is tagged “vs bread” when its comparator mentions bread, otherwise “vs glucose” (${F.filter((f) => f.ref === 'bread').length} and ${F.filter((f) => f.ref === 'glucose').length}).</li>
+        <li><strong>Comparator tag.</strong> A food is tagged “Comparator: bread” when its Comparator column mentions bread, otherwise “Comparator: glucose” (${F.filter((f) => f.ref === 'bread').length} and ${F.filter((f) => f.ref === 'glucose').length}).</li>
         <li><strong>No low/high labels.</strong> Because there is no agreed cut-off, foods aren’t labelled or colour-coded as low or high. Each II is shown exactly as published.</li>
         <li><strong>Groups.</strong> The paper’s 25 categories are folded into 14 browsing groups:</li>
       </ul>
@@ -127,6 +128,7 @@ export function renderAbout(app, data) {
         <li><strong>Banner photos:</strong> <a href="https://www.pexels.com" rel="noopener">Pexels</a>.</li>
         <li><strong>Food photos:</strong> openly licensed photos (CC BY, CC BY-SA, CC0 or public domain), found through <a href="https://openverse.org" rel="noopener">Openverse</a> and credited below. Each shows the <em>type</em> of food, not the exact product tested. Photos were cropped and resized for this site; each keeps its original licence.</li>
         <li><strong>Fonts:</strong> Fraunces and Plus Jakarta Sans from Google Fonts.</li>
+        ${SITE.goatcounter ? '<li><strong>Visitor counts:</strong> visits are counted anonymously with GoatCounter, with no cookies and no personal data.</li>' : ''}
       </ul>
       ${Object.keys(data.photos || {}).length ? `<details class="credits-more reveal"><summary>Food photo credits (${Object.keys(data.photos).length})</summary>
         <ul class="photo-credits">${Object.entries(data.photos).sort((a, b) => a[1].label.localeCompare(b[1].label)).map(([id, ph]) => `<li>

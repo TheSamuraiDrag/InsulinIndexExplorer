@@ -5,6 +5,7 @@ import { setData, applyPhotos, wireGlobal, wireImages, wireReveal, setDetailList
 import { renderHome } from './home.js';
 import { renderExplorer } from './explorer.js';
 import { renderAdmin } from './admin.js';
+import { SITE } from './config.js';
 import { renderGroups } from './groups.js';
 import { renderCollection } from './collection.js';
 import { renderGuide } from './guide.js';
@@ -57,6 +58,25 @@ function render() {
     app.focus({ preventScroll: true });
   }
   current.route = route;
+  countVisit(route);
+}
+
+/* ---------- Anonymous visitor counts (GoatCounter: no cookies, no personal data) ---------- */
+
+function countVisit(route) {
+  if (!SITE.goatcounter || route === 'admin' || !window.goatcounter?.count) return;
+  window.goatcounter.count({ path: `/${route === 'home' ? '' : route}`, title: document.title });
+}
+
+function loadCounter() {
+  if (!SITE.goatcounter || !/^[a-z0-9-]+$/.test(SITE.goatcounter)) return;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://gc.zgo.at/count.js';
+  s.dataset.goatcounter = `https://${SITE.goatcounter}.goatcounter.com/count`;
+  s.dataset.goatcounterSettings = JSON.stringify({ no_onload: true });
+  s.addEventListener('load', () => countVisit(parseHash().route));
+  document.head.append(s);
 }
 
 function navigate() {
@@ -103,6 +123,9 @@ async function boot() {
   }
   setData(data);
   applyPhotos(photos);
+  const ver = document.getElementById('footer-version');
+  if (ver) ver.textContent = `Data: ${SITE.dataSource}, ${data.foods.length} entries · Website v${SITE.version}`;
+  loadCounter();
   wireGlobal();
   setDetailListener((n) => {
     // Keep the open food in the URL on the Explorer so the view can be shared.

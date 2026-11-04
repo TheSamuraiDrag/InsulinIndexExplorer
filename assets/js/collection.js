@@ -10,7 +10,7 @@ export const COLLECTIONS = {
   lowest: {
     eyebrow: 'Lowest-II picks',
     title: () => 'Single foods, lowest II first',
-    lede: 'All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each reference food gets its own ranking, because a “vs bread” number can’t be lined up against a “vs glucose” one.',
+    lede: 'All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each comparator gets its own ranking, because a number measured against bread can’t be lined up against one measured against glucose.',
     photo: 557659, tone: '#D8F0DC,#A9DDB4',
     filter: (f) => f.meal === 'SINGLE',
     explorer: (state) => `#/explorer?meal=single&ref=${state.ref}`,
@@ -39,7 +39,7 @@ export function renderCollection(app, data, params, route) {
     ref: ['glucose', 'bread'].includes(params.get('ref')) ? params.get('ref') : (cfg.ranked ? 'glucose' : ''),
     sort: !cfg.ranked && SORTS[params.get('sort')] ? params.get('sort') : 'asc',
   };
-  const refOptions = cfg.ranked ? [['glucose', 'vs glucose'], ['bread', 'vs bread']] : [['', 'All'], ['glucose', 'vs glucose'], ['bread', 'vs bread']];
+  const refOptions = cfg.ranked ? [['glucose', 'Comparator: glucose'], ['bread', 'Comparator: bread']] : [['', 'All'], ['glucose', 'Comparator: glucose'], ['bread', 'Comparator: bread']];
   const byRef = (r) => all.filter((f) => f.ref === r).length;
   const top = groups.map((g) => [g, all.filter((f) => f.group === g.id).length]).sort((a, b) => b[1] - a[1]);
   const sortedAll = [...all].sort((a, b) => a.iiValue - b.iiValue);
@@ -56,8 +56,8 @@ export function renderCollection(app, data, params, route) {
     eyebrow: cfg.eyebrow, title: esc(cfg.title(all.length)), lede: cfg.lede,
     photo: cfg.photo, tone: cfg.tone,
     extra: `<ul class="hero-facts">
-      <li><strong>${byRef('glucose')}</strong> vs glucose</li>
-      <li><strong>${byRef('bread')}</strong> vs bread</li>
+      <li><strong>${byRef('glucose')}</strong> comparator: glucose</li>
+      <li><strong>${byRef('bread')}</strong> comparator: bread</li>
       <li>II <strong>${esc(sortedAll[0].ii)}</strong> to <strong>${esc(sortedAll[sortedAll.length - 1].ii)}</strong></li>
     </ul>`,
   })}
@@ -75,7 +75,7 @@ export function renderCollection(app, data, params, route) {
           <span class="chip-label">${esc(g.label)}</span><span class="chip-n" data-n="${g.id}"></span></button>`).join('')}
       </div>
       <div class="coll-row">
-        <div class="seg" role="group" aria-label="Reference food">
+        <div class="seg" role="group" aria-label="Comparator">
           ${refOptions.map(([v, l]) => `<button type="button" data-ref="${v}" aria-pressed="${state.ref === v}">${l}</button>`).join('')}
         </div>
         ${cfg.ranked ? '' : `<label class="sort"><span class="sr-only">Sort by</span>
@@ -112,7 +112,7 @@ export function renderCollection(app, data, params, route) {
     list.innerHTML = '';
     more();
     const inRef = all.filter((f) => !state.ref || f.ref === state.ref);
-    $('#ccount').innerHTML = `<strong>${results.length}</strong> of ${inRef.length}${state.ref ? ` vs ${state.ref}` : ''}`;
+    $('#ccount').innerHTML = `<strong>${results.length}</strong> of ${inRef.length}${state.ref ? ` (comparator: ${state.ref})` : ''}`;
     app.querySelectorAll('[data-n]').forEach((el) => { el.textContent = inRef.filter((f) => !el.dataset.n || f.group === el.dataset.n).length; });
     $('#cexplorer').href = cfg.explorer(state);
     app.querySelectorAll('[data-g]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.g === state.group)));

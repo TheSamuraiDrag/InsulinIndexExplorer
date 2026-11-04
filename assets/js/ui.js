@@ -1,3 +1,5 @@
+import { SITE } from './config.js';
+
 // Shared rendering helpers: escaping, footnote markers, tags, cards,
 // the food detail sheet, the compare tray and the compare sheet.
 
@@ -112,7 +114,7 @@ export const photoCredit = (p) => {
 };
 
 export const refTag = (ref) =>
-  `<span class="tag tag-ref tag-${ref}">vs ${ref}</span>`;
+  `<span class="tag tag-ref tag-${ref}">Comparator: ${ref}</span>`;
 
 export const mealTag = (meal) =>
   `<span class="tag tag-meal">${meal === 'SINGLE' ? 'Single food' : 'Mixed meal'}</span>`;
@@ -139,12 +141,11 @@ export function card(f, index = 0, rank = 0) {
       <span class="card-name">${marked(f.name)}</span>
       <span class="card-score">
         <span class="ii"><span class="ii-num">${esc(f.ii)}</span>${f.iiNote ? footnoteMarker(f.iiNote) : ''}<span class="ii-unit">II</span></span>
-        ${refTag(f.ref)}
       </span>
       ${meter(f.iiValue)}
     </button>
     <div class="card-foot" data-open="${f.n}">
-    <span class="tags">${mealTag(f.meal)}</span>
+    <span class="tags">${refTag(f.ref)}${mealTag(f.meal)}</span>
     <button type="button" class="cmp-btn" data-cmp="${f.n}" aria-pressed="${on}"
       aria-label="${on ? 'Remove from' : 'Add to'} compare: ${esc(plain(f.name))}">
       <span aria-hidden="true">${on ? '✓' : '+'}</span> ${on ? 'Comparing' : 'Compare'}</button>
@@ -270,7 +271,7 @@ export function openDetail(n) {
         <div class="meter-scale" aria-hidden="true"><span>0</span><span>210</span></div>
       </div>
       <p class="detail-ref-note">${icon('info')}
-        <span>Scored against <strong>${f.ref}</strong>. Only compare it with other “vs ${f.ref}” foods.</span></p>
+        <span>Comparator: <strong>${f.ref}</strong>. Only compare it with other foods whose comparator is ${f.ref}.</span></p>
 
       <dl class="facts">
         <div><dt>Portion</dt><dd>${esc(f.portion)}</dd></div>
@@ -292,6 +293,7 @@ export function openDetail(n) {
           ${on ? '✓ In compare' : '+ Add to compare'}</button>
         <button type="button" class="btn btn-ghost" data-copy-link>Copy link</button>
       </div>
+      ${reportLink(f)}
     </div>`;
 
   openSheet(dialog);
@@ -320,10 +322,18 @@ function barChart(items) {
       ${items.map((f) => `<div class="bar-row">
         <span class="bar-label">${esc(plain(f.name))}</span>
         <span class="bar-track"><span class="bar" style="--w:${(f.iiValue / max) * 100}%"></span>
-          <span class="bar-val">${esc(f.ii)} <small>vs ${f.ref}</small></span></span>
+          <span class="bar-val">${esc(f.ii)} <small>comparator: ${f.ref}</small></span></span>
       </div>`).join('')}
     </div>
   </figure>`;
+}
+
+// "Report a problem" opens an email with the entry already filled in (hidden if no address is set).
+function reportLink(f) {
+  if (!SITE.reportEmail) return '';
+  const subject = `Insulin Index Explorer: problem with entry No. ${f.n}`;
+  const body = `Entry: No. ${f.n} in Supplemental Table 1\nFood: ${plain(f.name)}\nII: ${f.ii}\nStudy: ${f.study}\n\nWhat looks wrong?\n\n\n(Sent from ${SITE.url}#/explorer?food=${f.n})`;
+  return `<p class="report"><a href="mailto:${encodeURIComponent(SITE.reportEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}">Report a problem with this entry</a></p>`;
 }
 
 /* ---------- Compare ---------- */
