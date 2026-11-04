@@ -9,7 +9,7 @@
 const KEY = 'ii-lang';
 const COLUMN = { ms: 1, zh: 2 }; // column in translations.csv
 const HTML_LANG = { en: 'en', ms: 'ms', zh: 'zh-Hans' };
-export const lang = (() => { try { const v = localStorage.getItem(KEY); return v in COLUMN ? v : 'en'; } catch { return 'en'; } })();
+const lang = (() => { try { const v = localStorage.getItem(KEY); return v in COLUMN ? v : 'en'; } catch { return 'en'; } })();
 
 const SKIP_TREE = '[translate="no"], script, style, .lang, .brand, .admin, .admin-signin, #ph-editor, #ph-picker, #gh-connect, '
   + '.footer-cite, .photo-credits, .gc-cats, .chip-country, .active-chip[data-remove="country"], .active-chip[data-remove="q"], .map-table td';

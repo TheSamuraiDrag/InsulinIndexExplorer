@@ -26,7 +26,7 @@ const PAGES = {
   admin: { title: 'Admin', render: (p) => renderAdmin(app, data, p) },
 };
 
-export function parseHash() {
+function parseHash() {
   const raw = location.hash.replace(/^#\/?/, '');
   const [path, query = ''] = raw.split('?');
   return { route: path.split('/')[0] || 'home', params: new URLSearchParams(query) };

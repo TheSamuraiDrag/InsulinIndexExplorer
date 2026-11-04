@@ -248,7 +248,6 @@ around 70,sekitar 70,约 70
 of entries ({n} of {n2}) use bread as the reference,daripada entri ({n} daripada {n2}) menggunakan roti sebagai rujukan,的条目（{n2} 条中的 {n} 条）以面包为参照
 comparator: glucose {n},pembanding: glukosa {n},参照：葡萄糖 {n}
 comparator: bread {n},pembanding: roti {n},参照：面包 {n}
-vs bread {n},pembanding: roti {n},对比面包 {n}
 Only compare foods with the,Hanya bandingkan makanan yang mempunyai,只比较
 same comparator,pembanding yang sama,参照相同的食物
 with,dengan,与

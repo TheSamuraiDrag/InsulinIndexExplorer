@@ -29,8 +29,6 @@ export function setData(data) {
   GROUPS = Object.fromEntries(data.groups.map((g) => [g.id, g]));
   FOODS = Object.fromEntries(data.foods.map((f) => [f.n, f]));
 }
-export const getGroup = (id) => GROUPS[id];
-
 // Attach photos (data/photos.json: { types, map }) to the foods. The Admin page calls this
 // again with unpublished edits, using previewSrc/previewThumb object URLs for new images.
 export function applyPhotos(photos) {
@@ -48,8 +46,6 @@ export function applyPhotos(photos) {
   const map = (photos && photos.map) || {};
   DATA.foods.forEach((f) => { f.photo = PHOTOS[map[f.n]] ? map[f.n] : null; });
 }
-export const getFood = (n) => FOODS[n];
-
 export function esc(value) {
   return String(value).replace(/[&<>"']/g, (c) => (
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
@@ -80,7 +76,7 @@ export function footnoteMarker(sym, interactive = false) {
 /* ---------- Photos and icons ---------- */
 
 // Small line icons (no emoji): they look the same on every device.
-export const ICONS = {
+const ICONS = {
   meal: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6.5"/><path d="M3 4v5a2 2 0 0 0 2 2v9M5 4v5M21 4c-1.7 0-2.5 2-2.5 5s1 3 2.5 3v8"/></svg>',
   plate: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></svg>',
   info: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>',
@@ -342,7 +338,7 @@ export let compareIds = [];
 try { compareIds = JSON.parse(sessionStorage.getItem('ii-compare') || '[]').filter((n) => n); } catch { /* ignore */ }
 
 const compareListeners = new Set();
-export const onCompareChange = (fn) => compareListeners.add(fn);
+const onCompareChange = (fn) => compareListeners.add(fn);
 
 function saveCompare() {
   try { sessionStorage.setItem('ii-compare', JSON.stringify(compareIds)); } catch { /* ignore */ }
@@ -350,7 +346,7 @@ function saveCompare() {
   compareListeners.forEach((fn) => fn(compareIds));
 }
 
-export function toggleCompare(n) {
+function toggleCompare(n) {
   if (compareIds.includes(n)) {
     compareIds = compareIds.filter((x) => x !== n);
   } else {
@@ -362,7 +358,7 @@ export function toggleCompare(n) {
   return true;
 }
 
-export function renderTray() {
+function renderTray() {
   const tray = document.getElementById('compare-tray');
   const items = compareIds.map((n) => FOODS[n]).filter(Boolean);
   if (!items.length) { tray.hidden = true; tray.innerHTML = ''; return; }
@@ -380,7 +376,7 @@ export function renderTray() {
       Compare ${items.length}/${MAX_COMPARE}</button>`;
 }
 
-export function openCompare() {
+function openCompare() {
   const items = compareIds.map((n) => FOODS[n]).filter(Boolean);
   if (items.length < 2) return;
   const refs = new Set(items.map((f) => f.ref));

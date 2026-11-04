@@ -6,7 +6,7 @@ import { card, esc, groupStyle, pageHero, plain, refTag } from './ui.js';
 
 const BATCH = 48;
 
-export const COLLECTIONS = {
+const COLLECTIONS = {
   lowest: {
     eyebrow: 'Lowest-II picks',
     title: () => 'Single foods, lowest II first',

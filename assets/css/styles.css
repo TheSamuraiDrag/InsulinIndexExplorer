@@ -685,7 +685,6 @@ dialog.sheet.closing .sheet-inner { animation: sheet-down .3s ease-in forwards; 
 .detail-ii .ii-unit { margin-left: 4px; }
 .detail-badges { display: flex; flex-wrap: wrap; gap: 6px; }
 .detail-badges .tag { font-size: .8rem; padding: 5px 10px; }
-.detail-meaning { margin-top: -8px; font-size: .95rem; font-weight: 600; color: var(--ink-soft); }
 .detail-meter { padding: 4px 2px 0; }
 .detail-ref-note { display: flex; gap: 10px; padding: 12px 14px; border-radius: var(--radius-s); background: var(--bg); font-size: .9rem; color: var(--ink-soft); }
 
@@ -1107,6 +1106,8 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 
 /* Median chart */
 .chart { position: relative; padding: 18px; border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow-s); }
+.chart-glucose { --bar: #3A6EA5; }
+.chart-bread { --bar: #B07A2A; }
 .chart-panels { display: grid; gap: 28px; }
 @media (min-width: 900px) { .chart-panels { grid-template-columns: 1fr 1fr; gap: 32px; } }
 .chart-panel { margin: 0; }
@@ -1114,8 +1115,6 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .chart-title { display: inline-flex; align-items: center; gap: 8px; font-weight: 750; font-size: 1.05rem; }
 .chart-title::before { content: ""; width: 12px; height: 12px; border-radius: 3px; background: var(--bar); }
 .chart-sub { font-size: .8rem; color: var(--muted); }
-.chart-glucose { --bar: #3A6EA5; }
-.chart-bread { --bar: #B07A2A; }
 .chart-plot { position: relative; display: grid; gap: 8px; }
 .chart-row { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 9.5rem) 1fr; align-items: center; gap: 10px; }
 .chart-label { font-size: .8rem; font-weight: 600; color: var(--ink-soft); line-height: 1.2; }
