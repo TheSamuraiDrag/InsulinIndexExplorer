@@ -158,19 +158,19 @@ The Data check tab is for checking the database against the paper without openin
 
 Ticks and notes are saved in that browser only.
 
-## Bahasa Melayu
+## Languages: English, Bahasa Melayu, 中文
 
-The **BM** button in the header switches the site to Bahasa Melayu (press **EN** to switch back;
-the choice is remembered on that device). The translations are in `data/translations.csv`, two
-columns: `English` and `Bahasa Melayu`. Open it in Excel or Google Sheets, correct the Malay
-column, save as CSV (UTF-8) and push. Anything not in the sheet stays in English.
+The **EN / BM / 中文** menu in the header switches the language; the choice is remembered on that
+device. The translations are in `data/translations.csv`, three columns: `English`,
+`Bahasa Melayu` and `中文` (Simplified Chinese). Open it in Excel or Google Sheets, correct a
+column, save as **CSV UTF-8** and push. Anything not in the sheet stays in English.
 
 - `{n}` stands for a number and `{x}` for any text, e.g. `Show {n} foods` → `Papar {n} makanan`.
-  Keep these markers in the Malay column.
+  Keep these markers in the translated columns.
 - Food names, categories, portions, studies, countries and comparators stay in English, exactly
-  as published, and so do direct quotes from the paper (the Malay text adds a short gloss).
+  as published, and so do direct quotes from the paper (the translation adds a short gloss).
 - The Admin page stays in English.
-- The Malay was written by Claude and should be checked by a fluent speaker before launch.
+- The Malay and Chinese were written by Claude and should be checked by fluent speakers before launch.
 
 ## Files
 
@@ -188,7 +188,7 @@ assets/js/about.js       About & sources
 assets/js/admin.js       Admin: sign-in and Data check
 assets/js/admin-photos.js  Admin: Photos (upload, credits, which foods use which photo)
 assets/js/github.js      GitHub sign-in and publishing for the Admin page
-assets/js/i18n.js        English / Bahasa Melayu switch (reads data/translations.csv)
+assets/js/i18n.js        language switch (reads data/translations.csv)
 data/                    source CSVs, photos.json (photos and credits), generated foods.json
 assets/img/foods/        food photos (800×600) and thumb/ (240×240)
 scripts/build_foods.py   CSV → foods.json, plus the data checks

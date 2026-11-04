@@ -8,7 +8,7 @@ export const SITE = {
   // Public address (used for “Report a problem” messages and link previews in index.html).
   url: 'https://insulinindexresearch.com/insulinindexexplorer/',
   // Where “Report a problem with this entry” emails go. Empty = the link is hidden.
-  reportEmail: '',
+  reportEmail: 'abcjlke@gmail.com',
   // GoatCounter site code for anonymous visitor counts (dashboard: https://<code>.goatcounter.com).
   // Empty = no counting at all.
   goatcounter: 'jonathan1234',

@@ -1,13 +1,15 @@
-// Language switch: English / Bahasa Melayu.
+// Language switch: English / Bahasa Melayu / 中文 (Simplified Chinese).
 //
-// Translations live in data/translations.csv (columns: English, Bahasa Melayu), so they can be
+// Translations live in data/translations.csv (columns: English, Bahasa Melayu, 中文), so they can be
 // checked and edited in Excel or Google Sheets. Text that isn't in the sheet stays in English.
 // Rows with {n} (a number) or {x} (any text) match changing text, e.g. "Show {n} foods".
 // Food data (names, categories, studies, comparators, portions) and the Admin area always stay
 // in English, exactly as published.
 
 const KEY = 'ii-lang';
-export const lang = (() => { try { return localStorage.getItem(KEY) === 'ms' ? 'ms' : 'en'; } catch { return 'en'; } })();
+const COLUMN = { ms: 1, zh: 2 }; // column in translations.csv
+const HTML_LANG = { en: 'en', ms: 'ms', zh: 'zh-Hans' };
+export const lang = (() => { try { const v = localStorage.getItem(KEY); return v in COLUMN ? v : 'en'; } catch { return 'en'; } })();
 
 const SKIP_TREE = '[translate="no"], script, style, .lang-btn, .brand, .admin, .admin-signin, #ph-editor, #ph-picker, #gh-connect, '
   + '.footer-cite, .photo-credits, .gc-cats, .chip-country, .active-chip[data-remove="country"], .active-chip[data-remove="q"], .map-table td';
@@ -81,25 +83,24 @@ function translateTree(root) {
   root.querySelectorAll(ATTRS.map((a) => `[${a}]`).join(',')).forEach(trAttrs);
 }
 
-function setupButton() {
-  const btn = document.getElementById('lang-btn');
-  if (!btn) return;
-  btn.textContent = lang === 'ms' ? 'EN' : 'BM';
-  btn.setAttribute('aria-label', lang === 'ms' ? 'Switch to English' : 'Tukar ke Bahasa Melayu');
-  btn.addEventListener('click', () => {
-    try { localStorage.setItem(KEY, lang === 'ms' ? 'en' : 'ms'); } catch { /* ignore */ }
+function setupSwitch() {
+  const sel = document.getElementById('lang-btn');
+  if (!sel) return;
+  sel.value = lang;
+  sel.addEventListener('change', () => {
+    try { localStorage.setItem(KEY, sel.value); } catch { /* ignore */ }
     location.reload();
   });
 }
 
 export async function initI18n() {
-  document.documentElement.lang = lang;
-  setupButton();
-  if (lang !== 'ms') return;
+  document.documentElement.lang = HTML_LANG[lang];
+  setupSwitch();
+  if (lang === 'en') return;
   try {
     const res = await fetch('data/translations.csv', { cache: 'no-cache' });
     if (!res.ok) return;
-    parseCSV(await res.text()).slice(1).forEach(([en, ms]) => addRow(en, ms));
+    parseCSV(await res.text()).slice(1).forEach((row) => addRow(row[0], row[COLUMN[lang]]));
   } catch { return; }
   translateTree(document.body);
   const trTitle = () => { const r = t(document.title); if (r && r !== document.title) document.title = r; };
