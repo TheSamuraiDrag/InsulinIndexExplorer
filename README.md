@@ -150,6 +150,15 @@ and page by page, from GoatCounter. It needs one setting, once: in GoatCounter g
 **Settings**, tick **“Allow adding visitor counts on your website”** and save. Countries,
 browsers and referrers are on the full GoatCounter dashboard, linked from the tab.
 
+To see countries, referrers, devices and browsers in the tab too, connect GoatCounter once per
+device: GoatCounter → Settings → API → **New API key**, tick **only “Read statistics”**, and paste
+the key into the tab. It is kept in that browser only, never in the code.
+
+**Starting fresh at launch:** set `countFrom` in `assets/js/config.js` to the launch date (for
+example `'2026-12-01'`). The tab then only counts visits from that day, so test visits disappear
+from it. Nothing is deleted on GoatCounter, so it can be undone. (To really delete visits, use
+GoatCounter's own Settings → Manage pageviews.)
+
 ### Data check tab
 
 The Data check tab is for checking the database against the paper without opening 629 cards:

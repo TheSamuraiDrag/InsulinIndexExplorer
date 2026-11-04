@@ -15,5 +15,8 @@ export const SITE = {
   // Only count visits on these addresses (local previews are never counted).
   // The GitHub test address is included for now so counting can be checked; remove it at launch
   // if test visits shouldn't mix with public ones. Empty list = count everywhere.
+  // Admin · Visitors starts counting from this date (YYYY-MM-DD), e.g. the public launch day, so
+  // test visits don't show. Nothing is deleted on GoatCounter. Empty = all time.
+  countFrom: '',
   countOnlyOn: ['insulinindexresearch.com', 'www.insulinindexresearch.com', 'thesamuraidrag.github.io'],
 };
