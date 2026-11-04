@@ -1,12 +1,11 @@
 // Food Explorer: instant search, filter chips, sort, live count, URL state,
 // progressive card rendering and the detail sheet.
 
-import { card, esc, LEVELS, openDetail, closeSheet, groupStyle } from './ui.js';
+import { card, esc, openDetail, closeSheet, groupStyle } from './ui.js';
 
 const BATCH = 48;
 
 const FACETS = [
-  { key: 'level', label: 'II level' },
   { key: 'group', label: 'Food group' },
   { key: 'meal', label: 'Single or mixed' },
   { key: 'ref', label: 'Reference food' },
@@ -24,7 +23,6 @@ export function renderExplorer(app, data, params, options = {}) {
   const countries = [...new Set(data.foods.map((f) => f.country))].sort((a, b) => a.localeCompare(b));
 
   const options_ = {
-    level: Object.keys(LEVELS).map((v) => ({ v, label: LEVELS[v].label, sub: LEVELS[v].range })),
     group: groups.map((g) => ({ v: g.id, label: g.label, emoji: g.emoji, style: groupStyle(g) })),
     meal: [{ v: 'single', label: 'Single food' }, { v: 'mixed', label: 'Mixed meal' }],
     ref: [{ v: 'glucose', label: 'vs glucose' }, { v: 'bread', label: 'vs bread' }],
@@ -117,14 +115,13 @@ export function renderExplorer(app, data, params, options = {}) {
 
   // ----- filtering -----
   const matchers = {
-    level: (f, s) => s.has(f.level),
     group: (f, s) => s.has(f.group),
     meal: (f, s) => [...s].some((v) => MEAL_VALUES[v] === f.meal),
     ref: (f, s) => s.has(f.ref),
     country: (f, s) => s.has(f.country),
   };
   const valueOf = {
-    level: (f) => f.level, group: (f) => f.group, ref: (f) => f.ref, country: (f) => f.country,
+    group: (f) => f.group, ref: (f) => f.ref, country: (f) => f.country,
     meal: (f) => (f.meal === 'SINGLE' ? 'single' : 'mixed'),
   };
 
@@ -165,9 +162,9 @@ export function renderExplorer(app, data, params, options = {}) {
       app.querySelector(`[data-facet="${key}"]`).innerHTML = options_[key].map((o) => {
         const on = state[key].has(o.v);
         const n = counts[o.v] || 0;
-        return `<button type="button" class="chip chip-${key}${key === 'level' ? ` chip-${o.v}` : ''}${n ? '' : ' is-empty'}"
+        return `<button type="button" class="chip chip-${key}${n ? '' : ' is-empty'}"
           data-key="${key}" data-v="${esc(o.v)}" aria-pressed="${on}"${o.style ? ` style="${o.style}"` : ''}>
-          ${o.emoji ? `<span aria-hidden="true">${o.emoji}</span>` : ''}${key === 'level' ? '<span class="badge-icon" aria-hidden="true"></span>' : ''}
+          ${o.emoji ? `<span aria-hidden="true">${o.emoji}</span>` : ''}
           <span class="chip-label">${esc(o.label)}</span>
           <span class="chip-n">${n}</span></button>`;
       }).join('');

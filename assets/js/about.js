@@ -95,7 +95,7 @@ export function renderAbout(app, data) {
       <ul class="limits reveal">
         <li><strong>Studies differ</strong> in reference food, portion and volunteers.</li>
         <li><strong>People differ.</strong> Insulin responses can differ by ethnicity, sex and hormonal factors such as menopause.</li>
-        <li><strong>The bands are this site’s own.</strong> There is no agreed clinical cut-off for a low, medium or high II.</li>
+        <li><strong>No agreed cut-off.</strong> There is no agreed clinical cut-off for a low, medium or high II.</li>
       </ul>
       <p class="disclaimer-box reveal"><span aria-hidden="true">🩺</span> <span><strong>For learning only, not medical or dietary advice.</strong> Anyone with diabetes or another health condition should speak to their doctor or dietitian.</span></p>
     </section>
@@ -106,7 +106,7 @@ export function renderAbout(app, data) {
       <ul class="site-rules reveal">
         <li><strong>Exactly as published.</strong> Numbers, food names and study names are never rounded, renamed or “fixed”.</li>
         <li><strong>Reference tag.</strong> A food is tagged “vs bread” when its comparator mentions bread, otherwise “vs glucose” (${F.filter((f) => f.ref === 'bread').length} and ${F.filter((f) => f.ref === 'glucose').length}).</li>
-        <li><strong>Badges.</strong> Low under 45, moderate 45 to 70, high over 70.</li>
+        <li><strong>No low/high labels.</strong> Because there is no agreed cut-off, foods aren’t labelled or colour-coded as low or high. Each II is shown as published, against the reference food’s 100.</li>
         <li><strong>Groups.</strong> The paper’s 25 categories are folded into 14 browsing groups:</li>
       </ul>
       <div class="x-scroll reveal"><table class="map-table">

@@ -4,7 +4,8 @@
 The CSV (Supplemental Table 1 of Hendricks et al., 2024) is the source of truth.
 Every published value is copied through as an unchanged string. The only fields
 added are derived helpers the website needs for filtering and sorting:
-group, level, ref, iiValue and searchKey.
+group, ref, iiValue and searchKey. No low/high bands are added: the paper gives
+no agreed cut-off, so the site shows each II as published.
 
 Usage:  python3 scripts/build_foods.py           (build + check)
         python3 scripts/build_foods.py --check   (check only, no write)
@@ -51,19 +52,6 @@ GROUPS = [
 ]
 CATEGORY_TO_GROUP = {c: g[0] for g in GROUPS for c in g[5]}
 
-# Site-defined browsing bands (the paper gives no clinical cut-offs).
-LOW_BELOW = 45
-HIGH_ABOVE = 70
-
-
-def level_for(value):
-    if value < LOW_BELOW:
-        return "low"
-    if value > HIGH_ABOVE:
-        return "high"
-    return "moderate"
-
-
 def search_key(text):
     text = unicodedata.normalize("NFKD", text)
     text = "".join(ch for ch in text if not unicodedata.combining(ch))
@@ -97,7 +85,6 @@ def build():
             # derived helpers
             "iiValue": float(row["II"]),
             "group": CATEGORY_TO_GROUP[category],
-            "level": level_for(float(row["II"])),
             "ref": "bread" if "bread" in comparator.lower() else "glucose",
             "searchKey": search_key(row["Food / Beverage Name"]),
         })
@@ -114,7 +101,6 @@ def build():
             "licence": "CC BY-NC-ND 4.0",
             "table": "Supplemental Table 1",
         },
-        "bands": {"lowBelow": LOW_BELOW, "highAbove": HIGH_ABOVE},
         "groups": groups,
         "foods": foods,
     }
@@ -128,7 +114,6 @@ def check(rows, data):
         results.append((actual == expected, label, actual, expected))
 
     meal = Counter(f["meal"] for f in foods)
-    level = Counter(f["level"] for f in foods)
     ref = Counter(f["ref"] for f in foods)
     group = Counter(f["group"] for f in foods)
     studies = {re.search(r"\[(\d+)\]", f["study"]).group(1) for f in foods}
@@ -139,15 +124,13 @@ def check(rows, data):
     expect("sum of II", sum(Decimal(f["ii"]) for f in foods), Decimal("42429.12"))
     expect("lowest II", min(f["iiValue"] for f in foods), 1.0)
     expect("highest II", max(f["iiValue"] for f in foods), 209.0)
-    expect("level low", level["low"], 127)
-    expect("level moderate", level["moderate"], 233)
-    expect("level high", level["high"], 269)
     expect("vs bread", ref["bread"], 227)
     expect("vs glucose", ref["glucose"], 402)
     expect("countries", len({f["country"] for f in foods}), 32)
     expect("studies (unique reference numbers)", len(studies), 80)
-    expect("lowest-II picks (single, II < 45)",
-           sum(1 for f in foods if f["meal"] == "SINGLE" and f["iiValue"] < 45), 108)
+    expect("single foods vs glucose / vs bread",
+           (sum(1 for f in foods if f["meal"] == "SINGLE" and f["ref"] == "glucose"),
+            sum(1 for f in foods if f["meal"] == "SINGLE" and f["ref"] == "bread")), (344, 125))
     expect("groups", len(group), 14)
     expect("group counts add up", sum(group.values()), 629)
     expect("values copied unchanged", all(

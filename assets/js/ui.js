@@ -1,4 +1,4 @@
-// Shared rendering helpers: escaping, footnote markers, badges, cards,
+// Shared rendering helpers: escaping, footnote markers, tags, cards,
 // the food detail sheet, the compare tray and the compare sheet.
 
 export const FOOTNOTES = {
@@ -8,12 +8,6 @@ export const FOOTNOTES = {
   '‡': 'Study 2 of a two-study article',
   '||': 'Discrepancy between 9 and 10 subjects in the original article',
   '¶': 'New rice variants without abbreviations',
-};
-
-export const LEVELS = {
-  low: { label: 'Low', range: 'under 45' },
-  moderate: { label: 'Moderate', range: '45 to 70' },
-  high: { label: 'High', range: 'over 70' },
 };
 
 export const PHOTO = (id, w = 1600) =>
@@ -61,24 +55,25 @@ export function footnoteMarker(sym, interactive = false) {
   return `<button type="button" class="fn" data-tip="${esc(tip)}" aria-label="Footnote ${esc(sym)}: ${esc(tip)}">${esc(sym)}</button>`;
 }
 
-export function badge(level) {
-  const l = LEVELS[level];
-  return `<span class="badge badge-${level}"><span class="badge-icon" aria-hidden="true"></span>${l.label}</span>`;
-}
-
 export const refTag = (ref) =>
   `<span class="tag tag-ref tag-${ref}">vs ${ref}</span>`;
 
 export const mealTag = (meal) =>
   `<span class="tag tag-meal">${meal === 'SINGLE' ? 'Single food' : 'Mixed meal'}</span>`;
 
+// Neutral position on a 0–210 scale. The only mark is 100, the reference food:
+// the paper gives no low/high cut-offs, so the bar carries no bands or colours.
 export function meter(value, big = false) {
   const pct = Math.min(100, (value / METER_MAX) * 100).toFixed(1);
-  return `<span class="meter${big ? ' meter-big' : ''}" aria-hidden="true">
-    <span class="meter-ref"></span><span class="meter-dot" style="--p:${pct}%"></span></span>`;
+  return `<span class="meter${big ? ' meter-big' : ''}" aria-hidden="true" style="--p:${pct}%">
+    <span class="meter-fill"></span><span class="meter-ref"></span><span class="meter-dot"></span></span>`;
 }
 
-export function card(f, index = 0) {
+// What an II literally means: the insulin response as a percentage of the reference food's.
+export const vsReference = (f) => `${esc(f.ii)}% of the insulin response to ${f.ref === 'bread' ? 'bread' : 'glucose'}`;
+
+// rank > 0 shows the card's position in a ranking (Lowest-II picks).
+export function card(f, index = 0, rank = 0) {
   const g = GROUPS[f.group];
   const on = compareIds.includes(f.n);
   return `<li class="card" style="${groupStyle(g)};--i:${index % 12}">
@@ -86,16 +81,17 @@ export function card(f, index = 0) {
       <span class="card-head">
         <span class="card-emoji" aria-hidden="true">${g.emoji}</span>
         <span class="card-group">${esc(g.label)}</span>
+        ${rank ? `<span class="card-rank"><span class="sr-only">Rank </span>#${rank}</span>` : ''}
       </span>
       <span class="card-name">${marked(f.name)}</span>
       <span class="card-score">
         <span class="ii"><span class="ii-num">${esc(f.ii)}</span>${f.iiNote ? footnoteMarker(f.iiNote) : ''}<span class="ii-unit">II</span></span>
-        ${badge(f.level)}
+        ${refTag(f.ref)}
       </span>
       ${meter(f.iiValue)}
     </button>
     <div class="card-foot" data-open="${f.n}">
-    <span class="tags">${refTag(f.ref)}${mealTag(f.meal)}</span>
+    <span class="tags">${mealTag(f.meal)}</span>
     <button type="button" class="cmp-btn" data-cmp="${f.n}" aria-pressed="${on}"
       aria-label="${on ? 'Remove from' : 'Add to'} compare: ${esc(plain(f.name))}">
       <span aria-hidden="true">${on ? '✓' : '+'}</span> ${on ? 'Comparing' : 'Compare'}</button>
@@ -205,8 +201,9 @@ export function openDetail(n) {
           <span class="ii-num">${esc(f.ii)}</span>${f.iiNote ? footnoteMarker(f.iiNote, true) : ''}
           <span class="ii-unit">insulin index</span>
         </div>
-        <div class="detail-badges">${badge(f.level)}${refTag(f.ref)}${mealTag(f.meal)}</div>
+        <div class="detail-badges">${refTag(f.ref)}${mealTag(f.meal)}</div>
       </div>
+      <p class="detail-meaning">= ${vsReference(f)}, on average across the volunteers.</p>
       <div class="detail-meter">
         ${meter(f.iiValue, true)}
         <div class="meter-scale" aria-hidden="true"><span>0</span><span class="scale-ref">100 = reference</span><span>210</span></div>
@@ -262,7 +259,7 @@ function barChart(items) {
     <div class="bars-plot" style="--ref:${refPct}%">
       ${items.map((f) => `<div class="bar-row">
         <span class="bar-label">${GROUPS[f.group].emoji} ${esc(plain(f.name))}</span>
-        <span class="bar-track"><span class="bar bar-${f.level}" style="--w:${(f.iiValue / max) * 100}%"></span>
+        <span class="bar-track"><span class="bar" style="--w:${(f.iiValue / max) * 100}%"></span>
           <span class="bar-val">${esc(f.ii)} <small>vs ${f.ref}</small></span></span>
       </div>`).join('')}
       <span class="bars-ref" aria-hidden="true"><span>100 = reference</span></span>
@@ -321,7 +318,7 @@ export function openCompare() {
   const dialog = document.getElementById('compare');
   const rows = [
     ['Insulin index', (f) => `<span class="cmp-ii">${esc(f.ii)}</span>${f.iiNote ? footnoteMarker(f.iiNote, true) : ''}`],
-    ['Level', (f) => badge(f.level)],
+    ['Meaning', (f) => vsReference(f)],
     ['Reference', (f) => refTag(f.ref)],
     ['Type', (f) => mealTag(f.meal)],
     ['Portion', (f) => esc(f.portion)],

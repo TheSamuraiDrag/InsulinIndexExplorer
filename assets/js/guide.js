@@ -1,8 +1,8 @@
 // How to read the II: what it measures, II vs GI, comparing like with like,
-// the site's bands, a median-per-group chart (glucose and bread shown separately),
+// reading the number without cut-offs, a median-per-group chart (glucose and bread shown separately),
 // surprising findings and how to read a study tag.
 
-import { esc, pageHero, badge, refTag, median, groupStyle } from './ui.js';
+import { esc, pageHero, refTag, median, groupStyle } from './ui.js';
 
 const fmt = (x) => String(Math.round(x * 1000) / 1000);
 const CHART_MAX = 150;
@@ -123,7 +123,7 @@ export function renderGuide(app, data) {
   <article class="wrap guide">
     <nav class="guide-toc reveal" aria-label="On this page">
       <a href="#g-what">What it measures</a><a href="#g-gi">II vs GI</a><a href="#g-like">Compare like with like</a>
-      <a href="#g-bands">The badges</a><a href="#g-chart">Groups at a glance</a><a href="#g-finds">Surprises</a><a href="#g-tag">Study tags</a>
+      <a href="#g-number">Reading the number</a><a href="#g-chart">Groups at a glance</a><a href="#g-finds">Surprises</a><a href="#g-tag">Study tags</a>
     </nav>
 
     <section class="guide-sec" id="g-what" aria-labelledby="h-what">
@@ -164,15 +164,16 @@ export function renderGuide(app, data) {
       </ul>
     </section>
 
-    <section class="guide-sec" id="g-bands" aria-labelledby="h-bands">
-      <p class="eyebrow">4 · The badges</p>
-      <h2 id="h-bands">Low, moderate and high are this site’s labels</h2>
-      <div class="bands reveal">
-        <div>${badge('low')}<span>II under 45</span></div>
-        <div>${badge('moderate')}<span>II 45 to 70</span></div>
-        <div>${badge('high')}<span>II over 70</span></div>
+    <section class="guide-sec" id="g-number" aria-labelledby="h-number">
+      <p class="eyebrow">4 · Reading the number</p>
+      <h2 id="h-number">No labels, just the number against 100</h2>
+      <p class="guide-p">The II is a percentage of the reference food’s insulin response, so the number already says how it compares.</p>
+      <div class="read-ex reveal">
+        <div><span class="read-num">62</span><span>62% of the reference food’s insulin response</span></div>
+        <div><span class="read-num">100</span><span>the same as the reference food</span></div>
+        <div><span class="read-num">185</span><span>185% of the reference food’s insulin response</span></div>
       </div>
-      <p class="callout reveal"><span aria-hidden="true">ℹ️</span> There is no agreed clinical cut-off for a low, medium or high II. These bands exist only to make browsing easier. And a high II isn’t automatically bad, for example in sports nutrition.</p>
+      <p class="callout reveal"><span aria-hidden="true">ℹ️</span><span>There is no agreed clinical cut-off for a low, medium or high II, so this site doesn’t label foods as low or high. A high II isn’t automatically bad, for example in sports nutrition.</span></p>
     </section>
 
     <section class="guide-sec" id="g-chart" aria-labelledby="h-chart">

@@ -2,7 +2,7 @@
 // automated checks, auto-flagged rows worth a look, and a review checklist
 // (ticks + notes) saved in this browser. Nothing here changes the data.
 
-import { esc, marked, footnoteMarker, FOOTNOTES, badge, refTag, groupStyle, toast } from './ui.js';
+import { esc, marked, footnoteMarker, FOOTNOTES, refTag, groupStyle, toast } from './ui.js';
 
 const STORE_KEY = 'ii-admin-review-v1';
 
@@ -97,7 +97,6 @@ function runChecks(data) {
     row('Sum of all II values', (sum / 1000).toFixed(2), '42429.12'),
     row('Lowest II', Math.min(...F.map((f) => f.iiValue)), 1),
     row('Highest II', Math.max(...F.map((f) => f.iiValue)), 209),
-    row('Low / Moderate / High', ['low', 'moderate', 'high'].map((l) => count((f) => f.level === l)).join(' / '), '127 / 233 / 269', 'Site bands'),
     row('vs bread / vs glucose', `${count((f) => f.ref === 'bread')} / ${count((f) => f.ref === 'glucose')}`, '227 / 402'),
     row('Numbered 1 to N with no gaps', nums.every((n, i) => n === i + 1) ? 'yes' : 'no', 'yes'),
     row('Each category is one block (as in the PDF)', contiguous ? 'yes' : 'no', 'yes'),
@@ -248,7 +247,7 @@ export function renderAdmin(app, data, params) {
             <th scope="col">Comparator</th>
             <th scope="col">Author / Year / Reference</th>
             <th scope="col">Country</th>
-            <th scope="col" class="c-site">Site: group · level · reference</th>
+            <th scope="col" class="c-site">Site: group · reference</th>
             <th scope="col" class="c-notes">Review notes</th>
           </tr></thead>
           <tbody id="pbody"></tbody>
@@ -302,7 +301,7 @@ export function renderAdmin(app, data, params) {
       <td class="c-meal">${esc(f.meal)}</td>
       <td class="c-ii">${esc(f.ii)}${f.iiNote ? footnoteMarker(f.iiNote) : ''}</td>
       ${cell(f, 'subjects')}${cell(f, 'comparator')}${cell(f, 'study')}${cell(f, 'country')}
-      <td class="c-site"><span class="mini-group" style="${groupStyle(g)}">${g.emoji} ${esc(g.label)}</span> ${badge(f.level)} ${refTag(f.ref)}</td>
+      <td class="c-site"><span class="mini-group" style="${groupStyle(g)}">${g.emoji} ${esc(g.label)}</span> ${refTag(f.ref)}</td>
       ${notesCell(f)}
     </tr>`;
   }

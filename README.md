@@ -9,8 +9,6 @@ Supplemental Table 1 of:
 
 Plain HTML, CSS and JavaScript. No build step, no backend, no framework. It runs on GitHub Pages.
 
-**Educational only, not medical advice.**
-
 ## Pages
 
 | Page | Address | What it does |
@@ -18,13 +16,13 @@ Plain HTML, CSS and JavaScript. No build step, no backend, no framework. It runs
 | Home | `#/` | Search, quick stats, food groups, badge legend, section tiles |
 | Food Explorer | `#/explorer` | Instant search, filters, sort, detail panel, compare up to 3 |
 | Food groups | `#/groups` | 14 groups with counts, II range and a dot strip of every food |
-| Lowest-II picks | `#/lowest` | The 108 single foods with II under 45 |
+| Lowest-II picks | `#/lowest` | All 469 single foods ranked lowest first, separately for glucose and bread |
 | Mixed meals | `#/mixed` | All 160 mixed meals |
 | How to read the II | `#/guide` | What the II means, II vs GI, comparing like with like, median chart |
 | About & sources | `#/about` | Citation, methods, footnotes, Table 2 note, limitations, licence |
 | Data check (admin) | `#/admin` | The whole table laid out like the PDF, with checks and a review checklist |
 
-Pages use hash addresses (`#/explorer?group=bread&level=low`), so every view can be shared and
+Pages use hash addresses (`#/explorer?group=bread&ref=glucose`), so every view can be shared and
 refreshing never gives a 404 on GitHub Pages. Explorer filters are saved in the address.
 
 ## Turn on GitHub Pages
@@ -69,15 +67,14 @@ Then open http://localhost:8000.
 Notes:
 
 - **Values are never changed.** Food names, II values and study names are copied through exactly as
-  published. The script only adds helper fields for the site: `group`, `level`, `ref`, `iiValue` and
-  `searchKey`.
+  published. The script only adds helper fields for the site: `group`, `ref`, `iiValue` and `searchKey`.
 - **The expected counts are written into the checks** (629 foods, II sum 42429.12 and so on, in
   `scripts/build_foods.py` and `assets/js/admin.js`). If you load a new edition of the table, update
   those numbers to match the new paper.
 - **A new category** has to be added to a site group in `GROUPS` at the top of
   `scripts/build_foods.py`, or the script stops and tells you which one.
-- **Bands** (low under 45, moderate 45–70, high over 70) are set by `LOW_BELOW` and `HIGH_ABOVE` in
-  the same script. They are this site's own labels; the paper gives no clinical cut-offs.
+- **No low/high bands.** The paper gives no agreed clinical cut-off, so the site shows each II as
+  published, against the reference food's 100, without labels or traffic-light colours.
 - **The reference tag** is "vs bread" when the comparator mentions bread, otherwise "vs glucose".
 - `data/mmc2_insulinaemic_index.csv` (Supplemental Table 2: 124 foods from 31 studies that did not
   meet the paper's main criteria) is kept for reference only. The site never loads it.
@@ -88,7 +85,7 @@ Notes:
 
 - the whole table in the PDF's column order, grouped by category and sub-category, with PDF page
   numbers
-- automated checks (counts, II sum, bands, reference foods, numbering, category order)
+- automated checks (counts, II sum, reference foods, numbering, category order)
 - "Worth a look" flags for likely copy slips, such as a hyphen followed by a space from a PDF line
   break or unbalanced brackets. These are shown as published, never fixed.
 - tick rows as checked, flag them with a note, or tick a whole category; keyboard shortcuts

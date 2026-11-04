@@ -1,10 +1,10 @@
-// Home page: hero + search, quick stats, badge legend, section tiles and surprising findings.
+// Home page: hero + search, quick stats, card legend, section tiles and surprising findings.
 
-import { esc, PHOTO, badge, refTag, mealTag, meter, groupStyle } from './ui.js';
+import { esc, PHOTO, refTag, mealTag, meter, groupStyle } from './ui.js';
 
 const TILES = [
   { href: '#/explorer', title: 'Food Explorer', text: 'Search and filter all 629 foods', photo: 5966434, emoji: '🔎', tone: '#F9D9C8,#F4B79A' },
-  { href: '#/lowest', title: 'Lowest-II picks', text: '108 single foods with II under 45', photo: 557659, emoji: '🥗', tone: '#D8F0DC,#A9DDB4' },
+  { href: '#/lowest', title: 'Lowest-II picks', text: 'Single foods ranked lowest first', photo: 557659, emoji: '🥗', tone: '#D8F0DC,#A9DDB4' },
   { href: '#/groups', title: 'Food groups', text: '14 groups, from bread to dairy', photo: 37321079, emoji: '🧺', tone: '#F8EAC0,#F0D584' },
   { href: '#/mixed', title: 'Mixed meals', text: 'All 160 meals and food combos', photo: 11873900, emoji: '🍱', tone: '#E9DFF7,#CDB8EE' },
   { href: '#/guide', title: 'How to read the II', text: 'What the number means, and doesn’t', photo: 4195334, emoji: '📈', tone: '#D7E8F7,#A9CBEE' },
@@ -18,7 +18,7 @@ const FINDINGS = [
   { big: '37–127', label: '“Healthy” staples', text: 'Skim milk, yoghurt, most fruits, brown rice, wholemeal and sourdough bread, wholegrain cereals, most vegetables, honey and oats.', href: '#/explorer?sort=desc', emoji: '🥣', group: 'cereals' },
   { big: '13', label: 'Lowest mixed meal', text: 'A corn-tortilla taco with potato, watermelon and honey.', href: '#/explorer?food=497', emoji: '🌮', group: 'regional' },
   { big: '185', label: 'Highest mixed meal', text: 'Freshly boiled Sava potatoes with water, tea or coffee.', href: '#/explorer?food=461', emoji: '🥔', group: 'potatoes' },
-  { big: 'High ≠ bad', label: 'Context matters', text: 'A high II isn’t automatically bad, for example in sports nutrition.', href: '#/explorer?level=high', emoji: '🏃', group: 'fruit' },
+  { big: 'High ≠ bad', label: 'Context matters', text: 'A high II isn’t automatically bad, for example in sports nutrition.', href: '#/explorer?sort=desc', emoji: '🏃', group: 'fruit' },
 ];
 
 // Everyday foods from one study with one reference food (Bao et al., 2011 [46], vs glucose),
@@ -89,7 +89,7 @@ export function renderHome(app, data) {
         <li><button type="button" class="everyday-row" data-open="${f.n}" style="${groupStyle(g[f.group])}">
           <span class="everyday-emoji" aria-hidden="true">${g[f.group].emoji}</span>
           <span class="everyday-name">${esc(f.name)}</span>
-          <span class="everyday-bar"><span class="bar bar-${f.level}" style="--w:${(f.iiValue / 100) * 100}%"></span></span>
+          <span class="everyday-bar"><span class="bar" style="--w:${(f.iiValue / 100) * 100}%"></span></span>
           <span class="everyday-ii">${esc(f.ii)}</span>
         </button></li>`).join('')}
       </ol>
@@ -99,22 +99,27 @@ export function renderHome(app, data) {
   <section class="wrap section legend" aria-labelledby="legend-title">
     <div class="section-head reveal">
       <p class="eyebrow">Reading the cards</p>
-      <h2 id="legend-title">Every food gets a badge and two tags</h2>
+      <h2 id="legend-title">Three things on every card</h2>
     </div>
     <div class="legend-grid">
-      ${[['low', 30], ['moderate', 58], ['high', 120]].map(([lv, v]) => `
-        <div class="legend-card legend-${lv} reveal">
-          ${badge(lv)}
-          <p class="legend-range">II ${lv === 'low' ? 'under 45' : lv === 'moderate' ? '45 to 70' : 'over 70'}</p>
-          ${meter(v)}
-        </div>`).join('')}
-      <div class="legend-card legend-tags reveal">
+      <div class="legend-card reveal">
+        <p class="legend-kicker">The number</p>
+        <p class="legend-ii"><span class="ii-num">62</span><span class="ii-unit">II</span></p>
+        ${meter(62)}
+        <p>The II exactly as published. The reference food is 100, so 62 means 62% of the reference food’s insulin response.</p>
+      </div>
+      <div class="legend-card reveal">
+        <p class="legend-kicker">The reference food</p>
         <div class="legend-tagrow">${refTag('glucose')}${refTag('bread')}</div>
-        <p>The reference food scored 100. <strong>Only compare foods with the same tag.</strong></p>
+        <p>What the food was measured against. <strong>Only compare foods with the same tag.</strong></p>
+      </div>
+      <div class="legend-card reveal">
+        <p class="legend-kicker">Single or mixed</p>
         <div class="legend-tagrow">${mealTag('SINGLE')}${mealTag('MIXED MEAL')}</div>
+        <p>One food on its own, or a meal of several foods eaten together.</p>
       </div>
     </div>
-    <p class="note reveal"><span aria-hidden="true">ℹ️</span> There is no agreed clinical cut-off for a low, moderate or high II. These bands are this site’s own, to make browsing easier.</p>
+    <p class="note reveal"><span aria-hidden="true">ℹ️</span><span>There is no agreed clinical cut-off for a low or high II, so this site doesn’t label foods as low or high. Compare the numbers, like with like.</span></p>
   </section>
 
   <section class="wrap section" aria-labelledby="tiles-title">

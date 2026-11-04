@@ -1,18 +1,20 @@
-// Curated collections: Lowest-II picks (single foods, II < 45) and Mixed meals.
+// Curated collections: Lowest-II picks (every single food, ranked lowest first within
+// each reference food, with no cut-off) and Mixed meals.
 // Light filters (group, reference food, sort) kept in the URL, cards render progressively.
 
-import { card, esc, groupStyle, pageHero, plain, badge, refTag } from './ui.js';
+import { card, esc, groupStyle, pageHero, plain, refTag } from './ui.js';
 
 const BATCH = 48;
 
 export const COLLECTIONS = {
   lowest: {
     eyebrow: 'Lowest-II picks',
-    title: (n) => `${n} single foods under II 45`,
-    lede: 'Single foods that scored under 45, the site’s “low” band. Low doesn’t automatically mean better, and a “vs bread” number can’t be lined up against a “vs glucose” one.',
+    title: () => 'Single foods, lowest II first',
+    lede: 'All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each reference food gets its own ranking, because a “vs bread” number can’t be lined up against a “vs glucose” one.',
     photo: 557659, emoji: '🥗', tone: '#D8F0DC,#A9DDB4',
-    filter: (f) => f.meal === 'SINGLE' && f.iiValue < 45,
-    explorer: '#/explorer?level=low&meal=single',
+    filter: (f) => f.meal === 'SINGLE',
+    explorer: (state) => `#/explorer?meal=single&ref=${state.ref}`,
+    ranked: true,
   },
   mixed: {
     eyebrow: 'Mixed meals',
@@ -20,7 +22,7 @@ export const COLLECTIONS = {
     lede: 'Breakfasts, lunches, dinners and food combinations eaten together. Real meals, so portions and volunteers vary a lot between studies.',
     photo: 11873900, emoji: '🍱', tone: '#E9DFF7,#CDB8EE',
     filter: (f) => f.meal === 'MIXED MEAL',
-    explorer: '#/explorer?meal=mixed',
+    explorer: (state) => `#/explorer?meal=mixed${state.ref ? `&ref=${state.ref}` : ''}`,
     highlights: true,
   },
 };
@@ -33,9 +35,11 @@ export function renderCollection(app, data, params, route) {
   const groups = data.groups.filter((g) => all.some((f) => f.group === g.id));
   const state = {
     group: groups.some((g) => g.id === params.get('group')) ? params.get('group') : '',
-    ref: ['glucose', 'bread'].includes(params.get('ref')) ? params.get('ref') : '',
-    sort: SORTS[params.get('sort')] ? params.get('sort') : 'asc',
+    // A ranking only makes sense within one reference food, so ranked pages always pick one.
+    ref: ['glucose', 'bread'].includes(params.get('ref')) ? params.get('ref') : (cfg.ranked ? 'glucose' : ''),
+    sort: !cfg.ranked && SORTS[params.get('sort')] ? params.get('sort') : 'asc',
   };
+  const refOptions = cfg.ranked ? [['glucose', 'vs glucose'], ['bread', 'vs bread']] : [['', 'All'], ['glucose', 'vs glucose'], ['bread', 'vs bread']];
   const byRef = (r) => all.filter((f) => f.ref === r).length;
   const top = groups.map((g) => [g, all.filter((f) => f.group === g.id).length]).sort((a, b) => b[1] - a[1]);
   const sortedAll = [...all].sort((a, b) => a.iiValue - b.iiValue);
@@ -44,7 +48,7 @@ export function renderCollection(app, data, params, route) {
     <span class="hl-label">${label}</span>
     <span class="hl-ii">${esc(f.ii)}</span>
     <span class="hl-name">${esc(plain(f.name))}</span>
-    <span class="hl-tags">${badge(f.level)}${refTag(f.ref)}</span>
+    <span class="hl-tags">${refTag(f.ref)}</span>
   </button>`;
 
   app.innerHTML = `
@@ -62,22 +66,22 @@ export function renderCollection(app, data, params, route) {
     ${cfg.highlights ? `<div class="hl-row reveal">
       ${highlight(sortedAll[0], 'Lowest mixed meal')}
       ${highlight(sortedAll[sortedAll.length - 1], 'Highest mixed meal')}
-    </div>` : `<p class="note reveal"><span aria-hidden="true">🥚</span><span>Most come from ${top.slice(0, 3).map(([g, n]) => `<strong>${esc(g.label)}</strong> (${n})`).join(', ')}.</span></p>`}
+    </div>` : ''}
 
     <div class="coll-controls">
       <div class="chip-scroll" role="group" aria-label="Food group">
-        <button type="button" class="chip" data-g="" aria-pressed="${!state.group}"><span class="chip-label">All groups</span><span class="chip-n">${all.length}</span></button>
+        <button type="button" class="chip" data-g="" aria-pressed="${!state.group}"><span class="chip-label">All groups</span><span class="chip-n" data-n=""></span></button>
         ${top.map(([g, n]) => `<button type="button" class="chip chip-group" data-g="${g.id}" style="${groupStyle(g)}" aria-pressed="${state.group === g.id}">
-          <span aria-hidden="true">${g.emoji}</span><span class="chip-label">${esc(g.label)}</span><span class="chip-n">${n}</span></button>`).join('')}
+          <span aria-hidden="true">${g.emoji}</span><span class="chip-label">${esc(g.label)}</span><span class="chip-n" data-n="${g.id}"></span></button>`).join('')}
       </div>
       <div class="coll-row">
         <div class="seg" role="group" aria-label="Reference food">
-          ${[['', 'All'], ['glucose', 'vs glucose'], ['bread', 'vs bread']].map(([v, l]) => `<button type="button" data-ref="${v}" aria-pressed="${state.ref === v}">${l}</button>`).join('')}
+          ${refOptions.map(([v, l]) => `<button type="button" data-ref="${v}" aria-pressed="${state.ref === v}">${l}</button>`).join('')}
         </div>
-        <label class="sort"><span class="sr-only">Sort by</span>
-          <select id="csort">${Object.entries(SORTS).map(([v, l]) => `<option value="${v}"${v === state.sort ? ' selected' : ''}>${l}</option>`).join('')}</select></label>
+        ${cfg.ranked ? '' : `<label class="sort"><span class="sr-only">Sort by</span>
+          <select id="csort">${Object.entries(SORTS).map(([v, l]) => `<option value="${v}"${v === state.sort ? ' selected' : ''}>${l}</option>`).join('')}</select></label>`}
         <p class="count" id="ccount" aria-live="polite"></p>
-        <a class="see-all" href="${cfg.explorer}">Open in Explorer <span aria-hidden="true">→</span></a>
+        <a class="see-all" id="cexplorer" href="${cfg.explorer(state)}">Open in Explorer <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -95,7 +99,7 @@ export function renderCollection(app, data, params, route) {
 
   function more() {
     const next = results.slice(shown, shown + BATCH);
-    list.insertAdjacentHTML('beforeend', next.map((f, i) => card(f, i)).join(''));
+    list.insertAdjacentHTML('beforeend', next.map((f, i) => card(f, i, cfg.ranked ? shown + i + 1 : 0)).join(''));
     shown += next.length;
     sentinel.hidden = shown >= results.length;
   }
@@ -107,7 +111,10 @@ export function renderCollection(app, data, params, route) {
     shown = 0;
     list.innerHTML = '';
     more();
-    $('#ccount').innerHTML = `<strong>${results.length}</strong> of ${all.length}`;
+    const inRef = all.filter((f) => !state.ref || f.ref === state.ref);
+    $('#ccount').innerHTML = `<strong>${results.length}</strong> of ${inRef.length}${state.ref ? ` vs ${state.ref}` : ''}`;
+    app.querySelectorAll('[data-n]').forEach((el) => { el.textContent = inRef.filter((f) => !el.dataset.n || f.group === el.dataset.n).length; });
+    $('#cexplorer').href = cfg.explorer(state);
     app.querySelectorAll('[data-g]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.g === state.group)));
     app.querySelectorAll('[data-ref]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.ref === state.ref)));
     const p = new URLSearchParams();
@@ -124,7 +131,7 @@ export function renderCollection(app, data, params, route) {
     const r = e.target.closest('[data-ref]');
     if (r) { state.ref = r.dataset.ref; update(); }
   });
-  $('#csort').addEventListener('change', (e) => { state.sort = e.target.value; update(); });
+  $('#csort')?.addEventListener('change', (e) => { state.sort = e.target.value; update(); });
 
   const io = new IntersectionObserver((en) => { if (en.some((x) => x.isIntersecting) && shown < results.length) more(); }, { rootMargin: '900px 0px' });
   io.observe(sentinel);
