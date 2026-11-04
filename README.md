@@ -121,6 +121,3 @@ scripts/build_foods.py   CSV → foods.json, plus the data checks
 - **Photos:** [Pexels](https://www.pexels.com). If a photo can't load, the site shows a soft gradient
   with an emoji instead, so a broken image never appears.
 - **Fonts:** Fraunces and Plus Jakarta Sans, from Google Fonts.
-
-For learning only, not medical or dietary advice. Anyone with diabetes or another health condition
-should speak to their doctor or dietitian.

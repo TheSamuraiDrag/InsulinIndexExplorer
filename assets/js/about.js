@@ -97,7 +97,6 @@ export function renderAbout(app, data) {
         <li><strong>People differ.</strong> Insulin responses can differ by ethnicity, sex and hormonal factors such as menopause.</li>
         <li><strong>No agreed cut-off.</strong> There is no agreed clinical cut-off for a low, medium or high II.</li>
       </ul>
-      <p class="disclaimer-box reveal"><span aria-hidden="true">🩺</span> <span><strong>For learning only, not medical or dietary advice.</strong> Anyone with diabetes or another health condition should speak to their doctor or dietitian.</span></p>
     </section>
 
     <section class="about-sec" aria-labelledby="h-site">

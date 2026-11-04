@@ -1229,7 +1229,6 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .t2 p { color: var(--ink-soft); }
 .limits li, .site-rules li, .credits li { padding: 12px 16px; border-radius: var(--radius-s); background: var(--surface); box-shadow: var(--shadow-s); color: var(--ink-soft); }
 .limits strong, .site-rules strong, .credits strong { color: var(--ink); }
-.disclaimer-box { display: flex; gap: 12px; margin-top: 14px; padding: 16px 18px; border-radius: var(--radius); background: #FFF0D2; border: 1.5px solid #F1C772; color: #5A3B00; }
 .map-table { background: var(--surface); border-radius: var(--radius); overflow: hidden; margin-top: 12px; box-shadow: var(--shadow-s); }
 .map-table td:last-child { font-variant-numeric: tabular-nums; font-weight: 700; }
 .downloads { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
