@@ -23,12 +23,12 @@ function curveDiagram() {
       ${[0, 30, 60, 90, 120].map((t) => `<text class="d-tick" x="${x(t)}" y="282" text-anchor="middle">${t}</text>`).join('')}
       <text class="d-axis-label" x="335" y="308" text-anchor="middle">Minutes after eating</text>
       <text class="d-axis-label" x="22" y="150" text-anchor="middle" transform="rotate(-90 22 150)">Blood insulin</text>
-      <g class="d-key"><circle cx="410" cy="62" r="6" class="d-ref-dot"/><text x="424" y="67">Reference food = 100</text>
+      <g class="d-key"><circle cx="410" cy="62" r="6" class="d-ref-dot"/><text x="424" y="67">Reference food</text>
         <circle cx="410" cy="90" r="6" class="d-test-dot"/><text x="424" y="95">Test food</text></g>
       <text class="d-note" x="168" y="128">larger area</text>
       <text class="d-note" x="168" y="222">smaller area</text>
     </svg>
-    <figcaption><strong>II = area under the test food’s curve ÷ area under the reference curve × 100</strong>, averaged across at least 10 volunteers.
+    <figcaption><strong>II = the test food’s area ÷ the reference food’s area</strong>, averaged across at least 10 volunteers and shown as a percentage.
       <span>Illustration only, not real data.</span></figcaption>
   </figure>`;
 }
@@ -44,13 +44,13 @@ function rulers(data) {
       <div class="ruler-track">
         <span class="ruler-band" style="left:${p(30)};width:${p(110)}"><span>bread across studies, about 30–140</span></span>
         <span class="ruler-mark mark-bread" style="left:${p(70)}"><span>bread ≈ 70</span></span>
-        <span class="ruler-mark mark-glucose" style="left:${p(100)}"><span>glucose = 100</span></span>
+        <span class="ruler-mark mark-glucose" style="left:${p(100)}"><span>glucose itself = 100</span></span>
       </div>
     </div>
     <div class="ruler">
       <p class="ruler-title">${refTag('bread')} Bread is the yardstick</p>
       <div class="ruler-track">
-        <span class="ruler-mark mark-bread" style="left:${p(100)}"><span>bread = 100</span></span>
+        <span class="ruler-mark mark-bread" style="left:${p(100)}"><span>bread itself = 100</span></span>
       </div>
     </div>
     <div class="share">
@@ -75,7 +75,7 @@ function medianChart(data) {
   const panel = (ref, title) => `<figure class="chart-panel chart-${ref}">
     <figcaption><span class="chart-title">${title}</span><span class="chart-sub">Median II per group · n = entries</span></figcaption>
     <div class="chart-plot">
-      <div class="chart-grid" aria-hidden="true">${[0, 50, 100, 150].map((v) => `<span class="${v === 100 ? 'is-ref' : ''}" style="left:${(v / CHART_MAX) * 100}%"><span>${v === 100 ? '100 = reference' : v}</span></span>`).join('')}</div>
+      <div class="chart-grid" aria-hidden="true">${[0, 50, 100, 150].map((v) => `<span class="${v === 100 ? 'is-ref' : ''}" style="left:${(v / CHART_MAX) * 100}%"><span>${v === 100 ? '100 = same as reference' : v}</span></span>`).join('')}</div>
       ${rows.map(({ g, [ref]: s }) => `<div class="chart-row">
         <span class="chart-label"><span aria-hidden="true">${g.emoji}</span> ${esc(g.label)}</span>
         <span class="chart-track">${s ? `<a class="chart-bar" href="#/explorer?group=${g.id}&ref=${ref}" style="--w:${Math.min(100, (s.med / CHART_MAX) * 100)}%"
@@ -104,7 +104,7 @@ function medianChart(data) {
 export function renderGuide(app, data) {
   const g = Object.fromEntries(data.groups.map((x) => [x.id, x]));
   const finds = [
-    ['37–127', 'Foods often recommended for weight or blood-sugar control', 'Skim milk, yoghurt, most fruits, brown rice, wholemeal and sourdough bread, wholegrain cereals, most vegetables, honey and oats.', 'cereals'],
+    ['37–127', 'Foods often recommended for weight or blood-sugar control', 'Skim fat milk, yoghurt, fruits (except avocado), brown rice, wholemeal and sourdough bread, wholegrain cereal, vegetables (except broccoli), honey and oats.', 'cereals'],
     ['2–31', 'Protein and fat foods', 'Chicken, lamb, eggs, tuna, butter and cream.', 'protein'],
     ['1', 'Lowest single foods', 'Gin and acacia fibre (Fibregum).', 'drinks'],
     ['209', 'Highest single food', 'Nutricia Karicare Soy infant formula.', 'special'],
@@ -133,11 +133,11 @@ export function renderGuide(app, data) {
         <li><span class="step-emoji" aria-hidden="true">🍽️</span><strong>Eat the test food</strong><span>Volunteers eat a set portion of the food being tested.</span></li>
         <li><span class="step-emoji" aria-hidden="true">🧪</span><strong>Eat the reference</strong><span>On another occasion, they eat the reference food: glucose or white bread.</span></li>
         <li><span class="step-emoji" aria-hidden="true">🩸</span><strong>Measure insulin</strong><span>Blood insulin is measured for about 2 hours each time.</span></li>
-        <li><span class="step-emoji" aria-hidden="true">➗</span><strong>Compare the areas</strong><span>The average ratio across at least 10 volunteers, as a percentage. Reference = 100.</span></li>
+        <li><span class="step-emoji" aria-hidden="true">➗</span><strong>Compare the areas</strong><span>The average ratio of the two areas across at least 10 volunteers, shown as a percentage.</span></li>
       </ol>
       ${curveDiagram()}
       <aside class="analogy reveal"><span class="analogy-tag">Analogy</span>
-        <p>Think of insulin as <strong>keys</strong> that let glucose into your cells. The II asks: over the next 2 hours, how many keys did the body hand out for this food, compared with the reference food (counted as 100)? An II of 50 means about half the insulin “area” of the reference.</p>
+        <p>Think of insulin as <strong>keys</strong> that let glucose into your cells. The II asks: over the next 2 hours, how many keys did the body hand out for this food, compared with the reference food? An II of 50 means about half the insulin “area” of the reference.</p>
       </aside>
     </section>
 
@@ -149,7 +149,7 @@ export function renderGuide(app, data) {
         <span class="vs-mid" aria-hidden="true">vs</span>
         <div class="vs-card vs-ii"><span class="vs-emoji" aria-hidden="true">🔑</span><h3>Insulin index (II)</h3><p>Tracks <strong>blood insulin</strong> after a food.</p></div>
       </div>
-      <p class="callout reveal"><span aria-hidden="true">💡</span> Protein foods such as meat, fish and dairy can raise insulin more than their glucose effect suggests. That is something the GI alone can miss.</p>
+      <p class="callout reveal"><span aria-hidden="true">💡</span><span>In the GI, carbohydrates drive the value. The II can be affected by carbohydrates, proteins and fat, and by how they are combined, which the GI alone can miss.</span></p>
     </section>
 
     <section class="guide-sec" id="g-like" aria-labelledby="h-like">
@@ -167,7 +167,7 @@ export function renderGuide(app, data) {
     <section class="guide-sec" id="g-number" aria-labelledby="h-number">
       <p class="eyebrow">4 · Reading the number</p>
       <h2 id="h-number">No labels, just the number against 100</h2>
-      <p class="guide-p">The II is a percentage of the reference food’s insulin response, so the number already says how it compares.</p>
+      <p class="guide-p">The paper describes the II as “the average ratio of the test food’s iAUC against a reference food” represented “in percentage” (Hendricks et al., 2024, p. 93). So the number already says how a food compares with its reference.</p>
       <div class="read-ex reveal">
         <div><span class="read-num">62</span><span>62% of the reference food’s insulin response</span></div>
         <div><span class="read-num">100</span><span>the same as the reference food</span></div>

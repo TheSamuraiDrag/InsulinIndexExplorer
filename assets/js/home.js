@@ -14,8 +14,8 @@ const TILES = [
 const FINDINGS = [
   { big: '1', label: 'Lowest single foods', text: 'Gin and acacia fibre (Fibregum) both scored II 1.', href: '#/explorer?sort=asc', emoji: '🍸', group: 'drinks' },
   { big: '209', label: 'Highest single food', text: 'Nutricia Karicare Soy infant formula.', href: '#/explorer?food=374', emoji: '🍼', group: 'special' },
-  { big: '2–31', label: 'Protein & fat foods', text: 'Chicken, lamb, eggs, tuna, butter and cream all scored low.', href: '#/explorer?group=protein', emoji: '🍳', group: 'protein' },
-  { big: '37–127', label: '“Healthy” staples', text: 'Skim milk, yoghurt, most fruits, brown rice, wholemeal and sourdough bread, wholegrain cereals, most vegetables, honey and oats.', href: '#/explorer?sort=desc', emoji: '🥣', group: 'cereals' },
+  { big: '2–31', label: 'Protein & fat foods', text: 'Chicken, lamb, eggs, tuna, butter and cream fell within a lower range.', href: '#/explorer?group=protein', emoji: '🍳', group: 'protein' },
+  { big: '37–127', label: '“Healthy” staples', text: 'Skim fat milk, yoghurt, fruits (except avocado), brown rice, wholemeal and sourdough bread, wholegrain cereal, vegetables (except broccoli), honey and oats.', href: '#/explorer?sort=desc', emoji: '🥣', group: 'cereals' },
   { big: '13', label: 'Lowest mixed meal', text: 'A corn-tortilla taco with potato, watermelon and honey.', href: '#/explorer?food=497', emoji: '🌮', group: 'regional' },
   { big: '185', label: 'Highest mixed meal', text: 'Freshly boiled Sava potatoes with water, tea or coffee.', href: '#/explorer?food=461', emoji: '🥔', group: 'potatoes' },
   { big: 'High ≠ bad', label: 'Context matters', text: 'A high II isn’t automatically bad, for example in sports nutrition.', href: '#/explorer?sort=desc', emoji: '🏃', group: 'fruit' },
@@ -38,7 +38,7 @@ export function renderHome(app, data) {
     <div class="wrap hero-content">
       <p class="eyebrow eyebrow-light">A food-by-food guide · 2023 collectanea</p>
       <h1 class="hero-title">How much insulin does your <span class="hl">food</span> call for?</h1>
-      <p class="hero-lede">The insulin index (II) compares how much insulin the body releases over about 2 hours after a food with a reference food, glucose or white bread, scored 100.</p>
+      <p class="hero-lede">The insulin index (II) is the body’s insulin response over 2 hours after a food, given as a percentage of the response to a reference food: glucose or bread.</p>
       <form class="hero-search" role="search" action="#/explorer">
         <label for="home-q" class="sr-only">Search foods</label>
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -106,7 +106,7 @@ export function renderHome(app, data) {
         <p class="legend-kicker">The number</p>
         <p class="legend-ii"><span class="ii-num">62</span><span class="ii-unit">II</span></p>
         ${meter(62)}
-        <p>The II exactly as published. The reference food is 100, so 62 means 62% of the reference food’s insulin response.</p>
+        <p>The II exactly as published. It is a percentage of the reference food’s insulin response, so 62 means 62% of it.</p>
       </div>
       <div class="legend-card reveal">
         <p class="legend-kicker">The reference food</p>

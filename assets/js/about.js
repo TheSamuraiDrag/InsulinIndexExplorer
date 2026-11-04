@@ -58,9 +58,9 @@ export function renderAbout(app, data) {
       <div class="criteria reveal">
         <h3>To be included, a study needed</h3>
         <ul>
-          <li><span aria-hidden="true">👥</span> At least 10 healthy adults without diabetes and with a normal BMI</li>
+          <li><span aria-hidden="true">👥</span> At least 10 healthy, non-diabetic subjects with a normal BMI</li>
           <li><span aria-hidden="true">🍞</span> Glucose or bread as the reference food</li>
-          <li><span aria-hidden="true">📐</span> II calculated from the incremental area under the insulin curve (FAO method)</li>
+          <li><span aria-hidden="true">📐</span> II calculated by the FAO-recommended trapezoid method, indexing the test food’s iAUC to the reference food’s iAUC</li>
         </ul>
         <h3>And</h3>
         <ul>

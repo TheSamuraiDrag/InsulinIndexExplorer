@@ -61,7 +61,7 @@ export const refTag = (ref) =>
 export const mealTag = (meal) =>
   `<span class="tag tag-meal">${meal === 'SINGLE' ? 'Single food' : 'Mixed meal'}</span>`;
 
-// Neutral position on a 0–210 scale. The only mark is 100, the reference food:
+// Neutral position on a 0–210 scale. The only mark is 100, the same response as the reference food:
 // the paper gives no low/high cut-offs, so the bar carries no bands or colours.
 export function meter(value, big = false) {
   const pct = Math.min(100, (value / METER_MAX) * 100).toFixed(1);
@@ -206,7 +206,7 @@ export function openDetail(n) {
       <p class="detail-meaning">= ${vsReference(f)}, on average across the volunteers.</p>
       <div class="detail-meter">
         ${meter(f.iiValue, true)}
-        <div class="meter-scale" aria-hidden="true"><span>0</span><span class="scale-ref">100 = reference</span><span>210</span></div>
+        <div class="meter-scale" aria-hidden="true"><span>0</span><span class="scale-ref">100 = same as reference</span><span>210</span></div>
       </div>
       <p class="detail-ref-note"><span aria-hidden="true">${f.ref === 'bread' ? '🍞' : '🧪'}</span>
         <span>Scored against <strong>${f.ref}</strong>. Only compare it with other “vs ${f.ref}” foods.</span></p>
@@ -262,7 +262,7 @@ function barChart(items) {
         <span class="bar-track"><span class="bar" style="--w:${(f.iiValue / max) * 100}%"></span>
           <span class="bar-val">${esc(f.ii)} <small>vs ${f.ref}</small></span></span>
       </div>`).join('')}
-      <span class="bars-ref" aria-hidden="true"><span>100 = reference</span></span>
+      <span class="bars-ref" aria-hidden="true"><span>100 = same as reference</span></span>
     </div>
   </figure>`;
 }
