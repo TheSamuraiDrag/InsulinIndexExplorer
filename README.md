@@ -9,18 +9,118 @@ Supplemental Table 1 of:
 
 Plain HTML, CSS and JavaScript. No build step, no backend, no framework. It runs on GitHub Pages.
 
+## Admin guide
+
+For team members who look after the website. The everyday jobs need no coding.
+
+### 1. Sign in
+
+1. Open the website, scroll to the bottom and click **Admin login** (or add `#/admin` to the address).
+2. Type the team's admin username and password. Ask the site owner; they are deliberately not
+   written anywhere in this repository.
+3. Tick **Keep me signed in** only on your own computer.
+
+The Admin area has four tabs. **Admin guide ↗** next to your name opens this page.
+
+| Tab | Use it to |
+|---|---|
+| **Data check** | check the website's table against the paper's PDF, row by row |
+| **Photos** | add, replace or remove food photos, their credits, and which foods use them |
+| **Activity** | see everything published to the website: what, when and by whom |
+| **Visitors** | see how many visits the website and each page have had |
+
+### 2. Add or change a food photo
+
+1. **Photos** tab → **+ Add a photo**, or click an existing photo to edit or replace it.
+2. Upload or drag in the image and adjust the crop. The browser resizes it and removes location
+   and camera data.
+3. Fill in the credit: what it shows, author, licence and source link. Only use photos whose
+   licence allows a public website (CC BY, CC BY-SA, CC0, public domain, the Pexels, Pixabay or
+   Unsplash licence) or the team's own photos.
+4. Choose which foods use it, by Table 1 number or name. A photo shows the **type** of food
+   (for example "rye bread"), never the exact product tested.
+5. Check the preview on the site (only you see it), type a short note saying why, then press
+   **Publish to website**. The live site updates about a minute later, and Activity records it.
+
+The first time you publish on a device, the site asks you to **connect GitHub** (step 3).
+
+### 3. Connect GitHub (once per device, only needed to publish)
+
+1. The site owner adds your GitHub account as a collaborator (repository Settings → Collaborators).
+2. Create a fine-grained access token (the Connect dialog links straight there):
+   Resource owner = the repository's owner; Repository access = only this repository;
+   Permissions → Contents: **Read and write**.
+3. Paste it into the Connect dialog. It is remembered on that device only and sent only to GitHub.
+   On a shared computer, untick **Remember on this device**, or press **Disconnect GitHub** afterwards.
+
+### 4. Check the data against the paper
+
+**Data check** shows Table 1 in the PDF's order with PDF page numbers, automated checks, and
+"Worth a look" flags for likely copy slips. Tick rows as you check them, flag a row with a note,
+and use **Export review (CSV)** to share your progress. Ticks are saved in that browser only.
+
+### 5. Visitor counts
+
+**Visitors** shows visits for all time, the last 30 days or the last 7 days, in total and per page.
+Countries, referrers and devices are on the full GoatCounter dashboard (**Open full dashboard ↗**;
+sign in with the team's GoatCounter account).
+
+### 6. Problems reported by visitors
+
+Every food has **Report a problem with this entry**. It opens an email to `reportEmail` (see
+Settings below) with the food's number, name, II and study filled in. Check it against the PDF
+in Data check. A value that matches the paper stays as it is, even if it looks odd.
+
+### 7. Ground rules
+
+- II values, food names and study names are always shown **exactly as published**.
+- No low/high labels, colours or cut-offs: the paper gives none.
+- Never write a password or token into any file.
+
+### Site settings (`assets/js/config.js`)
+
+Edit the file on GitHub (pencil icon), then **Commit changes**. The site updates in about a minute.
+
+| Setting | What it does |
+|---|---|
+| `version` | the "Website vX" in the footer; match the GitHub release |
+| `dataSource` | the data line in the footer |
+| `url` | the public address, used in report emails |
+| `reportEmail` | where "Report a problem" emails go; empty hides the link |
+| `goatcounter` | the GoatCounter code; empty turns visitor counting off |
+| `countFrom` | the Visitors tab counts from this date, e.g. `'2026-12-01'` |
+| `countOnlyOn` | the addresses whose visits are counted |
+
+### Release a new version
+
+1. Set `version` in `assets/js/config.js` (for example `'3.0'`) and commit.
+2. On GitHub: **Releases → Draft a new release**, tag `v3.0`, choose the website's branch, write
+   what changed, **Publish release**. Each release is a snapshot you can go back to.
+
+### Before the public launch
+
+- Change the admin password: `python3 scripts/set_admin_login.py`, then commit `assets/js/admin.js`.
+- In `config.js`, remove `'thesamuraidrag.github.io'` from `countOnlyOn` and set `countFrom` to the launch date.
+- Ask fluent speakers to check `data/translations.csv` (Malay and Chinese).
+- GoatCounter → Settings → **Dashboard viewable by**: only logged-in users.
+- For the custom domain, update `url` in `config.js` and the link-preview addresses at the top of `index.html`.
+
+---
+
+The rest of this file is for whoever maintains the code.
+
 ## Pages
 
 | Page | Address | What it does |
 |---|---|---|
 | Home | `#/` | Search, quick stats, food groups, badge legend, section tiles |
-| Food Explorer | `#/explorer` | Instant search, filters, sort, detail panel, compare up to 3 |
+| Food Explorer | `#/explorer` | Instant search, filters, sort, detail panel, compare up to 3, CSV download, report a problem |
 | Food groups | `#/groups` | 14 groups with counts, II range and a dot strip of every food |
 | Lowest-II picks | `#/lowest` | All 469 single foods ranked lowest first, separately for glucose and bread |
 | Mixed meals | `#/mixed` | All 160 mixed meals |
 | How to read the II | `#/guide` | What the II means, II vs GI, comparing like with like, median chart |
 | About & sources | `#/about` | Citation, methods, footnotes, Table 2 note, limitations, licence |
-| Admin (sign-in) | `#/admin` | Data check (table laid out like the PDF) and Photos (upload and manage) |
+| Admin (sign-in) | `#/admin` | Data check, Photos, Activity and Visitors (see the Admin guide above) |
 
 Pages use hash addresses (`#/explorer?group=bread&ref=glucose`), so every view can be shared and
 refreshing never gives a 404 on GitHub Pages. Explorer filters are saved in the address.
@@ -75,7 +175,7 @@ Notes:
   `scripts/build_foods.py`, or the script stops and tells you which one.
 - **No low/high bands.** The paper gives no agreed clinical cut-off, so the site shows each II as
   published, without labels, traffic-light colours or reference marks.
-- **The reference tag** is "vs bread" when the comparator mentions bread, otherwise "vs glucose".
+- **The comparator tag** is "Comparator: bread" when the comparator mentions bread, otherwise "Comparator: glucose".
 - `data/mmc2_insulinaemic_index.csv` (Supplemental Table 2: 124 foods from 31 studies that did not
   meet the paper's main criteria) is kept for reference only. The site never loads it.
 
@@ -105,11 +205,10 @@ Behind the scenes:
 
 ## Admin page and sign-in
 
-The Admin page (`#/admin`) isn't linked from the public site. Open it by adding `#/admin` to the
-site address.
+Open the Admin page from **Admin login** in the footer, or add `#/admin` to the site address.
 
 **Sign in** with the team's admin username and password (ask the site owner; they're
-deliberately not written in this repository). This opens the Data check and Photos tabs.
+deliberately not written in this repository). This opens the four admin tabs.
 
 **Publishing photo changes** also needs a GitHub connection, asked for once per device the first
 time someone presses Publish:
@@ -149,7 +248,6 @@ Shows how many visits the public website has had (all time, last 30 days, last 7
 and page by page, from GoatCounter. It needs one setting, once: in GoatCounter go to
 **Settings**, tick **“Allow adding visitor counts on your website”** and save. Countries,
 browsers and referrers are on the full GoatCounter dashboard, linked from the tab.
-
 
 **Starting fresh at launch:** set `countFrom` in `assets/js/config.js` to the launch date (for
 example `'2026-12-01'`). The tab then only counts visits from that day, so test visits disappear

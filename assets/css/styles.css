@@ -1415,3 +1415,9 @@ html:lang(zh-Hans) :is(.hero-lede, .page-hero-lede, .hero .eyebrow, .page-hero .
 .vis-name { min-width: 0; overflow-wrap: anywhere; }
 .vis-dash { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 14px; }
 .vis-dash .hint { max-width: 60ch; }
+.admin-who .link-btn { padding: 2px 1px; font-size: inherit; }
+@media (max-width: 600px) {
+  .admin-nav .seg { display: flex; flex-wrap: nowrap; width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .admin-nav .seg::-webkit-scrollbar { display: none; }
+  .admin-nav .seg a { flex: 1 0 auto; justify-content: center; padding: 4px 10px; font-size: .84rem; white-space: nowrap; }
+}

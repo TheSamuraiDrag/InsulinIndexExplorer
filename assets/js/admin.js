@@ -169,6 +169,12 @@ export function renderAdmin(app, data, params) {
   return () => { active(); active = () => {}; };
 }
 
+// The step-by-step admin guide is the README's first section on GitHub.
+function guideUrl() {
+  const { owner, repo } = gh.repoConfig();
+  return `https://github.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}#admin-guide`;
+}
+
 function draw(app, data, params) {
   if (!loggedIn()) return renderSignIn(app, data, params);
   const tab = ['photos', 'activity', 'visitors'].includes(params.get('tab')) ? params.get('tab') : 'data';
@@ -181,6 +187,7 @@ function draw(app, data, params) {
       </div>
       <p class="admin-who">Signed in as <strong>${esc(readLogin().user || 'admin')}</strong>
         <span data-gh-status>${gh.statusHtml()}</span>
+        · <a class="link-btn" href="${esc(guideUrl())}" target="_blank" rel="noopener">Admin guide ↗</a>
         · <button type="button" class="link-btn" data-signout>Sign out</button></p>
     </div>`;
   let cleanup = () => {};

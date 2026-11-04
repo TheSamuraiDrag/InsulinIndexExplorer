@@ -83,7 +83,10 @@ function loadCounter() {
 
 function navigate() {
   if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.startViewTransition(render);
+    const t = document.startViewTransition(render);
+    // Tapping again mid-animation skips the old animation; that's expected, not an error.
+    const skipped = (e) => { if (e?.name !== 'AbortError' && e?.name !== 'InvalidStateError') throw e; };
+    t.ready.catch(skipped); t.finished.catch(skipped);
   } else {
     render();
   }
