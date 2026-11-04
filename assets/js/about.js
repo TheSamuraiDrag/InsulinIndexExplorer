@@ -85,7 +85,7 @@ export function renderAbout(app, data) {
       <div class="t2 reveal">
         <span class="t2-num">124</span>
         <div><h2 id="h-t2">What about Supplemental Table 2?</h2>
-          <p>The paper also lists <strong>124 foods from 31 studies</strong> that did not meet its main criteria. They are kept separate in Supplemental Table 2 and are <strong>not included anywhere on this site</strong>, so every number here meets the inclusion criteria above.</p></div>
+          <p>The paper also lists <strong>124 foods from 31 studies</strong> that did not meet its main inclusion criteria, mainly because they had <strong>9 or fewer subjects</strong>, <strong>not enough information on BMI or health</strong>, or <strong>subjects over 65</strong>. The authors kept them separate in Supplemental Table 2 because they may still help researchers and clinicians. They are <strong>not included on this site</strong>, so every number here meets the inclusion criteria above.</p></div>
       </div>
     </section>
 
