@@ -55,17 +55,17 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 54,Fruit flavoured beverage + filtered molasses concentrate (1.8g),MIXED MEAL,
 55,Ice tea (Narkena Ltd),SINGLE,iced-tea
 56,Lemon ice tea (TAISUN),SINGLE,iced-tea
-57,"Oat drink with β-glucan 2g (oat bran 15g, oat starch 6g, and glucose 41g mixed with 400mL water) + 100mL of water",SINGLE,oat-drink
-58,"Oat drink with β-glucan 4g (oat bran 30g, oat starch 3g and glucose 41g mixed with 400mL water) + 100mL of water",SINGLE,oat-drink
-59,"Oat drink with β-glucan 4g (oat bran 30g, oat starch 3g and glucose 41g mixed with 400mL water, frozen then thawed) + 200mL of water",SINGLE,oat-drink
-60,Oat drink with β-glucan 6g (oat bran 45g and glucose 41g mixed with 400mL water) with 100mL of water,SINGLE,oat-drink
+57,"Oat drink with β-glucan 2g (oat bran 15g, oat starch 6g, and glucose 41g mixed with 400mL water) + 100mL of water",SINGLE,
+58,"Oat drink with β-glucan 4g (oat bran 30g, oat starch 3g and glucose 41g mixed with 400mL water) + 100mL of water",SINGLE,
+59,"Oat drink with β-glucan 4g (oat bran 30g, oat starch 3g and glucose 41g mixed with 400mL water, frozen then thawed) + 200mL of water",SINGLE,
+60,Oat drink with β-glucan 6g (oat bran 45g and glucose 41g mixed with 400mL water) with 100mL of water,SINGLE,
 61,Soy drink high in carbohydrates and fibre (250mL),SINGLE,soy-milk
 62,Soy drink high in carbohydrates and fibre + maltodextrins and fibre (250mL),SINGLE,soy-milk
 63,Soy milk (Chocolate Light; Ades),SINGLE,soy-milk
 64,Soy milk (Natural Light; Ades),SINGLE,soy-milk
-65,Apple juice,SINGLE,apple-juice
-66,Apple juice (Berri),SINGLE,apple-juice
-67,Apple juice (Berrivale Orchards Inc),SINGLE,apple-juice
+65,Apple juice,SINGLE,
+66,Apple juice (Berri),SINGLE,
+67,Apple juice (Berrivale Orchards Inc),SINGLE,
 68,"Carrot juice (extracted from fresh, raw carrots)",SINGLE,carrot-juice
 69,Carrot juice (fresh),SINGLE,carrot-juice
 70,Fruit punch (Fruity Flavorits Orange Mango Fruit drink; Frost Foods & Beverage),SINGLE,fruit-drink
@@ -74,8 +74,8 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 73,Amilo rye bread,SINGLE,rye-bread
 74,Bread containing high amylose maize starch and guar gum,SINGLE,white-bread
 75,Bread containing whole grain Visello rye flour and guar gum,SINGLE,rye-bread
-76,Bronze sorghum flour bread,SINGLE,sorghum-bread
-77,Brown sorghum flour bread,SINGLE,sorghum-bread
+76,Bronze sorghum flour bread,SINGLE,
+77,Brown sorghum flour bread,SINGLE,
 78,Candeal flour white bread,SINGLE,white-bread
 79,Commercial rye bread,SINGLE,rye-bread
 80,Einkorn crushed whole grain bread,SINGLE,grain-bread
@@ -95,7 +95,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 94,Picasso rye bread,SINGLE,rye-bread
 95,Rye bran bread,SINGLE,rye-bread
 96,Rye bread (with lactic acid 90g),SINGLE,rye-bread
-97,Rye kernel bread,SINGLE,rye-kernel-bread
+97,Rye kernel bread,SINGLE,
 98,Rye wheat sourdough bread (Paderborner; Lieken Urkorn),SINGLE,rye-bread
 99,Rye-grain bread containing 47% kibbled rye (Tip Top Bakeries),SINGLE,rye-bread
 100,Vicello rye bread,SINGLE,rye-bread
@@ -109,7 +109,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 108,White bread (Yamazaki),SINGLE,white-bread
 109,White bread + filtered molasses concentrate (3.02g),MIXED MEAL,
 110,White rice flour bread,SINGLE,white-bread
-111,White sorghum flour bread,SINGLE,sorghum-bread
+111,White sorghum flour bread,SINGLE,
 112,White wheat bread,SINGLE,white-bread
 113,White wheat bread containing Hi-maize whole grain corn flour,SINGLE,white-bread
 114,White wheat bread containing Hi-maize whole grain corn flour + 3% added medium molecular weight guar gum,SINGLE,white-bread
@@ -194,15 +194,15 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 193,All-Bran Original (Kellogg Foods Inc) + 125mL 1.5%- fat milk,MIXED MEAL,
 194,All-bran Plus + 1.5% fat semi-skimmed milk,MIXED MEAL,
 195,Alpen original (Weetabix),SINGLE,muesli
-196,Cereal-based biscuits/shortbreads A,SINGLE,shortbread
-197,Cereal-based biscuits/shortbreads B,SINGLE,shortbread
-198,Cereal-based biscuits/shortbreads C,SINGLE,shortbread
-199,Cereal-based biscuits/shortbreads D,SINGLE,shortbread
-200,Cereal-based biscuits/shortbreads E,SINGLE,shortbread
-201,Cereal-based biscuits/shortbreads F,SINGLE,shortbread
+196,Cereal-based biscuits/shortbreads A,SINGLE,plain-biscuits
+197,Cereal-based biscuits/shortbreads B,SINGLE,plain-biscuits
+198,Cereal-based biscuits/shortbreads C,SINGLE,plain-biscuits
+199,Cereal-based biscuits/shortbreads D,SINGLE,plain-biscuits
+200,Cereal-based biscuits/shortbreads E,SINGLE,plain-biscuits
+201,Cereal-based biscuits/shortbreads F,SINGLE,plain-biscuits
 202,Cheerios (General Mills Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
-203,Chocapic (Nestle),SINGLE,chocolate-cereal
-204,"Chocolate-coated puffed rice cereal (Coco Pops, Kellogg’s)",SINGLE,chocolate-cereal
+203,Chocapic (Nestle),SINGLE,
+204,"Chocolate-coated puffed rice cereal (Coco Pops, Kellogg’s)",SINGLE,
 205,Corn Flakes,SINGLE,cornflakes
 206,"Cornflakes (Kellogg Foods Inc, Australia) + 125mL 1.5%-fat milk",MIXED MEAL,
 207,"Cornflakes (Kellogg Foods Inc, USA) + 125mL 1.5%- fat milk",MIXED MEAL,
@@ -210,7 +210,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 209,Cornflakes (Kellogg's),SINGLE,cornflakes
 210,Cornflakes + 1.5% fat semi-skimmed milk,MIXED MEAL,
 211,Cracklin' Oat Bran (Kellogg Foods Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
-212,Energy Mix (Quaker),SINGLE,cereal-flakes
+212,Energy Mix (Quaker),SINGLE,
 213,Extruded product with wheat bran,SINGLE,
 214,Extruded product without wheat bran,SINGLE,
 215,Frosted Flakes (Kellogg Foods Inc) + 125mL 1.5%- fat milk,MIXED MEAL,
@@ -220,7 +220,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 219,Lucky Charms cereal (General Mills Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
 220,Natural muesli (Uncle Toby's Company Ltd) + 125mL fat-reduced (1.5% fat) milk,MIXED MEAL,
 221,"Original Shredded Wheat (Post Foods Healthy Classics, Post Foods Inc) + 125mL 1.5%-fat milk",MIXED MEAL,
-222,"Plain puffed rice (Rice Bubbles, Kellogg’s)",SINGLE,puffed-rice
+222,"Plain puffed rice (Rice Bubbles, Kellogg’s)",SINGLE,
 223,Post Grapenuts (Post Foods Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
 224,Post Great Grains (Kraft Foods Inc) + 125mL 1.5%- fat milk,MIXED MEAL,
 225,Post Honey Bunches of Oats (Post Foods Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
@@ -230,14 +230,14 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 229,"Special K (Kellogg Foods Inc, Australia) + 125mL 1.5%-fat milk",MIXED MEAL,
 230,"Special K (Kellogg Foods Inc, USA) + 125mL 1.5%- fat milk",MIXED MEAL,
 231,Special K (Kellogg’s Australia Pty Ltd) + 125mL fat-reduced (1.5% fat) milk),MIXED MEAL,
-232,Special K (Kellogg's),SINGLE,cereal-flakes
+232,Special K (Kellogg's),SINGLE,
 233,Sustain (Kellogg Foods Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
 234,Sustain (Kellogg’s Australia Pty Ltd) + 125mL fat- reduced (1.5% fat) milk),MIXED MEAL,
 235,Wheaties (General Mills Inc) + 125mL 1.5%-fat milk,MIXED MEAL,
 236,Whole grain oat muesli,SINGLE,muesli
 237,Whole grain oat protein granola,SINGLE,muesli
-238,Whole grain protein cereal,SINGLE,cereal-flakes
-239,Whole grain triticale (hybrid of wheat & rye) cereal flakes,SINGLE,cereal-flakes
+238,Whole grain protein cereal,SINGLE,
+239,Whole grain triticale (hybrid of wheat & rye) cereal flakes,SINGLE,
 240,Barquette abricot (LU),SINGLE,sweet-biscuits
 241,Chocolate chip cookie (Arnott’s Biscuits Ltd),SINGLE,choc-chip-cookie
 242,Chocolate chip cookies (Arnott's Biscuits Ltd),SINGLE,choc-chip-cookie
@@ -255,15 +255,15 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 254,P’tit dejeuner miel et pepites (LU),SINGLE,sweet-biscuits
 255,Petit brun extra (LU),SINGLE,plain-biscuits
 256,"Plain Biscuit, Arrowroot (Arnotts)",SINGLE,plain-biscuits
-257,Prince-gout chocolat (LU),SINGLE,sandwich-biscuits
-258,Principe megamanana vanilla (LU),SINGLE,sandwich-biscuits
+257,Prince-gout chocolat (LU),SINGLE,
+258,Principe megamanana vanilla (LU),SINGLE,
 259,"Reduced-fat chocolate chip cookie (Chips Ahoy, Kraft Foods Inc)",SINGLE,choc-chip-cookie
 260,Regular chocolate chip cookies (Chips Ahoy),SINGLE,choc-chip-cookie
 261,Rotary-molded biscuit,SINGLE,plain-biscuits
 262,Rotary-molded biscuit with wheat bran (Mondelez),SINGLE,plain-biscuits
 263,Rotary-molded biscuit without wheat bran (Mondelez),SINGLE,plain-biscuits
 264,Rusk without wheat bran (Mondelez),SINGLE,rusk
-265,Sandwiched rotary-molded biscuit,SINGLE,sandwich-biscuits
+265,Sandwiched rotary-molded biscuit,SINGLE,
 266,Sweet biscuit 01 (Danone or its subsidiary),SINGLE,sweet-biscuits
 267,Sweet biscuit 02 (Danone or its subsidiary),SINGLE,sweet-biscuits
 268,Sweet biscuit 03 (Danone or its subsidiary),SINGLE,sweet-biscuits
@@ -295,39 +295,39 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 294,Water crackers (Grocery Wholesalers Ltd),SINGLE,crackers
 295,Water crackers (Grocery Wholesalers Ltd),SINGLE,crackers
 296,Weetbix (Sanitarium),SINGLE,weetbix
-297,Whole grain biscuit filled with peanut butter,SINGLE,sandwich-biscuits
+297,Whole grain biscuit filled with peanut butter,SINGLE,
 298,Whole grain biscuits,SINGLE,plain-biscuits
 299,1% fat milk (Dairy Farmers),SINGLE,milk
-300,93% fat-free cheddar cheese (Dairy Farmers),SINGLE,cheddar
+300,93% fat-free cheddar cheese (Dairy Farmers),SINGLE,
 301,Breast milk,SINGLE,
-302,Brie cheese (Coles),SINGLE,brie
+302,Brie cheese (Coles),SINGLE,
 303,Butter (Western Star Original),SINGLE,butter
-304,"Cheddar cheese (Grocery- Wholesalers, Coles Supermarkets)",SINGLE,cheddar
-305,Chocolate milk (Moove),SINGLE,chocolate-milk
-306,Cream (Dairy Farmers),SINGLE,cream
-307,Cream cheese (Coles Farmland),SINGLE,cream-cheese
-308,Custard (Dairy Farmers),SINGLE,custard
+304,"Cheddar cheese (Grocery- Wholesalers, Coles Supermarkets)",SINGLE,
+305,Chocolate milk (Moove),SINGLE,
+306,Cream (Dairy Farmers),SINGLE,
+307,Cream cheese (Coles Farmland),SINGLE,
+308,Custard (Dairy Farmers),SINGLE,
 309,"Filmjolk (fermented milk, Skanemejerier) + 150mL tea/coffee",MIXED MEAL,
 310,Full-fat milk,SINGLE,milk
 311,Full-fat milk (Dairy Farmers),SINGLE,milk
 312,Lactose solution + 150mL tea/coffee,MIXED MEAL,
 313,Low-fat cottage cheese (Bulla Dairy Foods),SINGLE,cottage-cheese
 314,Low-fat plain kefir (Lifeway Foods),SINGLE,kefir
-315,"Low-fat processed cheese (Kraft free singles, Kraft Foods Ltd)",SINGLE,cheese-slices
+315,"Low-fat processed cheese (Kraft free singles, Kraft Foods Ltd)",SINGLE,
 316,Low-fat strawberry kefir (Lifeway Foods),SINGLE,kefir
 317,Low-fat strawberry yoghurt (Dairy Farmers),SINGLE,fruit-yoghurt
-318,Mature cheddar cheese (Grocery Wholesalers Ltd),SINGLE,cheddar
+318,Mature cheddar cheese (Grocery Wholesalers Ltd),SINGLE,
 319,Milk (Dairy Farmers),SINGLE,milk
 320,Milk powder (130g) dissolved in 250mL water,SINGLE,milk
 321,"Peach-mango frozen yoghurt (Street Blue Ribbon, Unilever Pty Ltd)",SINGLE,frozen-yoghurt
-322,"Reduced fat (1.5%) cow’s milk (Lite White, NSW Dairy Farmers) + chocolate drinking powder (chocolate Nesquik, Nestle)",SINGLE,chocolate-milk
+322,"Reduced fat (1.5%) cow’s milk (Lite White, NSW Dairy Farmers) + chocolate drinking powder (chocolate Nesquik, Nestle)",SINGLE,
 323,"Reduced-fat (1.5%) cow’s milk (Lite White, NSW Dairy Farmers) + strawberry drinking powder (strawberry Nesquik, Nestle)",SINGLE,strawberry-milk
 324,Reduced-fat cottage cheese (Dairy Farmers),SINGLE,cottage-cheese
 325,Regular milk (Skanemejerier) + 150mL tea/coffee,MIXED MEAL,
 326,"Ropy milk (langfil, Arla) + 150mL tea/coffee",MIXED MEAL,
 327,Skim-fat milk (Dairy Farmers),SINGLE,milk
 328,Strawberry fruit yoghurt (Dairy Farmer’s),SINGLE,fruit-yoghurt
-329,Yoghurt (plain; Dairy Farmer’s),SINGLE,plain-yoghurt
+329,Yoghurt (plain; Dairy Farmer’s),SINGLE,
 330,"Yoghurt (Ski D’lite low-fat strawberry, Dairy Farmers)",SINGLE,fruit-yoghurt
 331,Acacia fibre (Fibregum),SINGLE,
 332,Plantaben (10.5g Ispaghula Husk) in 50g glucose solution (150mL),SINGLE,
@@ -355,7 +355,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 354,Honeydew melon,SINGLE,honeydew
 355,Orange (peeled),SINGLE,orange
 356,Oranges (Navel),SINGLE,orange
-357,Oriental melon,SINGLE,oriental-melon
+357,Oriental melon,SINGLE,
 358,Peach,SINGLE,peach
 359,Peach (raw; Australia),SINGLE,peach
 360,Pear,SINGLE,pear
@@ -413,24 +413,24 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 412,White rice (Thai Hom Mali fragrant rice) cooked with 30g ground nut oil (Cock brand),MIXED MEAL,
 413,White rice (Thai Hom Mali fragrant rice) cooked with 30g ground nut oil (Cock brand) + 100g chicken breast + 120g leafy vegetable (Shanghai bok choy),MIXED MEAL,
 414,Adlay,SINGLE,adlay
-415,Modified wheat flakes,SINGLE,cereal-flakes
-416,Standard wheat flakes,SINGLE,cereal-flakes
+415,Modified wheat flakes,SINGLE,
+416,Standard wheat flakes,SINGLE,
 417,Tofu (Soyco),SINGLE,tofu
 418,"Tortilla (white, corn; San Diego Tortilla Factory)",SINGLE,corn-tortilla
-419,Clinutren HP (enteral formula of whole protein of high protein value),SINGLE,nutrition-drink
-420,Commercial liquid-based milk for pregnant women + water,SINGLE,nutrition-drink
-421,Crucial (casein peptide based enteral formula),SINGLE,nutrition-drink
+419,Clinutren HP (enteral formula of whole protein of high protein value),SINGLE,
+420,Commercial liquid-based milk for pregnant women + water,SINGLE,
+421,Crucial (casein peptide based enteral formula),SINGLE,
 422,"Dried fig fruit extract (ABALife™, Euromed) 10× (1200 mg) in glucose drink (50g in 250mL water)",SINGLE,
 423,"Dried fig fruit extract (ABALife™, Euromed) 10× (600 mg) in glucose drink (50g in 250mL water)",SINGLE,
 424,"Dried fig fruit extract (ABALife™, Euromed) 50× (100 mg) in glucose drink (50g in 250mL water)",SINGLE,
 425,"Dried fig fruit extract (ABALife™, Euromed) 50× (200 mg) in glucose drink (50g in 250mL water)",SINGLE,
 426,Energy bar,SINGLE,snack-bar
 427,Energy bar + filtered molasses concentrate (2g),MIXED MEAL,
-428,Enteral nutrition (Nutridrink) containing 50g of saccharides,SINGLE,nutrition-drink
-429,Enteral nutrition with fibre 2.3g/100mL (Nutridrink Multifibre) containing 50g of saccharides,SINGLE,nutrition-drink
-430,Liquid concept product enriched with PUFA for pregnant women,SINGLE,nutrition-drink
-431,Liquid protein drink supplement,SINGLE,nutrition-drink
-432,Peptamen (whey peptide based enteral formula),SINGLE,nutrition-drink
+428,Enteral nutrition (Nutridrink) containing 50g of saccharides,SINGLE,
+429,Enteral nutrition with fibre 2.3g/100mL (Nutridrink Multifibre) containing 50g of saccharides,SINGLE,
+430,Liquid concept product enriched with PUFA for pregnant women,SINGLE,
+431,Liquid protein drink supplement,SINGLE,
+432,Peptamen (whey peptide based enteral formula),SINGLE,
 433,Solid protein bar,SINGLE,snack-bar
 434,100% durum wheat pasta (spaghetti) dried at low temperature,SINGLE,spaghetti
 435,Brown pasta (boiled; Sam Remo Inc),SINGLE,wholewheat-pasta
@@ -467,11 +467,11 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 466,Amala (yam flour paste) + plain ewedu soup (without stew),MIXED MEAL,
 467,Bean stew + plantain,MIXED MEAL,
 468,Brown cowpea (boiled),SINGLE,cowpea
-469,Cassava chips (Abacha),SINGLE,abacha
+469,Cassava chips (Abacha),SINGLE,
 470,Cassava dough (Fufu),SINGLE,fufu
-471,Cassava flakes (Garri),SINGLE,garri
+471,Cassava flakes (Garri),SINGLE,
 472,Chickpea salad dip (main CHO - legume seeds),SINGLE,hummus
-473,Chinese steamed white bun,SINGLE,mantou
+473,Chinese steamed white bun,SINGLE,
 474,Couscous,SINGLE,couscous
 475,Dates (Khulas variety) + 180mL Arabic coffee without sugar,MIXED MEAL,
 476,Dates (Khulas variety) + 180mL water,MIXED MEAL,
@@ -484,20 +484,20 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 483,Mabella porridge with sugar,SINGLE,sorghum-porridge
 484,Middle Eastern bread (white bread),SINGLE,pita
 485,Rice + tomato soup,MIXED MEAL,
-486,Rice bran arepa (corn meal supplemented with 20% rice bran),SINGLE,arepa
+486,Rice bran arepa (corn meal supplemented with 20% rice bran),SINGLE,
 487,Rice dosa,SINGLE,dosa
 488,Rice idli,SINGLE,idli
-489,Samp,SINGLE,samp
+489,Samp,SINGLE,
 490,Samp + beans,MIXED MEAL,
-491,Soft mealiemeal porridge (no sugar),SINGLE,maize-porridge
-492,Soft mealiemeal porridge with sugar,SINGLE,maize-porridge
+491,Soft mealiemeal porridge (no sugar),SINGLE,
+492,Soft mealiemeal porridge with sugar,SINGLE,
 493,Stiff mealiemeal porridge + dried bean leaf stew,MIXED MEAL,
 494,Stiff mealiemeal porridge + nkaka (an African medicinal plant),MIXED MEAL,
 495,Stuffed grape leaves (main CHO - rice and tomato sauce),SINGLE,dolma
 496,"Sushi, chicken roll (I Love Sushi)",SINGLE,sushi
 497,Taco (30g corn tortilla) + cooked potato (62g) + watermelon (200g) + honey (1.5 teaspoon),MIXED MEAL,
 498,Upma,SINGLE,upma
-499,Venezuelan arepa (corn meal bread),SINGLE,arepa
+499,Venezuelan arepa (corn meal bread),SINGLE,
 500,Wheat paste + plain ewedu soup (without stew),MIXED MEAL,
 501,White bun with red bean paste filling,SINGLE,red-bean-bun
 502,White rice (100g; Sunwhite) + sunflower oil (5g) + chicken broth without skin and bones (200mL) with carrots (260g),MIXED MEAL,
@@ -517,7 +517,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 516,"Brown rice (Tai Ken variety, Union Rice)",SINGLE,brown-rice
 517,Brown rice (transgressive variant)||,SINGLE,brown-rice
 518,Genetically modified- resistant starch-enriched rice (8g resistant starch),SINGLE,white-rice
-519,Hassawi rice,SINGLE,red-rice
+519,Hassawi rice,SINGLE,
 520,"Jasmine white rice (Rambutan AAA, Jasmine Food Corp. Pte. Ltd.)",SINGLE,white-rice
 521,Jasmine white rice (Royal Umbrella),SINGLE,white-rice
 522,"Long grain rice (high amylose rice; Indica rice, Thailand)",SINGLE,white-rice
@@ -533,10 +533,10 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 532,"Rice vermicelli (long grain rice and tapioca starch, and is the flat type noodle “pho""; Kenmin Food Co., Ltd., Japan)",SINGLE,rice-vermicelli
 533,"Rice vermicelli (long grain rice, tapioca and corn starch, and is a “sidedish” rice vermicelli; Kenmin Food Co., Ltd., Japan)",SINGLE,rice-vermicelli
 534,"Rice vermicelli (long grain rice, tapioca and potato starch, and is an “instant” rice vermicelli; Kenmin Food Co., Ltd., Japan)",SINGLE,rice-vermicelli
-535,"Thailand red rice (NutriRice, Jasmine Food Corp. Pte. Ltd.)",SINGLE,red-rice
-536,UKMRC10 red rice variant ¶,SINGLE,red-rice
-537,UKMRC11 red rice variant ¶,SINGLE,red-rice
-538,UKMRC9 red rice variant ¶,SINGLE,red-rice
+535,"Thailand red rice (NutriRice, Jasmine Food Corp. Pte. Ltd.)",SINGLE,
+536,UKMRC10 red rice variant ¶,SINGLE,
+537,UKMRC11 red rice variant ¶,SINGLE,
+538,UKMRC9 red rice variant ¶,SINGLE,
 539,"White rice (Calrose rice (Sunwhite), Ricegrowers' Co-operative Ltd)",SINGLE,white-rice
 540,"White rice (normal amylose rice; Japonica rice, Koshihikari)",SINGLE,white-rice
 541,White rice (Rambutan brand)||,SINGLE,white-rice
@@ -552,7 +552,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 551,Walnuts (Lucky California),SINGLE,walnuts
 552,Walnuts (Lucky California),SINGLE,walnuts
 553,40% reduced-fat potato chips (Cape Cod Potato Chip Company),SINGLE,potato-chips
-554,"97% fat-free pretzels (Parkers, The Smith’s Snackfood Company)",SINGLE,pretzels
+554,"97% fat-free pretzels (Parkers, The Smith’s Snackfood Company)",SINGLE,
 555,Banana (279g) + full-fat milk (352g) ‡,MIXED MEAL,
 556,Chocolate bar with a milky filling,SINGLE,chocolate-bar
 557,Chocolate cake brownie with frosting (White Wings Pty Ltd),SINGLE,chocolate-cake
@@ -562,7 +562,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 561,Classic full cream milk chocolate bar (Nestle),SINGLE,chocolate-bar
 562,Cookies (49g) + ice cream ‡ (123g),MIXED MEAL,
 563,Corn chips (The Smith’s Snackfood Company),SINGLE,corn-chips
-564,French vanilla classic ice cream (Sara Lee),SINGLE,vanilla-ice-cream
+564,French vanilla classic ice cream (Sara Lee),SINGLE,
 565,French vanilla super moist cake (Betty Crocker cake mix) with creamy deluxe vanilla frosting (Betty Crocker),SINGLE,sponge-cake
 566,"Healthy snack (containing Olu rice, foxtail millet, barley, chickpeas, wheat flour, cinnamon, butter, raisins, egg white, baking powder and vanilla essence)",SINGLE,
 567,Honeydew-melon (100g) + banana (98g) + 99% fat- free strawberry yoghurt (300g) + 200mL apple juice‡,MIXED MEAL,
@@ -570,7 +570,7 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 569,Instant vanilla flavoured pudding (White Wings Foods) + full cream milk,MIXED MEAL,
 570,Jelly beans (Grocery Wholesalers Inc),SINGLE,jelly-beans
 571,Jellybeans (assorted colours),SINGLE,jelly-beans
-572,"Low-fat vanilla ice-cream (Coles Farmland, Coles Supermarkets)",SINGLE,vanilla-ice-cream
+572,"Low-fat vanilla ice-cream (Coles Farmland, Coles Supermarkets)",SINGLE,
 573,Mars bar,SINGLE,chocolate-bar
 574,Mars bar (Mars Confectionary Inc),SINGLE,chocolate-bar
 575,Milk and cocoa cream chocolate with crispy wafer balls coated with creamy cocoa,SINGLE,chocolate-bar
@@ -587,21 +587,21 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 586,Sponge cake (Castilla),SINGLE,sponge-cake
 587,"Super moist yellow cake with chocolate frosting (Betty Crocker, General Mills Inc)",SINGLE,chocolate-cake
 588,Ultra chocolate classic ice cream (Sara Lee),SINGLE,chocolate-ice-cream
-589,Vanilla ice cream (Dairy Bell),SINGLE,vanilla-ice-cream
-590,Vanilla ice cream (Dairy Bell),SINGLE,vanilla-ice-cream
-591,Vanilla ice cream (Dairy Farmers),SINGLE,vanilla-ice-cream
+589,Vanilla ice cream (Dairy Bell),SINGLE,
+590,Vanilla ice cream (Dairy Bell),SINGLE,
+591,Vanilla ice cream (Dairy Farmers),SINGLE,
 592,Walnuts (44g) + raisins (28g) + carrot juice (250g) ‡,MIXED MEAL,
 593,Walnuts + raisins + carrot juice,MIXED MEAL,
-594,"White chocolate bar (Milky Bar, Nestle)",SINGLE,white-chocolate
+594,"White chocolate bar (Milky Bar, Nestle)",SINGLE,
 595,"Whole soy powder cake (Soyjoy, flavoured with raisin and almond)",SINGLE,snack-bar
 596,Acacia honey,SINGLE,honey
 597,Christ Thorn honey,SINGLE,honey
 598,Citrus honey,SINGLE,honey
 599,Forest honey,SINGLE,honey
-600,Glucose syrup,SINGLE,syrup
+600,Glucose syrup,SINGLE,
 601,Glucose syrup + filtered molasses concentrate (2.21g),MIXED MEAL,
 602,Heather honey,SINGLE,honey
-603,High fructose corn syrup,SINGLE,syrup
+603,High fructose corn syrup,SINGLE,
 604,High fructose corn syrup + filtered molasses concentrate (2.06g),MIXED MEAL,
 605,Iron Bark honey,SINGLE,honey
 606,Linden honey (heated),SINGLE,honey
@@ -611,9 +611,9 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 610,Mixed flora honey,SINGLE,honey
 611,Multifloral honey,SINGLE,honey
 612,Oilseed-rape honey,SINGLE,honey
-613,Organic coconut flower syrup,SINGLE,coconut-syrup
-614,Organic coconut flower syrup mixed with 1.5% inulin added,SINGLE,coconut-syrup
-615,Organic coconut flower syrup mixed with 3% inulin added,SINGLE,coconut-syrup
+613,Organic coconut flower syrup,SINGLE,
+614,Organic coconut flower syrup mixed with 1.5% inulin added,SINGLE,
+615,Organic coconut flower syrup mixed with 3% inulin added,SINGLE,
 616,Salvation Jane honey,SINGLE,honey
 617,Sugar honey,SINGLE,honey
 618,Sweet chestnut honey,SINGLE,honey
@@ -626,5 +626,5 @@ Number,Food / Beverage Name,Single / Mixed Meal,Photo type
 625,Corn (McCain Super Juicy frozen corn),SINGLE,corn
 626,Frozen corn (McCain’s Food Pty Ltd),SINGLE,corn
 627,Peas (steamed from frozen; McCains),SINGLE,peas
-628,Taro (steamed),SINGLE,taro
+628,Taro (steamed),SINGLE,
 629,Tomato pasta sauce (Paul Newman),SINGLE,tomato-sauce

@@ -1133,6 +1133,7 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .chart-grid > span { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
 .chart-grid > span.is-ref { background: rgba(43, 36, 32, .4); }
 .chart-grid > span > span { position: absolute; top: 0; left: 4px; font-size: .68rem; color: var(--muted); white-space: nowrap; }
+.chart-grid > span.is-ref > span { left: auto; right: 4px; }
 .chart-bar { position: relative; display: block; height: 18px; width: var(--w); min-width: 4px; border-radius: 0 4px 4px 0; background: var(--bar); transform-origin: left; transition: filter .2s; }
 .chart-bar::after { content: ""; position: absolute; inset: -6px -4px; }
 .chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); }
