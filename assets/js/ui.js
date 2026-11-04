@@ -19,9 +19,11 @@ const MAX_COMPARE = 3;
 let DATA = null;
 let GROUPS = {};
 let FOODS = {};
+let PHOTOS = {};
 
 export function setData(data) {
   DATA = data;
+  PHOTOS = data.photos || {};
   GROUPS = Object.fromEntries(data.groups.map((g) => [g.id, g]));
   FOODS = Object.fromEntries(data.foods.map((f) => [f.n, f]));
 }
@@ -55,6 +57,42 @@ export function footnoteMarker(sym, interactive = false) {
   return `<button type="button" class="fn" data-tip="${esc(tip)}" aria-label="Footnote ${esc(sym)}: ${esc(tip)}">${esc(sym)}</button>`;
 }
 
+/* ---------- Photos and icons ---------- */
+
+// Small line icons (no emoji): they look the same on every device.
+export const ICONS = {
+  meal: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6.5"/><path d="M3 4v5a2 2 0 0 0 2 2v9M5 4v5M21 4c-1.7 0-2.5 2-2.5 5s1 3 2.5 3v8"/></svg>',
+  plate: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></svg>',
+  info: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>',
+  warn: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 2.5 20h19L12 3.5Z"/><path d="M12 10v4.5M12 17v.5"/></svg>',
+};
+export const icon = (name, cls = '') => `<span class="icon ${cls}">${ICONS[name]}</span>`;
+
+export const photoType = (id) => (id ? PHOTOS[id] : null);
+export const photoOf = (f) => photoType(f && f.photo);
+
+// A food's photo (the type of food, not the exact product tested), or a neutral
+// plate outline when there is no faithful photo. Decorative: the name is always beside it.
+export function foodPic(f, cls = '') {
+  const p = photoOf(f);
+  if (!p) return `<span class="food-pic no-pic ${cls}" aria-hidden="true">${ICONS[f.meal === 'SINGLE' ? 'plate' : 'meal']}</span>`;
+  return `<span class="food-pic ${cls}"><img src="${p.thumb}" alt="" loading="lazy" decoding="async" width="200" height="200"></span>`;
+}
+
+export function typePic(id, cls = '', full = false) {
+  const p = photoType(id);
+  if (!p) return `<span class="food-pic no-pic ${cls}" aria-hidden="true">${ICONS.plate}</span>`;
+  return `<span class="food-pic ${cls}"><img src="${full ? p.src : p.thumb}" alt="" loading="lazy" decoding="async"></span>`;
+}
+
+export const photoCredit = (p) => {
+  const c = p.credit;
+  const who = c.author ? (c.authorUrl ? `<a href="${esc(c.authorUrl)}" rel="noopener">${esc(c.author)}</a>` : esc(c.author)) : '';
+  const lic = c.licenceUrl ? `<a href="${esc(c.licenceUrl)}" rel="noopener license">${esc(c.licence)}</a>` : esc(c.licence);
+  const via = c.source ? `<a href="${esc(c.source)}" rel="noopener">${esc(c.via || 'source')}</a>` : '';
+  return `Photo${who ? ` by ${who}` : ''}${via ? ` via ${via}` : ''}, ${lic}.`;
+};
+
 export const refTag = (ref) =>
   `<span class="tag tag-ref tag-${ref}">vs ${ref}</span>`;
 
@@ -78,8 +116,8 @@ export function card(f, index = 0, rank = 0) {
   const on = compareIds.includes(f.n);
   return `<li class="card" style="${groupStyle(g)};--i:${index % 12}">
     <button type="button" class="card-open" data-open="${f.n}">
+      ${foodPic(f, 'card-pic')}
       <span class="card-head">
-        <span class="card-emoji" aria-hidden="true">${g.emoji}</span>
         <span class="card-group">${esc(g.label)}</span>
         ${rank ? `<span class="card-rank"><span class="sr-only">Rank </span>#${rank}</span>` : ''}
       </span>
@@ -188,10 +226,19 @@ export function openDetail(n) {
   body.innerHTML = `
     <div class="sheet-handle" aria-hidden="true"><span></span></div>
     <button type="button" class="icon-btn sheet-close" data-close aria-label="Close details">✕</button>
-    <div class="detail-hero" style="${groupStyle(g)}">
-      <span class="detail-emoji" aria-hidden="true">${g.emoji}</span>
-      <p class="detail-group">${esc(g.label)}</p>
-    </div>
+    ${(() => {
+      const p = photoOf(f);
+      if (!p) {
+        return `<div class="detail-hero" style="${groupStyle(g)}">
+          <span class="food-pic no-pic detail-nopic" aria-hidden="true">${ICONS[f.meal === 'SINGLE' ? 'plate' : 'meal']}</span>
+          <p class="detail-group">${esc(g.label)}</p></div>`;
+      }
+      return `<figure class="detail-photo" style="${groupStyle(g)}">
+        <img src="${p.src}" alt="${esc(`Example photo: ${p.label}`)}" decoding="async">
+        <p class="detail-group">${esc(g.label)}</p>
+        <figcaption>Photo shows ${esc(p.label.toLowerCase())} in general, not the exact product tested. ${photoCredit(p)}</figcaption>
+      </figure>`;
+    })()}
     <div class="detail-content">
       <h2 id="detail-title" class="detail-name">${marked(f.name, true)}</h2>
       <p class="detail-cat">${esc(f.category)}${f.subcategory ? ` · ${esc(f.subcategory)}` : ''}</p>
@@ -208,7 +255,7 @@ export function openDetail(n) {
         ${meter(f.iiValue, true)}
         <div class="meter-scale" aria-hidden="true"><span>0</span><span class="scale-ref">100 = same as reference</span><span>210</span></div>
       </div>
-      <p class="detail-ref-note"><span aria-hidden="true">${f.ref === 'bread' ? '🍞' : '🧪'}</span>
+      <p class="detail-ref-note">${icon('info')}
         <span>Scored against <strong>${f.ref}</strong>. Only compare it with other “vs ${f.ref}” foods.</span></p>
 
       <dl class="facts">
@@ -258,7 +305,7 @@ function barChart(items) {
   return `<figure class="bars" aria-label="Bar chart of insulin index">
     <div class="bars-plot" style="--ref:${refPct}%">
       ${items.map((f) => `<div class="bar-row">
-        <span class="bar-label">${GROUPS[f.group].emoji} ${esc(plain(f.name))}</span>
+        <span class="bar-label">${esc(plain(f.name))}</span>
         <span class="bar-track"><span class="bar" style="--w:${(f.iiValue / max) * 100}%"></span>
           <span class="bar-val">${esc(f.ii)} <small>vs ${f.ref}</small></span></span>
       </div>`).join('')}
@@ -301,7 +348,7 @@ export function renderTray() {
   tray.innerHTML = `
     <div class="tray-items">
       ${items.map((f) => `<span class="tray-item" style="${groupStyle(GROUPS[f.group])}">
-        <span aria-hidden="true">${GROUPS[f.group].emoji}</span>
+        ${foodPic(f, 'tray-pic')}
         <span class="tray-name">${esc(plain(f.name))}</span>
         <button type="button" class="tray-x" data-cmp="${f.n}" aria-label="Remove ${esc(plain(f.name))} from compare">✕</button>
       </span>`).join('')}
@@ -332,7 +379,7 @@ export function openCompare() {
     <button type="button" class="icon-btn sheet-close" data-close aria-label="Close comparison">✕</button>
     <div class="compare-content">
       <h2 id="compare-title" class="compare-title">Side by side</h2>
-      ${refs.size > 1 ? `<div class="warning" role="alert"><span aria-hidden="true">⚠️</span><div>
+      ${refs.size > 1 ? `<div class="warning" role="alert">${icon('warn')}<div>
         <strong>Different reference foods.</strong> Some of these were scored against glucose and some against bread.
         Bread itself scored around 70 against glucose, so these numbers are not directly comparable.</div></div>`
         : `<p class="compare-ok"><span aria-hidden="true">✓</span> All scored against ${[...refs][0]}, but portions and volunteers still differ between studies.</p>`}
@@ -341,7 +388,7 @@ export function openCompare() {
         <table class="compare-table" style="--cols:${items.length}">
           <thead><tr><th scope="col"><span class="sr-only">Detail</span></th>
             ${items.map((f) => `<th scope="col" style="${groupStyle(GROUPS[f.group])}">
-              <span class="cmp-emoji" aria-hidden="true">${GROUPS[f.group].emoji}</span>
+              ${foodPic(f, 'cmp-pic')}
               <span class="cmp-name">${marked(f.name, true)}</span>
               <span class="cmp-meter">${meter(f.iiValue)}</span></th>`).join('')}</tr></thead>
           <tbody>${rows.map(([label, fn]) => `<tr><th scope="row">${label}</th>${items.map((f) => `<td>${fn(f)}</td>`).join('')}</tr>`).join('')}</tbody>
@@ -357,6 +404,14 @@ export function openCompare() {
 /* ---------- Global wiring for cards, tray and sheets ---------- */
 
 export function wireGlobal() {
+  // A food photo that fails to load becomes the neutral plate outline, never a broken image.
+  document.addEventListener('error', (e) => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.parentElement?.classList.contains('food-pic')) return;
+    img.parentElement.classList.add('no-pic');
+    img.replaceWith(document.createRange().createContextualFragment(ICONS.plate));
+  }, true);
+
   const detail = document.getElementById('detail');
   const compare = document.getElementById('compare');
   wireSheet(detail);
@@ -406,7 +461,7 @@ export function wireGlobal() {
 
 /* ---------- Images with graceful fallback ---------- */
 
-// Photos sit on top of an emoji + gradient fallback. If a photo fails,
+// Banner photos sit on top of a soft gradient. If a photo fails,
 // it is removed, so a broken image is never shown.
 export function wireImages(root = document) {
   root.querySelectorAll('img[data-photo]').forEach((img) => {
@@ -437,12 +492,11 @@ export function wireReveal(root = document) {
 
 export const dataset = () => DATA;
 
-/* ---------- Page hero (photo banner with emoji fallback) ---------- */
+/* ---------- Page hero (photo banner with gradient fallback) ---------- */
 
-export function pageHero({ eyebrow, title, lede, photo, emoji, tone = '#F9D9C8,#F4B79A', extra = '' }) {
+export function pageHero({ eyebrow, title, lede, photo, tone = '#F9D9C8,#F4B79A', extra = '' }) {
   return `<section class="page-hero" style="--tone:linear-gradient(135deg,${tone})">
     <div class="page-hero-media" aria-hidden="true">
-      <span class="page-hero-fallback">${emoji}</span>
       ${photo ? `<img data-photo src="${PHOTO(photo)}" alt="" decoding="async">` : ''}
     </div>
     <div class="wrap page-hero-content">

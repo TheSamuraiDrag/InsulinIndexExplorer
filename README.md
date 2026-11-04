@@ -79,6 +79,26 @@ Notes:
 - `data/mmc2_insulinaemic_index.csv` (Supplemental Table 2: 124 foods from 31 studies that did not
   meet the paper's main criteria) is kept for reference only. The site never loads it.
 
+## Food photos
+
+Each single food shows a photo of its **type of food** (for example "rye bread"), never a claim
+that it is the exact product tested. Mixed meals, and a few single foods where any photo would
+mislead (lab drinks, powders, sorghum breads), show a plain plate outline instead.
+
+- `data/photo_map.csv` lists every food (Number, name) and its photo type. Blank = no photo.
+  Edit it in Excel to change which photo a food uses.
+- `data/photo_types.csv` lists each photo type with what it shows, its file and its credit
+  (title, author, licence, source). All food photos are openly licensed: CC BY, CC BY-SA, CC0 or
+  public domain. Credits appear on the About page and under the photo on each food.
+- The image files are `assets/img/foods/<type>.jpg` (800×600) and
+  `assets/img/foods/thumb/<type>.jpg` (240×240).
+
+To add or replace a photo: put both image sizes in those folders, add or edit the row in
+`data/photo_types.csv` (keep the credit and licence exactly as the source gives them), point the
+foods at it in `data/photo_map.csv`, then run `python3 scripts/build_foods.py`. The check
+"photo types still without a photo" should be 0. The Data check page's "Site columns" view shows
+every food's photo, so the matches can be reviewed in one list.
+
 ## Data check (admin) page
 
 `#/admin` is for checking the database against the paper without opening 629 cards:
@@ -109,7 +129,8 @@ assets/js/collection.js  Lowest-II picks and Mixed meals
 assets/js/guide.js       How to read the II
 assets/js/about.js       About & sources
 assets/js/admin.js       Data check (admin)
-data/                    source CSVs and the generated foods.json
+data/                    source CSVs, photo map and credits, and the generated foods.json
+assets/img/foods/        food photos (800×600) and thumb/ (240×240)
 scripts/build_foods.py   CSV → foods.json, plus the data checks
 ```
 
@@ -118,6 +139,8 @@ scripts/build_foods.py   CSV → foods.json, plus the data checks
 - **Data:** Hendricks et al., 2024, used under
   [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): shown unchanged, with
   attribution, for non-commercial education.
-- **Photos:** [Pexels](https://www.pexels.com). If a photo can't load, the site shows a soft gradient
-  with an emoji instead, so a broken image never appears.
+- **Banner photos:** [Pexels](https://www.pexels.com). If one can't load, the site shows a soft
+  gradient instead, so a broken image never appears.
+- **Food photos:** openly licensed photos found through [Openverse](https://openverse.org), mostly
+  from Flickr. Each is credited on the About page and under the photo.
 - **Fonts:** Fraunces and Plus Jakarta Sans, from Google Fonts.

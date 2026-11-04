@@ -1,24 +1,24 @@
 // Home page: hero + search, quick stats, card legend, section tiles and surprising findings.
 
-import { esc, PHOTO, refTag, mealTag, meter, groupStyle } from './ui.js';
+import { esc, PHOTO, refTag, mealTag, meter, groupStyle, icon, typePic, foodPic } from './ui.js';
 
 const TILES = [
-  { href: '#/explorer', title: 'Food Explorer', text: 'Search and filter all 629 foods', photo: 5966434, emoji: '🔎', tone: '#F9D9C8,#F4B79A' },
-  { href: '#/lowest', title: 'Lowest-II picks', text: 'Single foods ranked lowest first', photo: 557659, emoji: '🥗', tone: '#D8F0DC,#A9DDB4' },
-  { href: '#/groups', title: 'Food groups', text: '14 groups, from bread to dairy', photo: 37321079, emoji: '🧺', tone: '#F8EAC0,#F0D584' },
-  { href: '#/mixed', title: 'Mixed meals', text: 'All 160 meals and food combos', photo: 11873900, emoji: '🍱', tone: '#E9DFF7,#CDB8EE' },
-  { href: '#/guide', title: 'How to read the II', text: 'What the number means, and doesn’t', photo: 4195334, emoji: '📈', tone: '#D7E8F7,#A9CBEE' },
-  { href: '#/about', title: 'About & sources', text: 'The paper, methods and limits', photo: 8851929, emoji: '📚', tone: '#FADBE5,#F2AFC4' },
+  { href: '#/explorer', title: 'Food Explorer', text: 'Search and filter all 629 foods', photo: 5966434, tone: '#F9D9C8,#F4B79A' },
+  { href: '#/lowest', title: 'Lowest-II picks', text: 'Single foods ranked lowest first', photo: 557659, tone: '#D8F0DC,#A9DDB4' },
+  { href: '#/groups', title: 'Food groups', text: '14 groups, from bread to dairy', photo: 37321079, tone: '#F8EAC0,#F0D584' },
+  { href: '#/mixed', title: 'Mixed meals', text: 'All 160 meals and food combos', photo: 11873900, tone: '#E9DFF7,#CDB8EE' },
+  { href: '#/guide', title: 'How to read the II', text: 'What the number means, and doesn’t', photo: 4195334, tone: '#D7E8F7,#A9CBEE' },
+  { href: '#/about', title: 'About & sources', text: 'The paper, methods and limits', photo: 8851929, tone: '#FADBE5,#F2AFC4' },
 ];
 
 const FINDINGS = [
-  { big: '1', label: 'Lowest single foods', text: 'Gin and acacia fibre (Fibregum) both scored II 1.', href: '#/explorer?sort=asc', emoji: '🍸', group: 'drinks' },
-  { big: '209', label: 'Highest single food', text: 'Nutricia Karicare Soy infant formula.', href: '#/explorer?food=374', emoji: '🍼', group: 'special' },
-  { big: '2–31', label: 'Protein & fat foods', text: 'Chicken, lamb, eggs, tuna, butter and cream fell within a lower range.', href: '#/explorer?group=protein', emoji: '🍳', group: 'protein' },
-  { big: '37–127', label: '“Healthy” staples', text: 'Skim fat milk, yoghurt, fruits (except avocado), brown rice, wholemeal and sourdough bread, wholegrain cereal, vegetables (except broccoli), honey and oats.', href: '#/explorer?sort=desc', emoji: '🥣', group: 'cereals' },
-  { big: '13', label: 'Lowest mixed meal', text: 'A corn-tortilla taco with potato, watermelon and honey.', href: '#/explorer?food=497', emoji: '🌮', group: 'regional' },
-  { big: '185', label: 'Highest mixed meal', text: 'Freshly boiled Sava potatoes with water, tea or coffee.', href: '#/explorer?food=461', emoji: '🥔', group: 'potatoes' },
-  { big: 'High ≠ bad', label: 'Context matters', text: 'A high II isn’t automatically bad, for example in sports nutrition.', href: '#/explorer?sort=desc', emoji: '🏃', group: 'fruit' },
+  { big: '1', label: 'Lowest single foods', text: 'Gin and acacia fibre (Fibregum) both scored II 1.', href: '#/explorer?sort=asc', photo: 'gin', group: 'drinks' },
+  { big: '209', label: 'Highest single food', text: 'Nutricia Karicare Soy infant formula.', href: '#/explorer?food=374', photo: 'infant-formula', group: 'special' },
+  { big: '2–31', label: 'Protein & fat foods', text: 'Chicken, lamb, eggs, tuna, butter and cream fell within a lower range.', href: '#/explorer?group=protein', photo: 'roast-chicken', group: 'protein' },
+  { big: '37–127', label: '“Healthy” staples', text: 'Skim fat milk, yoghurt, fruits (except avocado), brown rice, wholemeal and sourdough bread, wholegrain cereal, vegetables (except broccoli), honey and oats.', href: '#/explorer?sort=desc', photo: 'brown-rice', group: 'cereals' },
+  { big: '13', label: 'Lowest mixed meal', text: 'A corn-tortilla taco with potato, watermelon and honey.', href: '#/explorer?food=497', photo: 'corn-tortilla', group: 'regional' },
+  { big: '185', label: 'Highest mixed meal', text: 'Freshly boiled Sava potatoes with water, tea or coffee.', href: '#/explorer?food=461', photo: 'boiled-potato', group: 'potatoes' },
+  { big: 'High ≠ bad', label: 'Context matters', text: 'A high II isn’t automatically bad, for example in sports nutrition.', href: '#/explorer?sort=desc', photo: null, group: 'fruit' },
 ];
 
 // Everyday foods from one study with one reference food (Bao et al., 2011 [46], vs glucose),
@@ -32,7 +32,7 @@ export function renderHome(app, data) {
   app.innerHTML = `
   <section class="hero">
     <div class="hero-media" aria-hidden="true">
-      <div class="hero-fallback"><span>🥑</span><span>🍞</span><span>🍓</span><span>🥛</span><span>🍚</span></div>
+      <div class="hero-fallback"></div>
       <img data-photo src="${PHOTO(3978392)}" alt="" fetchpriority="high" decoding="async">
     </div>
     <div class="wrap hero-content">
@@ -68,7 +68,7 @@ export function renderHome(app, data) {
         const lo = items.find((f) => f.iiValue === Math.min(...vals)).ii;
         const hi = items.find((f) => f.iiValue === Math.max(...vals)).ii;
         return `<li><a class="group-tile" href="#/explorer?group=${gr.id}" style="${groupStyle(gr)}">
-          <span class="group-emoji" aria-hidden="true">${gr.emoji}</span>
+          ${typePic(gr.photo, 'group-pic', true)}
           <span class="group-name">${esc(gr.label)}</span>
           <span class="group-meta">${items.length} foods · II ${esc(lo)}–${esc(hi)}</span>
         </a></li>`;
@@ -87,7 +87,7 @@ export function renderHome(app, data) {
       <ol class="everyday-list">
         ${EVERYDAY.map((n) => data.foods.find((f) => f.n === n)).sort((a, b) => a.iiValue - b.iiValue).map((f) => `
         <li><button type="button" class="everyday-row" data-open="${f.n}" style="${groupStyle(g[f.group])}">
-          <span class="everyday-emoji" aria-hidden="true">${g[f.group].emoji}</span>
+          ${foodPic(f, 'everyday-pic')}
           <span class="everyday-name">${esc(f.name)}</span>
           <span class="everyday-bar"><span class="bar" style="--w:${(f.iiValue / 100) * 100}%"></span></span>
           <span class="everyday-ii">${esc(f.ii)}</span>
@@ -119,7 +119,7 @@ export function renderHome(app, data) {
         <p>One food on its own, or a meal of several foods eaten together.</p>
       </div>
     </div>
-    <p class="note reveal"><span aria-hidden="true">ℹ️</span><span>There is no agreed clinical cut-off for a low or high II, so this site doesn’t label foods as low or high. Compare the numbers, like with like.</span></p>
+    <p class="note reveal">${icon('info')}<span>There is no agreed clinical cut-off for a low or high II, so this site doesn’t label foods as low or high. Compare the numbers, like with like.</span></p>
   </section>
 
   <section class="wrap section" aria-labelledby="tiles-title">
@@ -130,7 +130,6 @@ export function renderHome(app, data) {
     <ul class="tiles">
       ${TILES.map((t) => `<li class="reveal"><a class="tile" href="${t.href}" style="--tone:linear-gradient(135deg,${t.tone})">
         <span class="tile-media" aria-hidden="true">
-          <span class="tile-fallback">${t.emoji}</span>
           <img data-photo src="${PHOTO(t.photo, 900)}" alt="" loading="lazy" decoding="async">
         </span>
         <span class="tile-body"><span class="tile-title">${esc(t.title)}</span><span class="tile-text">${esc(t.text)}</span></span>
@@ -150,7 +149,7 @@ export function renderHome(app, data) {
         ${FINDINGS.map((f) => `<li><a class="finding" href="${f.href}" style="${groupStyle(g[f.group])}">
           <span class="finding-top">
             <span class="finding-label">${esc(f.label)}</span>
-            <span class="finding-emoji" aria-hidden="true">${f.emoji}</span>
+            ${typePic(f.photo, 'finding-pic')}
           </span>
           <span class="finding-big${/\d/.test(f.big) ? '' : ' is-words'}">${esc(f.big)}</span>
           <span class="finding-text">${esc(f.text)}</span>

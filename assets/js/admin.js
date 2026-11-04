@@ -2,7 +2,7 @@
 // automated checks, auto-flagged rows worth a look, and a review checklist
 // (ticks + notes) saved in this browser. Nothing here changes the data.
 
-import { esc, marked, footnoteMarker, FOOTNOTES, refTag, groupStyle, toast } from './ui.js';
+import { esc, marked, footnoteMarker, FOOTNOTES, refTag, groupStyle, toast, foodPic, photoOf } from './ui.js';
 
 const STORE_KEY = 'ii-admin-review-v1';
 
@@ -205,7 +205,7 @@ export function renderAdmin(app, data, params) {
             return `<tr data-cat-row="${esc(c)}">
               <th scope="row"><button type="button" class="link-btn toc-go" data-go="${esc(c)}">${esc(c)}</button></th>
               <td>${rows[0].n}–${rows[rows.length - 1].n}</td><td>${rows.length}</td><td>${PDF_PAGES[c] || '—'}</td>
-              <td><span class="mini-group" style="${groupStyle(g)}">${g.emoji} ${esc(g.label)}</span></td>
+              <td><span class="mini-group" style="${groupStyle(g)}">${esc(g.label)}</span></td>
               <td><span class="toc-prog" data-prog="${esc(c)}"></span></td>
               <td><button type="button" class="btn btn-ghost btn-xs" data-tick-cat="${esc(c)}">Tick all</button></td></tr>`;
           }).join('')}</tbody>
@@ -247,7 +247,7 @@ export function renderAdmin(app, data, params) {
             <th scope="col">Comparator</th>
             <th scope="col">Author / Year / Reference</th>
             <th scope="col">Country</th>
-            <th scope="col" class="c-site">Site: group · reference</th>
+            <th scope="col" class="c-site">Site: group · reference · photo</th>
             <th scope="col" class="c-notes">Review notes</th>
           </tr></thead>
           <tbody id="pbody"></tbody>
@@ -301,7 +301,8 @@ export function renderAdmin(app, data, params) {
       <td class="c-meal">${esc(f.meal)}</td>
       <td class="c-ii">${esc(f.ii)}${f.iiNote ? footnoteMarker(f.iiNote) : ''}</td>
       ${cell(f, 'subjects')}${cell(f, 'comparator')}${cell(f, 'study')}${cell(f, 'country')}
-      <td class="c-site"><span class="mini-group" style="${groupStyle(g)}">${g.emoji} ${esc(g.label)}</span> ${refTag(f.ref)}</td>
+      <td class="c-site"><span class="mini-group" style="${groupStyle(g)}">${esc(g.label)}</span> ${refTag(f.ref)}
+        <span class="admin-photo">${foodPic(f, 'admin-pic')}<span>${photoOf(f) ? esc(photoOf(f).label) : 'No photo'}</span></span></td>
       ${notesCell(f)}
     </tr>`;
   }

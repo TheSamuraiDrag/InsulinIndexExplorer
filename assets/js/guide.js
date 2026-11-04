@@ -2,7 +2,7 @@
 // reading the number without cut-offs, a median-per-group chart (glucose and bread shown separately),
 // surprising findings and how to read a study tag.
 
-import { esc, pageHero, refTag, median, groupStyle } from './ui.js';
+import { esc, pageHero, refTag, median, groupStyle, icon } from './ui.js';
 
 const fmt = (x) => String(Math.round(x * 1000) / 1000);
 const CHART_MAX = 150;
@@ -77,7 +77,7 @@ function medianChart(data) {
     <div class="chart-plot">
       <div class="chart-grid" aria-hidden="true">${[0, 50, 100, 150].map((v) => `<span class="${v === 100 ? 'is-ref' : ''}" style="left:${(v / CHART_MAX) * 100}%"><span>${v === 100 ? '100 = same as reference' : v}</span></span>`).join('')}</div>
       ${rows.map(({ g, [ref]: s }) => `<div class="chart-row">
-        <span class="chart-label"><span aria-hidden="true">${g.emoji}</span> ${esc(g.label)}</span>
+        <span class="chart-label">${esc(g.label)}</span>
         <span class="chart-track">${s ? `<a class="chart-bar" href="#/explorer?group=${g.id}&ref=${ref}" style="--w:${Math.min(100, (s.med / CHART_MAX) * 100)}%"
             data-tip="${esc(`${g.label} · vs ${ref}\nMedian ${fmt(s.med)} · ${s.n} entr${s.n === 1 ? 'y' : 'ies'}\nRange ${s.lo}–${s.hi}`)}"
             aria-label="${esc(`${g.label}, vs ${ref}: median ${fmt(s.med)} from ${s.n} entries, range ${s.lo} to ${s.hi}. Open in Explorer.`)}"></a>
@@ -92,7 +92,7 @@ function medianChart(data) {
     <details class="chart-table"><summary>Show as a table</summary>
       <div class="x-scroll"><table>
         <thead><tr><th scope="col">Group</th><th scope="col">vs glucose: median (n)</th><th scope="col">vs glucose: range</th><th scope="col">vs bread: median (n)</th><th scope="col">vs bread: range</th></tr></thead>
-        <tbody>${rows.map(({ g, glucose: a, bread: b }) => `<tr><th scope="row">${g.emoji} ${esc(g.label)}</th>
+        <tbody>${rows.map(({ g, glucose: a, bread: b }) => `<tr><th scope="row">${esc(g.label)}</th>
           <td>${a ? `${fmt(a.med)} (${a.n})` : '—'}</td><td>${a ? `${esc(a.lo)}–${esc(a.hi)}` : '—'}</td>
           <td>${b ? `${fmt(b.med)} (${b.n})` : '—'}</td><td>${b ? `${esc(b.lo)}–${esc(b.hi)}` : '—'}</td></tr>`).join('')}</tbody>
       </table></div>
@@ -117,7 +117,7 @@ export function renderGuide(app, data) {
     eyebrow: 'How to read the II',
     title: 'What the number <em>actually</em> tells you',
     lede: 'Five minutes to read the insulin index like a pro: what it measures, why it isn’t the GI, and the one rule that matters most.',
-    photo: 4195334, emoji: '📈', tone: '#D7E8F7,#A9CBEE',
+    photo: 4195334, tone: '#D7E8F7,#A9CBEE',
   })}
 
   <article class="wrap guide">
@@ -130,10 +130,10 @@ export function renderGuide(app, data) {
       <p class="eyebrow">1 · What it measures</p>
       <h2 id="h-what">A test meal, a reference meal, two hours of blood tests</h2>
       <ol class="steps reveal">
-        <li><span class="step-emoji" aria-hidden="true">🍽️</span><strong>Eat the test food</strong><span>Volunteers eat a set portion of the food being tested.</span></li>
-        <li><span class="step-emoji" aria-hidden="true">🧪</span><strong>Eat the reference</strong><span>On another occasion, they eat the reference food: glucose or white bread.</span></li>
-        <li><span class="step-emoji" aria-hidden="true">🩸</span><strong>Measure insulin</strong><span>Blood insulin is measured for about 2 hours each time.</span></li>
-        <li><span class="step-emoji" aria-hidden="true">➗</span><strong>Compare the areas</strong><span>The average ratio of the two areas across at least 10 volunteers, shown as a percentage.</span></li>
+        <li><strong>Eat the test food</strong><span>Volunteers eat a set portion of the food being tested.</span></li>
+        <li><strong>Eat the reference</strong><span>On another occasion, they eat the reference food: glucose or white bread.</span></li>
+        <li><strong>Measure insulin</strong><span>Blood insulin is measured for about 2 hours each time.</span></li>
+        <li><strong>Compare the areas</strong><span>The average ratio of the two areas across at least 10 volunteers, shown as a percentage.</span></li>
       </ol>
       ${curveDiagram()}
       <aside class="analogy reveal"><span class="analogy-tag">Analogy</span>
@@ -145,11 +145,11 @@ export function renderGuide(app, data) {
       <p class="eyebrow">2 · II vs GI</p>
       <h2 id="h-gi">Why not just use the glycaemic index?</h2>
       <div class="vs reveal">
-        <div class="vs-card vs-gi"><span class="vs-emoji" aria-hidden="true">🩸</span><h3>Glycaemic index (GI)</h3><p>Tracks <strong>blood glucose</strong> after a food.</p></div>
+        <div class="vs-card vs-gi"><h3>Glycaemic index (GI)</h3><p>Tracks <strong>blood glucose</strong> after a food.</p></div>
         <span class="vs-mid" aria-hidden="true">vs</span>
-        <div class="vs-card vs-ii"><span class="vs-emoji" aria-hidden="true">🔑</span><h3>Insulin index (II)</h3><p>Tracks <strong>blood insulin</strong> after a food.</p></div>
+        <div class="vs-card vs-ii"><h3>Insulin index (II)</h3><p>Tracks <strong>blood insulin</strong> after a food.</p></div>
       </div>
-      <p class="callout reveal"><span aria-hidden="true">💡</span><span>In the GI, carbohydrates drive the value. The II can be affected by carbohydrates, proteins and fat, and by how they are combined, which the GI alone can miss.</span></p>
+      <p class="callout reveal">${icon('info')}<span>In the GI, carbohydrates drive the value. The II can be affected by carbohydrates, proteins and fat, and by how they are combined, which the GI alone can miss.</span></p>
     </section>
 
     <section class="guide-sec" id="g-like" aria-labelledby="h-like">
@@ -159,8 +159,8 @@ export function renderGuide(app, data) {
       ${rulers(data)}
       <ul class="rules reveal">
         <li><span aria-hidden="true">✓</span> Only compare foods with the <strong>same reference tag</strong>: ${refTag('glucose')} with ${refTag('glucose')}, ${refTag('bread')} with ${refTag('bread')}.</li>
-        <li><span aria-hidden="true">⚖️</span> Portion size differs between studies. Check the portion on each food.</li>
-        <li><span aria-hidden="true">👥</span> Volunteers differ too, so the same food can score differently in different studies.</li>
+        <li>Portion size differs between studies. Check the portion on each food.</li>
+        <li>Volunteers differ too, so the same food can score differently in different studies.</li>
       </ul>
     </section>
 
@@ -173,7 +173,7 @@ export function renderGuide(app, data) {
         <div><span class="read-num">100</span><span>the same as the reference food</span></div>
         <div><span class="read-num">185</span><span>185% of the reference food’s insulin response</span></div>
       </div>
-      <p class="callout reveal"><span aria-hidden="true">ℹ️</span><span>There is no agreed clinical cut-off for a low, medium or high II, so this site doesn’t label foods as low or high. A high II isn’t automatically bad, for example in sports nutrition.</span></p>
+      <p class="callout reveal">${icon('info')}<span>There is no agreed clinical cut-off for a low, medium or high II, so this site doesn’t label foods as low or high. A high II isn’t automatically bad, for example in sports nutrition.</span></p>
     </section>
 
     <section class="guide-sec" id="g-chart" aria-labelledby="h-chart">

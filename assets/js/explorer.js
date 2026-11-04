@@ -1,7 +1,7 @@
 // Food Explorer: instant search, filter chips, sort, live count, URL state,
 // progressive card rendering and the detail sheet.
 
-import { card, esc, openDetail, closeSheet, groupStyle } from './ui.js';
+import { card, esc, openDetail, closeSheet, groupStyle, icon } from './ui.js';
 
 const BATCH = 48;
 
@@ -23,7 +23,7 @@ export function renderExplorer(app, data, params, options = {}) {
   const countries = [...new Set(data.foods.map((f) => f.country))].sort((a, b) => a.localeCompare(b));
 
   const options_ = {
-    group: groups.map((g) => ({ v: g.id, label: g.label, emoji: g.emoji, style: groupStyle(g) })),
+    group: groups.map((g) => ({ v: g.id, label: g.label, style: groupStyle(g) })),
     meal: [{ v: 'single', label: 'Single food' }, { v: 'mixed', label: 'Mixed meal' }],
     ref: [{ v: 'glucose', label: 'vs glucose' }, { v: 'bread', label: 'vs bread' }],
     country: countries.map((c) => ({ v: c, label: c })),
@@ -92,7 +92,7 @@ export function renderExplorer(app, data, params, options = {}) {
         <ul class="cards" id="cards"></ul>
         <div class="sentinel" id="sentinel" aria-hidden="true"></div>
         <div class="empty" id="empty" hidden>
-          <span aria-hidden="true">🥄</span>
+          ${icon('plate', 'empty-icon')}
           <h2>No foods match</h2>
           <p>Try a shorter search or remove a filter.</p>
           <button type="button" class="btn btn-primary" data-clear-filters>Clear search and filters</button>
@@ -164,7 +164,6 @@ export function renderExplorer(app, data, params, options = {}) {
         const n = counts[o.v] || 0;
         return `<button type="button" class="chip chip-${key}${n ? '' : ' is-empty'}"
           data-key="${key}" data-v="${esc(o.v)}" aria-pressed="${on}"${o.style ? ` style="${o.style}"` : ''}>
-          ${o.emoji ? `<span aria-hidden="true">${o.emoji}</span>` : ''}
           <span class="chip-label">${esc(o.label)}</span>
           <span class="chip-n">${n}</span></button>`;
       }).join('');
@@ -176,7 +175,7 @@ export function renderExplorer(app, data, params, options = {}) {
     if (state.q.trim()) active.push({ key: 'q', v: state.q, label: `“${state.q.trim()}”` });
     FACETS.forEach(({ key }) => state[key].forEach((v) => {
       const o = options_[key].find((x) => x.v === v);
-      active.push({ key, v, label: `${o.emoji ? `${o.emoji} ` : ''}${o.label}` });
+      active.push({ key, v, label: o.label });
     }));
     $('#active').innerHTML = active.map((a) => `<button type="button" class="active-chip" data-remove="${a.key}" data-v="${esc(a.v)}"
       aria-label="Remove filter ${esc(a.label)}">${esc(a.label)} <span aria-hidden="true">✕</span></button>`).join('')

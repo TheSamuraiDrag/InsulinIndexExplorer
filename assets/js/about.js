@@ -1,7 +1,7 @@
 // About & Sources: citation, methods, inclusion criteria, footnotes, the note on
 // Supplemental Table 2, limitations, how this site works, licence and credits.
 
-import { esc, pageHero, FOOTNOTES, groupStyle, toast } from './ui.js';
+import { esc, pageHero, FOOTNOTES, groupStyle, toast, typePic, photoCredit } from './ui.js';
 
 const CITATION = 'Hendricks SA, Paul MJ, Subramaniam Y, Vijayam B. A collectanea of food insulinaemic index: 2023. Clinical Nutrition ESPEN. 2024;63:92–104. https://doi.org/10.1016/j.clnesp.2024.06.017';
 
@@ -27,7 +27,7 @@ export function renderAbout(app, data) {
     eyebrow: 'About & sources',
     title: 'Where these numbers come from',
     lede: 'Every value on this site is copied as published in Supplemental Table 1 of a 2024 open-access review.',
-    photo: 8851929, emoji: '📚', tone: '#FADBE5,#F2AFC4',
+    photo: 8851929, tone: '#FADBE5,#F2AFC4',
   })}
 
   <article class="wrap about">
@@ -41,8 +41,8 @@ export function renderAbout(app, data) {
         <a class="btn btn-ghost btn-sm" href="https://doi.org/10.1016/j.clnesp.2024.06.017" rel="noopener">Read the paper</a>
       </div>
       <ul class="cite-facts">
-        <li><span aria-hidden="true">🔓</span> Open access, <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener license">CC BY-NC-ND 4.0</a></li>
-        <li><span aria-hidden="true">🎓</span> Funded by Newcastle University Medicine Malaysia (NUMed)</li>
+        <li>Open access, <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener license">CC BY-NC-ND 4.0</a></li>
+        <li>Funded by Newcastle University Medicine Malaysia (NUMed)</li>
       </ul>
     </section>
 
@@ -58,14 +58,14 @@ export function renderAbout(app, data) {
       <div class="criteria reveal">
         <h3>To be included, a study needed</h3>
         <ul>
-          <li><span aria-hidden="true">👥</span> At least 10 healthy, non-diabetic subjects with a normal BMI</li>
-          <li><span aria-hidden="true">🍞</span> Glucose or bread as the reference food</li>
-          <li><span aria-hidden="true">📐</span> II calculated by the FAO-recommended trapezoid method, indexing the test food’s iAUC to the reference food’s iAUC</li>
+          <li>At least 10 healthy, non-diabetic subjects with a normal BMI</li>
+          <li>Glucose or bread as the reference food</li>
+          <li>II calculated by the FAO-recommended trapezoid method, indexing the test food’s iAUC to the reference food’s iAUC</li>
         </ul>
         <h3>And</h3>
         <ul>
-          <li><span aria-hidden="true">1️⃣</span> Only the first meal was used when several meals were fed in a row</li>
-          <li><span aria-hidden="true">🔍</span> Three authors extracted the data independently</li>
+          <li>Only the first meal was used when several meals were fed in a row</li>
+          <li>Three authors extracted the data independently</li>
         </ul>
       </div>
     </section>
@@ -110,7 +110,7 @@ export function renderAbout(app, data) {
       </ul>
       <div class="x-scroll reveal"><table class="map-table">
         <thead><tr><th scope="col">Site group</th><th scope="col">Paper categories</th><th scope="col">Foods</th></tr></thead>
-        <tbody>${data.groups.map((g) => `<tr><th scope="row"><span class="mini-group" style="${groupStyle(g)}">${g.emoji} ${esc(g.label)}</span></th>
+        <tbody>${data.groups.map((g) => `<tr><th scope="row"><span class="mini-group" style="${groupStyle(g)}">${esc(g.label)}</span></th>
           <td>${g.categories.map(esc).join('<br>')}</td><td>${F.filter((f) => f.group === g.id).length}</td></tr>`).join('')}</tbody>
       </table></div>
       <div class="downloads reveal">
@@ -125,9 +125,14 @@ export function renderAbout(app, data) {
       <h2 id="h-lic">Thank you</h2>
       <ul class="credits reveal">
         <li><strong>Data:</strong> Hendricks et al., 2024, used under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener license">CC BY-NC-ND 4.0</a>: shown unchanged, with attribution, for non-commercial education.</li>
-        <li><strong>Photos:</strong> <a href="https://www.pexels.com" rel="noopener">Pexels</a>.</li>
+        <li><strong>Banner photos:</strong> <a href="https://www.pexels.com" rel="noopener">Pexels</a>.</li>
+        <li><strong>Food photos:</strong> openly licensed photos (CC BY, CC BY-SA, CC0 or public domain), found through <a href="https://openverse.org" rel="noopener">Openverse</a> and credited below. Each shows the <em>type</em> of food, not the exact product tested.</li>
         <li><strong>Fonts:</strong> Fraunces and Plus Jakarta Sans from Google Fonts.</li>
       </ul>
+      ${Object.keys(data.photos || {}).length ? `<details class="credits-more reveal"><summary>Food photo credits (${Object.keys(data.photos).length})</summary>
+        <ul class="photo-credits">${Object.entries(data.photos).sort((a, b) => a[1].label.localeCompare(b[1].label)).map(([id, ph]) => `<li>
+          ${typePic(id)}<span><strong>${esc(ph.label)}</strong>${ph.credit.title ? `“${esc(ph.credit.title)}”. ` : ''}${photoCredit(ph)}</span></li>`).join('')}</ul>
+      </details>` : ''}
     </section>
   </article>`;
 

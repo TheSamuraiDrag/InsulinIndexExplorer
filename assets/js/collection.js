@@ -11,7 +11,7 @@ export const COLLECTIONS = {
     eyebrow: 'Lowest-II picks',
     title: () => 'Single foods, lowest II first',
     lede: 'All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each reference food gets its own ranking, because a “vs bread” number can’t be lined up against a “vs glucose” one.',
-    photo: 557659, emoji: '🥗', tone: '#D8F0DC,#A9DDB4',
+    photo: 557659, tone: '#D8F0DC,#A9DDB4',
     filter: (f) => f.meal === 'SINGLE',
     explorer: (state) => `#/explorer?meal=single&ref=${state.ref}`,
     ranked: true,
@@ -20,7 +20,7 @@ export const COLLECTIONS = {
     eyebrow: 'Mixed meals',
     title: (n) => `All ${n} mixed meals`,
     lede: 'Breakfasts, lunches, dinners and food combinations eaten together. Real meals, so portions and volunteers vary a lot between studies.',
-    photo: 11873900, emoji: '🍱', tone: '#E9DFF7,#CDB8EE',
+    photo: 11873900, tone: '#E9DFF7,#CDB8EE',
     filter: (f) => f.meal === 'MIXED MEAL',
     explorer: (state) => `#/explorer?meal=mixed${state.ref ? `&ref=${state.ref}` : ''}`,
     highlights: true,
@@ -54,7 +54,7 @@ export function renderCollection(app, data, params, route) {
   app.innerHTML = `
   ${pageHero({
     eyebrow: cfg.eyebrow, title: esc(cfg.title(all.length)), lede: cfg.lede,
-    photo: cfg.photo, emoji: cfg.emoji, tone: cfg.tone,
+    photo: cfg.photo, tone: cfg.tone,
     extra: `<ul class="hero-facts">
       <li><strong>${byRef('glucose')}</strong> vs glucose</li>
       <li><strong>${byRef('bread')}</strong> vs bread</li>
@@ -72,7 +72,7 @@ export function renderCollection(app, data, params, route) {
       <div class="chip-scroll" role="group" aria-label="Food group">
         <button type="button" class="chip" data-g="" aria-pressed="${!state.group}"><span class="chip-label">All groups</span><span class="chip-n" data-n=""></span></button>
         ${top.map(([g, n]) => `<button type="button" class="chip chip-group" data-g="${g.id}" style="${groupStyle(g)}" aria-pressed="${state.group === g.id}">
-          <span aria-hidden="true">${g.emoji}</span><span class="chip-label">${esc(g.label)}</span><span class="chip-n" data-n="${g.id}"></span></button>`).join('')}
+          <span class="chip-label">${esc(g.label)}</span><span class="chip-n" data-n="${g.id}"></span></button>`).join('')}
       </div>
       <div class="coll-row">
         <div class="seg" role="group" aria-label="Reference food">
