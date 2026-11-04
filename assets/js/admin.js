@@ -124,11 +124,42 @@ function autoFlags(data) {
   return out;
 }
 
-/* ---------- Sign-in gate and tabs ---------- */
+/* ---------- Sign-in and tabs ---------- */
 
-let access = null; // { login, branch } once the token has been checked this session
+// Admin login for the testing phase. This is a light lock: a site with no server can't keep a
+// password truly secret, so it only guards the admin screens. Changing the live site also
+// needs a one-time GitHub connection when someone presses Publish (admin-photos.js), and
+// GitHub checks that itself. Change the login with: python3 scripts/set_admin_login.py
+const LOGIN_HASH = '629e4e9d4e3dfb9e0fadaea740f96f266bf3ae7258c7a341b931fd651014a870';
+const LOGIN_KEY = 'ii-admin-login';
+const USER_KEY = 'ii-admin-user';
+
+let memoryLogin = null; // used when browser storage is blocked
 let active = () => {}; // clean-up for whatever the admin page last drew
-const onAdmin = () => /^#\/admin(\?|$)/.test(location.hash);
+
+async function hashLogin(user, pass) {
+  const bytes = new TextEncoder().encode(`insulin-index-admin|${user.trim().toLowerCase()}|${pass}`);
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+function readLogin() {
+  try { return { hash: sessionStorage.getItem(LOGIN_KEY) || localStorage.getItem(LOGIN_KEY), user: sessionStorage.getItem(USER_KEY) || localStorage.getItem(USER_KEY) }; } catch { return memoryLogin || {}; }
+}
+function saveLogin(user, remember) {
+  memoryLogin = { hash: LOGIN_HASH, user };
+  try {
+    const keep = remember ? localStorage : sessionStorage;
+    const drop = remember ? sessionStorage : localStorage;
+    keep.setItem(LOGIN_KEY, LOGIN_HASH); keep.setItem(USER_KEY, user);
+    drop.removeItem(LOGIN_KEY); drop.removeItem(USER_KEY);
+  } catch { /* stay signed in for this page only */ }
+}
+function clearLogin() {
+  memoryLogin = null;
+  try { [sessionStorage, localStorage].forEach((st) => { st.removeItem(LOGIN_KEY); st.removeItem(USER_KEY); }); } catch { /* ignore */ }
+}
+const loggedIn = () => readLogin().hash === LOGIN_HASH;
 
 export function renderAdmin(app, data, params) {
   active();
@@ -137,114 +168,81 @@ export function renderAdmin(app, data, params) {
 }
 
 function draw(app, data, params) {
-  const token = gh.getToken();
-  if (!token) return renderSignIn(app, data, params);
-  if (!access) {
-    app.innerHTML = '<section class="wrap page-soon" role="status"><span class="spinner" aria-hidden="true"></span><p>Checking your GitHub access…</p></section>';
-    const cfg = gh.repoConfig();
-    gh.verify(cfg, token).then((a) => {
-      access = a;
-      if (onAdmin()) renderAdmin(app, data, params);
-    }).catch((e) => {
-      gh.signOut();
-      if (onAdmin()) { active(); active = renderSignIn(app, data, params, e.message); }
-    });
-    return () => {};
-  }
-  const cfg = { ...gh.repoConfig(), branch: access.branch };
+  if (!loggedIn()) return renderSignIn(app, data, params);
   const tab = params.get('tab') === 'photos' ? 'photos' : 'data';
   const bar = `<div class="wrap-wide admin-nav">
       <div class="seg" role="tablist" aria-label="Admin sections">
         <a role="tab" href="#/admin" aria-selected="${tab === 'data'}" ${tab === 'data' ? 'aria-current="page"' : ''}>Data check</a>
         <a role="tab" href="#/admin?tab=photos" aria-selected="${tab === 'photos'}" ${tab === 'photos' ? 'aria-current="page"' : ''}>Photos</a>
       </div>
-      <p class="admin-who">Signed in${access.login ? ` as <strong>${esc(access.login)}</strong>` : ''}
-        <button type="button" class="link-btn" data-signout>Sign out</button></p>
+      <p class="admin-who">Signed in as <strong>${esc(readLogin().user || 'admin')}</strong>
+        <span data-gh-status>${gh.statusHtml()}</span>
+        · <button type="button" class="link-btn" data-signout>Sign out</button></p>
     </div>`;
   let cleanup = () => {};
   if (tab === 'photos') {
     app.innerHTML = `<section class="admin">${bar}<div class="wrap-wide page-head">
         <p class="eyebrow">Admin · Photos</p><h1>Food photos</h1>
-        <p class="lede">Add, replace or remove photos and choose which foods use them. Changes are previewed here first; <strong>Publish</strong> saves them to GitHub and the live site updates about a minute later.</p>
+        <p class="lede">Add, replace or remove photos and choose which foods use them. Changes are previewed here first; <strong>Publish</strong> saves them to the live site, which updates about a minute later.</p>
       </div><div class="wrap-wide" id="ph-root"></div></section>`;
     let inner = () => {};
-    renderPhotos(app.querySelector('#ph-root'), data, cfg, params).then((c) => { inner = c; });
+    renderPhotos(app.querySelector('#ph-root'), data, params).then((c) => { inner = c; });
     cleanup = () => inner();
   } else {
     cleanup = renderDataCheck(app, data, params);
     app.querySelector('.admin').insertAdjacentHTML('afterbegin', bar);
   }
-  const onSignOut = (e) => {
+  const onClick = (e) => {
+    if (e.target.closest('[data-gh-disconnect]')) {
+      gh.signOut();
+      app.querySelectorAll('[data-gh-status]').forEach((el) => { el.innerHTML = gh.statusHtml(); });
+      toast('GitHub disconnected on this device');
+      return;
+    }
     if (!e.target.closest('[data-signout]')) return;
     if (hasUnpublished() && !confirm('You have unpublished photo changes. Sign out and lose them?')) return;
     discardAll();
-    gh.signOut();
-    access = null;
+    clearLogin();
     history.replaceState(null, '', '#/admin');
     renderAdmin(app, data, new URLSearchParams());
   };
-  app.addEventListener('click', onSignOut);
-  return () => { app.removeEventListener('click', onSignOut); cleanup(); };
+  app.addEventListener('click', onClick);
+  return () => { app.removeEventListener('click', onClick); cleanup(); };
 }
 
-function renderSignIn(app, data, params, error = '') {
-  const cfg = gh.repoConfig();
+function renderSignIn(app, data, params) {
   app.innerHTML = `<section class="wrap admin-signin">
     <div class="signin-card">
       <p class="eyebrow">Admin</p>
-      <h1>Sign in to manage the site</h1>
-      <p class="lede">Only people who can edit the website’s GitHub repository can sign in.
-        Sign in with a GitHub access token: GitHub checks it every time you publish, so nobody else can change the site.</p>
+      <h1>Sign in</h1>
+      <p class="lede">For the research team: check the data against the paper and manage food photos.</p>
       <form class="signin-form" novalidate>
-        <label for="si-token">GitHub access token</label>
-        <input id="si-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" required>
+        <label for="si-user">Username</label>
+        <input id="si-user" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        <label for="si-pass">Password</label>
+        <input id="si-pass" type="password" autocomplete="current-password" required>
         <label class="signin-remember"><input type="checkbox" id="si-remember"> Keep me signed in on this device <span class="hint">(not on shared computers)</span></label>
-        <p class="signin-error" role="alert">${esc(error)}</p>
+        <p class="signin-error" role="alert"></p>
         <button type="submit" class="btn btn-primary">Sign in</button>
       </form>
-      <details class="signin-help" ${error ? 'open' : ''}>
-        <summary>How to get a token (about 2 minutes)</summary>
-        <ol>
-          <li>Sign in to GitHub with an account that can edit the website’s repository. (The owner can add teammates under the repository’s <em>Settings → Collaborators</em>.)</li>
-          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">New fine-grained token</a>.</li>
-          <li>Give it a name such as “Insulin Index admin” and choose an expiry date.</li>
-          <li><strong>Resource owner:</strong> the account that owns the website’s repository. <strong>Repository access:</strong> Only select repositories → the website’s repository.</li>
-          <li><strong>Permissions → Repository permissions → Contents:</strong> Read and write.<br><span class="hint">Optional: Pages: Read-only, so the site can find the branch GitHub Pages publishes.</span></li>
-          <li>Press <em>Generate token</em>, copy it and paste it above. Treat it like a password: never share it or put it in the repository.</li>
-        </ol>
-        <p class="hint">To lock someone out, delete their token on GitHub or remove them as a collaborator.</p>
-      </details>
-      <details class="signin-help">
-        <summary>Repository settings</summary>
-        <div class="signin-repo">
-          <label>Owner<input id="si-owner" placeholder="detected automatically"></label>
-          <label>Repository<input id="si-repo" placeholder="detected automatically"></label>
-          <label>Branch<input id="si-branch" value="${esc(cfg.branch || '')}" placeholder="the branch GitHub Pages uses"></label>
-        </div>
-      </details>
     </div>
   </section>`;
   const form = app.querySelector('.signin-form');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const token = app.querySelector('#si-token').value.trim();
+    const user = app.querySelector('#si-user').value;
+    const pass = app.querySelector('#si-pass').value;
     const errEl = app.querySelector('.signin-error');
-    if (!token) { errEl.textContent = 'Paste your GitHub token first.'; return; }
-    const val = (id) => app.querySelector(id).value.trim();
-    const repoCfg = { owner: val('#si-owner') || cfg.owner, repo: val('#si-repo') || cfg.repo, branch: val('#si-branch') || cfg.branch || '' };
     const btn = form.querySelector('button');
-    btn.disabled = true; btn.textContent = 'Checking…'; errEl.textContent = '';
-    try {
-      access = await gh.verify(repoCfg, token);
-      gh.saveRepoConfig(repoCfg);
-      gh.setToken(token, app.querySelector('#si-remember').checked);
-      if (onAdmin()) renderAdmin(app, data, params);
-    } catch (err) {
-      errEl.textContent = err.message;
-      btn.disabled = false; btn.textContent = 'Sign in';
-    }
+    btn.disabled = true; errEl.textContent = '';
+    const ok = (await hashLogin(user, pass)) === LOGIN_HASH;
+    await new Promise((r) => setTimeout(r, ok ? 0 : 700)); // slow down guessing
+    btn.disabled = false;
+    if (!ok) { errEl.textContent = 'Wrong username or password.'; app.querySelector('#si-pass').select(); return; }
+    saveLogin(user.trim().toLowerCase(), app.querySelector('#si-remember').checked);
+    if (/^#\/admin(\?|$)/.test(location.hash)) renderAdmin(app, data, params);
   });
-  app.querySelector('#si-token').focus();
+  app.querySelector('#si-user').focus();
   return () => {};
 }
 

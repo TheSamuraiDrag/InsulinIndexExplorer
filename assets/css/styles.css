@@ -1233,8 +1233,9 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .signin-card h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 10px; }
 .signin-form { display: grid; gap: 10px; margin: 22px 0 8px; }
 .signin-form label[for] { font-weight: 700; font-size: .9rem; }
-.signin-form input[type="password"] { height: 48px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--line-strong); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 15px; }
-.signin-form input[type="password"]:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(217, 87, 59, .14); }
+.signin-form input[type="password"], .signin-form input[type="text"] { height: 48px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--line-strong); font-size: 16px; }
+#gc-token { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 15px; }
+.signin-form input[type="password"]:focus, .signin-form input[type="text"]:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(217, 87, 59, .14); }
 .signin-remember { display: flex; align-items: center; gap: 8px; font-size: .9rem; }
 .signin-remember input { width: 18px; height: 18px; accent-color: var(--accent); }
 .signin-remember .hint { display: inline; margin: 0; }

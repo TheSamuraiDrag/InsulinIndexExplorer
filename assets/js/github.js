@@ -44,6 +44,11 @@ export function saveRepoConfig(cfg) {
 }
 
 export const getToken = () => memoryToken || store.get(TOKEN_KEY);
+
+// Short status for the Admin page header.
+export const statusHtml = () => (getToken()
+  ? '· GitHub connected for publishing (<button type="button" class="link-btn" data-gh-disconnect>disconnect</button>)'
+  : '· GitHub not connected yet (only needed to publish)');
 export function setToken(token, remember) { memoryToken = token; store.set(TOKEN_KEY, token, remember); }
 export function signOut() { memoryToken = null; store.clear(TOKEN_KEY); }
 

@@ -105,21 +105,35 @@ Behind the scenes:
 
 ## Admin page and sign-in
 
-The Admin page (`#/admin`) is not linked from the public site. It needs a sign-in:
+The Admin page (`#/admin`) isn't linked from the public site. Open it by adding `#/admin` to the
+site address.
 
-- GitHub Pages has no server, so a password typed into the page couldn't be kept secret. Instead,
-  admins sign in with a **GitHub fine-grained access token**, and GitHub checks it every time
-  something is published. Only people who can edit this repository can make one.
-- To make a token: GitHub → Settings → Developer settings → Fine-grained tokens → Generate new
-  token. Resource owner: the repository owner. Repository access: only this repository.
-  Permissions: **Contents: Read and write** (optional: Pages: Read-only). The sign-in screen
-  links straight there.
-- The token stays in that browser (this tab only, unless "Keep me signed in" is ticked) and is
-  sent only to GitHub. Treat it like a password.
-- To add an admin, add them as a collaborator (repository Settings → Collaborators). To remove
-  one, remove them there or delete their token.
-- Anyone can still read the public data files (the CSV and JSON), as on any public website; the
-  sign-in protects the admin tools and publishing.
+**Sign in** with the team's admin username and password (ask the site owner; they're
+deliberately not written in this repository). This opens the Data check and Photos tabs.
+
+**Publishing photo changes** also needs a GitHub connection, asked for once per device the first
+time someone presses Publish:
+
+1. The repository owner adds the person's GitHub account as a collaborator (repository
+   Settings → Collaborators).
+2. That person creates a fine-grained access token (the Connect dialog links straight there):
+   Resource owner = the repository's owner; Repository access = only this repository;
+   Permissions → Contents: Read and write.
+3. They paste it into the Connect dialog. It's remembered on that device (untick on shared
+   computers) and sent only to GitHub.
+
+To lock someone out, remove them as a collaborator or delete their token on GitHub.
+
+Why two steps: a website with no server can't keep a password secret (anyone determined can read
+the page's code), so the username and password are a light lock on the admin screens. The power
+to change the live site is protected by GitHub itself.
+
+**Change the login:** run `python3 scripts/set_admin_login.py`, then commit and push
+`assets/js/admin.js`. Only a hash of the username and password is stored, never the password.
+
+**If the repository is renamed or moved** (for example when setting up the custom domain),
+either update `DEFAULT_REPO` at the top of `assets/js/github.js`, or open "Repository settings" in
+the Connect dialog and type the new owner and name.
 
 ### Data check tab
 

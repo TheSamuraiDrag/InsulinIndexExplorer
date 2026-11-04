@@ -20,7 +20,8 @@ const LICENCES = [
 ];
 
 // Survives switching tabs or pages, so unpublished edits aren't lost (until the tab closes).
-const session = { base: null, baseSha: null, pending: emptyPending(), published: {} };
+const session = { base: null, pending: emptyPending(), published: {} };
+let ghAccess = null; // { login, branch } once a GitHub token has been checked
 
 function emptyPending() { return { types: {}, map: {} }; }
 const pendingCount = () => Object.keys(session.pending.types).length + Object.keys(session.pending.map).length;
@@ -91,14 +92,15 @@ const toJpeg = (canvas) => new Promise((resolve) => canvas.toBlob(resolve, 'imag
 
 /* ---------- Main view ---------- */
 
-export async function renderPhotos(root, data, cfg, params) {
-  root.innerHTML = '<div class="admin-card ph-loading" role="status"><span class="spinner" aria-hidden="true"></span> Loading the latest photos from GitHub…</div>';
+export async function renderPhotos(root, data, params) {
+  root.innerHTML = '<div class="admin-card ph-loading" role="status"><span class="spinner" aria-hidden="true"></span> Loading photos…</div>';
   if (!session.base) {
     try {
-      session.baseSha = await gh.headSha(cfg);
-      session.base = JSON.parse(await gh.readText(cfg, 'data/photos.json', session.baseSha));
+      const res = await fetch('data/photos.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error(res.status);
+      session.base = await res.json();
     } catch (e) {
-      root.innerHTML = `<div class="admin-card warning">Couldn’t read <code>data/photos.json</code> from GitHub (${esc(e.message)}). Check the repository settings, then reload.</div>`;
+      root.innerHTML = `<div class="admin-card warning">Couldn’t load <code>data/photos.json</code> (${esc(e.message)}). Please reload the page.</div>`;
       return () => {};
     }
   }
@@ -426,6 +428,8 @@ export async function renderPhotos(root, data, cfg, params) {
   async function publish(btn) {
     btn.disabled = true;
     btn.textContent = 'Publishing…';
+    const cfg = await ensureGitHub();
+    if (!cfg) { btn.disabled = false; btn.textContent = 'Publish to website'; return; }
     try {
       const head = await gh.headSha(cfg);
       const latest = JSON.parse(await gh.readText(cfg, 'data/photos.json', head));
@@ -455,7 +459,8 @@ export async function renderPhotos(root, data, cfg, params) {
       changed();
       toast('Published. The live website updates in about a minute.');
     } catch (e) {
-      const msg = e.status === 401 ? 'Your GitHub token has expired or was revoked. Sign out and sign in again.'
+      if (e.status === 401) { gh.signOut(); ghAccess = null; updateStatus(); }
+      const msg = e.status === 401 ? 'The GitHub connection has expired. Press Publish again to reconnect.'
         : e.status === 403 || e.status === 404 ? 'GitHub refused the change. Check your token has “Contents: Read and write” for this repository.'
           : e.status === 409 || e.status === 422 ? 'Someone else published at the same moment. Press Publish again.'
             : `Publishing failed: ${e.message}`;
@@ -519,7 +524,88 @@ export const hasUnpublished = () => pendingCount() > 0;
 export function discardAll() {
   Object.values(session.pending.types).forEach((p) => { if (p.image) { URL.revokeObjectURL(p.image.fullUrl); URL.revokeObjectURL(p.image.thumbUrl); } });
   if (session.base) applyPhotos(session.base);
-  Object.assign(session, { base: null, baseSha: null, pending: emptyPending(), published: {} });
+  Object.assign(session, { base: null, pending: emptyPending(), published: {} });
+}
+
+const updateStatus = () => document.querySelectorAll('[data-gh-status]').forEach((el) => { el.innerHTML = gh.statusHtml(); });
+
+/* ---------- GitHub connection (asked for the first time someone publishes) ---------- */
+
+async function ensureGitHub() {
+  const base = gh.repoConfig();
+  if (gh.getToken()) {
+    try {
+      ghAccess ??= await gh.verify(base, gh.getToken());
+      return { ...base, branch: ghAccess.branch };
+    } catch (e) {
+      gh.signOut(); ghAccess = null; updateStatus();
+      return connectDialog(e.message);
+    }
+  }
+  return connectDialog();
+}
+
+function connectDialog(error = '') {
+  return new Promise((resolve) => {
+    const dialog = ensureDialog('gh-connect');
+    dialog.querySelector('.sheet-inner').innerHTML = `
+      <button type="button" class="icon-btn sheet-close" data-close aria-label="Close">✕</button>
+      <form class="compare-content signin-form" novalidate>
+        <h2 class="compare-title">Connect GitHub to publish</h2>
+        <p class="lede">The website’s files are kept on GitHub. To change the live site, connect a GitHub access token once on this device. GitHub checks it every time you publish, so only people the repository owner has added can change the site.</p>
+        <label for="gc-token">GitHub access token</label>
+        <input id="gc-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+        <label class="signin-remember"><input type="checkbox" id="gc-remember" checked> Remember on this device <span class="hint">(untick on shared computers)</span></label>
+        <p class="signin-error" role="alert">${esc(error)}</p>
+        <div class="detail-actions"><button type="submit" class="btn btn-primary">Connect and publish</button>
+          <button type="button" class="btn btn-ghost" data-close>Cancel</button></div>
+        <details class="signin-help" open>
+          <summary>How to get a token (about 2 minutes)</summary>
+          <ol>
+            <li>Ask the repository owner to add your GitHub account as a collaborator (repository <em>Settings → Collaborators</em>).</li>
+            <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">New fine-grained token</a> on GitHub.</li>
+            <li>Name it, for example “Insulin Index admin”, and choose an expiry date.</li>
+            <li><strong>Resource owner:</strong> the account that owns the website’s repository. <strong>Repository access:</strong> Only select repositories → the website’s repository.</li>
+            <li><strong>Permissions → Repository permissions → Contents:</strong> Read and write.</li>
+            <li>Press <em>Generate token</em>, copy it and paste it above. Treat it like a password.</li>
+          </ol>
+        </details>
+        <details class="signin-help">
+          <summary>Repository settings</summary>
+          <div class="signin-repo">
+            <label>Owner<input id="gc-owner" placeholder="detected automatically"></label>
+            <label>Repository<input id="gc-repo" placeholder="detected automatically"></label>
+            <label>Branch<input id="gc-branch" placeholder="the branch the site is published from"></label>
+          </div>
+        </details>
+      </form>`;
+    const q = (s) => dialog.querySelector(s);
+    let done = false;
+    const finish = (v) => { if (done) return; done = true; closeSheet(dialog); resolve(v); };
+    dialog.onclick = (e) => { if (e.target === dialog || e.target.closest('[data-close]')) finish(null); };
+    dialog.addEventListener('close', () => finish(null), { once: true });
+    q('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const token = q('#gc-token').value.trim();
+      if (!token) { q('.signin-error').textContent = 'Paste your GitHub token first.'; return; }
+      const saved = gh.repoConfig();
+      const cfg = { owner: q('#gc-owner').value.trim() || saved.owner, repo: q('#gc-repo').value.trim() || saved.repo, branch: q('#gc-branch').value.trim() || saved.branch || '' };
+      const btn = q('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Checking…'; q('.signin-error').textContent = '';
+      try {
+        ghAccess = await gh.verify(cfg, token);
+        if (q('#gc-owner').value.trim() || q('#gc-repo').value.trim() || q('#gc-branch').value.trim()) gh.saveRepoConfig(cfg);
+        gh.setToken(token, q('#gc-remember').checked);
+        updateStatus();
+        finish({ ...cfg, branch: ghAccess.branch });
+      } catch (err) {
+        q('.signin-error').textContent = err.message;
+        btn.disabled = false; btn.textContent = 'Connect and publish';
+      }
+    });
+    openSheet(dialog);
+    q('#gc-token').focus();
+  });
 }
 
 function ensureDialog(id) {
