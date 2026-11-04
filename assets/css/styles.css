@@ -1380,3 +1380,5 @@ html:lang(zh-Hans) :is(.hero-title .hl, .page-hero h1 em) { font-style: normal; 
   background: linear-gradient(transparent 62%, rgba(226, 92, 52, .9) 62%); }
 html:lang(zh-Hans) :is(.hero-title, .page-hero h1) { text-shadow: 0 1px 3px rgba(0, 0, 0, .55), 0 2px 24px rgba(0, 0, 0, .35); }
 html:lang(zh-Hans) :is(.hero-lede, .page-hero-lede, .hero .eyebrow, .page-hero .eyebrow) { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .6); }
+/* Italic words lean into the next word: give them a little room. */
+.hero-title .hl, .page-hero h1 em { padding-right: .1em; }
