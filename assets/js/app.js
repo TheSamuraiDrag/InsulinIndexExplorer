@@ -6,6 +6,7 @@ import { renderHome } from './home.js';
 import { renderExplorer } from './explorer.js';
 import { renderAdmin } from './admin.js';
 import { SITE } from './config.js';
+import { initI18n } from './i18n.js';
 import { renderGroups } from './groups.js';
 import { renderCollection } from './collection.js';
 import { renderGuide } from './guide.js';
@@ -127,6 +128,7 @@ async function boot() {
   const ver = document.getElementById('footer-version');
   if (ver) ver.textContent = `Data: ${SITE.dataSource}, ${data.foods.length} entries · Website v${SITE.version}`;
   loadCounter();
+  await initI18n();
   wireGlobal();
   setDetailListener((n) => {
     // Keep the open food in the URL on the Explorer so the view can be shared.

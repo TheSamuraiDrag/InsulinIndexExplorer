@@ -50,7 +50,7 @@ function rulers(data) {
     <div class="share">
       <p class="share-title"><strong>${pct}%</strong> of entries (${bread} of ${total}) use bread as the reference</p>
       <div class="share-bar" aria-hidden="true"><span class="share-g" style="flex:${total - bread}"></span><span class="share-b" style="flex:${bread}"></span></div>
-      <p class="share-legend"><span><span class="sw sw-g" aria-hidden="true"></span>comparator: glucose ${total - bread}</span><span><span class="sw sw-b" aria-hidden="true"></span>vs bread ${bread}</span></p>
+      <p class="share-legend"><span><span class="sw sw-g" aria-hidden="true"></span>comparator: glucose ${total - bread}</span><span><span class="sw sw-b" aria-hidden="true"></span>comparator: bread ${bread}</span></p>
     </div>
   </div>`;
 }

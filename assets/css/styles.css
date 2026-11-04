@@ -1360,3 +1360,6 @@ img.act-avatar:not([src]) { visibility: hidden; }
 .csv-btn { margin-left: auto; }
 .report { margin-top: 4px; font-size: .84rem; }
 .report a { color: var(--muted); }
+.lang-btn { margin-left: auto; min-width: 44px; height: 36px; padding: 0 12px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: var(--surface); font-weight: 750; font-size: .8rem; letter-spacing: .04em; color: var(--ink-soft); }
+.lang-btn:hover { border-color: var(--ink-soft); color: var(--ink); }
+@media (min-width: 960px) { .lang-btn { order: 2; margin-left: 8px; } }
