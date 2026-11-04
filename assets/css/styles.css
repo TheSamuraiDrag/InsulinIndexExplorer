@@ -1317,3 +1317,6 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .ph-assign-list label:hover { background: var(--bg); }
 .ph-assign-list input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--accent); flex: none; }
 .admin-photo a { margin-left: 6px; font-weight: 700; }
+.footer-admin { margin-top: 14px; font-size: .84rem; }
+.site-footer .footer-admin a { color: #BBA999; }
+.site-footer .footer-admin a:hover { color: #FFC9B0; }
