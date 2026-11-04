@@ -16,6 +16,9 @@ const LICENCES = [
   ['CC BY-SA 2.0', 'https://creativecommons.org/licenses/by-sa/2.0/'],
   ['CC0 1.0', 'https://creativecommons.org/publicdomain/zero/1.0/'],
   ['Public Domain Mark', 'https://creativecommons.org/publicdomain/mark/1.0/'],
+  ['Pexels License', 'https://www.pexels.com/license/'],
+  ['Unsplash License', 'https://unsplash.com/license'],
+  ['Pixabay Content License', 'https://pixabay.com/service/license-summary/'],
   ['Own photo (used with permission)', ''],
 ];
 
