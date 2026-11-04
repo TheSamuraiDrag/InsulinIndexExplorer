@@ -11,7 +11,7 @@ const COLUMN = { ms: 1, zh: 2 }; // column in translations.csv
 const HTML_LANG = { en: 'en', ms: 'ms', zh: 'zh-Hans' };
 export const lang = (() => { try { const v = localStorage.getItem(KEY); return v in COLUMN ? v : 'en'; } catch { return 'en'; } })();
 
-const SKIP_TREE = '[translate="no"], script, style, .lang-btn, .brand, .admin, .admin-signin, #ph-editor, #ph-picker, #gh-connect, '
+const SKIP_TREE = '[translate="no"], script, style, .lang, .brand, .admin, .admin-signin, #ph-editor, #ph-picker, #gh-connect, '
   + '.footer-cite, .photo-credits, .gc-cats, .chip-country, .active-chip[data-remove="country"], .active-chip[data-remove="q"], .map-table td';
 const SKIP_PARENT = '.card-name, .detail-name, .detail-cat, .facts > div:not(:last-child) > dd, .same-meta, .bar-label, .tray-name, '
   + '.cmp-name, .compare-table tbody tr:nth-child(n+4) > td, .everyday-name, .hl-name';
@@ -88,13 +88,37 @@ function translateTree(root) {
 }
 
 function setupSwitch() {
-  const sel = document.getElementById('lang-btn');
-  if (!sel) return;
-  sel.value = lang;
-  sel.addEventListener('change', () => {
-    try { localStorage.setItem(KEY, sel.value); } catch { /* ignore */ }
+  const wrap = document.getElementById('lang');
+  const btn = document.getElementById('lang-btn');
+  const menu = document.getElementById('lang-menu');
+  if (!wrap || !btn || !menu) return;
+  const items = [...menu.querySelectorAll('[data-lang]')];
+  document.getElementById('lang-cur').textContent = { en: 'EN', ms: 'BM', zh: '中文' }[lang];
+  items.forEach((b) => b.setAttribute('aria-checked', String(b.dataset.lang === lang)));
+  const current = () => items.findIndex((b) => b.dataset.lang === lang);
+  const open = (i = current()) => { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); items[i].focus(); };
+  const close = (refocus) => {
+    if (menu.hidden) return;
+    menu.hidden = true; btn.setAttribute('aria-expanded', 'false');
+    if (refocus) btn.focus();
+  };
+  btn.addEventListener('click', () => (menu.hidden ? open() : close(true)));
+  btn.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); open(e.key === 'ArrowDown' ? 0 : items.length - 1); }
+  });
+  menu.addEventListener('keydown', (e) => {
+    const i = items.indexOf(document.activeElement);
+    const go = { ArrowDown: i + 1, ArrowUp: i - 1, Home: 0, End: items.length - 1 }[e.key];
+    if (go != null) { e.preventDefault(); items[(go + items.length) % items.length].focus(); } else if (e.key === 'Escape') { e.stopPropagation(); close(true); } else if (e.key === 'Tab') close(false);
+  });
+  menu.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-lang]');
+    if (!b) return;
+    if (b.dataset.lang === lang) { close(true); return; }
+    try { localStorage.setItem(KEY, b.dataset.lang); } catch { /* ignore */ }
     location.reload();
   });
+  document.addEventListener('click', (e) => { if (!wrap.contains(e.target)) close(false); });
 }
 
 export async function initI18n() {

@@ -6,6 +6,7 @@ import { esc, marked, footnoteMarker, FOOTNOTES, refTag, groupStyle, toast, food
 import * as gh from './github.js';
 import { renderPhotos, hasUnpublished, discardAll } from './admin-photos.js';
 import { renderActivity } from './admin-activity.js';
+import { renderVisitors } from './admin-visitors.js';
 
 const STORE_KEY = 'ii-admin-review-v1';
 
@@ -170,19 +171,26 @@ export function renderAdmin(app, data, params) {
 
 function draw(app, data, params) {
   if (!loggedIn()) return renderSignIn(app, data, params);
-  const tab = ['photos', 'activity'].includes(params.get('tab')) ? params.get('tab') : 'data';
+  const tab = ['photos', 'activity', 'visitors'].includes(params.get('tab')) ? params.get('tab') : 'data';
   const bar = `<div class="wrap-wide admin-nav">
       <div class="seg" role="tablist" aria-label="Admin sections">
         <a role="tab" href="#/admin" aria-selected="${tab === 'data'}" ${tab === 'data' ? 'aria-current="page"' : ''}>Data check</a>
         <a role="tab" href="#/admin?tab=photos" aria-selected="${tab === 'photos'}" ${tab === 'photos' ? 'aria-current="page"' : ''}>Photos</a>
         <a role="tab" href="#/admin?tab=activity" aria-selected="${tab === 'activity'}" ${tab === 'activity' ? 'aria-current="page"' : ''}>Activity</a>
+        <a role="tab" href="#/admin?tab=visitors" aria-selected="${tab === 'visitors'}" ${tab === 'visitors' ? 'aria-current="page"' : ''}>Visitors</a>
       </div>
       <p class="admin-who">Signed in as <strong>${esc(readLogin().user || 'admin')}</strong>
         <span data-gh-status>${gh.statusHtml()}</span>
         · <button type="button" class="link-btn" data-signout>Sign out</button></p>
     </div>`;
   let cleanup = () => {};
-  if (tab === 'activity') {
+  if (tab === 'visitors') {
+    app.innerHTML = `<section class="admin">${bar}<div class="wrap-wide page-head">
+        <p class="eyebrow">Admin · Visitors</p><h1>Visitor counts</h1>
+        <p class="lede">How many visits the public website has had, page by page.</p>
+      </div><div class="wrap-wide act-wrap" id="vis-root"></div></section>`;
+    renderVisitors(app.querySelector('#vis-root'));
+  } else if (tab === 'activity') {
     app.innerHTML = `<section class="admin">${bar}<div class="wrap-wide page-head">
         <p class="eyebrow">Admin · Activity</p><h1>Activity log</h1>
         <p class="lede">What was published to the website, when, and by whom.</p>

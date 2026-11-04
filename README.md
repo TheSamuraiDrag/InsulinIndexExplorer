@@ -143,6 +143,13 @@ changed (photos added, replaced or removed, and which food numbers), and the opt
 next to Publish. "Details" shows the photos involved; "View on GitHub" opens the full change.
 Sign-ins and Data check ticks aren't recorded, because the site has no server.
 
+### Visitors tab
+
+Shows how many visits the public website has had (all time, last 30 days, last 7 days), in total
+and page by page, from GoatCounter. It needs one setting, once: in GoatCounter go to
+**Settings**, tick **“Allow adding visitor counts on your website”** and save. Countries,
+browsers and referrers are on the full GoatCounter dashboard, linked from the tab.
+
 ### Data check tab
 
 The Data check tab is for checking the database against the paper without opening 629 cards:
@@ -187,6 +194,7 @@ assets/js/guide.js       How to read the II
 assets/js/about.js       About & sources
 assets/js/admin.js       Admin: sign-in and Data check
 assets/js/admin-photos.js  Admin: Photos (upload, credits, which foods use which photo)
+assets/js/admin-visitors.js  Admin: Visitors (GoatCounter counts)
 assets/js/github.js      GitHub sign-in and publishing for the Admin page
 assets/js/i18n.js        language switch (reads data/translations.csv)
 data/                    source CSVs, photos.json (photos and credits), generated foods.json
