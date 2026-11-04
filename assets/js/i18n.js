@@ -16,6 +16,7 @@ const SKIP_TREE = '[translate="no"], script, style, .lang-btn, .brand, .admin, .
 const SKIP_PARENT = '.card-name, .detail-name, .detail-cat, .facts > div:not(:last-child) > dd, .same-meta, .bar-label, .tray-name, '
   + '.cmp-name, .compare-table tbody tr:nth-child(n+4) > td, .everyday-name, .hl-name';
 const ATTRS = ['placeholder', 'aria-label', 'title', 'alt', 'data-tip'];
+const CJK = lang === 'zh' ? /[\u3000-\u9fff\uff00-\uffef]/ : null;
 
 const exact = new Map();
 const patterns = [];
@@ -64,7 +65,10 @@ function trText(node) {
   if (!el || el.closest(SKIP_TREE) || el.matches(SKIP_PARENT)) return;
   const v = node.nodeValue; const r = t(v);
   if (r == null || r === norm(v)) return;
-  node.nodeValue = `${v.match(/^\s*/)[0]}${r}${v.match(/\s*$/)[0]}`;
+  // Chinese doesn't put spaces between words: drop the English spacing next to Chinese characters.
+  const lead = CJK && CJK.test(r[0]) ? '' : v.match(/^\s*/)[0];
+  const trail = CJK && CJK.test(r[r.length - 1]) ? '' : v.match(/\s*$/)[0];
+  node.nodeValue = lead + r + trail;
 }
 function trAttrs(el) {
   if (el.closest(SKIP_TREE)) return;

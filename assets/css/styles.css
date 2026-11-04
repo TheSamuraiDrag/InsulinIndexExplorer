@@ -1371,3 +1371,12 @@ html:lang(zh-Hans) {
   --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
   --font-display: "Fraunces", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
 }
+/* Chinese has no true italic (browsers fake a slant), and thin strokes vanish in pale colours on photos. */
+html:lang(zh-Hans) main em, html:lang(zh-Hans) main i, html:lang(zh-Hans) .sub-row th, html:lang(zh-Hans) .d-note,
+html:lang(zh-Hans) .vs-mid, html:lang(zh-Hans) .chart-none, html:lang(zh-Hans) .act-note { font-style: normal; }
+html:lang(zh-Hans) :is(h1, h2, h3, .hero-title) { letter-spacing: 0; line-height: 1.3; }
+html:lang(zh-Hans) { text-autospace: normal; }
+html:lang(zh-Hans) :is(.hero-title .hl, .page-hero h1 em) { font-style: normal; white-space: nowrap; color: #fff; padding: 0 .06em;
+  background: linear-gradient(transparent 62%, rgba(226, 92, 52, .9) 62%); }
+html:lang(zh-Hans) :is(.hero-title, .page-hero h1) { text-shadow: 0 1px 3px rgba(0, 0, 0, .55), 0 2px 24px rgba(0, 0, 0, .35); }
+html:lang(zh-Hans) :is(.hero-lede, .page-hero-lede, .hero .eyebrow, .page-hero .eyebrow) { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .6); }
