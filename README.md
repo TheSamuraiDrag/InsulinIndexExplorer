@@ -100,7 +100,8 @@ Edit the file on GitHub (pencil icon), then **Commit changes**. The site updates
 ### Before the public launch
 
 - Change the admin password: `python3 scripts/set_admin_login.py`, then commit `assets/js/admin.js`.
-- In `config.js`, remove `'thesamuraidrag.github.io'` from `countOnlyOn` and set `countFrom` to the launch date.
+- Visitor counting is already set for launch: only `insulinindexresearch.com` is counted, from 2026-11-05.
+  To test counting on another address, add it to `countOnlyOn` in `config.js`.
 - Ask fluent speakers to check `data/translations.csv` (Malay and Chinese).
 - GoatCounter → Settings → **Dashboard viewable by**: only logged-in users.
 - For the custom domain, update `url` in `config.js` and the link-preview addresses at the top of `index.html`.

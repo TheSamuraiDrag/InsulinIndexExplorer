@@ -12,11 +12,10 @@ export const SITE = {
   // GoatCounter site code for anonymous visitor counts (dashboard: https://<code>.goatcounter.com).
   // Empty = no counting at all.
   goatcounter: 'jonathan1234',
-  // Only count visits on these addresses (local previews are never counted).
-  // The GitHub test address is included for now so counting can be checked; remove it at launch
-  // if test visits shouldn't mix with public ones. Empty list = count everywhere.
-  // Admin · Visitors starts counting from this date (YYYY-MM-DD), e.g. the public launch day, so
-  // test visits don't show. Nothing is deleted on GoatCounter. Empty = all time.
-  countFrom: '',
-  countOnlyOn: ['insulinindexresearch.com', 'www.insulinindexresearch.com', 'thesamuraidrag.github.io'],
+  // Admin · Visitors counts from this date (YYYY-MM-DD), so test visits before it don't show.
+  // Nothing is deleted on GoatCounter. Empty = all time.
+  countFrom: '2026-11-05',
+  // Only count visits on these addresses (local previews are never counted). The GitHub test
+  // address was removed, so only the public site counts. Empty list = count everywhere.
+  countOnlyOn: ['insulinindexresearch.com', 'www.insulinindexresearch.com'],
 };
