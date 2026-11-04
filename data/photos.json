@@ -833,6 +833,19 @@
     "via": "Flickr"
    }
   },
+  "infant-formula-milk-powder": {
+   "label": "Infant Formula Milk Powder",
+   "credit": {
+    "title": "A Close-Up Shot of a Scooped Formula Milk Powder",
+    "author": "Towfiqu barbhuiya",
+    "authorUrl": "https://www.pexels.com/@towfiqu-barbhuiya-3440682/",
+    "licence": "Pexels License (Other/Custom)",
+    "licenceUrl": "https://www.pexels.com/license/",
+    "source": "https://www.pexels.com/photo/a-close-up-shot-of-a-scooped-formula-milk-powder-11501481/",
+    "via": "Pexels"
+   },
+   "v": "mw21x41v"
+  },
   "jam": {
    "label": "Raspberry jam",
    "v": 1,
@@ -1932,8 +1945,8 @@
   "373": "infant-formula",
   "374": "infant-formula",
   "375": "infant-formula",
-  "377": "infant-formula",
-  "378": "infant-formula",
+  "377": "infant-formula-milk-powder",
+  "378": "infant-formula-milk-powder",
   "382": "mixed-beans",
   "383": "baked-beans",
   "384": "baked-beans",
