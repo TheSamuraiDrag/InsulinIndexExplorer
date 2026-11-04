@@ -38,7 +38,7 @@ export function renderHome(app, data) {
     <div class="wrap hero-content">
       <p class="eyebrow eyebrow-light">A food-by-food guide · 2023 collectanea</p>
       <h1 class="hero-title">How much insulin does your <span class="hl">food</span> call for?</h1>
-      <p class="hero-lede">The insulin index (II) is the body’s insulin response over 2 hours after a food, given as a percentage of the response to a reference food: glucose or bread.</p>
+      <p class="hero-lede">The insulin index (II) compares the body’s insulin response over 2 hours after a food with its response to a reference food, glucose or bread.</p>
       <form class="hero-search" role="search" action="#/explorer">
         <label for="home-q" class="sr-only">Search foods</label>
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -106,7 +106,7 @@ export function renderHome(app, data) {
         <p class="legend-kicker">The number</p>
         <p class="legend-ii"><span class="ii-num">62</span><span class="ii-unit">II</span></p>
         ${meter(62)}
-        <p>The II exactly as published. It is a percentage of the reference food’s insulin response, so 62 means 62% of it.</p>
+        <p>The II exactly as published, from 1 to 209 across all 629 foods. The bar shows where it sits in that range.</p>
       </div>
       <div class="legend-card reveal">
         <p class="legend-kicker">The reference food</p>

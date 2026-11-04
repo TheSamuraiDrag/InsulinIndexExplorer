@@ -74,7 +74,7 @@ Notes:
 - **A new category** has to be added to a site group in `GROUPS` at the top of
   `scripts/build_foods.py`, or the script stops and tells you which one.
 - **No low/high bands.** The paper gives no agreed clinical cut-off, so the site shows each II as
-  published, against the reference food's 100, without labels or traffic-light colours.
+  published, without labels, traffic-light colours or reference marks.
 - **The reference tag** is "vs bread" when the comparator mentions bread, otherwise "vs glucose".
 - `data/mmc2_insulinaemic_index.csv` (Supplemental Table 2: 124 foods from 31 studies that did not
   meet the paper's main criteria) is kept for reference only. The site never loads it.

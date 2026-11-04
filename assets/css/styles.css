@@ -208,7 +208,6 @@ p { margin: 0; }
    No bands or colours: the paper gives no agreed low/high cut-off. */
 .meter { position: relative; display: block; height: 6px; border-radius: 99px; background: var(--bg-deep); }
 .meter-fill { position: absolute; left: 0; top: 0; bottom: 0; width: var(--p); border-radius: 99px; background: #CFC4B8; }
-.meter-ref { position: absolute; left: 47.62%; top: -3px; bottom: -3px; width: 2px; border-radius: 2px; background: rgba(43, 36, 32, .35); }
 .meter-dot {
   position: absolute; top: 50%; left: var(--p); width: 14px; height: 14px; border-radius: 50%;
   transform: translate(-50%, -50%); background: var(--ink); border: 3px solid #fff;
@@ -216,9 +215,7 @@ p { margin: 0; }
 }
 .meter-big { height: 10px; }
 .meter-big .meter-dot { width: 20px; height: 20px; border-width: 4px; }
-.meter-big .meter-ref { top: -5px; bottom: -5px; }
 .meter-scale { position: relative; display: flex; justify-content: space-between; margin-top: 8px; font-size: .74rem; color: var(--muted); }
-.meter-scale .scale-ref { position: absolute; left: 47.62%; transform: translateX(-50%); white-space: nowrap; }
 
 /* Footnote markers */
 .fn-mark { font-size: .7em; color: var(--accent-ink); font-weight: 700; margin-inline: 1px; cursor: help; }
@@ -734,8 +731,6 @@ dialog.sheet.closing .sheet-inner { animation: sheet-down .3s ease-in forwards; 
 @keyframes grow { from { transform: scaleX(0); } }
 .bar-val { font-family: var(--font-display); font-weight: 750; font-size: 1.1rem; white-space: nowrap; }
 .bar-val small { font-family: var(--font-body); font-size: .72rem; font-weight: 650; color: var(--muted); }
-.bars-ref { position: absolute; top: 0; bottom: 0; left: var(--ref); border-left: 2px dashed rgba(43, 36, 32, .35); pointer-events: none; }
-.bars-ref span { position: absolute; top: 0; left: 6px; font-size: .72rem; font-weight: 650; color: var(--muted); white-space: nowrap; }
 
 .compare-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line); }
 .compare-table { width: 100%; min-width: calc(110px + var(--cols) * 170px); border-collapse: separate; border-spacing: 0; font-size: .9rem; }
@@ -1000,9 +995,7 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .gc-range strong { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
 .gc-strip { position: relative; display: block; height: 46px; margin-top: 4px; border-radius: 10px; background: rgba(255, 255, 255, .7); }
 .gc-dot { position: absolute; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: var(--g-ink); opacity: .55; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .9); }
-.gc-ref { position: absolute; left: 47.62%; top: 4px; bottom: 4px; width: 1px; background: rgba(43, 36, 32, .35); }
 .gc-scale { position: relative; display: flex; justify-content: space-between; margin-top: -4px; font-size: .7rem; color: var(--muted); }
-.gc-scale-ref { position: absolute; left: 47.62%; transform: translateX(-50%); }
 .gc-refs { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .82rem; font-weight: 600; color: var(--ink-soft); }
 .gc-refs > span { display: inline-flex; align-items: center; gap: 6px; }
 .gc-meta { font-size: .8rem; color: var(--muted); }
@@ -1096,7 +1089,6 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .ruler-band > span { position: absolute; top: 16px; left: 0; right: 0; text-align: center; font-size: .76rem; font-weight: 600; color: var(--bread); white-space: nowrap; }
 .ruler-mark { position: absolute; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .25); }
 .ruler-mark > span { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: .8rem; font-weight: 750; color: var(--ink); }
-.mark-glucose { background: #3A6EA5; }
 .mark-bread { background: #B07A2A; }
 @media (max-width: 480px) { .ruler-band > span { font-size: .68rem; white-space: normal; top: 14px; } }
 .share { padding-top: 6px; border-top: 1px solid var(--line); }
@@ -1112,7 +1104,6 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 
 .read-ex { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 .read-ex > div { display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-s); color: var(--ink-soft); }
-.read-num { font-family: var(--font-display); font-weight: 750; font-size: 2.4rem; line-height: 1; color: var(--ink); }
 
 /* Median chart */
 .chart { position: relative; padding: 18px; border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow-s); }
@@ -1131,9 +1122,7 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .chart-track { position: relative; display: flex; align-items: center; gap: 6px; height: 22px; }
 .chart-grid { position: absolute; top: -20px; bottom: 0; left: calc(9.5rem + 10px); right: 0; pointer-events: none; }
 .chart-grid > span { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
-.chart-grid > span.is-ref { background: rgba(43, 36, 32, .4); }
 .chart-grid > span > span { position: absolute; top: 0; left: 4px; font-size: .68rem; color: var(--muted); white-space: nowrap; }
-.chart-grid > span.is-ref > span { left: auto; right: 4px; }
 .chart-bar { position: relative; display: block; height: 18px; width: var(--w); min-width: 4px; border-radius: 0 4px 4px 0; background: var(--bar); transform-origin: left; transition: filter .2s; }
 .chart-bar::after { content: ""; position: absolute; inset: -6px -4px; }
 .chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); }
@@ -1232,3 +1221,5 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .photo-credits a { color: var(--accent-ink); }
 .credits-more { margin-top: 16px; }
 .credits-more summary { cursor: pointer; font-weight: 700; color: var(--accent-ink); padding: 6px 0; }
+.read-num { font-family: var(--font-display); font-weight: 750; font-size: 1.6rem; line-height: 1.1; color: var(--ink); }
+.ruler .meter-scale { margin-top: 30px; }

@@ -20,8 +20,8 @@ export function renderGroups(app, data) {
       <span class="gc-photo">${typePic(g.photo, '', true)}<span class="gc-count"><strong>${foods.length}</strong> foods</span></span>
       <h2 class="gc-title">${esc(g.label)}</h2>
       <span class="gc-range">II <strong>${esc(lo.ii)}</strong> to <strong>${esc(hi.ii)}</strong></span>
-      <span class="gc-strip" aria-hidden="true">${dots}<span class="gc-ref"></span></span>
-      <span class="gc-scale" aria-hidden="true"><span>0</span><span class="gc-scale-ref">100</span><span>210</span></span>
+      <span class="gc-strip" aria-hidden="true">${dots}</span>
+      <span class="gc-scale" aria-hidden="true"><span>0</span><span>210</span></span>
       <span class="gc-refs">${refs.map(([r, n]) => `<span><span class="sw sw-${r === 'glucose' ? 'g' : 'b'}" aria-hidden="true"></span>${n} vs ${r}</span>`).join('')}</span>
       <span class="gc-meta">${single} single · ${foods.length - single} mixed</span>
       <span class="gc-cats"><span class="sr-only">Paper categories: </span>${g.categories.map((c) => `<span>${esc(c)}</span>`).join('')}</span>

@@ -105,7 +105,7 @@ export function renderAbout(app, data) {
       <ul class="site-rules reveal">
         <li><strong>Exactly as published.</strong> Numbers, food names and study names are never rounded, renamed or “fixed”.</li>
         <li><strong>Reference tag.</strong> A food is tagged “vs bread” when its comparator mentions bread, otherwise “vs glucose” (${F.filter((f) => f.ref === 'bread').length} and ${F.filter((f) => f.ref === 'glucose').length}).</li>
-        <li><strong>No low/high labels.</strong> Because there is no agreed cut-off, foods aren’t labelled or colour-coded as low or high. Each II is shown as published, against the reference food’s 100.</li>
+        <li><strong>No low/high labels.</strong> Because there is no agreed cut-off, foods aren’t labelled or colour-coded as low or high. Each II is shown exactly as published.</li>
         <li><strong>Groups.</strong> The paper’s 25 categories are folded into 14 browsing groups:</li>
       </ul>
       <div class="x-scroll reveal"><table class="map-table">

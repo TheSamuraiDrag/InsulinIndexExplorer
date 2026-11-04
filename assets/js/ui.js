@@ -99,16 +99,13 @@ export const refTag = (ref) =>
 export const mealTag = (meal) =>
   `<span class="tag tag-meal">${meal === 'SINGLE' ? 'Single food' : 'Mixed meal'}</span>`;
 
-// Neutral position on a 0–210 scale. The only mark is 100, the same response as the reference food:
-// the paper gives no low/high cut-offs, so the bar carries no bands or colours.
+// Neutral position on a 0–210 scale (the published II values run from 1 to 209).
+// No bands, colours or reference marks: the paper gives no cut-offs.
 export function meter(value, big = false) {
   const pct = Math.min(100, (value / METER_MAX) * 100).toFixed(1);
   return `<span class="meter${big ? ' meter-big' : ''}" aria-hidden="true" style="--p:${pct}%">
-    <span class="meter-fill"></span><span class="meter-ref"></span><span class="meter-dot"></span></span>`;
+    <span class="meter-fill"></span><span class="meter-dot"></span></span>`;
 }
-
-// What an II literally means: the insulin response as a percentage of the reference food's.
-export const vsReference = (f) => `${esc(f.ii)}% of the insulin response to ${f.ref === 'bread' ? 'bread' : 'glucose'}`;
 
 // rank > 0 shows the card's position in a ranking (Lowest-II picks).
 export function card(f, index = 0, rank = 0) {
@@ -250,10 +247,9 @@ export function openDetail(n) {
         </div>
         <div class="detail-badges">${refTag(f.ref)}${mealTag(f.meal)}</div>
       </div>
-      <p class="detail-meaning">= ${vsReference(f)}, on average across the volunteers.</p>
       <div class="detail-meter">
         ${meter(f.iiValue, true)}
-        <div class="meter-scale" aria-hidden="true"><span>0</span><span class="scale-ref">100 = same as reference</span><span>210</span></div>
+        <div class="meter-scale" aria-hidden="true"><span>0</span><span>210</span></div>
       </div>
       <p class="detail-ref-note">${icon('info')}
         <span>Scored against <strong>${f.ref}</strong>. Only compare it with other “vs ${f.ref}” foods.</span></p>
@@ -301,15 +297,13 @@ function sameFoodList(f) {
 
 function barChart(items) {
   const max = Math.max(210, ...items.map((f) => f.iiValue));
-  const refPct = (100 / max) * 100;
   return `<figure class="bars" aria-label="Bar chart of insulin index">
-    <div class="bars-plot" style="--ref:${refPct}%">
+    <div class="bars-plot">
       ${items.map((f) => `<div class="bar-row">
         <span class="bar-label">${esc(plain(f.name))}</span>
         <span class="bar-track"><span class="bar" style="--w:${(f.iiValue / max) * 100}%"></span>
           <span class="bar-val">${esc(f.ii)} <small>vs ${f.ref}</small></span></span>
       </div>`).join('')}
-      <span class="bars-ref" aria-hidden="true"><span>100 = same as reference</span></span>
     </div>
   </figure>`;
 }
@@ -365,7 +359,6 @@ export function openCompare() {
   const dialog = document.getElementById('compare');
   const rows = [
     ['Insulin index', (f) => `<span class="cmp-ii">${esc(f.ii)}</span>${f.iiNote ? footnoteMarker(f.iiNote, true) : ''}`],
-    ['Meaning', (f) => vsReference(f)],
     ['Reference', (f) => refTag(f.ref)],
     ['Type', (f) => mealTag(f.meal)],
     ['Portion', (f) => esc(f.portion)],

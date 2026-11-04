@@ -40,18 +40,12 @@ function rulers(data) {
   const pct = Math.round((bread / total) * 100);
   return `<div class="rulers reveal">
     <div class="ruler">
-      <p class="ruler-title">${refTag('glucose')} Glucose is the yardstick</p>
+      <p class="ruler-title">The II of bread when glucose was the comparator</p>
       <div class="ruler-track">
-        <span class="ruler-band" style="left:${p(30)};width:${p(110)}"><span>bread across studies, about 30–140</span></span>
-        <span class="ruler-mark mark-bread" style="left:${p(70)}"><span>bread ≈ 70</span></span>
-        <span class="ruler-mark mark-glucose" style="left:${p(100)}"><span>glucose itself = 100</span></span>
+        <span class="ruler-band" style="left:${p(30)};width:${p(110)}"><span>varied between 30 and 140</span></span>
+        <span class="ruler-mark mark-bread" style="left:${p(70)}"><span>around 70</span></span>
       </div>
-    </div>
-    <div class="ruler">
-      <p class="ruler-title">${refTag('bread')} Bread is the yardstick</p>
-      <div class="ruler-track">
-        <span class="ruler-mark mark-bread" style="left:${p(100)}"><span>bread itself = 100</span></span>
-      </div>
+      <div class="meter-scale" aria-hidden="true"><span>0</span><span>210</span></div>
     </div>
     <div class="share">
       <p class="share-title"><strong>${pct}%</strong> of entries (${bread} of ${total}) use bread as the reference</p>
@@ -75,7 +69,7 @@ function medianChart(data) {
   const panel = (ref, title) => `<figure class="chart-panel chart-${ref}">
     <figcaption><span class="chart-title">${title}</span><span class="chart-sub">Median II per group · n = entries</span></figcaption>
     <div class="chart-plot">
-      <div class="chart-grid" aria-hidden="true">${[0, 50, 100, 150].map((v) => `<span class="${v === 100 ? 'is-ref' : ''}" style="left:${(v / CHART_MAX) * 100}%"><span>${v === 100 ? '100 = same as reference' : v}</span></span>`).join('')}</div>
+      <div class="chart-grid" aria-hidden="true">${[0, 50, 100, 150].map((v) => `<span style="left:${(v / CHART_MAX) * 100}%"><span>${v}</span></span>`).join('')}</div>
       ${rows.map(({ g, [ref]: s }) => `<div class="chart-row">
         <span class="chart-label">${esc(g.label)}</span>
         <span class="chart-track">${s ? `<a class="chart-bar" href="#/explorer?group=${g.id}&ref=${ref}" style="--w:${Math.min(100, (s.med / CHART_MAX) * 100)}%"
@@ -155,7 +149,7 @@ export function renderGuide(app, data) {
     <section class="guide-sec" id="g-like" aria-labelledby="h-like">
       <p class="eyebrow">3 · The golden rule</p>
       <h2 id="h-like">Compare like with like</h2>
-      <p class="guide-p">Glucose and bread give different responses. Bread scored around 70 against glucose, and about 30–140 across studies. So a number scored against bread sits on a different ruler from a number scored against glucose.</p>
+      <p class="guide-p">Glucose and bread give different responses. The paper found that “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (Hendricks et al., 2024). So a number scored against bread can’t be lined up with a number scored against glucose.</p>
       ${rulers(data)}
       <ul class="rules reveal">
         <li><span aria-hidden="true">✓</span> Only compare foods with the <strong>same reference tag</strong>: ${refTag('glucose')} with ${refTag('glucose')}, ${refTag('bread')} with ${refTag('bread')}.</li>
@@ -166,12 +160,12 @@ export function renderGuide(app, data) {
 
     <section class="guide-sec" id="g-number" aria-labelledby="h-number">
       <p class="eyebrow">4 · Reading the number</p>
-      <h2 id="h-number">No labels, just the number against 100</h2>
-      <p class="guide-p">The paper describes the II as “the average ratio of the test food’s iAUC against a reference food” represented “in percentage” (Hendricks et al., 2024, p. 93). So the number already says how a food compares with its reference.</p>
+      <h2 id="h-number">No labels, just the published number</h2>
+      <p class="guide-p">The paper describes the II as “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (Hendricks et al., 2024, p. 93). Every II on this site is shown exactly as published.</p>
       <div class="read-ex reveal">
-        <div><span class="read-num">62</span><span>62% of the reference food’s insulin response</span></div>
-        <div><span class="read-num">100</span><span>the same as the reference food</span></div>
-        <div><span class="read-num">185</span><span>185% of the reference food’s insulin response</span></div>
+        <div><span class="read-num">Same tag</span><span>Compare two foods only when both have the same reference tag, vs glucose or vs bread.</span></div>
+        <div><span class="read-num">Higher</span><span>Between two such foods, the higher II was the larger insulin response in its study.</span></div>
+        <div><span class="read-num">Check</span><span>Portion, volunteers and study still differ, so look at each food’s details.</span></div>
       </div>
       <p class="callout reveal">${icon('info')}<span>There is no agreed clinical cut-off for a low, medium or high II, so this site doesn’t label foods as low or high. A high II isn’t automatically bad, for example in sports nutrition.</span></p>
     </section>
