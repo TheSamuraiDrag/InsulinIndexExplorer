@@ -126,7 +126,7 @@ export function renderAbout(app, data) {
       <ul class="credits reveal">
         <li><strong>Data:</strong> Hendricks et al., 2024, used under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener license">CC BY-NC-ND 4.0</a>: shown unchanged, with attribution, for non-commercial education.</li>
         <li><strong>Banner photos:</strong> <a href="https://www.pexels.com" rel="noopener">Pexels</a>.</li>
-        <li><strong>Food photos:</strong> openly licensed photos (CC BY, CC BY-SA, CC0 or public domain), found through <a href="https://openverse.org" rel="noopener">Openverse</a> and credited below. Each shows the <em>type</em> of food, not the exact product tested.</li>
+        <li><strong>Food photos:</strong> openly licensed photos (CC BY, CC BY-SA, CC0 or public domain), found through <a href="https://openverse.org" rel="noopener">Openverse</a> and credited below. Each shows the <em>type</em> of food, not the exact product tested. Photos were cropped and resized for this site; each keeps its original licence.</li>
         <li><strong>Fonts:</strong> Fraunces and Plus Jakarta Sans from Google Fonts.</li>
       </ul>
       ${Object.keys(data.photos || {}).length ? `<details class="credits-more reveal"><summary>Food photo credits (${Object.keys(data.photos).length})</summary>
