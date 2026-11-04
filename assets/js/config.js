@@ -9,7 +9,10 @@ export const SITE = {
   url: 'https://insulinindexresearch.com/insulinindexexplorer/',
   // Where “Report a problem with this entry” emails go. Empty = the link is hidden.
   reportEmail: '',
-  // GoatCounter site code for anonymous visitor counts, e.g. 'insulinindex' for
-  // https://insulinindex.goatcounter.com. Empty = no counting at all.
-  goatcounter: '',
+  // GoatCounter site code for anonymous visitor counts (dashboard: https://<code>.goatcounter.com).
+  // Empty = no counting at all.
+  goatcounter: 'jonathan1234',
+  // Only count visits on these addresses, so testing on other copies of the site isn't counted.
+  // Empty list = count everywhere.
+  countOnlyOn: ['insulinindexresearch.com', 'www.insulinindexresearch.com'],
 };

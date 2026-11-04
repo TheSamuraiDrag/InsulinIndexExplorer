@@ -70,6 +70,7 @@ function countVisit(route) {
 
 function loadCounter() {
   if (!SITE.goatcounter || !/^[a-z0-9-]+$/.test(SITE.goatcounter)) return;
+  if (SITE.countOnlyOn?.length && !SITE.countOnlyOn.includes(location.hostname)) return;
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://gc.zgo.at/count.js';
