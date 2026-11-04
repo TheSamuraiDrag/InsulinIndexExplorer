@@ -12,7 +12,8 @@ export const SITE = {
   // GoatCounter site code for anonymous visitor counts (dashboard: https://<code>.goatcounter.com).
   // Empty = no counting at all.
   goatcounter: 'jonathan1234',
-  // Only count visits on these addresses, so testing on other copies of the site isn't counted.
-  // Empty list = count everywhere.
-  countOnlyOn: ['insulinindexresearch.com', 'www.insulinindexresearch.com'],
+  // Only count visits on these addresses (local previews are never counted).
+  // The GitHub test address is included for now so counting can be checked; remove it at launch
+  // if test visits shouldn't mix with public ones. Empty list = count everywhere.
+  countOnlyOn: ['insulinindexresearch.com', 'www.insulinindexresearch.com', 'thesamuraidrag.github.io'],
 };
