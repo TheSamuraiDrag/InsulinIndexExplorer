@@ -1,7 +1,7 @@
 // Boot, data loading and hash routing.
 // Hash routes (#/explorer?group=bread) keep every view shareable and refresh-safe on GitHub Pages.
 
-import { setData, wireGlobal, wireImages, wireReveal, setDetailListener, closeSheet } from './ui.js';
+import { setData, applyPhotos, wireGlobal, wireImages, wireReveal, setDetailListener, closeSheet } from './ui.js';
 import { renderHome } from './home.js';
 import { renderExplorer } from './explorer.js';
 import { renderAdmin } from './admin.js';
@@ -21,7 +21,7 @@ const PAGES = {
   mixed: { title: 'Mixed meals', render: (p) => renderCollection(app, data, p, 'mixed') },
   guide: { title: 'How to read the II', render: () => renderGuide(app, data) },
   about: { title: 'About & sources', render: () => renderAbout(app, data) },
-  admin: { title: 'Data check', render: (p) => renderAdmin(app, data, p) },
+  admin: { title: 'Admin', render: (p) => renderAdmin(app, data, p) },
 };
 
 export function parseHash() {
@@ -90,16 +90,19 @@ onScroll();
 /* ---------- Boot ---------- */
 
 async function boot() {
+  let photos = null;
   try {
-    const res = await fetch('data/foods.json');
+    const [res, pres] = await Promise.all([fetch('data/foods.json'), fetch('data/photos.json').catch(() => null)]);
     if (!res.ok) throw new Error(res.status);
     data = await res.json();
+    photos = pres && pres.ok ? await pres.json() : null;
   } catch (err) {
     app.innerHTML = `<section class="wrap page-soon"><h1>Couldn’t load the food data</h1>
       <p>Please refresh the page. If you opened the file directly, serve the folder with a local web server.</p></section>`;
     return;
   }
   setData(data);
+  applyPhotos(photos);
   wireGlobal();
   setDetailListener((n) => {
     // Keep the open food in the URL on the Explorer so the view can be shared.

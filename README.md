@@ -20,7 +20,7 @@ Plain HTML, CSS and JavaScript. No build step, no backend, no framework. It runs
 | Mixed meals | `#/mixed` | All 160 mixed meals |
 | How to read the II | `#/guide` | What the II means, II vs GI, comparing like with like, median chart |
 | About & sources | `#/about` | Citation, methods, footnotes, Table 2 note, limitations, licence |
-| Data check (admin) | `#/admin` | The whole table laid out like the PDF, with checks and a review checklist |
+| Admin (sign-in) | `#/admin` | Data check (table laid out like the PDF) and Photos (upload and manage) |
 
 Pages use hash addresses (`#/explorer?group=bread&ref=glucose`), so every view can be shared and
 refreshing never gives a 404 on GitHub Pages. Explorer filters are saved in the address.
@@ -81,27 +81,49 @@ Notes:
 
 ## Food photos
 
-Each single food shows a photo of its **type of food** (for example "rye bread"), never a claim
-that it is the exact product tested. Mixed meals, and a few single foods where any photo would
-mislead (lab drinks, powders, sorghum breads), show a plain plate outline instead.
+Each food can show a photo of its **type of food** (for example "rye bread"), never a claim that it
+is the exact product tested. Foods without a photo, including all mixed meals for now, show a
+plain plate outline.
 
-- `data/photo_map.csv` lists every food (Number, name) and its photo type. Blank = no photo.
-  Edit it in Excel to change which photo a food uses.
-- `data/photo_types.csv` lists each photo type with what it shows, its file and its credit
-  (title, author, licence, source). All food photos are openly licensed: CC BY, CC BY-SA, CC0 or
-  public domain. Credits appear on the About page and under the photo on each food.
-- The image files are `assets/img/foods/<type>.jpg` (800×600) and
-  `assets/img/foods/thumb/<type>.jpg` (240×240).
+**Manage photos on the Admin page** (`#/admin`, Photos tab): add a photo, replace an image, edit
+its credit, remove it, and choose which foods use it. The browser crops and resizes each upload
+(800×600 and 240×240 JPEG, with location and camera data removed). Changes are previewed across
+the site in your tab first; **Publish to website** saves them to GitHub in one commit, and the
+live site updates about a minute later.
 
-To add or replace a photo: put both image sizes in those folders, add or edit the row in
-`data/photo_types.csv` (keep the credit and licence exactly as the source gives them), point the
-foods at it in `data/photo_map.csv`, then run `python3 scripts/build_foods.py`. The check
-"photo types still without a photo" should be 0. The Data check page's "Site columns" view shows
-every food's photo, so the matches can be reviewed in one list.
+Behind the scenes:
 
-## Data check (admin) page
+- `data/photos.json` holds every photo: `types` (photo id → what it shows and its credit) and
+  `map` (Table 1 Number → photo id). `v` changes when an image is replaced so browsers fetch the
+  new one.
+- Images live at `assets/img/foods/<id>.jpg` and `assets/img/foods/thumb/<id>.jpg`.
+- Only use photos whose licence allows a public website (CC BY, CC BY-SA, CC0, public domain) or
+  your team's own photos, and fill in the credit. Credits appear under each photo and on the
+  About page.
+- `python3 scripts/build_foods.py` checks that every photo in `data/photos.json` has both image
+  files and points at real foods.
 
-`#/admin` is for checking the database against the paper without opening 629 cards:
+## Admin page and sign-in
+
+The Admin page (`#/admin`) is not linked from the public site. It needs a sign-in:
+
+- GitHub Pages has no server, so a password typed into the page couldn't be kept secret. Instead,
+  admins sign in with a **GitHub fine-grained access token**, and GitHub checks it every time
+  something is published. Only people who can edit this repository can make one.
+- To make a token: GitHub → Settings → Developer settings → Fine-grained tokens → Generate new
+  token. Resource owner: the repository owner. Repository access: only this repository.
+  Permissions: **Contents: Read and write** (optional: Pages: Read-only). The sign-in screen
+  links straight there.
+- The token stays in that browser (this tab only, unless "Keep me signed in" is ticked) and is
+  sent only to GitHub. Treat it like a password.
+- To add an admin, add them as a collaborator (repository Settings → Collaborators). To remove
+  one, remove them there or delete their token.
+- Anyone can still read the public data files (the CSV and JSON), as on any public website; the
+  sign-in protects the admin tools and publishing.
+
+### Data check tab
+
+The Data check tab is for checking the database against the paper without opening 629 cards:
 
 - the whole table in the PDF's column order, grouped by category and sub-category, with PDF page
   numbers
@@ -112,8 +134,7 @@ every food's photo, so the matches can be reviewed in one list.
   J/K (move), X (tick), F (flag), / (search)
 - export the review as CSV, back it up or restore it as JSON, or print it
 
-Ticks and notes are saved in that browser only. The page has no login: anyone with the link can
-open it, but it cannot change the data.
+Ticks and notes are saved in that browser only.
 
 ## Files
 
@@ -128,8 +149,10 @@ assets/js/groups.js      Food groups
 assets/js/collection.js  Lowest-II picks and Mixed meals
 assets/js/guide.js       How to read the II
 assets/js/about.js       About & sources
-assets/js/admin.js       Data check (admin)
-data/                    source CSVs, photo map and credits, and the generated foods.json
+assets/js/admin.js       Admin: sign-in and Data check
+assets/js/admin-photos.js  Admin: Photos (upload, credits, which foods use which photo)
+assets/js/github.js      GitHub sign-in and publishing for the Admin page
+data/                    source CSVs, photos.json (photos and credits), generated foods.json
 assets/img/foods/        food photos (800×600) and thumb/ (240×240)
 scripts/build_foods.py   CSV → foods.json, plus the data checks
 ```

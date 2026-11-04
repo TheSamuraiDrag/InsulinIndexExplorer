@@ -1,8 +1,10 @@
-// Data check (admin): Supplemental Table 1 laid out like the paper's PDF, with
-// automated checks, auto-flagged rows worth a look, and a review checklist
-// (ticks + notes) saved in this browser. Nothing here changes the data.
+// Admin page: GitHub sign-in gate, the Photos tab (admin-photos.js) and the Data check tab.
+// Data check: Supplemental Table 1 laid out like the paper's PDF, with automated checks,
+// auto-flagged rows worth a look, and a review checklist (ticks + notes) saved in this browser.
 
 import { esc, marked, footnoteMarker, FOOTNOTES, refTag, groupStyle, toast, foodPic, photoOf } from './ui.js';
+import * as gh from './github.js';
+import { renderPhotos, hasUnpublished, discardAll } from './admin-photos.js';
 
 const STORE_KEY = 'ii-admin-review-v1';
 
@@ -122,7 +124,133 @@ function autoFlags(data) {
   return out;
 }
 
+/* ---------- Sign-in gate and tabs ---------- */
+
+let access = null; // { login, branch } once the token has been checked this session
+let active = () => {}; // clean-up for whatever the admin page last drew
+const onAdmin = () => /^#\/admin(\?|$)/.test(location.hash);
+
 export function renderAdmin(app, data, params) {
+  active();
+  active = draw(app, data, params) || (() => {});
+  return () => { active(); active = () => {}; };
+}
+
+function draw(app, data, params) {
+  const token = gh.getToken();
+  if (!token) return renderSignIn(app, data, params);
+  if (!access) {
+    app.innerHTML = '<section class="wrap page-soon" role="status"><span class="spinner" aria-hidden="true"></span><p>Checking your GitHub access…</p></section>';
+    const cfg = gh.repoConfig();
+    gh.verify(cfg, token).then((a) => {
+      access = a;
+      if (onAdmin()) renderAdmin(app, data, params);
+    }).catch((e) => {
+      gh.signOut();
+      if (onAdmin()) { active(); active = renderSignIn(app, data, params, e.message); }
+    });
+    return () => {};
+  }
+  const cfg = { ...gh.repoConfig(), branch: access.branch };
+  const tab = params.get('tab') === 'photos' ? 'photos' : 'data';
+  const bar = `<div class="wrap-wide admin-nav">
+      <div class="seg" role="tablist" aria-label="Admin sections">
+        <a role="tab" href="#/admin" aria-selected="${tab === 'data'}" ${tab === 'data' ? 'aria-current="page"' : ''}>Data check</a>
+        <a role="tab" href="#/admin?tab=photos" aria-selected="${tab === 'photos'}" ${tab === 'photos' ? 'aria-current="page"' : ''}>Photos</a>
+      </div>
+      <p class="admin-who">Signed in${access.login ? ` as <strong>${esc(access.login)}</strong>` : ''}
+        <button type="button" class="link-btn" data-signout>Sign out</button></p>
+    </div>`;
+  let cleanup = () => {};
+  if (tab === 'photos') {
+    app.innerHTML = `<section class="admin">${bar}<div class="wrap-wide page-head">
+        <p class="eyebrow">Admin · Photos</p><h1>Food photos</h1>
+        <p class="lede">Add, replace or remove photos and choose which foods use them. Changes are previewed here first; <strong>Publish</strong> saves them to GitHub and the live site updates about a minute later.</p>
+      </div><div class="wrap-wide" id="ph-root"></div></section>`;
+    let inner = () => {};
+    renderPhotos(app.querySelector('#ph-root'), data, cfg, params).then((c) => { inner = c; });
+    cleanup = () => inner();
+  } else {
+    cleanup = renderDataCheck(app, data, params);
+    app.querySelector('.admin').insertAdjacentHTML('afterbegin', bar);
+  }
+  const onSignOut = (e) => {
+    if (!e.target.closest('[data-signout]')) return;
+    if (hasUnpublished() && !confirm('You have unpublished photo changes. Sign out and lose them?')) return;
+    discardAll();
+    gh.signOut();
+    access = null;
+    history.replaceState(null, '', '#/admin');
+    renderAdmin(app, data, new URLSearchParams());
+  };
+  app.addEventListener('click', onSignOut);
+  return () => { app.removeEventListener('click', onSignOut); cleanup(); };
+}
+
+function renderSignIn(app, data, params, error = '') {
+  const cfg = gh.repoConfig();
+  app.innerHTML = `<section class="wrap admin-signin">
+    <div class="signin-card">
+      <p class="eyebrow">Admin</p>
+      <h1>Sign in to manage the site</h1>
+      <p class="lede">Only people who can edit the website’s GitHub repository can sign in.
+        Sign in with a GitHub access token: GitHub checks it every time you publish, so nobody else can change the site.</p>
+      <form class="signin-form" novalidate>
+        <label for="si-token">GitHub access token</label>
+        <input id="si-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" required>
+        <label class="signin-remember"><input type="checkbox" id="si-remember"> Keep me signed in on this device <span class="hint">(not on shared computers)</span></label>
+        <p class="signin-error" role="alert">${esc(error)}</p>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+      <details class="signin-help" ${error ? 'open' : ''}>
+        <summary>How to get a token (about 2 minutes)</summary>
+        <ol>
+          <li>Sign in to GitHub with an account that can edit the website’s repository. (The owner can add teammates under the repository’s <em>Settings → Collaborators</em>.)</li>
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">New fine-grained token</a>.</li>
+          <li>Give it a name such as “Insulin Index admin” and choose an expiry date.</li>
+          <li><strong>Resource owner:</strong> the account that owns the website’s repository. <strong>Repository access:</strong> Only select repositories → the website’s repository.</li>
+          <li><strong>Permissions → Repository permissions → Contents:</strong> Read and write.<br><span class="hint">Optional: Pages: Read-only, so the site can find the branch GitHub Pages publishes.</span></li>
+          <li>Press <em>Generate token</em>, copy it and paste it above. Treat it like a password: never share it or put it in the repository.</li>
+        </ol>
+        <p class="hint">To lock someone out, delete their token on GitHub or remove them as a collaborator.</p>
+      </details>
+      <details class="signin-help">
+        <summary>Repository settings</summary>
+        <div class="signin-repo">
+          <label>Owner<input id="si-owner" placeholder="detected automatically"></label>
+          <label>Repository<input id="si-repo" placeholder="detected automatically"></label>
+          <label>Branch<input id="si-branch" value="${esc(cfg.branch || '')}" placeholder="the branch GitHub Pages uses"></label>
+        </div>
+      </details>
+    </div>
+  </section>`;
+  const form = app.querySelector('.signin-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const token = app.querySelector('#si-token').value.trim();
+    const errEl = app.querySelector('.signin-error');
+    if (!token) { errEl.textContent = 'Paste your GitHub token first.'; return; }
+    const val = (id) => app.querySelector(id).value.trim();
+    const repoCfg = { owner: val('#si-owner') || cfg.owner, repo: val('#si-repo') || cfg.repo, branch: val('#si-branch') || cfg.branch || '' };
+    const btn = form.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Checking…'; errEl.textContent = '';
+    try {
+      access = await gh.verify(repoCfg, token);
+      gh.saveRepoConfig(repoCfg);
+      gh.setToken(token, app.querySelector('#si-remember').checked);
+      if (onAdmin()) renderAdmin(app, data, params);
+    } catch (err) {
+      errEl.textContent = err.message;
+      btn.disabled = false; btn.textContent = 'Sign in';
+    }
+  });
+  app.querySelector('#si-token').focus();
+  return () => {};
+}
+
+/* ---------- Data check ---------- */
+
+function renderDataCheck(app, data, params) {
   const F = data.foods;
   const groupById = Object.fromEntries(data.groups.map((g) => [g.id, g]));
   const review = loadReview();
@@ -302,7 +430,8 @@ export function renderAdmin(app, data, params) {
       <td class="c-ii">${esc(f.ii)}${f.iiNote ? footnoteMarker(f.iiNote) : ''}</td>
       ${cell(f, 'subjects')}${cell(f, 'comparator')}${cell(f, 'study')}${cell(f, 'country')}
       <td class="c-site"><span class="mini-group" style="${groupStyle(g)}">${esc(g.label)}</span> ${refTag(f.ref)}
-        <span class="admin-photo">${foodPic(f, 'admin-pic')}<span>${photoOf(f) ? esc(photoOf(f).label) : 'No photo'}</span></span></td>
+        <span class="admin-photo">${foodPic(f, 'admin-pic')}<span>${photoOf(f) ? esc(photoOf(f).label) : 'No photo'}
+          <a href="#/admin?tab=photos&view=foods&q=${esc(f.n)}">Change</a></span></span></td>
       ${notesCell(f)}
     </tr>`;
   }

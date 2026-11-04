@@ -22,8 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CSV_PATH = ROOT / "data" / "mmc1_insulinaemic_index.csv"
 JSON_PATH = ROOT / "data" / "foods.json"
-PHOTO_MAP_PATH = ROOT / "data" / "photo_map.csv"      # Number -> photo type (blank = no photo)
-PHOTO_TYPES_PATH = ROOT / "data" / "photo_types.csv"  # photo type -> file and credit
+PHOTOS_PATH = ROOT / "data" / "photos.json"  # food photos: edited on the Admin page, checked here
 
 # The paper's 25 categories are folded into 14 browsing groups for this site.
 # The original category is always kept and shown on each food.
@@ -62,33 +61,6 @@ def search_key(text):
     return re.sub(r"\s+", " ", text).strip().lower()
 
 
-def load_photos():
-    """Photo types with an image file on disk, and the Number -> photo type map.
-
-    A photo shows the type of food (for example "rye bread"), not the exact product tested.
-    """
-    photo_map = {}
-    if PHOTO_MAP_PATH.exists():
-        with PHOTO_MAP_PATH.open(encoding="utf-8-sig", newline="") as fh:
-            photo_map = {r["Number"]: r["Photo type"].strip() for r in csv.DictReader(fh)}
-    photos = {}
-    if PHOTO_TYPES_PATH.exists():
-        with PHOTO_TYPES_PATH.open(encoding="utf-8-sig", newline="") as fh:
-            for r in csv.DictReader(fh):
-                kind = r["Photo type"].strip()
-                src = f"assets/img/foods/{kind}.jpg"
-                thumb = f"assets/img/foods/thumb/{kind}.jpg"
-                if not ((ROOT / src).exists() and (ROOT / thumb).exists()):
-                    continue
-                photos[kind] = {
-                    "label": r["Shows"], "src": src, "thumb": thumb,
-                    "credit": {"title": r["Title"], "author": r["Author"], "authorUrl": r["Author URL"],
-                               "licence": r["Licence"], "licenceUrl": r["Licence URL"],
-                               "source": r["Source URL"], "via": r["Via"]},
-                }
-    return photos, photo_map
-
-
 def build():
     with CSV_PATH.open(encoding="utf-8-sig", newline="") as fh:
         rows = list(csv.DictReader(fh))
@@ -119,13 +91,8 @@ def build():
             "searchKey": search_key(row["Food / Beverage Name"]),
         })
 
-    photos, photo_map = load_photos()
-    for f in foods:
-        kind = photo_map.get(f["n"], "")
-        f["photo"] = kind if kind in photos else None
-
     groups = [
-        {"id": g[0], "label": g[1], "photo": g[2] if g[2] in photos else None, "bg": g[3], "ink": g[4], "categories": g[5]}
+        {"id": g[0], "label": g[1], "photo": g[2], "bg": g[3], "ink": g[4], "categories": g[5]}
         for g in GROUPS
     ]
     return rows, {
@@ -137,7 +104,6 @@ def build():
             "table": "Supplemental Table 1",
         },
         "groups": groups,
-        "photos": photos,
         "foods": foods,
     }
 
@@ -169,15 +135,14 @@ def check(rows, data):
             sum(1 for f in foods if f["meal"] == "SINGLE" and f["ref"] == "bread")), (344, 125))
     expect("groups", len(group), 14)
     expect("group counts add up", sum(group.values()), 629)
-    mapped = {f["n"]: f["photo"] for f in foods}
-    with PHOTO_MAP_PATH.open(encoding="utf-8-sig", newline="") as fh:
-        map_rows = list(csv.DictReader(fh))
-    expect("photo map lists every food in order", [r["Number"] for r in map_rows] == [f["n"] for f in foods], True)
-    expect("mixed meals have no photo", sum(1 for f in foods if f["meal"] == "MIXED MEAL" and f["photo"]), 0)
-    missing = sorted({r["Photo type"] for r in map_rows if r["Photo type"]} - set(data["photos"]))
-    expect("photo types still without a photo", len(missing), 0)
-    if missing:
-        print("  missing photos: " + ", ".join(missing[:12]) + (" …" if len(missing) > 12 else ""))
+    # Photos live in data/photos.json (edited on the Admin page); the site reads it directly.
+    photos = json.loads(PHOTOS_PATH.read_text(encoding="utf-8"))
+    numbers = {f["n"] for f in foods}
+    expect("photo map uses real food numbers", sorted(set(photos["map"]) - numbers, key=int), [])
+    expect("photo map uses known photo types", sorted(set(photos["map"].values()) - set(photos["types"])), [])
+    missing = [t for t in photos["types"]
+               if not ((ROOT / f"assets/img/foods/{t}.jpg").exists() and (ROOT / f"assets/img/foods/thumb/{t}.jpg").exists())]
+    expect("every photo type has both image files", missing, [])
     expect("values copied unchanged", all(
         f["name"] == r["Food / Beverage Name"] and f["ii"] == r["II"] and f["study"] == r["Author / Year / Reference"]
         for f, r in zip(foods, rows)), True)

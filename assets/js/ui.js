@@ -23,11 +23,29 @@ let PHOTOS = {};
 
 export function setData(data) {
   DATA = data;
-  PHOTOS = data.photos || {};
+  PHOTOS = {};
   GROUPS = Object.fromEntries(data.groups.map((g) => [g.id, g]));
   FOODS = Object.fromEntries(data.foods.map((f) => [f.n, f]));
 }
 export const getGroup = (id) => GROUPS[id];
+
+// Attach photos (data/photos.json: { types, map }) to the foods. The Admin page calls this
+// again with unpublished edits, using previewSrc/previewThumb object URLs for new images.
+export function applyPhotos(photos) {
+  PHOTOS = {};
+  Object.entries((photos && photos.types) || {}).forEach(([id, t]) => {
+    const v = t.v ? `?v=${encodeURIComponent(t.v)}` : '';
+    PHOTOS[id] = {
+      label: t.label,
+      credit: t.credit || {},
+      src: t.previewSrc || `assets/img/foods/${id}.jpg${v}`,
+      thumb: t.previewThumb || `assets/img/foods/thumb/${id}.jpg${v}`,
+    };
+  });
+  DATA.photos = PHOTOS;
+  const map = (photos && photos.map) || {};
+  DATA.foods.forEach((f) => { f.photo = PHOTOS[map[f.n]] ? map[f.n] : null; });
+}
 export const getFood = (n) => FOODS[n];
 
 export function esc(value) {

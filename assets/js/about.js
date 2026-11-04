@@ -116,7 +116,6 @@ export function renderAbout(app, data) {
       <div class="downloads reveal">
         <a class="btn btn-ghost btn-sm" href="data/mmc1_insulinaemic_index.csv" download>Download the data (CSV)</a>
         <a class="btn btn-ghost btn-sm" href="data/foods.json" download>Download foods.json</a>
-        <a class="btn btn-ghost btn-sm" href="#/admin">Data check (admin)</a>
       </div>
     </section>
 
