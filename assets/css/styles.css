@@ -1412,11 +1412,6 @@ html:lang(zh-Hans) :is(.hero-lede, .page-hero-lede, .hero .eyebrow, .page-hero .
 .vis-bar > span { display: block; height: 100%; min-width: 2px; border-radius: inherit; background: var(--accent); }
 .vis-count { min-width: 3ch; text-align: right; font-weight: 750; font-variant-numeric: tabular-nums; }
 .vis-help { margin: 8px 0 10px 1.1em; display: grid; gap: 6px; }
-.vis-grid { display: grid; gap: 14px; margin-top: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-.vis-grid .vis-list li { grid-template-columns: minmax(90px, 1.4fr) 1fr auto; }
-.vis-connect { margin-top: 14px; }
-.vis-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-.vis-form input { flex: 1 1 220px; min-height: 40px; padding: 8px 12px; border: 1.5px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; }
-.vis-err { margin: 6px 0; color: #A23B1E; font-weight: 600; }
-.vis-key { margin-top: 10px; }
 .vis-name { min-width: 0; overflow-wrap: anywhere; }
+.vis-dash { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 14px; }
+.vis-dash .hint { max-width: 60ch; }
