@@ -135,6 +135,14 @@ to change the live site is protected by GitHub itself.
 either update `DEFAULT_REPO` at the top of `assets/js/github.js`, or open "Repository settings" in
 the Connect dialog and type the new owner and name.
 
+### Activity tab
+
+A logbook of everything published to the website, newest first, read from the repository's
+GitHub history: who published (their GitHub account, plus the admin login they used), when, what
+changed (photos added, replaced or removed, and which food numbers), and the optional note typed
+next to Publish. "Details" shows the photos involved; "View on GitHub" opens the full change.
+Sign-ins and Data check ticks aren't recorded, because the site has no server.
+
 ### Data check tab
 
 The Data check tab is for checking the database against the paper without opening 629 cards:

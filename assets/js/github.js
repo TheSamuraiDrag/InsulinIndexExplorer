@@ -137,3 +137,20 @@ export async function commit(cfg, { message, parent, files = [], remove = [] }) 
   await api(`${repoPath(cfg)}/git/refs/heads/${encodeURIComponent(cfg.branch)}`, { method: 'PATCH', body: { sha: c.sha } });
   return c;
 }
+
+/* ---------- Activity (Admin logbook) ---------- */
+
+// Works without a token for a public repository (GitHub allows about 60 requests an hour per
+// visitor without one); with a connected token it also works for a private repository.
+export async function repoInfo(cfg) {
+  const r = await api(repoPath(cfg));
+  return { defaultBranch: r.default_branch, isPrivate: Boolean(r.private) };
+}
+
+export const listCommits = (cfg, { branch, page = 1, perPage = 30 }) =>
+  api(`${repoPath(cfg)}/commits?sha=${encodeURIComponent(branch)}&per_page=${perPage}&page=${page}`);
+
+export const getCommit = (cfg, sha) => api(`${repoPath(cfg)}/commits/${encodeURIComponent(sha)}`);
+
+export const rawUrl = (cfg, ref, path) =>
+  `https://raw.githubusercontent.com/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/${ref}/${path}`;

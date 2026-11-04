@@ -20,7 +20,7 @@ const LICENCES = [
 ];
 
 // Survives switching tabs or pages, so unpublished edits aren't lost (until the tab closes).
-const session = { base: null, pending: emptyPending(), published: {} };
+const session = { base: null, pending: emptyPending(), published: {}, note: '' };
 let ghAccess = null; // { login, branch } once a GitHub token has been checked
 
 function emptyPending() { return { types: {}, map: {} }; }
@@ -143,6 +143,8 @@ export async function renderPhotos(root, data, params) {
     $('#ph-bar').className = `ph-bar${n ? ' has-changes' : ''}`;
     $('#ph-bar').innerHTML = n
       ? `<span><strong>${n}</strong> unpublished change${n === 1 ? '' : 's'}. You’re seeing them across the site in this tab only.</span>
+        <label class="ph-note"><span class="sr-only">Note for the logbook (optional)</span>
+          <input id="ph-note" type="text" maxlength="200" placeholder="Note for the logbook (optional)" value="${esc(session.note)}"></label>
         <span class="ph-bar-actions"><button type="button" class="btn btn-ghost btn-sm" data-discard>Discard</button>
         <button type="button" class="btn btn-primary btn-sm" data-publish>Publish to website</button></span>`
       : '<span>No unpublished changes. Edits you make here are previewed first, then published in one go.</span>';
@@ -449,13 +451,21 @@ export async function renderPhotos(root, data, params) {
           summary.push(`${p.isNew ? 'add' : p.image ? 'replace' : 'edit'} ${id}`);
         }
       }
-      const moved = Object.keys(session.pending.map).length;
+      const movedNos = Object.keys(session.pending.map).sort((a, b) => a - b);
+      const moved = movedNos.length;
       if (moved) summary.push(`change the photo of ${moved} food${moved === 1 ? '' : 's'}`);
+      // Extra lines the Activity tab reads back.
+      const details = [];
+      if (moved) details.push(`Foods: ${movedNos.join(', ')}`);
+      if (session.note.trim()) details.push(`Note: ${session.note.trim().replace(/\s+/g, ' ')}`);
+      if (adminUser()) details.push(`Admin login: ${adminUser()}`);
       files.push({ path: 'data/photos.json', b64: gh.textToB64(`${JSON.stringify(next, null, 1)}\n`) });
-      await gh.commit(cfg, { message: `Admin photos: ${summary.join('; ')}`, parent: head, files, remove });
+      const message = `Admin photos: ${summary.join('; ')}${details.length ? `\n\n${details.join('\n')}` : ''}`;
+      await gh.commit(cfg, { message, parent: head, files, remove });
       Object.entries(session.pending.types).forEach(([id, p]) => { if (p.image && !p.deleted) session.published[id] = p.image; });
       session.base = next;
       session.pending = emptyPending();
+      session.note = '';
       changed();
       toast('Published. The live website updates in about a minute.');
     } catch (e) {
@@ -471,6 +481,7 @@ export async function renderPhotos(root, data, params) {
   }
 
   /* ----- events ----- */
+  root.addEventListener('input', (e) => { if (e.target.id === 'ph-note') session.note = e.target.value; });
   let t;
   $('#ph-q').addEventListener('input', (e) => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value; state.shown = PAGE; render(); }, 120); });
   $('#ph-filter').addEventListener('change', (e) => { state.filter = e.target.value; state.shown = PAGE; render(); });
@@ -525,6 +536,11 @@ export function discardAll() {
   Object.values(session.pending.types).forEach((p) => { if (p.image) { URL.revokeObjectURL(p.image.fullUrl); URL.revokeObjectURL(p.image.thumbUrl); } });
   if (session.base) applyPhotos(session.base);
   Object.assign(session, { base: null, pending: emptyPending(), published: {} });
+}
+
+// The admin username shown in the header (read from the sign-in stored by admin.js).
+function adminUser() {
+  try { return sessionStorage.getItem('ii-admin-user') || localStorage.getItem('ii-admin-user') || ''; } catch { return ''; }
 }
 
 const updateStatus = () => document.querySelectorAll('[data-gh-status]').forEach((el) => { el.innerHTML = gh.statusHtml(); });
