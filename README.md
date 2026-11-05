@@ -115,12 +115,12 @@ The rest of this file is for whoever maintains the code.
 | Page | Address | What it does |
 |---|---|---|
 | Home | `#/` | Search, quick stats, food groups, badge legend, section tiles |
-| Food Explorer | `#/explorer` | Instant search, filters, sort, detail panel, compare up to 3, CSV download, report a problem |
+| Food Explorer | `#/explorer` | Instant search, filters, sort, detail panel, compare up to 3, report a problem |
 | Food groups | `#/groups` | 14 groups with counts, II range and a dot strip of every food |
-| Lowest-II picks | `#/lowest` | All 469 single foods ranked lowest first, separately for glucose and bread |
+| Single foods | `#/lowest` | All 469 single foods ranked by II (lowest first), separately for glucose and bread |
 | Mixed meals | `#/mixed` | All 160 mixed meals |
 | How to read the II | `#/guide` | What the II means, II vs GI, comparing like with like, median chart |
-| About & sources | `#/about` | Citation, methods, footnotes, Table 2 note, limitations, licence |
+| About & sources | `#/about` | Citation, methods, footnotes, limitations, licence |
 | Admin (sign-in) | `#/admin` | Data check, Photos, Activity and Visitors (see the Admin guide above) |
 
 Pages use hash addresses (`#/explorer?group=bread&ref=glucose`), so every view can be shared and
@@ -294,7 +294,7 @@ assets/js/ui.js          shared pieces: cards, badges, detail panel, compare
 assets/js/home.js        Home
 assets/js/explorer.js    Food Explorer
 assets/js/groups.js      Food groups
-assets/js/collection.js  Lowest-II picks and Mixed meals
+assets/js/collection.js  Single foods and Mixed meals
 assets/js/guide.js       How to read the II
 assets/js/about.js       About & sources
 assets/js/admin.js       Admin: sign-in and Data check

@@ -5,7 +5,7 @@ Main,Utama,主导航
 "Insulin Index Explorer, home","Insulin Index Explorer, laman utama",Insulin Index Explorer，首页
 Explorer,Penjelajah,查询
 Food groups,Kumpulan makanan,食物类别
-Lowest-II picks,Pilihan II terendah,II 最低之选
+Single foods,Makanan tunggal,单一食物
 Mixed meals,Hidangan campuran,混合餐
 How to read,Cara membaca,如何解读
 About,Perihal,关于
@@ -70,7 +70,7 @@ Mixed meal,Hidangan campuran,混合餐
 Start exploring,Mula meneroka,开始探索
 Pick a way in,Pilih cara untuk bermula,选择入口
 Search and filter all {n} foods,Cari dan tapis kesemua {n} makanan,搜索并筛选全部 {n} 种食物
-Single foods ranked lowest first,Makanan tunggal disusun dari yang terendah,单一食物，从最低开始排序
+"Every single food, ranked by II","Setiap makanan tunggal, disusun mengikut II",每种单一食物，按 II 排序
 "{n} groups, from bread to dairy","{n} kumpulan, daripada roti hingga tenusu",{n} 个类别，从面包到乳制品
 All {n} meals and food combos,Kesemua {n} hidangan dan gabungan makanan,全部 {n} 种餐食与食物组合
 "What the number means, and doesn’t","Maksud nombor itu, dan apa yang bukan maksudnya",这个数字代表什么，不代表什么
@@ -116,9 +116,6 @@ Show {n} foods,Tunjuk {n} makanan,显示 {n} 种食物
 Show {n} food,Tunjuk {n} makanan,显示 {n} 种食物
 Showing all,Memaparkan kesemua,显示全部
 of {n} foods,daripada {n} makanan,种，共 {n} 种食物
-Download CSV,Muat turun CSV,下载 CSV
-"Downloaded {n} foods. Please cite Hendricks et al., 2024 (CC BY-NC-ND 4.0).","{n} makanan dimuat turun. Sila petik Hendricks et al., 2024 (CC BY-NC-ND 4.0).",已下载 {n} 种食物。请引用 Hendricks 等，2024（CC BY-NC-ND 4.0）。
-"Downloaded {n} food. Please cite Hendricks et al., 2024 (CC BY-NC-ND 4.0).","{n} makanan dimuat turun. Sila petik Hendricks et al., 2024 (CC BY-NC-ND 4.0).",已下载 {n} 种食物。请引用 Hendricks 等，2024（CC BY-NC-ND 4.0）。
 Compare,Banding,比较
 Comparing,Dibandingkan,比较中
 No foods match,Tiada makanan yang sepadan,没有匹配的食物
@@ -186,7 +183,6 @@ to,hingga,至
 {n} single · {n2} mixed,{n} tunggal · {n2} campuran,{n} 种单一食物 · {n2} 种混合餐
 Explore {n} foods,Terokai {n} makanan,浏览 {n} 种食物
 Paper categories:,Kategori kertas kajian:,论文类目：
-"Single foods, lowest II first","Makanan tunggal, II terendah dahulu",单一食物，II 从最低开始
 "All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each comparator gets its own ranking, because a number measured against bread can’t be lined up against one measured against glucose.","Semua makanan tunggal, disusun dari II terendah. Tiada nilai potongan yang dipersetujui untuk “rendah”, jadi tiada yang ditinggalkan. Setiap pembanding mempunyai susunannya sendiri, kerana nombor yang diukur berbanding roti tidak boleh disejajarkan dengan nombor yang diukur berbanding glukosa.",全部单一食物，按 II 从低到高排序。“低”没有公认的界限，所以没有任何食物被排除。每种参照各自排名，因为以面包为参照测得的数字不能和以葡萄糖为参照的数字放在一起排。
 of {n} (comparator: {x}),daripada {n} (pembanding: {x}),种，共 {n} 种（参照：{x}）
 of {n},daripada {n},种，共 {n} 种
@@ -326,17 +322,7 @@ In the paper: “{x}”,Dalam kertas kajian: “{x}”,论文原文：“{x}”
 II column,Lajur II,II 栏
 Subject details,Butiran subjek,受试者详情
 Food name,Nama makanan,食物名称
-What about Supplemental Table 2?,Bagaimana dengan Jadual Tambahan 2?,补充表 2 呢？
-The paper also lists,Kertas kajian juga menyenaraikan,论文还列出了
-{n} foods from {n2} studies,{n} makanan daripada {n2} kajian,来自 {n2} 项研究的 {n} 种食物
-"that did not meet its main inclusion criteria, mainly because they had","yang tidak memenuhi kriteria kemasukan utamanya, terutamanya kerana mempunyai",，它们未达到主要纳入标准，主要原因是
-9 or fewer subjects,9 subjek atau kurang,受试者只有 9 人或更少
-not enough information on BMI or health,maklumat tentang BMI atau kesihatan yang tidak mencukupi,缺乏 BMI 或健康状况的信息
 ", or",", atau",，或
-subjects over 65,subjek berumur lebih 65 tahun,受试者年龄超过 65 岁
-. The authors kept them separate in Supplemental Table 2 because they may still help researchers and clinicians. They are,. Para pengarang mengasingkannya dalam Jadual Tambahan 2 kerana ia mungkin masih membantu penyelidik dan klinikal. Ia,。作者把它们单独放在补充表 2 中，因为它们可能仍对研究人员和临床医生有帮助。它们
-not included on this site,tidak dimasukkan dalam laman ini,没有收录在本网站
-", so every number here meets the inclusion criteria above.",", jadi setiap nombor di sini memenuhi kriteria kemasukan di atas.",，所以这里的每个数字都符合上述纳入标准。
 Limitations,Batasan,局限性
 Read with care,Baca dengan teliti,谨慎解读
 Studies differ,Kajian berbeza,研究各不相同

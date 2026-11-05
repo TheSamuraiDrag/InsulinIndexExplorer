@@ -4,7 +4,7 @@ import { esc, PHOTO, refTag, mealTag, meter, groupStyle, icon, typePic, foodPic 
 
 const TILES = [
   { href: '#/explorer', title: 'Food Explorer', text: 'Search and filter all 629 foods', photo: 5966434, tone: '#F9D9C8,#F4B79A' },
-  { href: '#/lowest', title: 'Lowest-II picks', text: 'Single foods ranked lowest first', photo: 557659, tone: '#D8F0DC,#A9DDB4' },
+  { href: '#/lowest', title: 'Single foods', text: 'Every single food, ranked by II', photo: 557659, tone: '#D8F0DC,#A9DDB4' },
   { href: '#/groups', title: 'Food groups', text: '14 groups, from bread to dairy', photo: 37321079, tone: '#F8EAC0,#F0D584' },
   { href: '#/mixed', title: 'Mixed meals', text: 'All 160 meals and food combos', photo: 11873900, tone: '#E9DFF7,#CDB8EE' },
   { href: '#/guide', title: 'How to read the II', text: 'What the number means, and doesn’t', photo: 4195334, tone: '#D7E8F7,#A9CBEE' },

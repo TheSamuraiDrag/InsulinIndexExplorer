@@ -1,4 +1,4 @@
-// Curated collections: Lowest-II picks (every single food, ranked lowest first within
+// Curated collections: Single foods (every single food, ranked lowest first within
 // each reference food, with no cut-off) and Mixed meals.
 // Light filters (group, reference food, sort) kept in the URL, cards render progressively.
 
@@ -8,8 +8,8 @@ const BATCH = 48;
 
 const COLLECTIONS = {
   lowest: {
-    eyebrow: 'Lowest-II picks',
-    title: () => 'Single foods, lowest II first',
+    eyebrow: 'Single foods',
+    title: () => 'Every single food, ranked by II',
     lede: 'All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each comparator gets its own ranking, because a number measured against bread can’t be lined up against one measured against glucose.',
     photo: 557659, tone: '#D8F0DC,#A9DDB4',
     filter: (f) => f.meal === 'SINGLE',

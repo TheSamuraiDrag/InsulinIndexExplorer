@@ -123,7 +123,7 @@ export function meter(value, big = false) {
     <span class="meter-fill"></span><span class="meter-dot"></span></span>`;
 }
 
-// rank > 0 shows the card's position in a ranking (Lowest-II picks).
+// rank > 0 shows the card's position in a ranking (Single foods page).
 export function card(f, index = 0, rank = 0) {
   const g = GROUPS[f.group];
   const on = compareIds.includes(f.n);

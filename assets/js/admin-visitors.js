@@ -10,7 +10,7 @@ import { esc } from './ui.js';
 import { SITE } from './config.js';
 
 const PAGES = [['TOTAL', 'Whole website'], ['/', 'Home'], ['/explorer', 'Food Explorer'], ['/groups', 'Food groups'],
-  ['/lowest', 'Lowest-II picks'], ['/mixed', 'Mixed meals'], ['/guide', 'How to read the II'], ['/about', 'About & sources']];
+  ['/lowest', 'Single foods'], ['/mixed', 'Mixed meals'], ['/guide', 'How to read the II'], ['/about', 'About & sources']];
 const FROM = /^\d{4}-\d{2}-\d{2}$/.test(SITE.countFrom || '') ? new Date(`${SITE.countFrom}T00:00:00Z`) : null;
 const RANGES = [['all', FROM ? `Since ${SITE.countFrom}` : 'All time'], ['30', 'Last 30 days'], ['7', 'Last 7 days']];
 

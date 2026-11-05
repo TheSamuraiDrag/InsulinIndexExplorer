@@ -1,7 +1,7 @@
 // Food Explorer: instant search, filter chips, sort, live count, URL state,
 // progressive card rendering and the detail sheet.
 
-import { card, esc, openDetail, closeSheet, groupStyle, icon, toast } from './ui.js';
+import { card, esc, openDetail, closeSheet, groupStyle, icon } from './ui.js';
 
 const BATCH = 48;
 
@@ -87,7 +87,6 @@ export function renderExplorer(app, data, params, options = {}) {
       <div class="results">
         <div class="results-bar">
           <p class="count" id="count" aria-live="polite" aria-atomic="true"></p>
-          <button type="button" class="btn btn-ghost btn-xs csv-btn" data-csv>Download CSV</button>
           <div class="active-chips" id="active"></div>
         </div>
         <ul class="cards" id="cards"></ul>
@@ -247,7 +246,6 @@ export function renderExplorer(app, data, params, options = {}) {
       return;
     }
     if (e.target.closest('[data-close-filters]')) { setFilters(false); return; }
-    if (e.target.closest('[data-csv]')) downloadCSV(results);
   });
 
   // Filters: sidebar on desktop, bottom sheet on phones.
@@ -284,18 +282,3 @@ export function renderExplorer(app, data, params, options = {}) {
   };
 }
 
-// The current results as CSV, with the same columns and values as Supplemental Table 1.
-const CSV_COLUMNS = [
-  ['Number', 'n'], ['Food / Beverage Name', 'name'], ['Category', 'category'], ['Subcategory', 'subcategory'],
-  ['Total Weight (g) / Portion', 'portion'], ['Single / Mixed Meal', 'meal'], ['II', 'ii'], ['II footnote', 'iiNote'],
-  ['Subject Details (No. of Subjects)', 'subjects'], ['Comparator', 'comparator'], ['Author / Year / Reference', 'study'], ['Country', 'country'],
-];
-function downloadCSV(rows) {
-  const cell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
-  const lines = [CSV_COLUMNS.map(([h]) => cell(h)).join(','), ...rows.map((f) => CSV_COLUMNS.map(([, k]) => cell(f[k])).join(','))];
-  const url = URL.createObjectURL(new Blob([`\ufeff${lines.join('\r\n')}\r\n`], { type: 'text/csv;charset=utf-8' }));
-  const a = Object.assign(document.createElement('a'), { href: url, download: `insulin-index-explorer_${rows.length}-foods.csv` });
-  document.body.append(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  toast(`Downloaded ${rows.length} food${rows.length === 1 ? '' : 's'}. Please cite Hendricks et al., 2024 (CC BY-NC-ND 4.0).`);
-}
