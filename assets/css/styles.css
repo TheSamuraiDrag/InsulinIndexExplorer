@@ -304,7 +304,8 @@ p { margin: 0; }
 
 /* ---------- Home: group strip ---------- */
 
-.section-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.section-head-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 16px; }
+.section-head-row > div { min-width: 0; }
 .see-all { flex: none; font-weight: 700; text-decoration: none; padding: 8px 2px; }
 .see-all:hover { text-decoration: underline; }
 .group-strip {
