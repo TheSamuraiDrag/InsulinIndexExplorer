@@ -1,367 +1,367 @@
-﻿English,Bahasa Melayu,中文
-Skip to content,Langkau ke kandungan,跳到主要内容
-Menu,Menu,菜单
-Main,Utama,主导航
-"Insulin Index Explorer, home","Insulin Index Explorer, laman utama",Insulin Index Explorer，首页
-Explorer,Penjelajah,查询
-Food groups,Kumpulan makanan,食物类别
-Single foods,Makanan tunggal,单一食物
-Mixed meals,Hidangan campuran,混合餐
-How to read,Cara membaca,如何解读
-About,Perihal,关于
-{x} · Insulin Index Explorer,{x} · Insulin Index Explorer,{x} · Insulin Index Explorer
-Food Explorer,Penjelajah Makanan,食物查询
-How to read the II,Cara membaca II,如何解读 II
-About & sources,Perihal & sumber,关于与来源
-"{n} foods from {n2} studies, every value shown exactly as published.","{n} makanan daripada {n2} kajian, setiap nilai dipaparkan tepat seperti yang diterbitkan.",来自 {n2} 项研究的 {n} 种食物，每个数值都按原文发表显示。
-"Data: {x}, {n} entries · Website v{n2}","Data: {x}, {n} entri · Laman web v{n2}",数据：{x}，{n} 条记录 · 网站版本 v{n2}
-Admin login,Log masuk admin,管理员登录
-Loading foods…,Memuatkan makanan…,正在加载食物…
-A food-by-food guide · 2023 collectanea,Panduan makanan demi makanan · koleksi 2023,逐一食物指南 · 2023 汇编
-How much insulin does your,Berapa banyak insulin yang diperlukan oleh,你的
-food,makanan,食物
-call for?,anda?,需要多少胰岛素？
-"The insulin index (II) compares the body’s insulin response over 2 hours after a food with its response to a reference food, glucose or bread.","Indeks insulin (II) membandingkan gerak balas insulin badan dalam tempoh 2 jam selepas memakan sesuatu makanan dengan gerak balasnya terhadap makanan rujukan, iaitu glukosa atau roti.",胰岛素指数（II）比较的是：吃下某种食物后 2 小时内身体的胰岛素反应，与吃参照食物（葡萄糖或面包）后的反应。
-Search foods,Cari makanan,搜索食物
-Search,Cari,搜索
-Search {n} foods… try “brown rice”,Cari {n} makanan… cuba “brown rice”,搜索 {n} 种食物…试试“brown rice”
-Try,Cuba,试试
-foods,makanan,种食物
-studies,kajian,项研究
-countries,negara,个国家
-Quick stats,Statistik ringkas,快速统计
-Browse by food group,Lihat mengikut kumpulan makanan,按食物类别浏览
-"{n} groups, one tap away","{n} kumpulan, sekali sentuh sahaja",{n} 个类别，一点即达
-All groups,Semua kumpulan,所有类别
-{n} foods · II {x},{n} makanan · II {x},{n} 种食物 · II {x}
-Bread,Roti,面包
-Biscuits & Bakes,Biskut & Kuih Bakar,饼干与烘焙食品
-"Cereals, Grains & Fibre","Bijirin, Biji-bijian & Serat",谷物、谷类与纤维
-"Rice, Pasta & Noodles","Nasi, Pasta & Mi",米饭、意面与面条
-Potatoes,Kentang,土豆
-Fruit,Buah-buahan,水果
-"Vegetables, Legumes & Nuts","Sayur-sayuran, Kekacang & Kacang",蔬菜、豆类与坚果
-Dairy,Tenusu,乳制品
-"Meat, Fish & Eggs","Daging, Ikan & Telur",肉、鱼与蛋
-Drinks,Minuman,饮料
-Snacks & Sweeteners,Snek & Pemanis,零食与甜味剂
-"Breakfast, Lunch & Dinner","Sarapan, Makan Tengah Hari & Makan Malam",早餐、午餐与晚餐
-Regional & Traditional,Serantau & Tradisional,地方与传统食物
-Infant & Nutrition Products,Produk Bayi & Pemakanan,婴儿与营养产品
-Compare like with like,Bandingkan yang setara,同类相比
-"Everyday foods, measured the same way","Makanan harian, diukur dengan cara yang sama",日常食物，用同样的方法测量
-"These eight foods all come from one study,","Kesemua lapan makanan ini datang daripada satu kajian,",这八种食物都来自同一项研究：
-", and were all scored against glucose. That is what makes it fair to line them up.",", dan semuanya diukur berbanding glukosa. Itulah sebabnya adil untuk membandingkannya.",，而且都以葡萄糖为参照。所以把它们放在一起比较是公平的。
-Why this matters,Mengapa ini penting,为什么这很重要
-Reading the cards,Membaca kad,如何看卡片
-Three things on every card,Tiga perkara pada setiap kad,每张卡片上的三项信息
-The number,Nombor,数字
-"The II exactly as published, from {n} to {n2} across all {n3} foods. The bar shows where it sits in that range.","II tepat seperti yang diterbitkan, daripada {n} hingga {n2} bagi kesemua {n3} makanan. Bar menunjukkan kedudukannya dalam julat itu.",按原文发表的 II 值，全部 {n3} 种食物的范围是 {n} 至 {n2}。横条显示它在这个范围中的位置。
-The reference food,Makanan rujukan,参照食物
-Comparator: glucose,Pembanding: glukosa,参照：葡萄糖
-Comparator: bread,Pembanding: roti,参照：面包
-What the food was measured against.,Makanan yang digunakan sebagai perbandingan.,测量时用来比较的食物。
-Only compare foods with the same tag.,Hanya bandingkan makanan yang mempunyai tag yang sama.,只比较标签相同的食物。
-Single or mixed,Tunggal atau campuran,单一或混合
-Single food,Makanan tunggal,单一食物
-Mixed meal,Hidangan campuran,混合餐
-"One food on its own, or a meal of several foods eaten together.","Satu makanan sahaja, atau hidangan beberapa makanan yang dimakan bersama.",单独一种食物，或由几种食物一起吃的一餐。
-"There is no agreed clinical cut-off for a low or high II, so this site doesn’t label foods as low or high. Compare the numbers, like with like.","Tiada nilai potongan klinikal yang dipersetujui bagi II rendah atau tinggi, jadi laman ini tidak melabel makanan sebagai rendah atau tinggi. Bandingkan nombornya, yang setara dengan yang setara.",II 的高低目前没有公认的临床界限，所以本网站不把食物标为低或高。请比较数字，并且同类相比。
-Start exploring,Mula meneroka,开始探索
-Pick a way in,Pilih cara untuk bermula,选择入口
-Search and filter all {n} foods,Cari dan tapis kesemua {n} makanan,搜索并筛选全部 {n} 种食物
-"Every single food, ranked by II","Setiap makanan tunggal, disusun mengikut II",每种单一食物，按 II 排序
-"{n} groups, from bread to dairy","{n} kumpulan, daripada roti hingga tenusu",{n} 个类别，从面包到乳制品
-All {n} meals and food combos,Kesemua {n} hidangan dan gabungan makanan,全部 {n} 种餐食与食物组合
-"What the number means, and doesn’t","Maksud nombor itu, dan apa yang bukan maksudnya",这个数字代表什么，不代表什么
-"The paper, methods and limits","Kertas kajian, kaedah dan batasan",论文、方法与局限
-From the paper,Daripada kertas kajian,来自论文
-Surprising findings,Penemuan yang mengejutkan,意外发现
-"Surprising findings, scrolls sideways","Penemuan yang mengejutkan, tatal ke tepi",意外发现，可左右滑动
-Swipe through. Tap a card to see the foods.,Leret untuk melihat. Sentuh kad untuk melihat makanannya.,左右滑动浏览。点击卡片查看相关食物。
-Previous findings,Penemuan sebelumnya,上一个发现
-Next findings,Penemuan seterusnya,下一个发现
-Lowest single foods,Makanan tunggal terendah,最低的单一食物
-Gin and acacia fibre (Fibregum) both scored II 1.,Gin dan serat akasia (Fibregum) kedua-duanya mencatat II 1.,金酒（Gin）和阿拉伯胶纤维（Fibregum）的 II 都是 1。
-See the foods,Lihat makanannya,查看食物
-Highest single food,Makanan tunggal tertinggi,最高的单一食物
-Nutricia Karicare Soy infant formula.,Susu formula bayi Nutricia Karicare Soy.,Nutricia Karicare 大豆婴儿配方奶粉。
-Protein & fat foods,Makanan protein & lemak,蛋白质与脂肪类食物
-"Chicken, lamb, eggs, tuna, butter and cream fell within a lower range.","Ayam, kambing, telur, tuna, mentega dan krim berada dalam julat yang lebih rendah.",鸡肉、羊肉、鸡蛋、金枪鱼、黄油和奶油落在较低的范围内。
-“Healthy” staples,Makanan ruji “sihat”,“健康”主食
-"Skim fat milk, yoghurt, fruits (except avocado), brown rice, wholemeal and sourdough bread, wholegrain cereal, vegetables (except broccoli), honey and oats.","Susu skim, yogurt, buah-buahan (kecuali avokado), nasi perang, roti mil penuh dan roti masam (sourdough), bijirin penuh, sayur-sayuran (kecuali brokoli), madu dan oat.",脱脂牛奶、酸奶、水果（牛油果除外）、糙米、全麦面包和酸种面包、全谷物早餐谷物、蔬菜（西兰花除外）、蜂蜜和燕麦。
-Lowest mixed meal,Hidangan campuran terendah,最低的混合餐
-"A corn-tortilla taco with potato, watermelon and honey.","Taco tortila jagung dengan kentang, tembikai dan madu.",玉米饼塔可配土豆、西瓜和蜂蜜。
-Highest mixed meal,Hidangan campuran tertinggi,最高的混合餐
-"Freshly boiled Sava potatoes with water, tea or coffee.","Kentang Sava yang baru direbus dengan air, teh atau kopi.",新鲜煮熟的 Sava 土豆，配水、茶或咖啡。
-Context matters,Konteks penting,要看情境
-High ≠ bad,Tinggi ≠ buruk,高 ≠ 坏
-"A high II isn’t automatically bad, for example in sports nutrition.","II yang tinggi tidak semestinya buruk, contohnya dalam pemakanan sukan.",II 高并不一定是坏事，例如在运动营养中。
-Find a food’s insulin index,Cari indeks insulin sesuatu makanan,查找食物的胰岛素指数
-"Search all {n} foods. Tap any card for its portion, volunteers, study and footnotes.","Cari kesemua {n} makanan. Sentuh mana-mana kad untuk melihat saiz hidangan, sukarelawan, kajian dan nota kakinya.",搜索全部 {n} 种食物。点击任意卡片查看份量、受试者、研究和脚注。
-Search foods by name,Cari makanan mengikut nama,按名称搜索食物
-"Search foods, e.g. brown rice","Cari makanan, cth. brown rice",搜索食物，例如 brown rice
-Clear search,Kosongkan carian,清除搜索
-Filters,Penapis,筛选
-Sort by,Susun mengikut,排序方式
-II low → high,II menaik,II 从低到高
-II high → low,II menurun,II 从高到低
-A–Z,A–Z,A–Z
-Clear all,Kosongkan semua,全部清除
-Food group,Kumpulan makanan,食物类别
-Comparator,Pembanding,参照
-Glucose,Glukosa,葡萄糖
-Country,Negara,国家
-Show {n} foods,Tunjuk {n} makanan,显示 {n} 种食物
-Show {n} food,Tunjuk {n} makanan,显示 {n} 种食物
-Showing all,Memaparkan kesemua,显示全部
-of {n} foods,daripada {n} makanan,种，共 {n} 种食物
-Compare,Banding,比较
-Comparing,Dibandingkan,比较中
-No foods match,Tiada makanan yang sepadan,没有匹配的食物
-Try a shorter search or remove a filter.,Cuba carian yang lebih pendek atau buang penapis.,试试更短的搜索词，或移除一个筛选条件。
-Clear search and filters,Kosongkan carian dan penapis,清除搜索和筛选
-Remove filter {x},Buang penapis {x},移除筛选：{x}
-Add to compare: {x},Tambah untuk dibandingkan: {x},加入比较：{x}
-Remove from compare: {x},Buang daripada perbandingan: {x},从比较中移除：{x}
-Remove {x} from compare,Buang {x} daripada perbandingan,从比较中移除 {x}
-Rank,Kedudukan,排名
-insulin index,indeks insulin,胰岛素指数
-Comparator:,Pembanding:,参照：
-glucose,glukosa,葡萄糖
-bread,roti,面包
-. Only compare it with other foods whose comparator is glucose.,. Bandingkan hanya dengan makanan lain yang pembandingnya glukosa.,。只与参照同为葡萄糖的其他食物比较。
-. Only compare it with other foods whose comparator is bread.,. Bandingkan hanya dengan makanan lain yang pembandingnya roti.,。只与参照同为面包的其他食物比较。
-Portion,Saiz hidangan,份量
-Subjects,Subjek,受试者
-Comparator (reference food),Pembanding (makanan rujukan),参照（参照食物）
-Study,Kajian,研究
-[{n}] is its number in the paper’s reference list,[{n}] ialah nombornya dalam senarai rujukan kertas kajian,[{n}] 是它在论文参考文献列表中的编号
-Entry,Entri,条目
-No. {n} in Table {n2},No. {n} dalam Jadual {n2},表 {n2} 第 {n} 号
-Footnotes,Nota kaki,脚注
-+ Add to compare,+ Tambah untuk dibandingkan,+ 加入比较
-✓ In compare,✓ Dalam perbandingan,✓ 已在比较中
-Copy link,Salin pautan,复制链接
-Link copied,Pautan disalin,链接已复制
-Copy the address bar to share this food,Salin alamat di bar alamat untuk berkongsi makanan ini,复制地址栏即可分享这种食物
-Close details,Tutup butiran,关闭详情
-"Same food, other entries","Makanan sama, entri lain",同一种食物的其他条目
-"Results differ with portion, preparation, volunteers and reference food.","Keputusan berbeza mengikut saiz hidangan, cara penyediaan, sukarelawan dan makanan rujukan.",结果会因份量、制备方法、受试者和参照食物而不同。
-Report a problem with this entry,Laporkan masalah dengan entri ini,报告此条目的问题
-Footnote {x}: {y},Nota kaki {x}: {y},脚注 {x}：{y}
-II derived from the article’s supplementary file,II diperoleh daripada fail tambahan artikel,II 取自该文章的补充文件
-Mean II shown; the study also reported a median,II min dipaparkan; kajian itu juga melaporkan median,显示的是平均 II；该研究也报告了中位数
-"No BMI given, but standard protocol stated","BMI tidak diberikan, tetapi protokol standard dinyatakan",未提供 BMI，但说明遵循标准方案
-Study 2 of a two-study article,Kajian 2 daripada artikel dua kajian,一篇含两项研究的文章中的研究 2
-Discrepancy between 9 and 10 subjects in the original article,Percanggahan antara 9 dan 10 subjek dalam artikel asal,原文中受试者人数 9 与 10 不一致
-New rice variants without abbreviations,Varian beras baharu tanpa singkatan,没有缩写说明的新水稻品种
-"Photo shows {x} in general, not the exact product tested. Photo by","Foto menunjukkan {x} secara umum, bukan produk sebenar yang diuji. Foto oleh",照片展示的是一般的 {x}，而非实际测试的产品。照片作者
-"Photo shows {x} in general, not the exact product tested. Photo via","Foto menunjukkan {x} secara umum, bukan produk sebenar yang diuji. Foto melalui",照片展示的是一般的 {x}，而非实际测试的产品。照片来源
-via,melalui,，来源
-Example photo: {x},Contoh foto: {x},示例照片：{x}
-Side by side,Sebelah-menyebelah,并排比较
-Different reference foods.,Makanan rujukan yang berbeza.,参照食物不同。
-"Some of these were scored against glucose and some against bread. Bread itself scored around 70 against glucose, so these numbers are not directly comparable.","Sebahagian makanan ini diukur berbanding glukosa dan sebahagian lagi berbanding roti. Roti sendiri mencatat sekitar 70 berbanding glukosa, jadi nombor-nombor ini tidak boleh dibandingkan secara langsung.",其中一些以葡萄糖为参照，另一些以面包为参照。以葡萄糖为参照时，面包本身的 II 约为 70，所以这些数字不能直接比较。
-"All scored against {x}, but portions and volunteers still differ between studies.","Semuanya diukur berbanding {x}, tetapi saiz hidangan dan sukarelawan masih berbeza antara kajian.",全部以{x}为参照，但不同研究之间的份量和受试者仍有差异。
-comparator: bread,pembanding: roti,参照：面包
-comparator: glucose,pembanding: glukosa,参照：葡萄糖
-Detail,Butiran,细项
-Insulin index,Indeks insulin,胰岛素指数
-Reference,Rujukan,参照
-Type,Jenis,类型
-Compare {n}/{n2},Bandingkan {n}/{n2},比较 {n}/{n2}
-{n} foods ready to compare,{n} makanan sedia untuk dibandingkan,{n} 种食物可供比较
-You can compare up to 3 foods. Remove one first.,Anda boleh membandingkan sehingga 3 makanan. Buang satu dahulu.,最多只能比较 3 种食物。请先移除一种。
-Close comparison,Tutup perbandingan,关闭比较
-Bar chart of insulin index,Carta bar indeks insulin,胰岛素指数柱状图
-"Fourteen groups, one plate","Empat belas kumpulan, satu pinggan",十四个类别，一个餐盘
-"The paper sorts its {n} foods into {n2} categories. This site folds them into {n3} groups for browsing. Each dot is one food, placed by its II.","Kertas kajian ini menyusun {n} makanannya kepada {n2} kategori. Laman ini menggabungkannya kepada {n3} kumpulan untuk memudahkan penerokaan. Setiap titik ialah satu makanan, diletakkan mengikut II-nya.",论文把 {n} 种食物分成 {n2} 个类目。本网站把它们合并为 {n3} 个类别以便浏览。每个点代表一种食物，按其 II 排列。
-"Groups mix foods scored against glucose and against bread, so treat each range as a rough spread, not a ranking. The paper’s own category is shown on every food. Each group photo is an example of the group, not a particular food.","Setiap kumpulan mengandungi makanan yang diukur berbanding glukosa dan roti, jadi anggap setiap julat sebagai taburan kasar, bukan kedudukan. Kategori asal kertas kajian dipaparkan pada setiap makanan. Setiap foto kumpulan ialah contoh kumpulan itu, bukan makanan tertentu.",各类别中既有以葡萄糖为参照的食物，也有以面包为参照的食物，所以每个范围只能看作大致分布，而非排名。每种食物都标明了论文原本的类目。每张类别照片只是该类别的示例，不代表某一种特定食物。
-to,hingga,至
-{n} comparator: {x},{n} pembanding: {x},{n} 个以{x}为参照
-{n} single · {n2} mixed,{n} tunggal · {n2} campuran,{n} 种单一食物 · {n2} 种混合餐
-Explore {n} foods,Terokai {n} makanan,浏览 {n} 种食物
-Paper categories:,Kategori kertas kajian:,论文类目：
-"All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each comparator gets its own ranking, because a number measured against bread can’t be lined up against one measured against glucose.","Semua makanan tunggal, disusun dari II terendah. Tiada nilai potongan yang dipersetujui untuk “rendah”, jadi tiada yang ditinggalkan. Setiap pembanding mempunyai susunannya sendiri, kerana nombor yang diukur berbanding roti tidak boleh disejajarkan dengan nombor yang diukur berbanding glukosa.",全部单一食物，按 II 从低到高排序。“低”没有公认的界限，所以没有任何食物被排除。每种参照各自排名，因为以面包为参照测得的数字不能和以葡萄糖为参照的数字放在一起排。
-of {n} (comparator: {x}),daripada {n} (pembanding: {x}),种，共 {n} 种（参照：{x}）
-of {n},daripada {n},种，共 {n} 种
-Open in Explorer,Buka dalam Penjelajah,在查询中打开
-All {n} mixed meals,Kesemua {n} hidangan campuran,全部 {n} 种混合餐
-"Breakfasts, lunches, dinners and food combinations eaten together. Real meals, so portions and volunteers vary a lot between studies.","Sarapan, makan tengah hari, makan malam dan gabungan makanan yang dimakan bersama. Ini hidangan sebenar, jadi saiz hidangan dan sukarelawan sangat berbeza antara kajian.",早餐、午餐、晚餐以及一起吃的食物组合。都是真实的餐食，所以不同研究之间的份量和受试者差异很大。
-All,Semua,全部
-What the number,Apa yang,这个数字
-actually,sebenarnya,究竟
-tells you,diberitahu oleh nombor itu,告诉你什么
-"Five minutes to read the insulin index like a pro: what it measures, why it isn’t the GI, and the one rule that matters most.","Lima minit untuk membaca indeks insulin seperti pakar: apa yang diukurnya, mengapa ia bukan GI, dan satu peraturan yang paling penting.",五分钟像专家一样读懂胰岛素指数：它测量什么、为什么它不是 GI，以及最重要的一条规则。
-On this page,Di halaman ini,本页内容
-What it measures,Apa yang diukur,它测量什么
-II vs GI,II berbanding GI,II 与 GI
-Reading the number,Membaca nombor,解读数字
-Groups at a glance,Sekilas pandang kumpulan,各类别一览
-Surprises,Kejutan,意外发现
-Study tags,Tag kajian,研究标签
-{n} · What it measures,{n} · Apa yang diukur,{n} · 它测量什么
-"A test meal, a reference meal, two hours of blood tests","Satu hidangan ujian, satu hidangan rujukan, dua jam ujian darah",一份测试餐、一份参照餐、两小时验血
-Eat the test food,Makan makanan ujian,吃测试食物
-Volunteers eat a set portion of the food being tested.,Sukarelawan memakan saiz hidangan yang ditetapkan bagi makanan yang diuji.,受试者吃下一定份量的待测食物。
-Eat the reference,Makan makanan rujukan,吃参照食物
-"On another occasion, they eat the reference food: glucose or white bread.","Pada kesempatan lain, mereka memakan makanan rujukan: glukosa atau roti putih.",另一次，他们吃参照食物：葡萄糖或白面包。
-Measure insulin,Ukur insulin,测量胰岛素
-Blood insulin is measured for about 2 hours each time.,Insulin darah diukur selama kira-kira 2 jam setiap kali.,每次测量血液中的胰岛素约 2 小时。
-Compare the areas,Bandingkan luasnya,比较面积
-"The average ratio of the two areas across at least 10 volunteers, shown as a percentage.","Nisbah purata kedua-dua luas bagi sekurang-kurangnya 10 sukarelawan, dipaparkan sebagai peratusan.",至少 10 名受试者两个面积之比的平均值，以百分比表示。
-Two insulin curves after eating,Dua lengkung insulin selepas makan,进食后的两条胰岛素曲线
-Blood insulin rises and falls over 120 minutes. The reference food makes a larger curve than the test food. The II compares the area under the two curves.,Insulin darah naik dan turun dalam tempoh 120 minit. Makanan rujukan menghasilkan lengkung yang lebih besar daripada makanan ujian. II membandingkan luas di bawah kedua-dua lengkung.,血胰岛素在 120 分钟内先升后降。参照食物的曲线比测试食物的大。II 比较的是两条曲线下的面积。
-Minutes after eating,Minit selepas makan,进食后分钟数
-Blood insulin,Insulin darah,血胰岛素
-Reference food,Makanan rujukan,参照食物
-Test food,Makanan ujian,测试食物
-larger area,luas lebih besar,面积较大
-smaller area,luas lebih kecil,面积较小
-II = the test food’s area ÷ the reference food’s area,II = luas makanan ujian ÷ luas makanan rujukan,II = 测试食物的面积 ÷ 参照食物的面积
-", averaged across at least 10 volunteers and shown as a percentage.",", dipuratakan bagi sekurang-kurangnya 10 sukarelawan dan dipaparkan sebagai peratusan.",，取至少 10 名受试者的平均值，并以百分比表示。
-"Illustration only, not real data.","Ilustrasi sahaja, bukan data sebenar.",仅为示意图，并非真实数据。
-Analogy,Analogi,打个比方
-Think of insulin as,Bayangkan insulin sebagai,把胰岛素想象成
-keys,kunci,钥匙
-"that let glucose into your cells. The II asks: over the next 2 hours, how many keys did the body hand out for this food, compared with the reference food? An II of 50 means about half the insulin “area” of the reference.","yang membenarkan glukosa masuk ke dalam sel anda. II bertanya: dalam tempoh 2 jam berikutnya, berapa banyak kunci yang diberikan oleh badan untuk makanan ini, berbanding makanan rujukan? II sebanyak 50 bermaksud kira-kira separuh daripada “luas” insulin makanan rujukan.",，它让葡萄糖进入你的细胞。II 要问的是：在接下来的 2 小时里，与参照食物相比，身体为这种食物发出了多少把钥匙？II 为 50 表示胰岛素“面积”大约是参照食物的一半。
-{n} · II vs GI,{n} · II berbanding GI,{n} · II 与 GI
-Why not just use the glycaemic index?,Mengapa tidak gunakan indeks glisemik sahaja?,为什么不直接用血糖生成指数？
-Glycaemic index (GI),Indeks glisemik (GI),血糖生成指数（GI）
-Tracks,Mengukur,追踪
-blood glucose,glukosa darah,血糖
-after a food.,selepas sesuatu makanan.,在进食后的变化。
-vs,lwn,对比
-Insulin index (II),Indeks insulin (II),胰岛素指数（II）
-blood insulin,insulin darah,血胰岛素
-"In the GI, carbohydrates drive the value. The II can be affected by carbohydrates, proteins and fat, and by how they are combined, which the GI alone can miss.","Dalam GI, karbohidrat menentukan nilainya. II boleh dipengaruhi oleh karbohidrat, protein dan lemak, serta cara ia digabungkan, sesuatu yang mungkin terlepas jika hanya menggunakan GI.",GI 的数值主要由碳水化合物决定。II 则会受到碳水化合物、蛋白质和脂肪，以及它们组合方式的影响，这些是单看 GI 可能忽略的。
-{n} · The golden rule,{n} · Peraturan emas,{n} · 黄金法则
-"Glucose and bread give different responses. The paper found that “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (Hendricks et al., 2024). So a number scored against bread can’t be lined up with a number scored against glucose.","Glukosa dan roti memberikan gerak balas yang berbeza. Kertas kajian mendapati bahawa “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (iaitu nilai II roti adalah sekitar 70 dan berbeza antara 30 hingga 140 apabila glukosa menjadi pembanding) (Hendricks et al., 2024). Jadi nombor yang diukur berbanding roti tidak boleh disejajarkan dengan nombor yang diukur berbanding glukosa.",葡萄糖和面包引起的反应不同。论文发现 “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator”（即以葡萄糖为参照时，面包的 II 约为 70，介于 30 至 140 之间；Hendricks 等，2024）。所以以面包为参照的数字，不能和以葡萄糖为参照的数字放在一起比较。
-The II of bread when glucose was the comparator,II roti apabila glukosa menjadi pembanding,以葡萄糖为参照时面包的 II
-varied between 30 and 140,berbeza antara 30 hingga 140,介于 30 至 140 之间
-around 70,sekitar 70,约 70
-of entries ({n} of {n2}) use bread as the reference,daripada entri ({n} daripada {n2}) menggunakan roti sebagai rujukan,的条目（{n2} 条中的 {n} 条）以面包为参照
-comparator: glucose {n},pembanding: glukosa {n},参照：葡萄糖 {n}
-comparator: bread {n},pembanding: roti {n},参照：面包 {n}
-Only compare foods with the,Hanya bandingkan makanan yang mempunyai,只比较
-same comparator,pembanding yang sama,参照相同的食物
-with,dengan,与
-Portion size differs between studies. Check the portion on each food.,Saiz hidangan berbeza antara kajian. Semak saiz hidangan bagi setiap makanan.,不同研究的份量不同。请查看每种食物的份量。
-"Volunteers differ too, so the same food can score differently in different studies.","Sukarelawan juga berbeza, jadi makanan yang sama boleh mencatat nilai berbeza dalam kajian yang berlainan.",受试者也不同，所以同一种食物在不同研究中的结果可能不同。
-{n} · Reading the number,{n} · Membaca nombor,{n} · 解读数字
-"No labels, just the published number","Tiada label, hanya nombor yang diterbitkan",没有标签，只有原文发表的数字
-"The paper describes the II as “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (Hendricks et al., 2024, p. 93). Every II on this site is shown exactly as published.","Kertas kajian menerangkan II sebagai “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (iaitu nisbah purata iAUC makanan ujian berbanding makanan rujukan, dinyatakan dalam peratusan) (Hendricks et al., 2024, m/s 93). Setiap II di laman ini dipaparkan tepat seperti yang diterbitkan.","论文把 II 描述为 “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage”（即测试食物 iAUC 与参照食物 iAUC 之比的平均值，以百分比表示；Hendricks 等，2024，第 93 页）。本网站的每个 II 都按原文发表显示。"
-Same tag,Tag sama,标签相同
-"Compare two foods only when both have the same comparator, glucose or bread.","Bandingkan dua makanan hanya apabila kedua-duanya mempunyai pembanding yang sama, glukosa atau roti.",只有当两种食物的参照相同（都是葡萄糖或都是面包）时才比较。
-Higher,Lebih tinggi,较高
-"Between two such foods, the higher II was the larger insulin response in its study.","Antara dua makanan sedemikian, II yang lebih tinggi menunjukkan gerak balas insulin yang lebih besar dalam kajiannya.",在这样的两种食物之间，II 较高的那种在其研究中的胰岛素反应较大。
-Check,Semak,查看
-"Portion, volunteers and study still differ, so look at each food’s details.","Saiz hidangan, sukarelawan dan kajian masih berbeza, jadi lihat butiran setiap makanan.",份量、受试者和研究仍有差异，所以请查看每种食物的详情。
-"There is no agreed clinical cut-off for a low, medium or high II, so this site doesn’t label foods as low or high. A high II isn’t automatically bad, for example in sports nutrition.","Tiada nilai potongan klinikal yang dipersetujui bagi II rendah, sederhana atau tinggi, jadi laman ini tidak melabel makanan sebagai rendah atau tinggi. II yang tinggi tidak semestinya buruk, contohnya dalam pemakanan sukan.",II 的低、中、高目前没有公认的临床界限，所以本网站不把食物标为低或高。II 高并不一定是坏事，例如在运动营养中。
-{n} · Groups at a glance,{n} · Sekilas pandang kumpulan,{n} · 各类别一览
-Median II per food group,II median bagi setiap kumpulan makanan,各食物类别的 II 中位数
-"Shown separately for foods scored against glucose and against bread, because the two can’t share one ruler.","Dipaparkan secara berasingan bagi makanan yang diukur berbanding glukosa dan roti, kerana kedua-duanya tidak boleh menggunakan pembaris yang sama.",以葡萄糖和以面包为参照的食物分开显示，因为两者不能用同一把尺子衡量。
-Median II per group · n = entries,II median bagi setiap kumpulan · n = entri,各类别 II 中位数 · n = 条目数
-Medians are this site’s calculation from the published values. Groups are ordered by their median with glucose as the comparator. Don’t compare a bar in one panel with a bar in the other. Tap a bar to see those foods.,Median ialah pengiraan laman ini daripada nilai yang diterbitkan. Kumpulan disusun mengikut median dengan glukosa sebagai pembanding. Jangan bandingkan bar dalam satu panel dengan bar dalam panel yang lain. Sentuh bar untuk melihat makanan tersebut.,中位数由本网站根据已发表的数值计算。类别按以葡萄糖为参照的中位数排序。不要把一个面板中的横条与另一个面板中的横条比较。点击横条查看相关食物。
-Show as a table,Tunjuk sebagai jadual,以表格显示
-Group,Kumpulan,类别
-Glucose comparator: median (n),Pembanding glukosa: median (n),葡萄糖参照：中位数（n）
-Glucose comparator: range,Pembanding glukosa: julat,葡萄糖参照：范围
-Bread comparator: median (n),Pembanding roti: median (n),面包参照：中位数（n）
-Bread comparator: range,Pembanding roti: julat,面包参照：范围
-no entries,tiada entri,无条目
-"{x}, comparator {y}: median {n} from {n2} entries, range {n3} to {n4}. Open in Explorer.","{x}, pembanding {y}: median {n} daripada {n2} entri, julat {n3} hingga {n4}. Buka dalam Penjelajah.",{x}，参照为{y}：中位数 {n}，共 {n2} 条，范围 {n3} 至 {n4}。在查询中打开。
-"{x}, comparator {y}: median {n} from {n2} entry, range {n3} to {n4}. Open in Explorer.","{x}, pembanding {y}: median {n} daripada {n2} entri, julat {n3} hingga {n4}. Buka dalam Penjelajah.",{x}，参照为{y}：中位数 {n}，共 {n2} 条，范围 {n3} 至 {n4}。在查询中打开。
-{x} · comparator: {y} Median {n} · {n2} entries Range {z},{x} · pembanding: {y} Median {n} · {n2} entri Julat {z},{x} · 参照：{y} 中位数 {n} · {n2} 条 范围 {z}
-{x} · comparator: {y} Median {n} · {n2} entry Range {z},{x} · pembanding: {y} Median {n} · {n2} entri Julat {z},{x} · 参照：{y} 中位数 {n} · {n2} 条 范围 {z}
-{n} · Surprises in the data,{n} · Kejutan dalam data,{n} · 数据中的意外
-Not what you might expect,Bukan seperti yang anda jangkakan,可能出乎你的意料
-Foods often recommended for weight or blood-sugar control,Makanan yang sering disyorkan untuk kawalan berat badan atau gula dalam darah,常被推荐用于控制体重或血糖的食物
-Protein and fat foods,Makanan protein dan lemak,蛋白质和脂肪类食物
-"Chicken, lamb, eggs, tuna, butter and cream.","Ayam, kambing, telur, tuna, mentega dan krim.",鸡肉、羊肉、鸡蛋、金枪鱼、黄油和奶油。
-Gin and acacia fibre (Fibregum).,Gin dan serat akasia (Fibregum).,金酒（Gin）和阿拉伯胶纤维（Fibregum）。
-"Boiled Sava potatoes with water, tea or coffee.","Kentang Sava rebus dengan air, teh atau kopi.",煮 Sava 土豆，配水、茶或咖啡。
-{n} · Reading a study tag,{n} · Membaca tag kajian,{n} · 解读研究标签
-"What “Bao et al., 2011 [46]” means","Maksud “Bao et al., 2011 [46]”","“Bao et al., 2011 [46]” 是什么意思"
-first author,pengarang pertama,第一作者
-year,tahun,年份
-its number in the paper’s reference list,nombornya dalam senarai rujukan kertas kajian,它在论文参考文献列表中的编号
-"Bao et al. is the first author, 2011 is the year, and 46 is its number in the paper’s reference list.","Bao et al. ialah pengarang pertama, 2011 ialah tahunnya, dan 46 ialah nombornya dalam senarai rujukan kertas kajian.",Bao et al. 是第一作者，2011 是年份，46 是它在论文参考文献列表中的编号。
-Ready to explore?,Sedia untuk meneroka?,准备好探索了吗？
-"Search all {n} foods, filter by reference food and compare up to three side by side.","Cari kesemua {n} makanan, tapis mengikut makanan rujukan dan bandingkan sehingga tiga sebelah-menyebelah.",搜索全部 {n} 种食物，按参照食物筛选，最多可并排比较三种。
-Open the Explorer,Buka Penjelajah,打开查询
-Where these numbers come from,Dari mana nombor-nombor ini datang,这些数字从哪里来
-Every value on this site is copied as published in Supplemental Table 1 of a 2024 open-access review.,Setiap nilai di laman ini disalin seperti yang diterbitkan dalam Jadual Tambahan 1 sebuah ulasan akses terbuka 2024.,本网站的每个数值都照录自一篇 2024 年开放获取综述的补充表 1。
-The paper,Kertas kajian,论文
-Copy citation,Salin petikan,复制引用
-Citation copied,Petikan disalin,引用已复制
-Select the citation above to copy it,Pilih petikan di atas untuk menyalinnya,请选中上面的引用进行复制
-Read the paper,Baca kertas kajian,阅读论文
-"Open access,","Akses terbuka,",开放获取，
-Funded by Newcastle University Medicine Malaysia (NUMed),Dibiayai oleh Newcastle University Medicine Malaysia (NUMed),由马来西亚纽卡斯尔大学医学院（NUMed）资助
-Methods,Kaedah,方法
-How the collection was built,Bagaimana koleksi ini dibina,这个汇编是如何建立的
-databases searched,pangkalan data dicari,个检索数据库
-"up to December 2023, no language restriction: PubMed, Scopus, the Cochrane trials register, Google Scholar and ResearchGate","sehingga Disember 2023, tanpa sekatan bahasa: PubMed, Scopus, daftar ujian Cochrane, Google Scholar dan ResearchGate",检索至 2023 年 12 月，无语言限制：PubMed、Scopus、Cochrane 试验注册库、Google Scholar 和 ResearchGate
-articles screened,artikel disaring,篇经筛选的文章
-articles included,artikel dimasukkan,篇纳入的文章
-from {n} countries in {n2} categories: {n3} single foods and {n4} mixed meals,daripada {n} negara dalam {n2} kategori: {n3} makanan tunggal dan {n4} hidangan campuran,来自 {n} 个国家，分为 {n2} 个类目：{n3} 种单一食物和 {n4} 种混合餐
-"To be included, a study needed","Untuk dimasukkan, sesuatu kajian perlu mempunyai",纳入的研究需要满足
-"At least 10 healthy, non-diabetic subjects with a normal BMI","Sekurang-kurangnya 10 subjek yang sihat, bukan pesakit diabetes dan mempunyai BMI normal",至少 10 名 BMI 正常、健康、无糖尿病的受试者
-Glucose or bread as the reference food,Glukosa atau roti sebagai makanan rujukan,以葡萄糖或面包作为参照食物
-"II calculated by the FAO-recommended trapezoid method, indexing the test food’s iAUC to the reference food’s iAUC","II dikira menggunakan kaedah trapezoid yang disyorkan oleh FAO, dengan mengindeks iAUC makanan ujian kepada iAUC makanan rujukan",用 FAO 推荐的梯形法计算 II，即把测试食物的 iAUC 与参照食物的 iAUC 相比
-And,Dan,并且
-Only the first meal was used when several meals were fed in a row,Hanya hidangan pertama digunakan apabila beberapa hidangan diberikan berturut-turut,连续进食多餐时，只采用第一餐
-Three authors extracted the data independently,Tiga pengarang mengekstrak data secara berasingan,由三位作者独立提取数据
-The little symbols,Simbol-simbol kecil,那些小符号
-They appear exactly where the paper puts them. Tap one on any food to see what it means.,Simbol ini muncul tepat di tempat yang diletakkan oleh kertas kajian. Sentuh simbol pada mana-mana makanan untuk melihat maksudnya.,它们出现在论文标注的同样位置。点击任意食物上的符号查看含义。
-In the paper: “{x}”,Dalam kertas kajian: “{x}”,论文原文：“{x}”
-{x} · {n} entries,{x} · {n} entri,{x} · {n} 条
-{x} · {n} entry,{x} · {n} entri,{x} · {n} 条
-II column,Lajur II,II 栏
-Subject details,Butiran subjek,受试者详情
-Food name,Nama makanan,食物名称
-", or",", atau",，或
-Limitations,Batasan,局限性
-Read with care,Baca dengan teliti,谨慎解读
-Studies differ,Kajian berbeza,研究各不相同
-"in reference food, portion and volunteers.","dari segi makanan rujukan, saiz hidangan dan sukarelawan.",：参照食物、份量和受试者都不一样。
-People differ.,Manusia berbeza.,人各不相同。
-"Insulin responses can differ by ethnicity, sex and hormonal factors such as menopause.","Gerak balas insulin boleh berbeza mengikut etnik, jantina dan faktor hormon seperti menopaus.",胰岛素反应可能因种族、性别以及更年期等激素因素而不同。
-No agreed cut-off.,Tiada nilai potongan yang dipersetujui.,没有公认的界限。
-"There is no agreed clinical cut-off for a low, medium or high II.","Tiada nilai potongan klinikal yang dipersetujui bagi II rendah, sederhana atau tinggi.",II 的低、中、高目前没有公认的临床界限。
-This site,Laman ini,本网站
-How the site handles the data,Bagaimana laman ini mengendalikan data,本网站如何处理数据
-Exactly as published.,Tepat seperti yang diterbitkan.,按原文照录。
-"Numbers, food names and study names are never rounded, renamed or “fixed”.","Nombor, nama makanan dan nama kajian tidak pernah dibundarkan, dinamakan semula atau “diperbetulkan”.",数字、食物名称和研究名称从不四舍五入、改名或“修正”。
-Comparator tag.,Tag pembanding.,参照标签。
-"A food is tagged “Comparator: bread” when its Comparator column mentions bread, otherwise “Comparator: glucose” ({n} and {n2}).","Sesuatu makanan ditag “Pembanding: roti” apabila lajur Comparator menyebut roti (bread), jika tidak “Pembanding: glukosa” ({n} dan {n2}).",如果某种食物的 Comparator 栏提到面包（bread），就标为“参照：面包”，否则标为“参照：葡萄糖”（分别为 {n} 和 {n2} 种）。
-No low/high labels.,Tiada label rendah/tinggi.,不标低或高。
-"Because there is no agreed cut-off, foods aren’t labelled or colour-coded as low or high. Each II is shown exactly as published.","Oleh sebab tiada nilai potongan yang dipersetujui, makanan tidak dilabel atau diberi kod warna sebagai rendah atau tinggi. Setiap II dipaparkan tepat seperti yang diterbitkan.",因为没有公认的界限，食物不会被标记或用颜色区分为低或高。每个 II 都按原文发表显示。
-Groups.,Kumpulan.,类别。
-The paper’s {n} categories are folded into {n2} browsing groups:,{n} kategori kertas kajian digabungkan kepada {n2} kumpulan penerokaan:,论文的 {n} 个类目被合并为 {n2} 个浏览类别：
-Site group,Kumpulan laman,网站类别
-Paper categories,Kategori kertas kajian,论文类目
-Foods,Makanan,食物
-Download the data (CSV),Muat turun data (CSV),下载数据（CSV）
-Download foods.json,Muat turun foods.json,下载 foods.json
-Licence & credits,Lesen & penghargaan,许可与致谢
-Thank you,Terima kasih,谢谢
-Data:,Data:,数据：
-"Hendricks et al., 2024, used under","Hendricks et al., 2024, digunakan di bawah",Hendricks 等，2024，依据
-": shown unchanged, with attribution, for non-commercial education.",": dipaparkan tanpa perubahan, dengan atribusi, untuk pendidikan bukan komersial.", 许可使用：原样展示并注明出处，用于非商业教育。
-Banner photos:,Foto sepanduk:,横幅照片：
-Food photos:,Foto makanan:,食物照片：
-"openly licensed photos (CC BY, CC BY-SA, CC0 or public domain), found through","foto berlesen terbuka (CC BY, CC BY-SA, CC0 atau domain awam), ditemui melalui",张开放许可照片（CC BY、CC BY-SA、CC0 或公有领域），来源为
-and credited below. Each shows the,dan dikreditkan di bawah. Setiap foto menunjukkan,，并在下方注明出处。每张照片展示的只是这一
-type,jenis,类
-"of food, not the exact product tested. Photos were cropped and resized for this site; each keeps its original licence.","makanan, bukan produk sebenar yang diuji. Foto telah dipotong dan diubah saiz untuk laman ini; setiap satu mengekalkan lesen asalnya.",食物，而不是实际测试的产品。照片已为本网站裁剪并调整大小，各自保留原有许可。
-Fonts:,Fon:,字体：
-Fraunces and Plus Jakarta Sans from Google Fonts.,Fraunces dan Plus Jakarta Sans daripada Google Fonts.,Fraunces 和 Plus Jakarta Sans，来自 Google Fonts。
-Visitor counts:,Kiraan pelawat:,访问统计：
-"visits are counted anonymously with GoatCounter, with no cookies and no personal data.","lawatan dikira secara tanpa nama dengan GoatCounter, tanpa kuki dan tanpa data peribadi.",使用 GoatCounter 匿名统计访问量，不使用 cookie，也不收集个人数据。
-Food photo credits ({n}),Kredit foto makanan ({n}),食物照片来源（{n}）
-Couldn’t load the food data,Data makanan tidak dapat dimuatkan,无法加载食物数据
-"Please refresh the page. If you opened the file directly, serve the folder with a local web server.",Sila muat semula halaman ini.,请刷新页面。如果你是直接打开文件的，请用本地网页服务器打开该文件夹。
-{n} · {x},{n} · {x},{n} · {x}
+﻿English,Bahasa Melayu,中文,தமிழ்
+Skip to content,Langkau ke kandungan,跳到主要内容,உள்ளடக்கத்திற்குச் செல்லவும்
+Menu,Menu,菜单,பட்டியல்
+Main,Utama,主导航,முதன்மை
+"Insulin Index Explorer, home","Insulin Index Explorer, laman utama",Insulin Index Explorer，首页,"Insulin Index Explorer, முகப்பு"
+Explorer,Penjelajah,查询,தேடல்
+Food groups,Kumpulan makanan,食物类别,உணவுக் குழுக்கள்
+Single foods,Makanan tunggal,单一食物,தனி உணவுகள்
+Mixed meals,Hidangan campuran,混合餐,கலப்பு உணவுகள்
+How to read,Cara membaca,如何解读,எப்படிப் படிப்பது
+About,Perihal,关于,பற்றி
+{x} · Insulin Index Explorer,{x} · Insulin Index Explorer,{x} · Insulin Index Explorer,{x} · Insulin Index Explorer
+Food Explorer,Penjelajah Makanan,食物查询,உணவுத் தேடல்
+How to read the II,Cara membaca II,如何解读 II,II-ஐ எப்படிப் படிப்பது
+About & sources,Perihal & sumber,关于与来源,பற்றியும் மூலங்களும்
+"{n} foods from {n2} studies, every value shown exactly as published.","{n} makanan daripada {n2} kajian, setiap nilai dipaparkan tepat seperti yang diterbitkan.",来自 {n2} 项研究的 {n} 种食物，每个数值都按原文发表显示。,{n2} ஆய்வுகளிலிருந்து {n} உணவுகள்; ஒவ்வொரு மதிப்பும் வெளியிடப்பட்டபடியே காட்டப்படுகிறது.
+"Data: {x}, {n} entries · Website v{n2}","Data: {x}, {n} entri · Laman web v{n2}",数据：{x}，{n} 条记录 · 网站版本 v{n2},"தரவு: {x}, {n} பதிவுகள் · இணையதளம் v{n2}"
+Admin login,Log masuk admin,管理员登录,நிர்வாகி உள்நுழைவு
+Loading foods…,Memuatkan makanan…,正在加载食物…,உணவுகள் ஏற்றப்படுகின்றன…
+A food-by-food guide · 2023 collectanea,Panduan makanan demi makanan · koleksi 2023,逐一食物指南 · 2023 汇编,ஒவ்வொரு உணவுக்குமான வழிகாட்டி · 2023 தொகுப்பு
+How much insulin does your,Berapa banyak insulin yang diperlukan oleh,你的,உங்கள்
+food,makanan,食物,உணவுக்கு
+call for?,anda?,需要多少胰岛素？,எவ்வளவு இன்சுலின் தேவை?
+"The insulin index (II) compares the body’s insulin response over 2 hours after a food with its response to a reference food, glucose or bread.","Indeks insulin (II) membandingkan gerak balas insulin badan dalam tempoh 2 jam selepas memakan sesuatu makanan dengan gerak balasnya terhadap makanan rujukan, iaitu glukosa atau roti.",胰岛素指数（II）比较的是：吃下某种食物后 2 小时内身体的胰岛素反应，与吃参照食物（葡萄糖或面包）后的反应。,"இன்சுலின் குறியீடு (II), ஒரு உணவை உண்ட பின் 2 மணி நேரத்தில் உடலின் இன்சுலின் எதிர்வினையை, ஒரு குறிப்பு உணவுக்கான (குளுக்கோஸ் அல்லது ரொட்டி) எதிர்வினையுடன் ஒப்பிடுகிறது."
+Search foods,Cari makanan,搜索食物,உணவுகளைத் தேடுங்கள்
+Search,Cari,搜索,தேடு
+Search {n} foods… try “brown rice”,Cari {n} makanan… cuba “brown rice”,搜索 {n} 种食物…试试“brown rice”,{n} உணவுகளில் தேடுங்கள்… “brown rice” என்று முயலுங்கள்
+Try,Cuba,试试,முயலுங்கள்
+foods,makanan,种食物,உணவுகள்
+studies,kajian,项研究,ஆய்வுகள்
+countries,negara,个国家,நாடுகள்
+Quick stats,Statistik ringkas,快速统计,விரைவுப் புள்ளிவிவரங்கள்
+Browse by food group,Lihat mengikut kumpulan makanan,按食物类别浏览,உணவுக் குழு வாரியாகப் பாருங்கள்
+"{n} groups, one tap away","{n} kumpulan, sekali sentuh sahaja",{n} 个类别，一点即达,"{n} குழுக்கள், ஒரே தொடுதலில்"
+All groups,Semua kumpulan,所有类别,அனைத்துக் குழுக்களும்
+{n} foods · II {x},{n} makanan · II {x},{n} 种食物 · II {x},{n} உணவுகள் · II {x}
+Bread,Roti,面包,ரொட்டி
+Biscuits & Bakes,Biskut & Kuih Bakar,饼干与烘焙食品,பிஸ்கட்டுகளும் வேகவைத்த பண்டங்களும்
+"Cereals, Grains & Fibre","Bijirin, Biji-bijian & Serat",谷物、谷类与纤维,"தானியங்கள், தானிய உணவுகள் & நார்ச்சத்து"
+"Rice, Pasta & Noodles","Nasi, Pasta & Mi",米饭、意面与面条,"சோறு, பாஸ்தா & நூடுல்ஸ்"
+Potatoes,Kentang,土豆,உருளைக்கிழங்கு
+Fruit,Buah-buahan,水果,பழங்கள்
+"Vegetables, Legumes & Nuts","Sayur-sayuran, Kekacang & Kacang",蔬菜、豆类与坚果,"காய்கறிகள், பருப்பு வகைகள் & கொட்டைகள்"
+Dairy,Tenusu,乳制品,பால் பொருட்கள்
+"Meat, Fish & Eggs","Daging, Ikan & Telur",肉、鱼与蛋,"இறைச்சி, மீன் & முட்டை"
+Drinks,Minuman,饮料,பானங்கள்
+Snacks & Sweeteners,Snek & Pemanis,零食与甜味剂,சிற்றுண்டிகள் & இனிப்பூட்டிகள்
+"Breakfast, Lunch & Dinner","Sarapan, Makan Tengah Hari & Makan Malam",早餐、午餐与晚餐,"காலை, மதிய & இரவு உணவு"
+Regional & Traditional,Serantau & Tradisional,地方与传统食物,பிராந்திய & பாரம்பரிய உணவுகள்
+Infant & Nutrition Products,Produk Bayi & Pemakanan,婴儿与营养产品,குழந்தை & ஊட்டச்சத்துப் பொருட்கள்
+Compare like with like,Bandingkan yang setara,同类相比,ஒத்ததை ஒத்ததுடன் ஒப்பிடுங்கள்
+"Everyday foods, measured the same way","Makanan harian, diukur dengan cara yang sama",日常食物，用同样的方法测量,"அன்றாட உணவுகள், ஒரே முறையில் அளவிடப்பட்டவை"
+"These eight foods all come from one study,","Kesemua lapan makanan ini datang daripada satu kajian,",这八种食物都来自同一项研究：,இந்த எட்டு உணவுகளும் ஒரே ஆய்விலிருந்து வந்தவை:
+", and were all scored against glucose. That is what makes it fair to line them up.",", dan semuanya diukur berbanding glukosa. Itulah sebabnya adil untuk membandingkannya.",，而且都以葡萄糖为参照。所以把它们放在一起比较是公平的。,; அனைத்தும் குளுக்கோஸுடன் ஒப்பிட்டு அளவிடப்பட்டன. அதனால்தான் இவற்றை வரிசைப்படுத்தி ஒப்பிடுவது நியாயமானது.
+Why this matters,Mengapa ini penting,为什么这很重要,இது ஏன் முக்கியம்
+Reading the cards,Membaca kad,如何看卡片,அட்டைகளைப் படித்தல்
+Three things on every card,Tiga perkara pada setiap kad,每张卡片上的三项信息,ஒவ்வொரு அட்டையிலும் மூன்று விஷயங்கள்
+The number,Nombor,数字,எண்
+"The II exactly as published, from {n} to {n2} across all {n3} foods. The bar shows where it sits in that range.","II tepat seperti yang diterbitkan, daripada {n} hingga {n2} bagi kesemua {n3} makanan. Bar menunjukkan kedudukannya dalam julat itu.",按原文发表的 II 值，全部 {n3} 种食物的范围是 {n} 至 {n2}。横条显示它在这个范围中的位置。,வெளியிடப்பட்டபடியே II; அனைத்து {n3} உணவுகளிலும் {n} முதல் {n2} வரை. அந்த வரம்பில் அது எங்கே உள்ளது என்பதைப் பட்டை காட்டுகிறது.
+The reference food,Makanan rujukan,参照食物,குறிப்பு உணவு
+Comparator: glucose,Pembanding: glukosa,参照：葡萄糖,ஒப்பீடு: குளுக்கோஸ்
+Comparator: bread,Pembanding: roti,参照：面包,ஒப்பீடு: ரொட்டி
+What the food was measured against.,Makanan yang digunakan sebagai perbandingan.,测量时用来比较的食物。,உணவு எதனுடன் ஒப்பிட்டு அளவிடப்பட்டது.
+Only compare foods with the same tag.,Hanya bandingkan makanan yang mempunyai tag yang sama.,只比较标签相同的食物。,ஒரே குறிச்சொல் உள்ள உணவுகளை மட்டுமே ஒப்பிடுங்கள்.
+Single or mixed,Tunggal atau campuran,单一或混合,தனி அல்லது கலப்பு
+Single food,Makanan tunggal,单一食物,தனி உணவு
+Mixed meal,Hidangan campuran,混合餐,கலப்பு உணவு
+"One food on its own, or a meal of several foods eaten together.","Satu makanan sahaja, atau hidangan beberapa makanan yang dimakan bersama.",单独一种食物，或由几种食物一起吃的一餐。,"தனியாக ஒரு உணவு, அல்லது ஒன்றாக உண்ணப்படும் பல உணவுகளைக் கொண்ட ஒரு வேளை உணவு."
+"There is no agreed clinical cut-off for a low or high II, so this site doesn’t label foods as low or high. Compare the numbers, like with like.","Tiada nilai potongan klinikal yang dipersetujui bagi II rendah atau tinggi, jadi laman ini tidak melabel makanan sebagai rendah atau tinggi. Bandingkan nombornya, yang setara dengan yang setara.",II 的高低目前没有公认的临床界限，所以本网站不把食物标为低或高。请比较数字，并且同类相比。,"குறைந்த அல்லது அதிக II-க்கு ஒப்புக்கொள்ளப்பட்ட மருத்துவ வரம்பு இல்லை; எனவே இந்தத் தளம் உணவுகளைக் குறைந்தது அல்லது அதிகமானது என்று குறிப்பதில்லை. எண்களை ஒப்பிடுங்கள், ஒத்ததை ஒத்ததுடன்."
+Start exploring,Mula meneroka,开始探索,ஆராயத் தொடங்குங்கள்
+Pick a way in,Pilih cara untuk bermula,选择入口,ஒரு வழியைத் தேர்ந்தெடுங்கள்
+Search and filter all {n} foods,Cari dan tapis kesemua {n} makanan,搜索并筛选全部 {n} 种食物,அனைத்து {n} உணவுகளையும் தேடி வடிகட்டுங்கள்
+"Every single food, ranked by II","Setiap makanan tunggal, disusun mengikut II",每种单一食物，按 II 排序,"ஒவ்வொரு தனி உணவும், II வாரியாக வரிசைப்படுத்தப்பட்டது"
+"{n} groups, from bread to dairy","{n} kumpulan, daripada roti hingga tenusu",{n} 个类别，从面包到乳制品,"{n} குழுக்கள், ரொட்டி முதல் பால் பொருட்கள் வரை"
+All {n} meals and food combos,Kesemua {n} hidangan dan gabungan makanan,全部 {n} 种餐食与食物组合,அனைத்து {n} வேளை உணவுகளும் உணவுக் கலவைகளும்
+"What the number means, and doesn’t","Maksud nombor itu, dan apa yang bukan maksudnya",这个数字代表什么，不代表什么,"இந்த எண் எதைக் குறிக்கிறது, எதைக் குறிக்கவில்லை"
+"The paper, methods and limits","Kertas kajian, kaedah dan batasan",论文、方法与局限,"ஆய்வுக் கட்டுரை, முறைகள் மற்றும் வரம்புகள்"
+From the paper,Daripada kertas kajian,来自论文,ஆய்வுக் கட்டுரையிலிருந்து
+Surprising findings,Penemuan yang mengejutkan,意外发现,வியப்பூட்டும் கண்டுபிடிப்புகள்
+"Surprising findings, scrolls sideways","Penemuan yang mengejutkan, tatal ke tepi",意外发现，可左右滑动,"வியப்பூட்டும் கண்டுபிடிப்புகள், பக்கவாட்டில் நகர்த்தலாம்"
+Swipe through. Tap a card to see the foods.,Leret untuk melihat. Sentuh kad untuk melihat makanannya.,左右滑动浏览。点击卡片查看相关食物。,நகர்த்திப் பாருங்கள். உணவுகளைக் காண ஒரு அட்டையைத் தொடுங்கள்.
+Previous findings,Penemuan sebelumnya,上一个发现,முந்தைய கண்டுபிடிப்புகள்
+Next findings,Penemuan seterusnya,下一个发现,அடுத்த கண்டுபிடிப்புகள்
+Lowest single foods,Makanan tunggal terendah,最低的单一食物,மிகக் குறைந்த தனி உணவுகள்
+Gin and acacia fibre (Fibregum) both scored II 1.,Gin dan serat akasia (Fibregum) kedua-duanya mencatat II 1.,金酒（Gin）和阿拉伯胶纤维（Fibregum）的 II 都是 1。,"ஜின் (Gin), அகேசியா நார்ச்சத்து (Fibregum) இரண்டும் II 1 பெற்றன."
+See the foods,Lihat makanannya,查看食物,உணவுகளைப் பாருங்கள்
+Highest single food,Makanan tunggal tertinggi,最高的单一食物,மிக அதிக தனி உணவு
+Nutricia Karicare Soy infant formula.,Susu formula bayi Nutricia Karicare Soy.,Nutricia Karicare 大豆婴儿配方奶粉。,Nutricia Karicare சோயா குழந்தை ஃபார்முலா.
+Protein & fat foods,Makanan protein & lemak,蛋白质与脂肪类食物,புரத & கொழுப்பு உணவுகள்
+"Chicken, lamb, eggs, tuna, butter and cream fell within a lower range.","Ayam, kambing, telur, tuna, mentega dan krim berada dalam julat yang lebih rendah.",鸡肉、羊肉、鸡蛋、金枪鱼、黄油和奶油落在较低的范围内。,"கோழி, ஆட்டிறைச்சி, முட்டை, சூரை மீன், வெண்ணெய், கிரீம் ஆகியவை குறைந்த வரம்பில் இருந்தன."
+“Healthy” staples,Makanan ruji “sihat”,“健康”主食,“ஆரோக்கியமான” முக்கிய உணவுகள்
+"Skim fat milk, yoghurt, fruits (except avocado), brown rice, wholemeal and sourdough bread, wholegrain cereal, vegetables (except broccoli), honey and oats.","Susu skim, yogurt, buah-buahan (kecuali avokado), nasi perang, roti mil penuh dan roti masam (sourdough), bijirin penuh, sayur-sayuran (kecuali brokoli), madu dan oat.",脱脂牛奶、酸奶、水果（牛油果除外）、糙米、全麦面包和酸种面包、全谷物早餐谷物、蔬菜（西兰花除外）、蜂蜜和燕麦。,"கொழுப்பு நீக்கிய பால், தயிர், பழங்கள் (வெண்ணெய்ப் பழம் தவிர), பழுப்பு அரிசி, முழு கோதுமை மற்றும் புளித்த மாவு ரொட்டி, முழு தானிய உணவு, காய்கறிகள் (ப்ரோக்கோலி தவிர), தேன் மற்றும் ஓட்ஸ்."
+Lowest mixed meal,Hidangan campuran terendah,最低的混合餐,மிகக் குறைந்த கலப்பு உணவு
+"A corn-tortilla taco with potato, watermelon and honey.","Taco tortila jagung dengan kentang, tembikai dan madu.",玉米饼塔可配土豆、西瓜和蜂蜜。,"உருளைக்கிழங்கு, தர்பூசணி, தேனுடன் சோள டார்ட்டிலா டாகோ."
+Highest mixed meal,Hidangan campuran tertinggi,最高的混合餐,மிக அதிக கலப்பு உணவு
+"Freshly boiled Sava potatoes with water, tea or coffee.","Kentang Sava yang baru direbus dengan air, teh atau kopi.",新鲜煮熟的 Sava 土豆，配水、茶或咖啡。,"தண்ணீர், தேநீர் அல்லது காபியுடன் புதிதாக வேகவைத்த Sava உருளைக்கிழங்கு."
+Context matters,Konteks penting,要看情境,சூழல் முக்கியம்
+High ≠ bad,Tinggi ≠ buruk,高 ≠ 坏,அதிகம் ≠ கெட்டது
+"A high II isn’t automatically bad, for example in sports nutrition.","II yang tinggi tidak semestinya buruk, contohnya dalam pemakanan sukan.",II 高并不一定是坏事，例如在运动营养中。,"அதிக II தானாகவே கெட்டது அல்ல; எடுத்துக்காட்டாக, விளையாட்டு ஊட்டச்சத்தில்."
+Find a food’s insulin index,Cari indeks insulin sesuatu makanan,查找食物的胰岛素指数,ஒரு உணவின் இன்சுலின் குறியீட்டைக் கண்டறியுங்கள்
+"Search all {n} foods. Tap any card for its portion, volunteers, study and footnotes.","Cari kesemua {n} makanan. Sentuh mana-mana kad untuk melihat saiz hidangan, sukarelawan, kajian dan nota kakinya.",搜索全部 {n} 种食物。点击任意卡片查看份量、受试者、研究和脚注。,"அனைத்து {n} உணவுகளிலும் தேடுங்கள். அளவு, தன்னார்வலர்கள், ஆய்வு, அடிக்குறிப்புகளைக் காண எந்த அட்டையையும் தொடுங்கள்."
+Search foods by name,Cari makanan mengikut nama,按名称搜索食物,பெயரால் உணவுகளைத் தேடுங்கள்
+"Search foods, e.g. brown rice","Cari makanan, cth. brown rice",搜索食物，例如 brown rice,"உணவுகளைத் தேடுங்கள், எ.கா. brown rice"
+Clear search,Kosongkan carian,清除搜索,தேடலை அழி
+Filters,Penapis,筛选,வடிகட்டிகள்
+Sort by,Susun mengikut,排序方式,வரிசைப்படுத்து
+II low → high,II menaik,II 从低到高,II ஏறுவரிசை
+II high → low,II menurun,II 从高到低,II இறங்குவரிசை
+A–Z,A–Z,A–Z,A–Z
+Clear all,Kosongkan semua,全部清除,அனைத்தையும் அழி
+Food group,Kumpulan makanan,食物类别,உணவுக் குழு
+Comparator,Pembanding,参照,ஒப்பீட்டு உணவு
+Glucose,Glukosa,葡萄糖,குளுக்கோஸ்
+Country,Negara,国家,நாடு
+Show {n} foods,Tunjuk {n} makanan,显示 {n} 种食物,{n} உணவுகளைக் காட்டு
+Show {n} food,Tunjuk {n} makanan,显示 {n} 种食物,{n} உணவைக் காட்டு
+Showing all,Memaparkan kesemua,显示全部,காட்டப்படுவது: அனைத்து
+of {n} foods,daripada {n} makanan,种，共 {n} 种食物,/ {n} உணவுகள்
+Compare,Banding,比较,ஒப்பிடு
+Comparing,Dibandingkan,比较中,ஒப்பிடப்படுகிறது
+No foods match,Tiada makanan yang sepadan,没有匹配的食物,பொருந்தும் உணவுகள் இல்லை
+Try a shorter search or remove a filter.,Cuba carian yang lebih pendek atau buang penapis.,试试更短的搜索词，或移除一个筛选条件。,"சிறிய தேடல் சொல்லை முயலுங்கள், அல்லது ஒரு வடிகட்டியை நீக்குங்கள்."
+Clear search and filters,Kosongkan carian dan penapis,清除搜索和筛选,தேடலையும் வடிகட்டிகளையும் அழி
+Remove filter {x},Buang penapis {x},移除筛选：{x},வடிகட்டியை நீக்கு: {x}
+Add to compare: {x},Tambah untuk dibandingkan: {x},加入比较：{x},ஒப்பீட்டில் சேர்: {x}
+Remove from compare: {x},Buang daripada perbandingan: {x},从比较中移除：{x},ஒப்பீட்டிலிருந்து நீக்கு: {x}
+Remove {x} from compare,Buang {x} daripada perbandingan,从比较中移除 {x},{x}-ஐ ஒப்பீட்டிலிருந்து நீக்கு
+Rank,Kedudukan,排名,தரவரிசை
+insulin index,indeks insulin,胰岛素指数,இன்சுலின் குறியீடு
+Comparator:,Pembanding:,参照：,ஒப்பீட்டு உணவு:
+glucose,glukosa,葡萄糖,குளுக்கோஸ்
+bread,roti,面包,ரொட்டி
+. Only compare it with other foods whose comparator is glucose.,. Bandingkan hanya dengan makanan lain yang pembandingnya glukosa.,。只与参照同为葡萄糖的其他食物比较。,. ஒப்பீட்டு உணவு குளுக்கோஸாக உள்ள பிற உணவுகளுடன் மட்டுமே இதை ஒப்பிடுங்கள்.
+. Only compare it with other foods whose comparator is bread.,. Bandingkan hanya dengan makanan lain yang pembandingnya roti.,。只与参照同为面包的其他食物比较。,. ஒப்பீட்டு உணவு ரொட்டியாக உள்ள பிற உணவுகளுடன் மட்டுமே இதை ஒப்பிடுங்கள்.
+Portion,Saiz hidangan,份量,அளவு
+Subjects,Subjek,受试者,பங்கேற்பாளர்கள்
+Comparator (reference food),Pembanding (makanan rujukan),参照（参照食物）,ஒப்பீட்டு உணவு (குறிப்பு உணவு)
+Study,Kajian,研究,ஆய்வு
+[{n}] is its number in the paper’s reference list,[{n}] ialah nombornya dalam senarai rujukan kertas kajian,[{n}] 是它在论文参考文献列表中的编号,[{n}] என்பது ஆய்வுக் கட்டுரையின் மேற்கோள் பட்டியலில் அதன் எண்
+Entry,Entri,条目,பதிவு
+No. {n} in Table {n2},No. {n} dalam Jadual {n2},表 {n2} 第 {n} 号,அட்டவணை {n2}-இல் எண் {n}
+Footnotes,Nota kaki,脚注,அடிக்குறிப்புகள்
++ Add to compare,+ Tambah untuk dibandingkan,+ 加入比较,+ ஒப்பீட்டில் சேர்
+✓ In compare,✓ Dalam perbandingan,✓ 已在比较中,✓ ஒப்பீட்டில் உள்ளது
+Copy link,Salin pautan,复制链接,இணைப்பை நகலெடு
+Link copied,Pautan disalin,链接已复制,இணைப்பு நகலெடுக்கப்பட்டது
+Copy the address bar to share this food,Salin alamat di bar alamat untuk berkongsi makanan ini,复制地址栏即可分享这种食物,இந்த உணவைப் பகிர முகவரிப் பட்டியை நகலெடுங்கள்
+Close details,Tutup butiran,关闭详情,விவரங்களை மூடு
+"Same food, other entries","Makanan sama, entri lain",同一种食物的其他条目,"அதே உணவு, பிற பதிவுகள்"
+"Results differ with portion, preparation, volunteers and reference food.","Keputusan berbeza mengikut saiz hidangan, cara penyediaan, sukarelawan dan makanan rujukan.",结果会因份量、制备方法、受试者和参照食物而不同。,"அளவு, தயாரிப்பு முறை, தன்னார்வலர்கள், குறிப்பு உணவு ஆகியவற்றைப் பொறுத்து முடிவுகள் வேறுபடும்."
+Report a problem with this entry,Laporkan masalah dengan entri ini,报告此条目的问题,இந்தப் பதிவில் உள்ள பிழையைத் தெரிவிக்கவும்
+Footnote {x}: {y},Nota kaki {x}: {y},脚注 {x}：{y},அடிக்குறிப்பு {x}: {y}
+II derived from the article’s supplementary file,II diperoleh daripada fail tambahan artikel,II 取自该文章的补充文件,கட்டுரையின் துணைக் கோப்பிலிருந்து பெறப்பட்ட II
+Mean II shown; the study also reported a median,II min dipaparkan; kajian itu juga melaporkan median,显示的是平均 II；该研究也报告了中位数,சராசரி II காட்டப்பட்டுள்ளது; ஆய்வு இடைநிலை மதிப்பையும் தெரிவித்தது
+"No BMI given, but standard protocol stated","BMI tidak diberikan, tetapi protokol standard dinyatakan",未提供 BMI，但说明遵循标准方案,"BMI தரப்படவில்லை, ஆனால் நிலையான நெறிமுறை குறிப்பிடப்பட்டுள்ளது"
+Study 2 of a two-study article,Kajian 2 daripada artikel dua kajian,一篇含两项研究的文章中的研究 2,இரண்டு ஆய்வுகள் கொண்ட கட்டுரையின் ஆய்வு 2
+Discrepancy between 9 and 10 subjects in the original article,Percanggahan antara 9 dan 10 subjek dalam artikel asal,原文中受试者人数 9 与 10 不一致,மூலக் கட்டுரையில் பங்கேற்பாளர் எண்ணிக்கை 9-க்கும் 10-க்கும் இடையே முரண்பாடு
+New rice variants without abbreviations,Varian beras baharu tanpa singkatan,没有缩写说明的新水稻品种,சுருக்கக் குறியீடுகள் இல்லாத புதிய அரிசி வகைகள்
+"Photo shows {x} in general, not the exact product tested. Photo by","Foto menunjukkan {x} secara umum, bukan produk sebenar yang diuji. Foto oleh",照片展示的是一般的 {x}，而非实际测试的产品。照片作者,படம் பொதுவான {x}-ஐக் காட்டுகிறது; சோதிக்கப்பட்ட அதே தயாரிப்பு அல்ல. படம்:
+"Photo shows {x} in general, not the exact product tested. Photo via","Foto menunjukkan {x} secara umum, bukan produk sebenar yang diuji. Foto melalui",照片展示的是一般的 {x}，而非实际测试的产品。照片来源,படம் பொதுவான {x}-ஐக் காட்டுகிறது; சோதிக்கப்பட்ட அதே தயாரிப்பு அல்ல. மூலம்:
+via,melalui,，来源,", மூலம்"
+Example photo: {x},Contoh foto: {x},示例照片：{x},எடுத்துக்காட்டுப் படம்: {x}
+Side by side,Sebelah-menyebelah,并排比较,பக்கவாட்டு ஒப்பீடு
+Different reference foods.,Makanan rujukan yang berbeza.,参照食物不同。,குறிப்பு உணவுகள் வேறுபட்டவை.
+"Some of these were scored against glucose and some against bread. Bread itself scored around 70 against glucose, so these numbers are not directly comparable.","Sebahagian makanan ini diukur berbanding glukosa dan sebahagian lagi berbanding roti. Roti sendiri mencatat sekitar 70 berbanding glukosa, jadi nombor-nombor ini tidak boleh dibandingkan secara langsung.",其中一些以葡萄糖为参照，另一些以面包为参照。以葡萄糖为参照时，面包本身的 II 约为 70，所以这些数字不能直接比较。,இவற்றில் சில குளுக்கோஸுடனும் சில ரொட்டியுடனும் ஒப்பிட்டு அளவிடப்பட்டன. குளுக்கோஸுடன் ஒப்பிடும்போது ரொட்டியின் II சுமார் 70; எனவே இந்த எண்களை நேரடியாக ஒப்பிட முடியாது.
+"All scored against {x}, but portions and volunteers still differ between studies.","Semuanya diukur berbanding {x}, tetapi saiz hidangan dan sukarelawan masih berbeza antara kajian.",全部以{x}为参照，但不同研究之间的份量和受试者仍有差异。,அனைத்தும் {x}-உடன் ஒப்பிட்டு அளவிடப்பட்டன; ஆனால் ஆய்வுகளுக்கிடையே அளவும் தன்னார்வலர்களும் இன்னும் வேறுபடுகின்றன.
+comparator: bread,pembanding: roti,参照：面包,ஒப்பீடு: ரொட்டி
+comparator: glucose,pembanding: glukosa,参照：葡萄糖,ஒப்பீடு: குளுக்கோஸ்
+Detail,Butiran,细项,விவரம்
+Insulin index,Indeks insulin,胰岛素指数,இன்சுலின் குறியீடு
+Reference,Rujukan,参照,குறிப்பு
+Type,Jenis,类型,வகை
+Compare {n}/{n2},Bandingkan {n}/{n2},比较 {n}/{n2},ஒப்பிடு {n}/{n2}
+{n} foods ready to compare,{n} makanan sedia untuk dibandingkan,{n} 种食物可供比较,{n} உணவுகள் ஒப்பிடத் தயார்
+You can compare up to 3 foods. Remove one first.,Anda boleh membandingkan sehingga 3 makanan. Buang satu dahulu.,最多只能比较 3 种食物。请先移除一种。,அதிகபட்சம் 3 உணவுகளை ஒப்பிடலாம். முதலில் ஒன்றை நீக்குங்கள்.
+Close comparison,Tutup perbandingan,关闭比较,ஒப்பீட்டை மூடு
+Bar chart of insulin index,Carta bar indeks insulin,胰岛素指数柱状图,இன்சுலின் குறியீட்டின் பட்டை வரைபடம்
+"Fourteen groups, one plate","Empat belas kumpulan, satu pinggan",十四个类别，一个餐盘,"பதினான்கு குழுக்கள், ஒரே தட்டு"
+"The paper sorts its {n} foods into {n2} categories. This site folds them into {n3} groups for browsing. Each dot is one food, placed by its II.","Kertas kajian ini menyusun {n} makanannya kepada {n2} kategori. Laman ini menggabungkannya kepada {n3} kumpulan untuk memudahkan penerokaan. Setiap titik ialah satu makanan, diletakkan mengikut II-nya.",论文把 {n} 种食物分成 {n2} 个类目。本网站把它们合并为 {n3} 个类别以便浏览。每个点代表一种食物，按其 II 排列。,ஆய்வுக் கட்டுரை தனது {n} உணவுகளை {n2} வகைகளாகப் பிரிக்கிறது. எளிதாகப் பார்க்க இந்தத் தளம் அவற்றை {n3} குழுக்களாக இணைக்கிறது. ஒவ்வொரு புள்ளியும் ஒரு உணவு; அதன் II-ன்படி இடம்பெறுகிறது.
+"Groups mix foods scored against glucose and against bread, so treat each range as a rough spread, not a ranking. The paper’s own category is shown on every food. Each group photo is an example of the group, not a particular food.","Setiap kumpulan mengandungi makanan yang diukur berbanding glukosa dan roti, jadi anggap setiap julat sebagai taburan kasar, bukan kedudukan. Kategori asal kertas kajian dipaparkan pada setiap makanan. Setiap foto kumpulan ialah contoh kumpulan itu, bukan makanan tertentu.",各类别中既有以葡萄糖为参照的食物，也有以面包为参照的食物，所以每个范围只能看作大致分布，而非排名。每种食物都标明了论文原本的类目。每张类别照片只是该类别的示例，不代表某一种特定食物。,"குழுக்களில் குளுக்கோஸுடனும் ரொட்டியுடனும் ஒப்பிட்டு அளவிடப்பட்ட உணவுகள் கலந்துள்ளன; எனவே ஒவ்வொரு வரம்பையும் தரவரிசையாக அல்ல, தோராயமான பரவலாகக் கருதுங்கள். ஆய்வுக் கட்டுரையின் சொந்த வகை ஒவ்வொரு உணவிலும் காட்டப்படுகிறது. ஒவ்வொரு குழுப் படமும் அந்தக் குழுவுக்கான எடுத்துக்காட்டு மட்டுமே; குறிப்பிட்ட உணவு அல்ல."
+to,hingga,至,முதல்
+{n} comparator: {x},{n} pembanding: {x},{n} 个以{x}为参照,{n} ஒப்பீடு: {x}
+{n} single · {n2} mixed,{n} tunggal · {n2} campuran,{n} 种单一食物 · {n2} 种混合餐,{n} தனி · {n2} கலப்பு
+Explore {n} foods,Terokai {n} makanan,浏览 {n} 种食物,{n} உணவுகளை ஆராயுங்கள்
+Paper categories:,Kategori kertas kajian:,论文类目：,ஆய்வுக் கட்டுரை வகைகள்:
+"All single foods, ranked from the lowest II up. There’s no agreed cut-off for “low”, so nothing is left out. Each comparator gets its own ranking, because a number measured against bread can’t be lined up against one measured against glucose.","Semua makanan tunggal, disusun dari II terendah. Tiada nilai potongan yang dipersetujui untuk “rendah”, jadi tiada yang ditinggalkan. Setiap pembanding mempunyai susunannya sendiri, kerana nombor yang diukur berbanding roti tidak boleh disejajarkan dengan nombor yang diukur berbanding glukosa.",全部单一食物，按 II 从低到高排序。“低”没有公认的界限，所以没有任何食物被排除。每种参照各自排名，因为以面包为参照测得的数字不能和以葡萄糖为参照的数字放在一起排。,"அனைத்து தனி உணவுகளும், மிகக் குறைந்த II-இலிருந்து வரிசைப்படுத்தப்பட்டுள்ளன. “குறைந்தது” என்பதற்கு ஒப்புக்கொள்ளப்பட்ட வரம்பு இல்லை; எனவே எதுவும் விடுபடவில்லை. ஒவ்வொரு ஒப்பீட்டு உணவுக்கும் தனி தரவரிசை உள்ளது, ஏனெனில் ரொட்டியுடன் ஒப்பிட்டு அளவிடப்பட்ட எண்ணை குளுக்கோஸுடன் ஒப்பிட்டு அளவிடப்பட்ட எண்ணுடன் வரிசைப்படுத்த முடியாது."
+of {n} (comparator: {x}),daripada {n} (pembanding: {x}),种，共 {n} 种（参照：{x}）,/ {n} (ஒப்பீடு: {x})
+of {n},daripada {n},种，共 {n} 种,/ {n}
+Open in Explorer,Buka dalam Penjelajah,在查询中打开,தேடலில் திற
+All {n} mixed meals,Kesemua {n} hidangan campuran,全部 {n} 种混合餐,அனைத்து {n} கலப்பு உணவுகளும்
+"Breakfasts, lunches, dinners and food combinations eaten together. Real meals, so portions and volunteers vary a lot between studies.","Sarapan, makan tengah hari, makan malam dan gabungan makanan yang dimakan bersama. Ini hidangan sebenar, jadi saiz hidangan dan sukarelawan sangat berbeza antara kajian.",早餐、午餐、晚餐以及一起吃的食物组合。都是真实的餐食，所以不同研究之间的份量和受试者差异很大。,"ஒன்றாக உண்ணப்படும் காலை, மதிய, இரவு உணவுகளும் உணவுக் கலவைகளும். இவை உண்மையான உணவுகள்; எனவே ஆய்வுகளுக்கிடையே அளவும் தன்னார்வலர்களும் பெரிதும் வேறுபடுகின்றன."
+All,Semua,全部,அனைத்தும்
+What the number,Apa yang,这个数字,இந்த எண்
+actually,sebenarnya,究竟,உண்மையில்
+tells you,diberitahu oleh nombor itu,告诉你什么,என்ன சொல்கிறது
+"Five minutes to read the insulin index like a pro: what it measures, why it isn’t the GI, and the one rule that matters most.","Lima minit untuk membaca indeks insulin seperti pakar: apa yang diukurnya, mengapa ia bukan GI, dan satu peraturan yang paling penting.",五分钟像专家一样读懂胰岛素指数：它测量什么、为什么它不是 GI，以及最重要的一条规则。,"ஐந்து நிமிடங்களில் இன்சுலின் குறியீட்டை நிபுணர் போலப் படியுங்கள்: அது எதை அளவிடுகிறது, அது ஏன் GI அல்ல, மற்றும் மிக முக்கியமான ஒரு விதி."
+On this page,Di halaman ini,本页内容,இந்தப் பக்கத்தில்
+What it measures,Apa yang diukur,它测量什么,அது எதை அளவிடுகிறது
+II vs GI,II berbanding GI,II 与 GI,II-உம் GI-உம்
+Reading the number,Membaca nombor,解读数字,எண்ணைப் படித்தல்
+Groups at a glance,Sekilas pandang kumpulan,各类别一览,குழுக்கள் ஒரு பார்வையில்
+Surprises,Kejutan,意外发现,வியப்புகள்
+Study tags,Tag kajian,研究标签,ஆய்வுக் குறிச்சொற்கள்
+{n} · What it measures,{n} · Apa yang diukur,{n} · 它测量什么,{n} · அது எதை அளவிடுகிறது
+"A test meal, a reference meal, two hours of blood tests","Satu hidangan ujian, satu hidangan rujukan, dua jam ujian darah",一份测试餐、一份参照餐、两小时验血,"ஒரு சோதனை உணவு, ஒரு குறிப்பு உணவு, இரண்டு மணி நேர இரத்தப் பரிசோதனைகள்"
+Eat the test food,Makan makanan ujian,吃测试食物,சோதனை உணவை உண்ணுங்கள்
+Volunteers eat a set portion of the food being tested.,Sukarelawan memakan saiz hidangan yang ditetapkan bagi makanan yang diuji.,受试者吃下一定份量的待测食物。,தன்னார்வலர்கள் சோதிக்கப்படும் உணவின் குறிப்பிட்ட அளவை உண்கிறார்கள்.
+Eat the reference,Makan makanan rujukan,吃参照食物,குறிப்பு உணவை உண்ணுங்கள்
+"On another occasion, they eat the reference food: glucose or white bread.","Pada kesempatan lain, mereka memakan makanan rujukan: glukosa atau roti putih.",另一次，他们吃参照食物：葡萄糖或白面包。,"மற்றொரு சமயம், அவர்கள் குறிப்பு உணவை உண்கிறார்கள்: குளுக்கோஸ் அல்லது வெள்ளை ரொட்டி."
+Measure insulin,Ukur insulin,测量胰岛素,இன்சுலினை அளவிடுதல்
+Blood insulin is measured for about 2 hours each time.,Insulin darah diukur selama kira-kira 2 jam setiap kali.,每次测量血液中的胰岛素约 2 小时。,ஒவ்வொரு முறையும் சுமார் 2 மணி நேரம் இரத்த இன்சுலின் அளவிடப்படுகிறது.
+Compare the areas,Bandingkan luasnya,比较面积,பரப்புகளை ஒப்பிடுதல்
+"The average ratio of the two areas across at least 10 volunteers, shown as a percentage.","Nisbah purata kedua-dua luas bagi sekurang-kurangnya 10 sukarelawan, dipaparkan sebagai peratusan.",至少 10 名受试者两个面积之比的平均值，以百分比表示。,"குறைந்தது 10 தன்னார்வலர்களிடையே இரண்டு பரப்புகளின் சராசரி விகிதம், சதவீதமாகக் காட்டப்படுகிறது."
+Two insulin curves after eating,Dua lengkung insulin selepas makan,进食后的两条胰岛素曲线,உண்ட பின் இரண்டு இன்சுலின் வளைவுகள்
+Blood insulin rises and falls over 120 minutes. The reference food makes a larger curve than the test food. The II compares the area under the two curves.,Insulin darah naik dan turun dalam tempoh 120 minit. Makanan rujukan menghasilkan lengkung yang lebih besar daripada makanan ujian. II membandingkan luas di bawah kedua-dua lengkung.,血胰岛素在 120 分钟内先升后降。参照食物的曲线比测试食物的大。II 比较的是两条曲线下的面积。,"இரத்த இன்சுலின் 120 நிமிடங்களில் உயர்ந்து பின் குறைகிறது. குறிப்பு உணவு, சோதனை உணவை விடப் பெரிய வளைவை உருவாக்குகிறது. II இரண்டு வளைவுகளுக்குக் கீழுள்ள பரப்பை ஒப்பிடுகிறது."
+Minutes after eating,Minit selepas makan,进食后分钟数,உண்ட பின் நிமிடங்கள்
+Blood insulin,Insulin darah,血胰岛素,இரத்த இன்சுலின்
+Reference food,Makanan rujukan,参照食物,குறிப்பு உணவு
+Test food,Makanan ujian,测试食物,சோதனை உணவு
+larger area,luas lebih besar,面积较大,பெரிய பரப்பு
+smaller area,luas lebih kecil,面积较小,சிறிய பரப்பு
+II = the test food’s area ÷ the reference food’s area,II = luas makanan ujian ÷ luas makanan rujukan,II = 测试食物的面积 ÷ 参照食物的面积,II = சோதனை உணவின் பரப்பு ÷ குறிப்பு உணவின் பரப்பு
+", averaged across at least 10 volunteers and shown as a percentage.",", dipuratakan bagi sekurang-kurangnya 10 sukarelawan dan dipaparkan sebagai peratusan.",，取至少 10 名受试者的平均值，并以百分比表示。,"; குறைந்தது 10 தன்னார்வலர்களிடையே சராசரியாக்கப்பட்டு, சதவீதமாகக் காட்டப்படுகிறது."
+"Illustration only, not real data.","Ilustrasi sahaja, bukan data sebenar.",仅为示意图，并非真实数据。,விளக்கத்திற்கு மட்டும்; உண்மையான தரவு அல்ல.
+Analogy,Analogi,打个比方,ஒப்புமை
+Think of insulin as,Bayangkan insulin sebagai,把胰岛素想象成,இன்சுலினை
+keys,kunci,钥匙,சாவிகளாக
+"that let glucose into your cells. The II asks: over the next 2 hours, how many keys did the body hand out for this food, compared with the reference food? An II of 50 means about half the insulin “area” of the reference.","yang membenarkan glukosa masuk ke dalam sel anda. II bertanya: dalam tempoh 2 jam berikutnya, berapa banyak kunci yang diberikan oleh badan untuk makanan ini, berbanding makanan rujukan? II sebanyak 50 bermaksud kira-kira separuh daripada “luas” insulin makanan rujukan.",，它让葡萄糖进入你的细胞。II 要问的是：在接下来的 2 小时里，与参照食物相比，身体为这种食物发出了多少把钥匙？II 为 50 表示胰岛素“面积”大约是参照食物的一半。,"நினைத்துப் பாருங்கள்; அவை குளுக்கோஸை உங்கள் செல்களுக்குள் அனுமதிக்கின்றன. II கேட்கும் கேள்வி: அடுத்த 2 மணி நேரத்தில், குறிப்பு உணவுடன் ஒப்பிடும்போது, இந்த உணவுக்காக உடல் எத்தனை சாவிகளைக் கொடுத்தது? II 50 என்றால், குறிப்பு உணவின் இன்சுலின் “பரப்பில்” ஏறக்குறைய பாதி."
+{n} · II vs GI,{n} · II berbanding GI,{n} · II 与 GI,{n} · II-உம் GI-உம்
+Why not just use the glycaemic index?,Mengapa tidak gunakan indeks glisemik sahaja?,为什么不直接用血糖生成指数？,ஏன் கிளைசெமிக் குறியீட்டை மட்டும் பயன்படுத்தக் கூடாது?
+Glycaemic index (GI),Indeks glisemik (GI),血糖生成指数（GI）,கிளைசெமிக் குறியீடு (GI)
+Tracks,Mengukur,追踪,ஒரு உணவுக்குப் பின்
+blood glucose,glukosa darah,血糖,இரத்த குளுக்கோஸை
+after a food.,selepas sesuatu makanan.,在进食后的变化。,கண்காணிக்கிறது.
+vs,lwn,对比,எதிர்
+Insulin index (II),Indeks insulin (II),胰岛素指数（II）,இன்சுலின் குறியீடு (II)
+blood insulin,insulin darah,血胰岛素,இரத்த இன்சுலினை
+"In the GI, carbohydrates drive the value. The II can be affected by carbohydrates, proteins and fat, and by how they are combined, which the GI alone can miss.","Dalam GI, karbohidrat menentukan nilainya. II boleh dipengaruhi oleh karbohidrat, protein dan lemak, serta cara ia digabungkan, sesuatu yang mungkin terlepas jika hanya menggunakan GI.",GI 的数值主要由碳水化合物决定。II 则会受到碳水化合物、蛋白质和脂肪，以及它们组合方式的影响，这些是单看 GI 可能忽略的。,"GI-இல் மதிப்பைத் தீர்மானிப்பது கார்போஹைட்ரேட்டுகள். II-ஐ கார்போஹைட்ரேட்டுகள், புரதங்கள், கொழுப்பு மற்றும் அவை எவ்வாறு இணைக்கப்படுகின்றன என்பவை பாதிக்கலாம்; இதை GI மட்டும் தவறவிடக்கூடும்."
+{n} · The golden rule,{n} · Peraturan emas,{n} · 黄金法则,{n} · தங்க விதி
+"Glucose and bread give different responses. The paper found that “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (Hendricks et al., 2024). So a number scored against bread can’t be lined up with a number scored against glucose.","Glukosa dan roti memberikan gerak balas yang berbeza. Kertas kajian mendapati bahawa “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (iaitu nilai II roti adalah sekitar 70 dan berbeza antara 30 hingga 140 apabila glukosa menjadi pembanding) (Hendricks et al., 2024). Jadi nombor yang diukur berbanding roti tidak boleh disejajarkan dengan nombor yang diukur berbanding glukosa.",葡萄糖和面包引起的反应不同。论文发现 “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator”（即以葡萄糖为参照时，面包的 II 约为 70，介于 30 至 140 之间；Hendricks 等，2024）。所以以面包为参照的数字，不能和以葡萄糖为参照的数字放在一起比较。,"குளுக்கோஸும் ரொட்டியும் வெவ்வேறு எதிர்வினைகளைத் தருகின்றன. ஆய்வுக் கட்டுரை கண்டறிந்தது: “the II value of bread was around 70 and varied between 30 and 140 when glucose was the comparator” (அதாவது, குளுக்கோஸ் ஒப்பீட்டு உணவாக இருந்தபோது ரொட்டியின் II சுமார் 70; 30 முதல் 140 வரை வேறுபட்டது; Hendricks மற்றும் பலர், 2024). எனவே ரொட்டியுடன் ஒப்பிட்டு அளவிடப்பட்ட எண்ணை குளுக்கோஸுடன் ஒப்பிட்டு அளவிடப்பட்ட எண்ணுடன் வரிசைப்படுத்த முடியாது."
+The II of bread when glucose was the comparator,II roti apabila glukosa menjadi pembanding,以葡萄糖为参照时面包的 II,குளுக்கோஸ் ஒப்பீட்டு உணவாக இருந்தபோது ரொட்டியின் II
+varied between 30 and 140,berbeza antara 30 hingga 140,介于 30 至 140 之间,30 முதல் 140 வரை வேறுபட்டது
+around 70,sekitar 70,约 70,சுமார் 70
+of entries ({n} of {n2}) use bread as the reference,daripada entri ({n} daripada {n2}) menggunakan roti sebagai rujukan,的条目（{n2} 条中的 {n} 条）以面包为参照,பதிவுகள் ({n2}-இல் {n}) ரொட்டியைக் குறிப்பு உணவாகப் பயன்படுத்துகின்றன
+comparator: glucose {n},pembanding: glukosa {n},参照：葡萄糖 {n},ஒப்பீடு: குளுக்கோஸ் {n}
+comparator: bread {n},pembanding: roti {n},参照：面包 {n},ஒப்பீடு: ரொட்டி {n}
+Only compare foods with the,Hanya bandingkan makanan yang mempunyai,只比较,"உணவுகளை ஒப்பிடும்போது,"
+same comparator,pembanding yang sama,参照相同的食物,ஒப்பீட்டு உணவு ஒன்றாக இருக்க வேண்டும்
+with,dengan,与,உடன்
+Portion size differs between studies. Check the portion on each food.,Saiz hidangan berbeza antara kajian. Semak saiz hidangan bagi setiap makanan.,不同研究的份量不同。请查看每种食物的份量。,ஆய்வுகளுக்கிடையே அளவு வேறுபடுகிறது. ஒவ்வொரு உணவின் அளவையும் பாருங்கள்.
+"Volunteers differ too, so the same food can score differently in different studies.","Sukarelawan juga berbeza, jadi makanan yang sama boleh mencatat nilai berbeza dalam kajian yang berlainan.",受试者也不同，所以同一种食物在不同研究中的结果可能不同。,தன்னார்வலர்களும் வேறுபடுகிறார்கள்; எனவே ஒரே உணவு வெவ்வேறு ஆய்வுகளில் வெவ்வேறு மதிப்பைப் பெறலாம்.
+{n} · Reading the number,{n} · Membaca nombor,{n} · 解读数字,{n} · எண்ணைப் படித்தல்
+"No labels, just the published number","Tiada label, hanya nombor yang diterbitkan",没有标签，只有原文发表的数字,"குறிச்சொற்கள் இல்லை, வெளியிடப்பட்ட எண் மட்டுமே"
+"The paper describes the II as “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (Hendricks et al., 2024, p. 93). Every II on this site is shown exactly as published.","Kertas kajian menerangkan II sebagai “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (iaitu nisbah purata iAUC makanan ujian berbanding makanan rujukan, dinyatakan dalam peratusan) (Hendricks et al., 2024, m/s 93). Setiap II di laman ini dipaparkan tepat seperti yang diterbitkan.","论文把 II 描述为 “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage”（即测试食物 iAUC 与参照食物 iAUC 之比的平均值，以百分比表示；Hendricks 等，2024，第 93 页）。本网站的每个 II 都按原文发表显示。","ஆய்வுக் கட்டுரை II-ஐ இவ்வாறு விவரிக்கிறது: “the average ratio of the test food’s iAUC against a reference food, and representing that value in percentage” (அதாவது, குறிப்பு உணவுடன் ஒப்பிட்ட சோதனை உணவின் iAUC-இன் சராசரி விகிதம், சதவீதமாக; Hendricks மற்றும் பலர், 2024, பக். 93). இந்தத் தளத்தில் உள்ள ஒவ்வொரு II-உம் வெளியிடப்பட்டபடியே காட்டப்படுகிறது."
+Same tag,Tag sama,标签相同,ஒரே குறிச்சொல்
+"Compare two foods only when both have the same comparator, glucose or bread.","Bandingkan dua makanan hanya apabila kedua-duanya mempunyai pembanding yang sama, glukosa atau roti.",只有当两种食物的参照相同（都是葡萄糖或都是面包）时才比较。,இரண்டு உணவுகளுக்கும் ஒரே ஒப்பீட்டு உணவு (குளுக்கோஸ் அல்லது ரொட்டி) இருந்தால் மட்டுமே ஒப்பிடுங்கள்.
+Higher,Lebih tinggi,较高,அதிகமானது
+"Between two such foods, the higher II was the larger insulin response in its study.","Antara dua makanan sedemikian, II yang lebih tinggi menunjukkan gerak balas insulin yang lebih besar dalam kajiannya.",在这样的两种食物之间，II 较高的那种在其研究中的胰岛素反应较大。,"அத்தகைய இரண்டு உணவுகளில், அதிக II உள்ளது அதன் ஆய்வில் அதிக இன்சுலின் எதிர்வினையைக் காட்டியது."
+Check,Semak,查看,சரிபாருங்கள்
+"Portion, volunteers and study still differ, so look at each food’s details.","Saiz hidangan, sukarelawan dan kajian masih berbeza, jadi lihat butiran setiap makanan.",份量、受试者和研究仍有差异，所以请查看每种食物的详情。,"அளவு, தன்னார்வலர்கள், ஆய்வு இன்னும் வேறுபடுகின்றன; எனவே ஒவ்வொரு உணவின் விவரங்களையும் பாருங்கள்."
+"There is no agreed clinical cut-off for a low, medium or high II, so this site doesn’t label foods as low or high. A high II isn’t automatically bad, for example in sports nutrition.","Tiada nilai potongan klinikal yang dipersetujui bagi II rendah, sederhana atau tinggi, jadi laman ini tidak melabel makanan sebagai rendah atau tinggi. II yang tinggi tidak semestinya buruk, contohnya dalam pemakanan sukan.",II 的低、中、高目前没有公认的临床界限，所以本网站不把食物标为低或高。II 高并不一定是坏事，例如在运动营养中。,"குறைந்த, நடுத்தர அல்லது அதிக II-க்கு ஒப்புக்கொள்ளப்பட்ட மருத்துவ வரம்பு இல்லை; எனவே இந்தத் தளம் உணவுகளைக் குறைந்தது அல்லது அதிகமானது என்று குறிப்பதில்லை. அதிக II தானாகவே கெட்டது அல்ல; எடுத்துக்காட்டாக, விளையாட்டு ஊட்டச்சத்தில்."
+{n} · Groups at a glance,{n} · Sekilas pandang kumpulan,{n} · 各类别一览,{n} · குழுக்கள் ஒரு பார்வையில்
+Median II per food group,II median bagi setiap kumpulan makanan,各食物类别的 II 中位数,உணவுக் குழு வாரியாக II இடைநிலை மதிப்பு
+"Shown separately for foods scored against glucose and against bread, because the two can’t share one ruler.","Dipaparkan secara berasingan bagi makanan yang diukur berbanding glukosa dan roti, kerana kedua-duanya tidak boleh menggunakan pembaris yang sama.",以葡萄糖和以面包为参照的食物分开显示，因为两者不能用同一把尺子衡量。,குளுக்கோஸுடனும் ரொட்டியுடனும் ஒப்பிட்டு அளவிடப்பட்ட உணவுகள் தனித்தனியாகக் காட்டப்படுகின்றன; இரண்டையும் ஒரே அளவுகோலில் அளக்க முடியாது.
+Median II per group · n = entries,II median bagi setiap kumpulan · n = entri,各类别 II 中位数 · n = 条目数,குழு வாரியாக II இடைநிலை மதிப்பு · n = பதிவுகள்
+Medians are this site’s calculation from the published values. Groups are ordered by their median with glucose as the comparator. Don’t compare a bar in one panel with a bar in the other. Tap a bar to see those foods.,Median ialah pengiraan laman ini daripada nilai yang diterbitkan. Kumpulan disusun mengikut median dengan glukosa sebagai pembanding. Jangan bandingkan bar dalam satu panel dengan bar dalam panel yang lain. Sentuh bar untuk melihat makanan tersebut.,中位数由本网站根据已发表的数值计算。类别按以葡萄糖为参照的中位数排序。不要把一个面板中的横条与另一个面板中的横条比较。点击横条查看相关食物。,"இடைநிலை மதிப்புகள், வெளியிடப்பட்ட மதிப்புகளிலிருந்து இந்தத் தளம் கணக்கிட்டவை. குழுக்கள், குளுக்கோஸ் ஒப்பீட்டு உணவாக உள்ள இடைநிலை மதிப்பின்படி வரிசைப்படுத்தப்பட்டுள்ளன. ஒரு பகுதியில் உள்ள பட்டையை மற்றொரு பகுதியில் உள்ள பட்டையுடன் ஒப்பிடாதீர்கள். அந்த உணவுகளைக் காண ஒரு பட்டையைத் தொடுங்கள்."
+Show as a table,Tunjuk sebagai jadual,以表格显示,அட்டவணையாகக் காட்டு
+Group,Kumpulan,类别,குழு
+Glucose comparator: median (n),Pembanding glukosa: median (n),葡萄糖参照：中位数（n）,குளுக்கோஸ் ஒப்பீடு: இடைநிலை (n)
+Glucose comparator: range,Pembanding glukosa: julat,葡萄糖参照：范围,குளுக்கோஸ் ஒப்பீடு: வரம்பு
+Bread comparator: median (n),Pembanding roti: median (n),面包参照：中位数（n）,ரொட்டி ஒப்பீடு: இடைநிலை (n)
+Bread comparator: range,Pembanding roti: julat,面包参照：范围,ரொட்டி ஒப்பீடு: வரம்பு
+no entries,tiada entri,无条目,பதிவுகள் இல்லை
+"{x}, comparator {y}: median {n} from {n2} entries, range {n3} to {n4}. Open in Explorer.","{x}, pembanding {y}: median {n} daripada {n2} entri, julat {n3} hingga {n4}. Buka dalam Penjelajah.",{x}，参照为{y}：中位数 {n}，共 {n2} 条，范围 {n3} 至 {n4}。在查询中打开。,"{x}, ஒப்பீடு {y}: {n2} பதிவுகளிலிருந்து இடைநிலை {n}, வரம்பு {n3} முதல் {n4} வரை. தேடலில் திற."
+"{x}, comparator {y}: median {n} from {n2} entry, range {n3} to {n4}. Open in Explorer.","{x}, pembanding {y}: median {n} daripada {n2} entri, julat {n3} hingga {n4}. Buka dalam Penjelajah.",{x}，参照为{y}：中位数 {n}，共 {n2} 条，范围 {n3} 至 {n4}。在查询中打开。,"{x}, ஒப்பீடு {y}: {n2} பதிவிலிருந்து இடைநிலை {n}, வரம்பு {n3} முதல் {n4} வரை. தேடலில் திற."
+{x} · comparator: {y} Median {n} · {n2} entries Range {z},{x} · pembanding: {y} Median {n} · {n2} entri Julat {z},{x} · 参照：{y} 中位数 {n} · {n2} 条 范围 {z},{x} · ஒப்பீடு: {y} இடைநிலை {n} · {n2} பதிவுகள் வரம்பு {z}
+{x} · comparator: {y} Median {n} · {n2} entry Range {z},{x} · pembanding: {y} Median {n} · {n2} entri Julat {z},{x} · 参照：{y} 中位数 {n} · {n2} 条 范围 {z},{x} · ஒப்பீடு: {y} இடைநிலை {n} · {n2} பதிவு வரம்பு {z}
+{n} · Surprises in the data,{n} · Kejutan dalam data,{n} · 数据中的意外,{n} · தரவில் உள்ள வியப்புகள்
+Not what you might expect,Bukan seperti yang anda jangkakan,可能出乎你的意料,நீங்கள் எதிர்பார்ப்பது அல்ல
+Foods often recommended for weight or blood-sugar control,Makanan yang sering disyorkan untuk kawalan berat badan atau gula dalam darah,常被推荐用于控制体重或血糖的食物,எடை அல்லது இரத்தச் சர்க்கரைக் கட்டுப்பாட்டுக்கு அடிக்கடி பரிந்துரைக்கப்படும் உணவுகள்
+Protein and fat foods,Makanan protein dan lemak,蛋白质和脂肪类食物,புரத மற்றும் கொழுப்பு உணவுகள்
+"Chicken, lamb, eggs, tuna, butter and cream.","Ayam, kambing, telur, tuna, mentega dan krim.",鸡肉、羊肉、鸡蛋、金枪鱼、黄油和奶油。,"கோழி, ஆட்டிறைச்சி, முட்டை, சூரை மீன், வெண்ணெய், கிரீம்."
+Gin and acacia fibre (Fibregum).,Gin dan serat akasia (Fibregum).,金酒（Gin）和阿拉伯胶纤维（Fibregum）。,"ஜின் (Gin), அகேசியா நார்ச்சத்து (Fibregum)."
+"Boiled Sava potatoes with water, tea or coffee.","Kentang Sava rebus dengan air, teh atau kopi.",煮 Sava 土豆，配水、茶或咖啡。,"தண்ணீர், தேநீர் அல்லது காபியுடன் வேகவைத்த Sava உருளைக்கிழங்கு."
+{n} · Reading a study tag,{n} · Membaca tag kajian,{n} · 解读研究标签,{n} · ஆய்வுக் குறிச்சொல்லைப் படித்தல்
+"What “Bao et al., 2011 [46]” means","Maksud “Bao et al., 2011 [46]”","“Bao et al., 2011 [46]” 是什么意思","“Bao et al., 2011 [46]” என்பதன் பொருள்"
+first author,pengarang pertama,第一作者,முதல் ஆசிரியர்
+year,tahun,年份,ஆண்டு
+its number in the paper’s reference list,nombornya dalam senarai rujukan kertas kajian,它在论文参考文献列表中的编号,ஆய்வுக் கட்டுரையின் மேற்கோள் பட்டியலில் அதன் எண்
+"Bao et al. is the first author, 2011 is the year, and 46 is its number in the paper’s reference list.","Bao et al. ialah pengarang pertama, 2011 ialah tahunnya, dan 46 ialah nombornya dalam senarai rujukan kertas kajian.",Bao et al. 是第一作者，2011 是年份，46 是它在论文参考文献列表中的编号。,"Bao et al. என்பது முதல் ஆசிரியர், 2011 என்பது ஆண்டு, 46 என்பது ஆய்வுக் கட்டுரையின் மேற்கோள் பட்டியலில் அதன் எண்."
+Ready to explore?,Sedia untuk meneroka?,准备好探索了吗？,ஆராயத் தயாரா?
+"Search all {n} foods, filter by reference food and compare up to three side by side.","Cari kesemua {n} makanan, tapis mengikut makanan rujukan dan bandingkan sehingga tiga sebelah-menyebelah.",搜索全部 {n} 种食物，按参照食物筛选，最多可并排比较三种。,"அனைத்து {n} உணவுகளிலும் தேடுங்கள், குறிப்பு உணவின்படி வடிகட்டுங்கள், மூன்று வரை பக்கவாட்டில் ஒப்பிடுங்கள்."
+Open the Explorer,Buka Penjelajah,打开查询,தேடலைத் திற
+Where these numbers come from,Dari mana nombor-nombor ini datang,这些数字从哪里来,இந்த எண்கள் எங்கிருந்து வருகின்றன
+Every value on this site is copied as published in Supplemental Table 1 of a 2024 open-access review.,Setiap nilai di laman ini disalin seperti yang diterbitkan dalam Jadual Tambahan 1 sebuah ulasan akses terbuka 2024.,本网站的每个数值都照录自一篇 2024 年开放获取综述的补充表 1。,"இந்தத் தளத்தில் உள்ள ஒவ்வொரு மதிப்பும், 2024-ஆம் ஆண்டின் திறந்த அணுகல் மீளாய்வு ஒன்றின் துணை அட்டவணை 1-இல் வெளியிடப்பட்டபடியே நகலெடுக்கப்பட்டது."
+The paper,Kertas kajian,论文,ஆய்வுக் கட்டுரை
+Copy citation,Salin petikan,复制引用,மேற்கோளை நகலெடு
+Citation copied,Petikan disalin,引用已复制,மேற்கோள் நகலெடுக்கப்பட்டது
+Select the citation above to copy it,Pilih petikan di atas untuk menyalinnya,请选中上面的引用进行复制,நகலெடுக்க மேலே உள்ள மேற்கோளைத் தேர்ந்தெடுங்கள்
+Read the paper,Baca kertas kajian,阅读论文,ஆய்வுக் கட்டுரையைப் படியுங்கள்
+"Open access,","Akses terbuka,",开放获取，,"திறந்த அணுகல்,"
+Funded by Newcastle University Medicine Malaysia (NUMed),Dibiayai oleh Newcastle University Medicine Malaysia (NUMed),由马来西亚纽卡斯尔大学医学院（NUMed）资助,நியூகாசில் பல்கலைக்கழக மருத்துவம் மலேசியா (NUMed) நிதியுதவி
+Methods,Kaedah,方法,முறைகள்
+How the collection was built,Bagaimana koleksi ini dibina,这个汇编是如何建立的,இந்தத் தொகுப்பு எவ்வாறு உருவாக்கப்பட்டது
+databases searched,pangkalan data dicari,个检索数据库,தரவுத்தளங்கள் தேடப்பட்டன
+"up to December 2023, no language restriction: PubMed, Scopus, the Cochrane trials register, Google Scholar and ResearchGate","sehingga Disember 2023, tanpa sekatan bahasa: PubMed, Scopus, daftar ujian Cochrane, Google Scholar dan ResearchGate",检索至 2023 年 12 月，无语言限制：PubMed、Scopus、Cochrane 试验注册库、Google Scholar 和 ResearchGate,"டிசம்பர் 2023 வரை, மொழிக் கட்டுப்பாடு இல்லாமல்: PubMed, Scopus, Cochrane சோதனைப் பதிவேடு, Google Scholar மற்றும் ResearchGate"
+articles screened,artikel disaring,篇经筛选的文章,கட்டுரைகள் பரிசீலிக்கப்பட்டன
+articles included,artikel dimasukkan,篇纳入的文章,கட்டுரைகள் சேர்க்கப்பட்டன
+from {n} countries in {n2} categories: {n3} single foods and {n4} mixed meals,daripada {n} negara dalam {n2} kategori: {n3} makanan tunggal dan {n4} hidangan campuran,来自 {n} 个国家，分为 {n2} 个类目：{n3} 种单一食物和 {n4} 种混合餐,"{n} நாடுகளிலிருந்து, {n2} வகைகளில்: {n3} தனி உணவுகள், {n4} கலப்பு உணவுகள்"
+"To be included, a study needed","Untuk dimasukkan, sesuatu kajian perlu mempunyai",纳入的研究需要满足,"சேர்க்கப்பட, ஒரு ஆய்வுக்குத் தேவையானவை"
+"At least 10 healthy, non-diabetic subjects with a normal BMI","Sekurang-kurangnya 10 subjek yang sihat, bukan pesakit diabetes dan mempunyai BMI normal",至少 10 名 BMI 正常、健康、无糖尿病的受试者,"இயல்பான BMI கொண்ட, நீரிழிவு இல்லாத, ஆரோக்கியமான குறைந்தது 10 பங்கேற்பாளர்கள்"
+Glucose or bread as the reference food,Glukosa atau roti sebagai makanan rujukan,以葡萄糖或面包作为参照食物,குறிப்பு உணவாகக் குளுக்கோஸ் அல்லது ரொட்டி
+"II calculated by the FAO-recommended trapezoid method, indexing the test food’s iAUC to the reference food’s iAUC","II dikira menggunakan kaedah trapezoid yang disyorkan oleh FAO, dengan mengindeks iAUC makanan ujian kepada iAUC makanan rujukan",用 FAO 推荐的梯形法计算 II，即把测试食物的 iAUC 与参照食物的 iAUC 相比,FAO பரிந்துரைத்த ட்ரபீசியம் முறையில் கணக்கிடப்பட்ட II; சோதனை உணவின் iAUC-ஐ குறிப்பு உணவின் iAUC-உடன் ஒப்பிட்டு
+And,Dan,并且,மேலும்
+Only the first meal was used when several meals were fed in a row,Hanya hidangan pertama digunakan apabila beberapa hidangan diberikan berturut-turut,连续进食多餐时，只采用第一餐,"பல வேளை உணவுகள் தொடர்ச்சியாக வழங்கப்பட்டபோது, முதல் வேளை மட்டுமே பயன்படுத்தப்பட்டது"
+Three authors extracted the data independently,Tiga pengarang mengekstrak data secara berasingan,由三位作者独立提取数据,மூன்று ஆசிரியர்கள் தனித்தனியாகத் தரவைப் பிரித்தெடுத்தனர்
+The little symbols,Simbol-simbol kecil,那些小符号,சிறிய குறியீடுகள்
+They appear exactly where the paper puts them. Tap one on any food to see what it means.,Simbol ini muncul tepat di tempat yang diletakkan oleh kertas kajian. Sentuh simbol pada mana-mana makanan untuk melihat maksudnya.,它们出现在论文标注的同样位置。点击任意食物上的符号查看含义。,ஆய்வுக் கட்டுரை வைத்த அதே இடங்களில் அவை தோன்றுகின்றன. அதன் பொருளைக் காண எந்த உணவிலும் ஒன்றைத் தொடுங்கள்.
+In the paper: “{x}”,Dalam kertas kajian: “{x}”,论文原文：“{x}”,ஆய்வுக் கட்டுரையில்: “{x}”
+{x} · {n} entries,{x} · {n} entri,{x} · {n} 条,{x} · {n} பதிவுகள்
+{x} · {n} entry,{x} · {n} entri,{x} · {n} 条,{x} · {n} பதிவு
+II column,Lajur II,II 栏,II நெடுவரிசை
+Subject details,Butiran subjek,受试者详情,பங்கேற்பாளர் விவரங்கள்
+Food name,Nama makanan,食物名称,உணவின் பெயர்
+", or",", atau",，或,", அல்லது"
+Limitations,Batasan,局限性,வரம்புகள்
+Read with care,Baca dengan teliti,谨慎解读,கவனத்துடன் படியுங்கள்
+Studies differ,Kajian berbeza,研究各不相同,ஆய்வுகள் வேறுபடுகின்றன
+"in reference food, portion and volunteers.","dari segi makanan rujukan, saiz hidangan dan sukarelawan.",：参照食物、份量和受试者都不一样。,": குறிப்பு உணவு, அளவு, தன்னார்வலர்கள் ஆகியவற்றில்."
+People differ.,Manusia berbeza.,人各不相同。,மனிதர்கள் வேறுபடுகிறார்கள்.
+"Insulin responses can differ by ethnicity, sex and hormonal factors such as menopause.","Gerak balas insulin boleh berbeza mengikut etnik, jantina dan faktor hormon seperti menopaus.",胰岛素反应可能因种族、性别以及更年期等激素因素而不同。,"இனம், பாலினம், மாதவிடாய் நிறுத்தம் போன்ற ஹார்மோன் காரணிகளைப் பொறுத்து இன்சுலின் எதிர்வினைகள் வேறுபடலாம்."
+No agreed cut-off.,Tiada nilai potongan yang dipersetujui.,没有公认的界限。,ஒப்புக்கொள்ளப்பட்ட வரம்பு இல்லை.
+"There is no agreed clinical cut-off for a low, medium or high II.","Tiada nilai potongan klinikal yang dipersetujui bagi II rendah, sederhana atau tinggi.",II 的低、中、高目前没有公认的临床界限。,"குறைந்த, நடுத்தர அல்லது அதிக II-க்கு ஒப்புக்கொள்ளப்பட்ட மருத்துவ வரம்பு இல்லை."
+This site,Laman ini,本网站,இந்தத் தளம்
+How the site handles the data,Bagaimana laman ini mengendalikan data,本网站如何处理数据,இந்தத் தளம் தரவை எவ்வாறு கையாள்கிறது
+Exactly as published.,Tepat seperti yang diterbitkan.,按原文照录。,வெளியிடப்பட்டபடியே.
+"Numbers, food names and study names are never rounded, renamed or “fixed”.","Nombor, nama makanan dan nama kajian tidak pernah dibundarkan, dinamakan semula atau “diperbetulkan”.",数字、食物名称和研究名称从不四舍五入、改名或“修正”。,"எண்கள், உணவுப் பெயர்கள், ஆய்வுப் பெயர்கள் ஒருபோதும் முழுமையாக்கப்படுவதோ, மறுபெயரிடப்படுவதோ, “திருத்தப்படுவதோ” இல்லை."
+Comparator tag.,Tag pembanding.,参照标签。,ஒப்பீட்டுக் குறிச்சொல்.
+"A food is tagged “Comparator: bread” when its Comparator column mentions bread, otherwise “Comparator: glucose” ({n} and {n2}).","Sesuatu makanan ditag “Pembanding: roti” apabila lajur Comparator menyebut roti (bread), jika tidak “Pembanding: glukosa” ({n} dan {n2}).",如果某种食物的 Comparator 栏提到面包（bread），就标为“参照：面包”，否则标为“参照：葡萄糖”（分别为 {n} 和 {n2} 种）。,ஒரு உணவின் Comparator நெடுவரிசையில் ரொட்டி (bread) குறிப்பிடப்பட்டிருந்தால் அது “ஒப்பீடு: ரொட்டி” எனக் குறிக்கப்படுகிறது; இல்லையெனில் “ஒப்பீடு: குளுக்கோஸ்” ({n} மற்றும் {n2}).
+No low/high labels.,Tiada label rendah/tinggi.,不标低或高。,குறைந்த/அதிக குறிச்சொற்கள் இல்லை.
+"Because there is no agreed cut-off, foods aren’t labelled or colour-coded as low or high. Each II is shown exactly as published.","Oleh sebab tiada nilai potongan yang dipersetujui, makanan tidak dilabel atau diberi kod warna sebagai rendah atau tinggi. Setiap II dipaparkan tepat seperti yang diterbitkan.",因为没有公认的界限，食物不会被标记或用颜色区分为低或高。每个 II 都按原文发表显示。,"ஒப்புக்கொள்ளப்பட்ட வரம்பு இல்லாததால், உணவுகள் குறைந்தது அல்லது அதிகமானது என்று குறிக்கப்படுவதோ வண்ணமிடப்படுவதோ இல்லை. ஒவ்வொரு II-உம் வெளியிடப்பட்டபடியே காட்டப்படுகிறது."
+Groups.,Kumpulan.,类别。,குழுக்கள்.
+The paper’s {n} categories are folded into {n2} browsing groups:,{n} kategori kertas kajian digabungkan kepada {n2} kumpulan penerokaan:,论文的 {n} 个类目被合并为 {n2} 个浏览类别：,ஆய்வுக் கட்டுரையின் {n} வகைகள் {n2} உலாவல் குழுக்களாக இணைக்கப்பட்டுள்ளன:
+Site group,Kumpulan laman,网站类别,தளக் குழு
+Paper categories,Kategori kertas kajian,论文类目,ஆய்வுக் கட்டுரை வகைகள்
+Foods,Makanan,食物,உணவுகள்
+Download the data (CSV),Muat turun data (CSV),下载数据（CSV）,தரவைப் பதிவிறக்கு (CSV)
+Download foods.json,Muat turun foods.json,下载 foods.json,foods.json-ஐப் பதிவிறக்கு
+Licence & credits,Lesen & penghargaan,许可与致谢,உரிமமும் நன்றியும்
+Thank you,Terima kasih,谢谢,நன்றி
+Data:,Data:,数据：,தரவு:
+"Hendricks et al., 2024, used under","Hendricks et al., 2024, digunakan di bawah",Hendricks 等，2024，依据,"Hendricks மற்றும் பலர், 2024;"
+": shown unchanged, with attribution, for non-commercial education.",": dipaparkan tanpa perubahan, dengan atribusi, untuk pendidikan bukan komersial.", 许可使用：原样展示并注明出处，用于非商业教育。," உரிமத்தின் கீழ் பயன்படுத்தப்படுகிறது: மாற்றமின்றி, மூலத்தைக் குறிப்பிட்டு, வணிகம் சாராத கல்விக்காகக் காட்டப்படுகிறது."
+Banner photos:,Foto sepanduk:,横幅照片：,பதாகைப் படங்கள்:
+Food photos:,Foto makanan:,食物照片：,உணவுப் படங்கள்:
+"openly licensed photos (CC BY, CC BY-SA, CC0 or public domain), found through","foto berlesen terbuka (CC BY, CC BY-SA, CC0 atau domain awam), ditemui melalui",张开放许可照片（CC BY、CC BY-SA、CC0 或公有领域），来源为,"திறந்த உரிமம் பெற்ற படங்கள் (CC BY, CC BY-SA, CC0 அல்லது பொதுக் களம்);"
+and credited below. Each shows the,dan dikreditkan di bawah. Setiap foto menunjukkan,，并在下方注明出处。每张照片展示的只是这一,"மூலம் கண்டறியப்பட்டு, கீழே நன்றி குறிப்பிடப்பட்டுள்ளன. ஒவ்வொரு படமும் உணவின்"
+type,jenis,类,வகையை
+"of food, not the exact product tested. Photos were cropped and resized for this site; each keeps its original licence.","makanan, bukan produk sebenar yang diuji. Foto telah dipotong dan diubah saiz untuk laman ini; setiap satu mengekalkan lesen asalnya.",食物，而不是实际测试的产品。照片已为本网站裁剪并调整大小，各自保留原有许可。,மட்டுமே காட்டுகிறது; சோதிக்கப்பட்ட அதே தயாரிப்பை அல்ல. இந்தத் தளத்திற்காகப் படங்கள் வெட்டப்பட்டு அளவு மாற்றப்பட்டன; ஒவ்வொன்றும் அதன் அசல் உரிமத்தைத் தக்கவைக்கிறது.
+Fonts:,Fon:,字体：,எழுத்துருக்கள்:
+Fraunces and Plus Jakarta Sans from Google Fonts.,Fraunces dan Plus Jakarta Sans daripada Google Fonts.,Fraunces 和 Plus Jakarta Sans，来自 Google Fonts。,Google Fonts-இலிருந்து Fraunces மற்றும் Plus Jakarta Sans.
+Visitor counts:,Kiraan pelawat:,访问统计：,வருகை எண்ணிக்கை:
+"visits are counted anonymously with GoatCounter, with no cookies and no personal data.","lawatan dikira secara tanpa nama dengan GoatCounter, tanpa kuki dan tanpa data peribadi.",使用 GoatCounter 匿名统计访问量，不使用 cookie，也不收集个人数据。,வருகைகள் GoatCounter மூலம் அநாமதேயமாகக் கணக்கிடப்படுகின்றன; குக்கீகளும் தனிப்பட்ட தரவும் இல்லை.
+Food photo credits ({n}),Kredit foto makanan ({n}),食物照片来源（{n}）,உணவுப் பட நன்றிகள் ({n})
+Couldn’t load the food data,Data makanan tidak dapat dimuatkan,无法加载食物数据,உணவுத் தரவை ஏற்ற முடியவில்லை
+"Please refresh the page. If you opened the file directly, serve the folder with a local web server.",Sila muat semula halaman ini.,请刷新页面。如果你是直接打开文件的，请用本地网页服务器打开该文件夹。,"பக்கத்தைப் புதுப்பியுங்கள். கோப்பை நேரடியாகத் திறந்திருந்தால், கோப்புறையை ஒரு உள்ளூர் இணைய சேவையகம் மூலம் இயக்குங்கள்."
+{n} · {x},{n} · {x},{n} · {x},{n} · {x}

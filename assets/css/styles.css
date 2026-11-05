@@ -1414,3 +1414,16 @@ html:lang(zh-Hans) :is(.hero-lede, .page-hero-lede, .hero .eyebrow, .page-hero .
   .admin-nav .seg::-webkit-scrollbar { display: none; }
   .admin-nav .seg a { flex: 1 0 auto; justify-content: center; padding: 4px 10px; font-size: .84rem; white-space: nowrap; }
 }
+/* Tamil: system Tamil fonts. Like Chinese it has no true italic, and letter-spacing can break
+   how Tamil letters join, so it is switched off. */
+html:lang(ta) {
+  --font-body: "Plus Jakarta Sans", "Noto Sans Tamil", "Tamil Sangam MN", "Nirmala UI", "Latha", system-ui, sans-serif;
+  --font-display: "Fraunces", "Noto Sans Tamil", "Tamil Sangam MN", "Nirmala UI", "Latha", sans-serif;
+}
+html:lang(ta) body * { letter-spacing: normal !important; }
+html:lang(ta) main em, html:lang(ta) main i, html:lang(ta) .sub-row th, html:lang(ta) .d-note, html:lang(ta) .vs-mid, html:lang(ta) .chart-none { font-style: normal; }
+html:lang(ta) :is(h1, h2, h3, .hero-title) { line-height: 1.35; overflow-wrap: break-word; }
+html:lang(ta) :is(.hero-title .hl, .page-hero h1 em) { font-style: normal; color: #fff; padding: 0 .06em;
+  background: linear-gradient(transparent 62%, rgba(226, 92, 52, .9) 62%); }
+html:lang(ta) :is(.hero-title, .page-hero h1) { text-shadow: 0 1px 3px rgba(0, 0, 0, .55), 0 2px 24px rgba(0, 0, 0, .35); }
+html:lang(ta) :is(.hero-lede, .page-hero-lede, .hero .eyebrow, .page-hero .eyebrow) { color: #fff; text-shadow: 0 1px 3px rgba(0, 0, 0, .6); }

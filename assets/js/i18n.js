@@ -1,14 +1,14 @@
-// Language switch: English / Bahasa Melayu / 中文 (Simplified Chinese).
+// Language switch: English / Bahasa Melayu / 中文 (Simplified Chinese) / தமிழ் (Tamil).
 //
-// Translations live in data/translations.csv (columns: English, Bahasa Melayu, 中文), so they can be
+// Translations live in data/translations.csv (columns: English, Bahasa Melayu, 中文, தமிழ்), so they can be
 // checked and edited in Excel or Google Sheets. Text that isn't in the sheet stays in English.
 // Rows with {n} (a number) or {x} (any text) match changing text, e.g. "Show {n} foods".
 // Food data (names, categories, studies, comparators, portions) and the Admin area always stay
 // in English, exactly as published.
 
 const KEY = 'ii-lang';
-const COLUMN = { ms: 1, zh: 2 }; // column in translations.csv
-const HTML_LANG = { en: 'en', ms: 'ms', zh: 'zh-Hans' };
+const COLUMN = { ms: 1, zh: 2, ta: 3 }; // column in translations.csv
+const HTML_LANG = { en: 'en', ms: 'ms', zh: 'zh-Hans', ta: 'ta' };
 const lang = (() => { try { const v = localStorage.getItem(KEY); return v in COLUMN ? v : 'en'; } catch { return 'en'; } })();
 
 const SKIP_TREE = '[translate="no"], script, style, .lang, .brand, .admin, .admin-signin, #ph-editor, #ph-picker, #gh-connect, '
@@ -93,7 +93,7 @@ function setupSwitch() {
   const menu = document.getElementById('lang-menu');
   if (!wrap || !btn || !menu) return;
   const items = [...menu.querySelectorAll('[data-lang]')];
-  document.getElementById('lang-cur').textContent = { en: 'EN', ms: 'BM', zh: '中文' }[lang];
+  document.getElementById('lang-cur').textContent = { en: 'EN', ms: 'BM', zh: '中文', ta: 'TA' }[lang];
   items.forEach((b) => b.setAttribute('aria-checked', String(b.dataset.lang === lang)));
   const current = () => items.findIndex((b) => b.dataset.lang === lang);
   const open = (i = current()) => { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); items[i].focus(); };

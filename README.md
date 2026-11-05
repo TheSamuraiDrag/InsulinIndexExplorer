@@ -102,7 +102,7 @@ Edit the file on GitHub (pencil icon), then **Commit changes**. The site updates
 - Change the admin password: `python3 scripts/set_admin_login.py`, then commit `assets/js/admin.js`.
 - Visitor counting is already set for launch: only `insulinindexresearch.com` is counted, from 2026-11-05.
   To test counting on another address, add it to `countOnlyOn` in `config.js`.
-- Ask fluent speakers to check `data/translations.csv` (Malay and Chinese).
+- Ask fluent speakers to check `data/translations.csv` (Malay, Chinese and Tamil).
 - GoatCounter → Settings → **Dashboard viewable by**: only logged-in users.
 - For the custom domain, update `url` in `config.js` and the link-preview addresses at the top of `index.html`.
 
@@ -270,11 +270,11 @@ The Data check tab is for checking the database against the paper without openin
 
 Ticks and notes are saved in that browser only.
 
-## Languages: English, Bahasa Melayu, 中文
+## Languages: English, Bahasa Melayu, 中文, தமிழ்
 
-The **EN / BM / 中文** menu in the header switches the language; the choice is remembered on that
-device. The translations are in `data/translations.csv`, three columns: `English`,
-`Bahasa Melayu` and `中文` (Simplified Chinese). Open it in Excel or Google Sheets, correct a
+The language menu in the header (**EN / BM / 中文 / TA**) switches the language; the choice is
+remembered on that device. The translations are in `data/translations.csv`, four columns:
+`English`, `Bahasa Melayu`, `中文` (Simplified Chinese) and `தமிழ்` (Tamil). Open it in Excel or Google Sheets, correct a
 column, save as **CSV UTF-8** and push. Anything not in the sheet stays in English.
 
 - `{n}` stands for a number and `{x}` for any text, e.g. `Show {n} foods` → `Papar {n} makanan`.
@@ -282,7 +282,8 @@ column, save as **CSV UTF-8** and push. Anything not in the sheet stays in Engli
 - Food names, categories, portions, studies, countries and comparators stay in English, exactly
   as published, and so do direct quotes from the paper (the translation adds a short gloss).
 - The Admin page stays in English.
-- The Malay and Chinese were written by Claude and should be checked by fluent speakers before launch.
+- The Malay, Chinese and Tamil were written by Claude and should be checked by fluent speakers
+  (a language expert for Tamil) before launch.
 
 ## Files
 
