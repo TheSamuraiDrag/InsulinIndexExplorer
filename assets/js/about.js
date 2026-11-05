@@ -106,10 +106,6 @@ export function renderAbout(app, data) {
         <tbody>${data.groups.map((g) => `<tr><th scope="row"><span class="mini-group" style="${groupStyle(g)}">${esc(g.label)}</span></th>
           <td>${g.categories.map(esc).join('<br>')}</td><td>${F.filter((f) => f.group === g.id).length}</td></tr>`).join('')}</tbody>
       </table></div>
-      <div class="downloads reveal">
-        <a class="btn btn-ghost btn-sm" href="data/mmc1_insulinaemic_index.csv" download>Download the data (CSV)</a>
-        <a class="btn btn-ghost btn-sm" href="data/foods.json" download>Download foods.json</a>
-      </div>
     </section>
 
     <section class="about-sec" aria-labelledby="h-lic">

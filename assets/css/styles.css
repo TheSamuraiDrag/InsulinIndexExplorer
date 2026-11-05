@@ -1190,7 +1190,6 @@ kbd { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 6
 .limits strong, .site-rules strong, .credits strong { color: var(--ink); }
 .map-table { background: var(--surface); border-radius: var(--radius); overflow: hidden; margin-top: 12px; box-shadow: var(--shadow-s); }
 .map-table td:last-child { font-variant-numeric: tabular-nums; font-weight: 700; }
-.downloads { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 
 /* ==========================================================================
    Food photos and line icons
